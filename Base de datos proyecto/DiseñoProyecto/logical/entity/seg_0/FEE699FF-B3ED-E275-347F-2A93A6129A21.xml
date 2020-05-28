@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FEE699FF-B3ED-E275-347F-2A93A6129A21" name="Marca">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:17:05 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<engineerTo>
+<item key="BDDC7F8F-6A17-C1CA-4B73-5DFD856D2F90" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="sk_marca" id="F5693F32-90BF-532A-93DE-682B5B11050B">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:17:40 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<engineerTo>
+<item key="BDDC7F8F-6A17-C1CA-4B73-5DFD856D2F90" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="C6422C92-0EE9-261A-2162-337E90C632BA">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:17:56 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<engineerTo>
+<item key="BDDC7F8F-6A17-C1CA-4B73-5DFD856D2F90" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="607C3CE7-76CC-8839-C7F0-6B5861F14D95" name="Marca PK">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:17:53 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="BDDC7F8F-6A17-C1CA-4B73-5DFD856D2F90" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F5693F32-90BF-532A-93DE-682B5B11050B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

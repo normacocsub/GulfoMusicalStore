@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8BAF83DE-B00C-E2C7-6D5D-F5DAC8B911A9" name="Producto">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>67D55276-7C05-A70A-FCCB-70CCF742C949</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_producto" id="14B9CFFD-258A-D316-88C4-5335D0EE1324">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>4774D175-F00E-E6E5-8197-88ADE70A7A1C</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="A2B45647-7CAE-776E-ED87-07D7EA65F2DD">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>AD94E7C9-41A7-2EC5-054F-4F24B2D41168</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="precio" id="80F74189-FAC8-6D51-6B76-FA539FA94253">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>B5626528-EE20-35AA-64E3-CD05A444DC4E</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Marca_sk_marca" id="B7E466EF-F377-360F-510B-00E9F172B354">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>B486B42E-1DF9-C9A1-2D7B-EA0C9C574827</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0ECEB8EF-A16A-0185-9664-99DFB6A6F859" referredColumn="8C4D1625-5C1D-833C-9352-D2EDD55A13DF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="406EAF98-BB75-1A85-2606-FF34989E2FA2" name="Producto_PK">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>756131AA-9827-67C8-C9E8-FF69CED63C26</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14B9CFFD-258A-D316-88C4-5335D0EE1324"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="140324E8-2A8B-03DB-AD20-D88C2B78F853" name="Producto_Marca_FK">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>D31B0F74-EFEC-20DC-FF4B-871621B18DBA</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7E466EF-F377-360F-510B-00E9F172B354"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

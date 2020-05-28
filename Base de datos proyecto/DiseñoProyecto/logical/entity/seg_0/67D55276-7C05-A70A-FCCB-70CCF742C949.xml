@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="67D55276-7C05-A70A-FCCB-70CCF742C949" name="Producto">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 03:58:47 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<engineerTo>
+<item key="BDDC7F8F-6A17-C1CA-4B73-5DFD856D2F90" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_producto" id="4774D175-F00E-E6E5-8197-88ADE70A7A1C">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:01:50 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<engineerTo>
+<item key="BDDC7F8F-6A17-C1CA-4B73-5DFD856D2F90" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="AD94E7C9-41A7-2EC5-054F-4F24B2D41168">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:16:07 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<engineerTo>
+<item key="BDDC7F8F-6A17-C1CA-4B73-5DFD856D2F90" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="precio" id="B5626528-EE20-35AA-64E3-CD05A444DC4E">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:16:25 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<engineerTo>
+<item key="BDDC7F8F-6A17-C1CA-4B73-5DFD856D2F90" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sk_marca" id="B486B42E-1DF9-C9A1-2D7B-EA0C9C574827">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:17:54 UTC</createdTime>
+<generatorID>D31B0F74-EFEC-20DC-FF4B-871621B18DBA</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<engineerTo>
+<item key="BDDC7F8F-6A17-C1CA-4B73-5DFD856D2F90" value="true"/>
+</engineerTo>
+<referedAttribute>F5693F32-90BF-532A-93DE-682B5B11050B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="756131AA-9827-67C8-C9E8-FF69CED63C26" name="Producto PK">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:02:21 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="BDDC7F8F-6A17-C1CA-4B73-5DFD856D2F90" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>4774D175-F00E-E6E5-8197-88ADE70A7A1C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

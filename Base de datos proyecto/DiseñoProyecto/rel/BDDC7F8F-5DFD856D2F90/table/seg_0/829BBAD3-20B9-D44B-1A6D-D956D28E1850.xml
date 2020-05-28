@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="829BBAD3-20B9-D44B-1A6D-D956D28E1850" name="Curso">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>742379F6-5705-4069-5F73-CEE0FD27AAE8</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="sk_curso" id="BB749395-7D47-8852-F008-350C4AC81822">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>F641960E-5E17-EFC2-6614-A472A52C1A61</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="4464E9D0-DBFD-F6A9-3F18-C6606CD6BC0F">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:27:35 UTC</createdTime>
+<generatorID>510AEE14-11CE-0D25-45BD-35DDADE626CA</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Estado" id="24DA6E62-5B9C-BB9D-5C32-F933BD529954">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:27:35 UTC</createdTime>
+<generatorID>AAAC9158-9FEC-B9EE-22B9-FCC845987138</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha" id="A4C67F94-9109-C8AB-F864-19C04142F6CA">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:27:35 UTC</createdTime>
+<generatorID>681D840F-624F-C981-8FB9-76A03B563822</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8308990C-C5AE-7133-8618-5841D5790B5D" name="Curso_PK">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>89A382B0-44C7-B61E-1155-7F9C06F8D6F5</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BB749395-7D47-8852-F008-350C4AC81822"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

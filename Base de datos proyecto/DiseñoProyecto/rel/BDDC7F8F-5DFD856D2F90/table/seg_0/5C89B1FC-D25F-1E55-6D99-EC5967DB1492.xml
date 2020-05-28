@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5C89B1FC-D25F-1E55-6D99-EC5967DB1492" name="product_factura">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Factura_Factura_ID" id="57113425-C81C-521F-D1DD-00214181A7F4">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="52E3C574-E77A-FD58-F20D-66A0D9B4FF8D" referredColumn="92EBD437-20A0-28BF-CC2F-C81CEBF57B4A"/>
+</associations>
+</Column>
+<Column name="Producto_id_producto" id="4C6B9B1D-87E4-3408-4704-2244C185253D">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5A856A05-1AF0-4CCD-DA86-E6F29DE43B73" referredColumn="14B9CFFD-258A-D316-88C4-5335D0EE1324"/>
+</associations>
+</Column>
+<Column name="Precio" id="17845D52-69C9-069E-0893-3AA6C72FA9C2">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:41:58 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha" id="55912BBC-339D-5C64-0F7C-3861F86BBED1">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:42:13 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cliente_id_clientte" id="E13B72C3-A91E-5706-0206-515E6145C21F">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:38:14 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EEFB860D-C973-5998-1308-B27E93E974B0" referredColumn="DEB15053-87A7-F57F-CE9B-2CEAA510655C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0CEFE792-A7FC-50A3-FB1F-355F44A9B2F9" name="product_factura_PK">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57113425-C81C-521F-D1DD-00214181A7F4"/>
+<colUsage columnID="4C6B9B1D-87E4-3408-4704-2244C185253D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F12DD1F9-9A35-BA2C-59A4-5CD21CE69D15" name="product_factura_Factura_FK">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>8A4B20CD-D77C-C6C7-8B6D-055AE61786EA</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57113425-C81C-521F-D1DD-00214181A7F4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="965AF215-95DE-25A3-3B1F-9DCDB1464702" name="product_factura_Producto_FK">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:19:54 UTC</createdTime>
+<generatorID>8A4B20CD-D77C-C6C7-8B6D-055AE61786EA</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4C6B9B1D-87E4-3408-4704-2244C185253D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="02D9DF7C-62EF-D38C-2CE8-959161C2C5EB" name="product_factura_Cliente_FK">
+<createdBy>norma</createdBy>
+<createdTime>2020-05-28 04:38:14 UTC</createdTime>
+<generatorID>BA68D1E3-B486-EE04-93E2-1EA69877179F</generatorID>
+<ownerDesignName>DiseñoProyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E13B72C3-A91E-5706-0206-515E6145C21F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
