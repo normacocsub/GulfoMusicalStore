@@ -19,79 +19,42 @@ namespace GulfoMusicalStoreGUI
         public EliminarInventario()
         {
             InitializeComponent();
+            LlenarComboProducto();
         }
 
-        private void CmbInstrumento_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void LlenarComboProducto()
         {
             productoservice = new ProductoService();
-            if(CmbInstrumento.Text.Equals("Guitarra Acustica"))
+            CmbInstrumento.Items.Clear();
+            foreach (var item in productoservice.ConsultarNombreProductos())
             {
-                TxtTotalUnidades.Text = productoservice.ContarFiltradoNombre("Guitarra Acustica").ToString();
-            }
-            if(CmbInstrumento.Text.Equals("Guitarra Electrica"))
-            {
-                TxtTotalUnidades.Text = productoservice.ContarFiltradoNombre("Guitarra Electrica").ToString();
-            }
-            if (CmbInstrumento.Text.Equals("Piano"))
-            {
-                TxtTotalUnidades.Text = productoservice.ContarFiltradoNombre("Piano").ToString();
-            }
-            if (CmbInstrumento.Text.Equals("Bajo"))
-            {
-                TxtTotalUnidades.Text = productoservice.ContarFiltradoNombre("Bajo").ToString();
+                CmbInstrumento.Items.Add(item.Nombre);
             }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (CmbInstrumento.Text.Equals(""))
             {
-                if(CmbInstrumento.Text.Equals("") || TxtUnidades.Text.Equals(""))
-                {
-                    MessageBox.Show("Complete los campos. ");
-                }
-                else
-                {
-                    string nombre = CmbInstrumento.Text;
-                    int unidades = int.Parse(TxtUnidades.Text);
-
-                    int total = productoservice.ContarFiltradoNombre(nombre);
-                    if (unidades > total)
-                    {
-                        MessageBox.Show("No puede eliminar este numero de unidades");
-                    }
-                    else
-                    {
-                        IList<Producto> productos = new List<Producto>();
-                        try
-                        {
-                            for (int i = 0; i < unidades; i++)
-                            {
-                                Producto producto;
-                                producto = productoservice.FiltrarProductos(nombre).ElementAt(i);
-                                productos.Add(producto);
-                            }
-
-                            foreach (var item in productos)
-                            {
-                                productoservice.EliminarProducto(item);
-                            }
-                            MessageBox.Show("Se han ELiminado todos los productos. ");
-                            Inventario.Actualizar();
-                            this.Close();
-                        }
-                        catch(Exception ex)
-                        {
-                            MessageBox.Show("Error. " + ex.Message.ToString());
-                        }
-                        
-                    }
-                }
+                MessageBox.Show("Complete los campos. ");
             }
-            catch(FormatException ex)
+            else
             {
-                MessageBox.Show(ex.Message.ToString());
+                Producto producto = productoservice.BuscarProducto(TxtCodigo.Text);
+                MessageBox.Show(productoservice.EliminarProducto(producto));
+                Inventario.Actualizar();
+                this.Close();
             }
+
+        }
+
+        private void CmbInstrumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            productoservice = new ProductoService();
+            Producto producto;
+            producto = productoservice.FiltrarCodigo(CmbInstrumento.Text);
+            TxtCodigo.Text = producto.Codigo;
         }
     }
 }

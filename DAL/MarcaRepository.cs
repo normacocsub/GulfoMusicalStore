@@ -25,7 +25,6 @@ namespace DAL
             OracleCommand command = new OracleCommand("GuardarMarcas", Conexion);
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.Add("nombre", OracleDbType.Varchar2).Value = marca.Nombre;
-            command.Parameters.Add("fecha", OracleDbType.Varchar2).Value = marca.Fecha.ToShortDateString();
             command.ExecuteNonQuery();
         }
 
@@ -64,9 +63,8 @@ namespace DAL
         public Marca MapMarca(OracleDataReader reader)
         {
             Marca marca = new Marca();
-            marca.NumeroMarca = ((object)reader["id_marca"]).ToString();
+            marca.NumeroMarca = ((object)reader["sk_marca"]).ToString();
             marca.Nombre = (string)reader["nombremarca"];
-            marca.Fecha = (DateTime)reader["fechacreacion"];
             return marca;
         }
         

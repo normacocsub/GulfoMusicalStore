@@ -21,21 +21,7 @@ namespace BLL
             ProductoRepositorio = new ProductoRepository(Conexion);
         }
 
-        public string GuardarProductosInventario(Producto producto)
-        {
-            try
-            {
-                Conexion.Open();
-                ProductoRepositorio.GuardarProductosInventario(producto);
-                Conexion.Close();
-                return $"Se han guardado el producto. ";
-            }
-            catch (OracleException ex)
-            {
-                Conexion.Close();
-                return $"Error en la base de datos. {ex.Message.ToString()}";
-            }
-        }
+       
         public string GuardarProducto(Producto producto)
         {
             try
@@ -43,7 +29,7 @@ namespace BLL
                 Conexion.Open();
                 ProductoRepositorio.GuardarProductos(producto);
                 Conexion.Close();
-                return $"Se han guardado el producto. ";
+                return $"Se ha guardado el producto. ";
             }
             catch(OracleException ex)
             {
@@ -75,7 +61,7 @@ namespace BLL
             {
                 Conexion.Open();
                 Productos = new List<Producto>();
-                Productos = ProductoRepositorio.ConsultarNombreProductos();
+                Productos = ProductoRepositorio.Consultar();
                 Conexion.Close();
                 return Productos;
             }
@@ -86,21 +72,7 @@ namespace BLL
             }
         }
 
-        public int NumeroProductos(string producto)
-        {
-            try
-            {
-                Conexion.Open();
-                int numero = ProductoRepositorio.NumeroProductos(producto);
-                Conexion.Close();
-                return numero;
-            }
-            catch(OracleException ex)
-            {
-                Conexion.Close();
-                return 0;
-            }
-        }
+       
         public Producto FiltrarCodigo(string productonombre)
         {
             try
@@ -151,21 +123,7 @@ namespace BLL
             }
         }
 
-        public int ContarFiltradoNombre(string nombre)
-        {
-            try
-            {
-                Conexion.Open();
-                int total = ProductoRepositorio.ContarFiltradoNombre(nombre);
-                Conexion.Close();
-                return total;
-            }
-            catch(OracleException ex)
-            {
-                Conexion.Close();
-                return 0;
-            }
-        }
+       
 
         public string ModificarPrecioProductos(Producto producto)
         {
@@ -199,21 +157,7 @@ namespace BLL
             }
         }
 
-        public int TotalProductosDisponible()
-        {
-            try
-            {
-                Conexion.Open();
-                int total = ProductoRepositorio.TotalProductosDisponibles();
-                Conexion.Close();
-                return total;
-            }
-            catch(OracleException ex)
-            {
-                Conexion.Close();
-                return 0;
-            }
-        }
+       
 
 
 

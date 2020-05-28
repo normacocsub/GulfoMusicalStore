@@ -15,6 +15,7 @@ namespace GulfoMusicalStoreGUI
     public partial class CrearMarca : Form
     {
         MarcaService marcaservice;
+        public IInventario Inventario { get; set; }
         public CrearMarca()
         {
             InitializeComponent();
@@ -31,8 +32,9 @@ namespace GulfoMusicalStoreGUI
             {
                 Marca marca = new Marca();
                 marca.Nombre = TxtNombre.Text;
-                marca.Fecha = DateTime.Now;
                 MessageBox.Show(marcaservice.GuardarMarca(marca));
+                Inventario.Actualizar();
+                this.Close();
             }
         }
     }

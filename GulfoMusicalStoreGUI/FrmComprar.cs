@@ -23,20 +23,12 @@ namespace GulfoMusicalStoreGUI
             InitializeComponent();
             LlenarCombo();
             Factura = factura;
-            IniciarComboBox();
+          
             
 
         }
 
-        private void IniciarComboBox()
-        {
-            productoservice = new ProductoService();
-            TxtElectrica.Text = productoservice.ContarFiltradoNombre("Guitarra Electrica").ToString();
-            TxtAcustica.Text = productoservice.ContarFiltradoNombre("Guitarra Acustica").ToString();
-            TxtPiano.Text = productoservice.ContarFiltradoNombre("Piano").ToString();
-            TxtBajo.Text = productoservice.ContarFiltradoNombre("Bajo").ToString();
-
-        }
+       
 
         
 
@@ -55,47 +47,10 @@ namespace GulfoMusicalStoreGUI
 
         
 
-        private void CalcularUnidadesAcusticas()
-        {
-            string total = CmbUnidadesAcustica.Text;
-            CalcularFactura();
-            TxtAcustica.Text = total;
-            CmbUnidadesAcustica.Text = "0";
-        }
-
-        private void CalcularUnidadesElectricas()
-        {
-            string total = CmbUnidadesElectricas.Text;
-            CalcularFactura();
-            TxtElectrica.Text = total;
-            CmbUnidadesElectricas.Text = "0";
-        }
-
-        private void CalcularUnidadesPiano()
-        {
-            string total = CmbUnidadesPiano.Text;
-            CalcularFactura();
-            TxtPiano.Text = total;
-            CmbUnidadesPiano.Text = "0";
-        }
-
-        private void CalcularUnidadesBajo()
-        {
-            string total = CmbUnidadesBajo.Text;
-            CalcularFactura();
-            TxtBajo.Text = total;
-            CmbUnidadesBajo.Text = "0";
-        }
+        
 
 
-        private void CalcularFactura()
-        {
-            CalcularGuitarrasAcusticas();
-            CalcularGuitarrasElectricas();
-            CalcularPianos();
-            CalcularBajos();
-        }
-
+      
         private int VerificarComboBox(string numerocombo)
         {
             int numero;
@@ -109,42 +64,10 @@ namespace GulfoMusicalStoreGUI
             }
 
         }
-        private void CalcularGuitarrasAcusticas()
-        {
-            int numero = VerificarComboBox(CmbUnidadesAcustica.Text);
-            CalcularProducto("Guitarra Acustica",numero);
-        }
-        private void CalcularGuitarrasElectricas()
-        {
-            int numero = VerificarComboBox(CmbUnidadesElectricas.Text);
-            CalcularProducto("Guitarra Electrica", numero);
-        }
-        private void CalcularPianos()
-        {
-            int numero = VerificarComboBox(CmbUnidadesPiano.Text);
-            CalcularProducto("Piano", numero);
-        }
-        private void CalcularBajos()
-        {
-            int numero = VerificarComboBox(CmbUnidadesBajo.Text);
-            CalcularProducto("Bajo", numero);
-        }
+       
 
 
-        private void CalcularProducto(string nombreproducto,int numeroproductoscomprar)
-        {
-            productoservice = new ProductoService();
-            int numeroproductosguardados =  productoservice.NumeroProductos(nombreproducto);
-            
-            if (numeroproductosguardados < numeroproductoscomprar)
-            {
-                MessageBox.Show($"No se puede comprar este numero de {nombreproducto} ");
-            }
-            else
-            {
-                AgregarProductos(numeroproductoscomprar, nombreproducto);
-            }
-        }
+       
 
 
 
@@ -177,10 +100,7 @@ namespace GulfoMusicalStoreGUI
        
         private void BtnFacturar_Click(object sender, EventArgs e)
         {
-            CalcularUnidadesAcusticas();
-            CalcularUnidadesElectricas();
-            CalcularUnidadesPiano();
-            CalcularUnidadesBajo();
+            
             Venta.TotalVenta(Factura);
             MessageBox.Show("Se han añadido los productos a la factura.");
             this.Close();
