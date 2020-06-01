@@ -44,9 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarrioService.cs" />
     <Compile Include="ClienteService.cs" />
     <Compile Include="CursoService.cs" />
     <Compile Include="FacturaService.cs" />
+    <Compile Include="LugarService.cs" />
     <Compile Include="MarcaService.cs" />
     <Compile Include="ProductoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -16,6 +16,7 @@ namespace GulfoMusicalStoreGUI
     {
         private ProductoService productoservice;
         public IInventario IInventario { get; set; }
+        public static IList<Producto> Productos { get; set; }
         public FrmModificarInventario()
         {
             InitializeComponent();
@@ -25,16 +26,17 @@ namespace GulfoMusicalStoreGUI
 
         private void LlenarComboProducto()
         {
-            productoservice = new ProductoService();
+            productoservice = new ProductoService(ConfigConnection.ConnectionString);
             CmbInstrumento.Items.Clear();
-            foreach (var item in productoservice.ConsultarNombreProductos())
+            Productos = productoservice.ConsultarNombreProductos();
+            foreach (var item in Productos)
             {
                 CmbInstrumento.Items.Add(item.Nombre);
             }
         }
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            productoservice = new ProductoService();
+            productoservice = new ProductoService(ConfigConnection.ConnectionString);
             try
             {
                 
@@ -60,10 +62,28 @@ namespace GulfoMusicalStoreGUI
 
         private void CmbInstrumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            productoservice = new ProductoService();
-            Producto producto;
-            producto = productoservice.FiltrarCodigo(CmbInstrumento.Text);
+            
+        }
+
+        private void CmbInstrumento_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string nombre = CmbInstrumento.Text;
+            productoservice = new ProductoService(ConfigConnection.ConnectionString);
+            Producto producto = null;
+            foreach (var item in Productos)
+            {
+                if (item.Nombre == nombre)
+                {
+                    producto = item;
+                }
+            }
             TxtCodigo.Text = producto.Codigo;
+            TxtPrecio.Text = producto.Precio.ToString(); 
+        }
+
+        private void BtnConsultar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -44,9 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarrioRepository.cs" />
+    <Compile Include="ConectionManager.cs" />
     <Compile Include="CursoRepository.cs" />
     <Compile Include="ClienteRepository.cs" />
     <Compile Include="FacturaRepository.cs" />
+    <Compile Include="LugarRepository.cs" />
     <Compile Include="MarcaRepository.cs" />
     <Compile Include="ProductoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

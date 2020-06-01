@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,17 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigConnection.cs" />
     <Compile Include="CrearMarca.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CrearMarca.Designer.cs">
       <DependentUpon>CrearMarca.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EliminarDetalles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EliminarDetalles.Designer.cs">
-      <DependentUpon>EliminarDetalles.cs</DependentUpon>
     </Compile>
     <Compile Include="EliminarInventario.cs">
       <SubType>Form</SubType>
@@ -100,6 +96,18 @@
     <Compile Include="FrmCursos.Designer.cs">
       <DependentUpon>FrmCursos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEliminarCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEliminarCursos.Designer.cs">
+      <DependentUpon>FrmEliminarCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEliminarMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEliminarMarca.Designer.cs">
+      <DependentUpon>FrmEliminarMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEstadisticas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,11 +144,23 @@
     <Compile Include="FrmLogo.Designer.cs">
       <DependentUpon>FrmLogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModificarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificarCurso.Designer.cs">
+      <DependentUpon>FrmModificarCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmModificarInventario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmModificarInventario.Designer.cs">
       <DependentUpon>FrmModificarInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificarMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificarMarca.Designer.cs">
+      <DependentUpon>FrmModificarMarca.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRecuperarContraseña.cs">
       <SubType>Form</SubType>
@@ -166,15 +186,13 @@
     <Compile Include="FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="ICurso.cs" />
     <Compile Include="IInventario.cs" />
     <Compile Include="IVenta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CrearMarca.resx">
       <DependentUpon>CrearMarca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EliminarDetalles.resx">
-      <DependentUpon>EliminarDetalles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EliminarInventario.resx">
       <DependentUpon>EliminarInventario.cs</DependentUpon>
@@ -197,6 +215,12 @@
     <EmbeddedResource Include="FrmCursos.resx">
       <DependentUpon>FrmCursos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEliminarCursos.resx">
+      <DependentUpon>FrmEliminarCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEliminarMarca.resx">
+      <DependentUpon>FrmEliminarMarca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadisticas.resx">
       <DependentUpon>FrmEstadisticas.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,8 +239,14 @@
     <EmbeddedResource Include="FrmLogo.resx">
       <DependentUpon>FrmLogo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarCurso.resx">
+      <DependentUpon>FrmModificarCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmModificarInventario.resx">
       <DependentUpon>FrmModificarInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarMarca.resx">
+      <DependentUpon>FrmModificarMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRecuperarContraseña.resx">
       <DependentUpon>FrmRecuperarContraseña.cs</DependentUpon>

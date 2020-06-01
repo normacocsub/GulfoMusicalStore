@@ -29,34 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmModificarInventario));
-            this.CmbInstrumento = new System.Windows.Forms.ComboBox();
             this.LabelInstrumento = new System.Windows.Forms.Label();
             this.TxtPrecio = new System.Windows.Forms.TextBox();
             this.LabelPrecioUnidad = new System.Windows.Forms.Label();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.CmbInstrumento = new System.Windows.Forms.ComboBox();
+            this.BtnConsultar = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // CmbInstrumento
-            // 
-            this.CmbInstrumento.BackColor = System.Drawing.Color.White;
-            this.CmbInstrumento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CmbInstrumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbInstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbInstrumento.ForeColor = System.Drawing.Color.Black;
-            this.CmbInstrumento.FormattingEnabled = true;
-            this.CmbInstrumento.Items.AddRange(new object[] {
-            "Seleccionar",
-            "Guitarra Acustica",
-            "Guitarra Electrica",
-            "Bajo",
-            "Piano"});
-            this.CmbInstrumento.Location = new System.Drawing.Point(165, 122);
-            this.CmbInstrumento.Name = "CmbInstrumento";
-            this.CmbInstrumento.Size = new System.Drawing.Size(120, 24);
-            this.CmbInstrumento.TabIndex = 22;
-            this.CmbInstrumento.SelectedIndexChanged += new System.EventHandler(this.CmbInstrumento_SelectedIndexChanged);
             // 
             // LabelInstrumento
             // 
@@ -137,18 +118,38 @@
             this.TxtCodigo.Size = new System.Drawing.Size(120, 22);
             this.TxtCodigo.TabIndex = 35;
             // 
+            // CmbInstrumento
+            // 
+            this.CmbInstrumento.FormattingEnabled = true;
+            this.CmbInstrumento.Location = new System.Drawing.Point(165, 123);
+            this.CmbInstrumento.Name = "CmbInstrumento";
+            this.CmbInstrumento.Size = new System.Drawing.Size(121, 21);
+            this.CmbInstrumento.TabIndex = 36;
+            this.CmbInstrumento.SelectedIndexChanged += new System.EventHandler(this.CmbInstrumento_SelectedIndexChanged_1);
+            // 
+            // BtnConsultar
+            // 
+            this.BtnConsultar.Location = new System.Drawing.Point(320, 121);
+            this.BtnConsultar.Name = "BtnConsultar";
+            this.BtnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.BtnConsultar.TabIndex = 37;
+            this.BtnConsultar.Text = "Consultar";
+            this.BtnConsultar.UseVisualStyleBackColor = true;
+            this.BtnConsultar.Click += new System.EventHandler(this.BtnConsultar_Click);
+            // 
             // FrmModificarInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 450);
+            this.Controls.Add(this.BtnConsultar);
+            this.Controls.Add(this.CmbInstrumento);
             this.Controls.Add(this.TxtCodigo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.LabelPrecioUnidad);
             this.Controls.Add(this.TxtPrecio);
             this.Controls.Add(this.LabelInstrumento);
-            this.Controls.Add(this.CmbInstrumento);
             this.Name = "FrmModificarInventario";
             this.Text = "FrmModificarInventario";
             this.ResumeLayout(false);
@@ -157,12 +158,13 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox CmbInstrumento;
         private System.Windows.Forms.Label LabelInstrumento;
         private System.Windows.Forms.TextBox TxtPrecio;
         private System.Windows.Forms.Label LabelPrecioUnidad;
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtCodigo;
+        private System.Windows.Forms.ComboBox CmbInstrumento;
+        private System.Windows.Forms.Button BtnConsultar;
     }
 }

@@ -15,13 +15,18 @@ namespace GulfoMusicalStoreGUI
     public partial class FrmClienteDatos : Form
     {
         private ClienteService clienteservice;
+        private LugarService lugarservice;
         public IVenta Venta { get; set; }
         public Factura Factura { get; set; }
+        public static IList<Lugar> Lugares { get; set; }
+        public static IList<Barrio> Barrios { get; set; }
         public FrmClienteDatos(Factura factura)
         {
             InitializeComponent();
             Factura = factura;
-            DesactivarTxt(); 
+            DesactivarTxt();
+            CmbBarrio.Enabled = false;
+            LlenarComboLugar();
         }
 
         private void BtnConfirmar_Click(object sender, EventArgs e)
@@ -33,7 +38,7 @@ namespace GulfoMusicalStoreGUI
                        || TxtPrimerApellido.Text.Equals("") || TxtCorreo.Text.Equals("")
                        || CBSexo.Text.Equals("") || CB1.Text.Equals("") || CB2.Text.Equals("")
                        || CB3.Text.Equals("") || CB4.Text.Equals("") || CB5.Text.Equals("")
-                       || CB6.Text.Equals("") || TxtBarrio.Text.Equals("") || TxtCiudad.Text.Equals(""))
+                       || CB6.Text.Equals("") || CmbCiudad.Text.Equals("") || CmbBarrio.Text.Equals(""))
                 {
                     MessageBox.Show("Por Favor Complete los campos. ");
                 }
@@ -66,22 +71,20 @@ namespace GulfoMusicalStoreGUI
 
         private void RegistrarNuevoCLiente()
         {
-            clienteservice = new ClienteService();
+            clienteservice = new ClienteService(ConfigConnection.ConnectionString);
             Cliente cliente=null;
             
             string  primernombre, segundonombre, primerapellido, segundoapellido, genero, correo;
             string ciudad, barrio, direccion;
             string cedula, telefono;
 
+            
 
             primernombre = (TxtPrimerNombre.Text).Trim().ToUpper();
             segundonombre = TxtSegundoNombre.Text.Trim().ToUpper();
             primerapellido = TxtPrimerApellido.Text.Trim().ToUpper();
             segundoapellido = TxtSegundoApellido.Text.Trim().ToUpper();
             correo = TxtCorreo.Text.Trim().ToUpper();
-            genero = CBSexo.Text.Trim().ToUpper();
-            ciudad = TxtCiudad.Text.Trim().ToUpper();
-            barrio = TxtBarrio.Text.ToUpper();
             cedula = TxtCedula.Text;
             telefono = TxtTelefono.Text;
 
@@ -94,11 +97,24 @@ namespace GulfoMusicalStoreGUI
             cliente.PrimerApellido = primerapellido;
             cliente.SegundoApellido = segundoapellido;
             cliente.Correo = correo;
-            cliente.Genero = genero;
-            cliente.Barrio = barrio;
-            cliente.Ciudad = ciudad;
             cliente.Direccion = direccion;
             cliente.Telefono = telefono;
+
+            foreach (var item in Barrios)
+            {
+                if (item.Nombre.Equals(CmbBarrio.Text))
+                {
+                    cliente.Barrio = item;
+                }
+            }
+            foreach (var item in Lugares)
+            {
+                if (item.Ciudad.Equals(CmbCiudad.Text))
+                {
+                    cliente.Lugar = item;
+                }
+            }
+
             MessageBox.Show(clienteservice.GuardarCLiente(cliente));
 
 
@@ -108,7 +124,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnBuscarCedula_Click(object sender, EventArgs e)
         {
-            clienteservice = new ClienteService();
+            clienteservice = new ClienteService(ConfigConnection.ConnectionString);
             if (TxtCedulaBuscar.Text.Equals(""))
             {
                 MessageBox.Show("Por favor complete el campo. ");
@@ -131,7 +147,7 @@ namespace GulfoMusicalStoreGUI
                     }
                     else
                     {
-                        //falta completar segundo(apellido,nombre),correo
+                        
                         cliente = clienteservice.BuscarCliente(numero.ToString());
                         DesactivarTxt();
                         TxtCedula.Text = cliente.Cedula;
@@ -140,10 +156,9 @@ namespace GulfoMusicalStoreGUI
                         TxtSegundoNombre.Text = cliente.SegundoNombre;
                         TxtPrimerApellido.Text = cliente.PrimerApellido;
                         TxtSegundoApellido.Text = cliente.SegundoApellido;
-                        CBSexo.Text = cliente.Genero;
                         TxtCorreo.Text = cliente.Correo;
                         TxtTelefono.Text = cliente.Telefono;
-                        TxtDireccion.Text = cliente.Direccion + " " + cliente.Barrio + " " + cliente.Ciudad;
+                        TxtDireccion.Text = cliente.Direccion + " " + cliente.Barrio.Nombre + " " + cliente.Lugar.Ciudad;
                     }
                     Factura.AgregarCliente(cliente);
                 }
@@ -183,7 +198,7 @@ namespace GulfoMusicalStoreGUI
         public void Txtdirection()
         {
             TxtDireccion.Text = CB1.Text + " " + CB2.Text + " " + CB3.Text + " " + CB4.Text + " " + CB5.Text + " " + CB6.Text
-                + " " + TxtBarrio.Text + " " + TxtCiudad.Text;
+                + " " + CmbCiudad.Text + " " + CmbBarrio.Text;
         }
 
         private void CB1_SelectedIndexChanged(object sender, EventArgs e)
@@ -234,6 +249,40 @@ namespace GulfoMusicalStoreGUI
         private void TxtCiudad_TextChanged(object sender, EventArgs e)
         {
             Txtdirection();
+        }
+
+        private void CmbCiudad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lugarservice = new LugarService(ConfigConnection.ConnectionString);
+            CmbBarrio.Enabled = true;
+            LlenarComboBarrio(CmbCiudad.Text);
+            
+
+            Txtdirection();
+        }
+
+        private void LlenarComboLugar()
+        {
+            lugarservice = new LugarService(ConfigConnection.ConnectionString);
+            Lugares = lugarservice.ConsultarLugares();
+            CmbCiudad.Items.Clear();
+            foreach (var item in Lugares)
+            {
+                CmbCiudad.Items.Add(item.Ciudad);
+            }
+        }
+        private void LlenarComboBarrio(string nombre)
+        {
+            Barrios = new List<Barrio>();
+            CmbBarrio.Items.Clear();
+            foreach (var item in Lugares)
+            {
+                if (item.Ciudad.Equals(CmbCiudad.Text))
+                {
+                    CmbBarrio.Items.Add(item.Barrio.Nombre);
+                    Barrios.Add(item.Barrio);
+                }
+            }
         }
     }
 }

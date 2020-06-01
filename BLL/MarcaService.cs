@@ -13,26 +13,26 @@ namespace BLL
     {
         private MarcaRepository MarcaRepositorio;
         private IList<Marca> Marcas;
-        private OracleConnection Conexion;
+        private readonly ConectionManager Connetion;
 
-        public MarcaService()
+        public MarcaService(string connection)
         {
-            Conexion = new OracleConnection(@"Data Source=localhost:1521/xe;User Id=Gulfo;Password=Shoops0119");
-            MarcaRepositorio = new MarcaRepository(Conexion);
+            Connetion = new ConectionManager(connection);
+            MarcaRepositorio = new MarcaRepository(Connetion);
         }
 
         public string GuardarMarca(Marca marca)
         {
             try
             {
-                Conexion.Open();
+                Connetion.Open();
                 MarcaRepositorio.GuardarMarca(marca);
-                Conexion.Close();
+                Connetion.Close();
                 return $"Se ha guardado la marca. {marca.Nombre}";
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Connetion.Close();
                 return $"Error en la Base de datos. {ex.Message.ToString()}";
             }
         }
@@ -41,14 +41,14 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Connetion.Open();
                 Marcas = MarcaRepositorio.ConsultarMarcas();
-                Conexion.Close();
+                Connetion.Close();
                 return Marcas;
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Connetion.Close();
                 return null;
             }
         }
@@ -58,15 +58,80 @@ namespace BLL
             try
             {
                 Marca marca;
-                Conexion.Open();
+                Connetion.Open();
                 marca = MarcaRepositorio.FiltrarMarca(nombre);
-                Conexion.Close();
+                Connetion.Close();
                 return marca;
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Connetion.Close();
                 return null;
+            }
+        }
+        public Marca BuscarCodigoMarca(string nombre)
+        {
+            Marca marca; 
+            try
+            {
+                Connetion.Open();
+                marca = MarcaRepositorio.BuscarCodigoMarca(nombre);
+                Connetion.Close();
+                return marca;
+            }
+            catch(OracleException ex)
+            {
+                Connetion.Close();
+                return null;
+            }
+        }
+
+        public Marca BuscarMarca(string marca)
+        {
+            Marca marcas=null;
+            try
+            {
+                Connetion.Open();
+                marcas = MarcaRepositorio.BuscarMarca(marca);
+                Connetion.Close();
+                return marcas;
+            }
+            catch(OracleException ex)
+            {
+                Connetion.Close();
+                return null;
+            }
+        }
+
+        public string ModificarMarca(Marca marca)
+        {
+            try
+            {
+                Connetion.Open();
+                MarcaRepositorio.ModificarMarca(marca);
+                Connetion.Close();
+                return $"Se ha modificado. ";
+            }
+            catch(OracleException ex)
+            {
+                Connetion.Close();
+                return $"Error. {ex.Message.ToString()}";
+            }
+        }
+
+        public string EliminarMarca(Marca marca)
+        {
+            try
+            {
+                Connetion.Open();
+                MarcaRepositorio.EliminarMarca(marca);
+                Connetion.Close();
+                return $"Eliminar Marca";
+            }
+            catch(OracleException ex)
+            {
+                Connetion.Close();
+                return $"Error. {ex.Message.ToString()}";
             }
         }
     }

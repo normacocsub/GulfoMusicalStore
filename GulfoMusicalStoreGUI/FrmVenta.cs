@@ -93,7 +93,8 @@ namespace GulfoMusicalStoreGUI
                 DtgFactura.Rows[n].Cells[0].Value = item.Producto.Codigo;
                 DtgFactura.Rows[n].Cells[1].Value = item.Producto.Nombre;
                 DtgFactura.Rows[n].Cells[2].Value = item.Producto.Precio;
-
+                DtgFactura.Rows[n].Cells[3].Value = item.Unidades;
+                DtgFactura.Rows[n].Cells[4].Value = item.Producto.Marca.Nombre;
             }
         }
 
@@ -106,6 +107,7 @@ namespace GulfoMusicalStoreGUI
                 DtgCursos.Rows[n].Cells[0].Value = item.Curso.Codigo;
                 DtgCursos.Rows[n].Cells[1].Value = item.Curso.Nombre;
                 DtgCursos.Rows[n].Cells[2].Value = item.Curso.Total;
+                DtgCursos.Rows[n].Cells[3].Value = item.Unidades;
 
             }
         }
@@ -140,20 +142,7 @@ namespace GulfoMusicalStoreGUI
 
      
 
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            if(Factura.VerListaProductos().Count==0 && Factura.VerListaCursos().Count == 0)
-            {
-                MessageBox.Show("No hay Productos para eliminar. ");
-            }
-            else
-            {
-                EliminarDetalles frmelm = new EliminarDetalles(Factura);
-                frmelm.Venta = this;
-                frmelm.Show();
-            }
-            
-        }
+       
 
         
         private void BtnFacturar_Click(object sender, EventArgs e)

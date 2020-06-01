@@ -12,6 +12,7 @@ namespace Entity
         public Producto Producto { get; set; }
         public Cliente Cliente { get; set; }
         public decimal PrecioProducto { get; set; }
+        public int Unidades { get; set; }
         public DetalleFactura(Producto producto)
         {
             Producto = producto;  

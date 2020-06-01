@@ -31,8 +31,8 @@
             this.CmbNombreCurso = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.CmbUnidades = new System.Windows.Forms.ComboBox();
             this.BtnFacturar = new System.Windows.Forms.Button();
+            this.TxtUnidades = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // CmbNombreCurso
@@ -43,7 +43,7 @@
             this.CmbNombreCurso.Name = "CmbNombreCurso";
             this.CmbNombreCurso.Size = new System.Drawing.Size(121, 21);
             this.CmbNombreCurso.TabIndex = 0;
-            this.CmbNombreCurso.SelectedIndexChanged += new System.EventHandler(this.CmbNombreCurso_SelectedIndexChanged);
+            
             // 
             // label1
             // 
@@ -63,16 +63,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Unidades";
             // 
-            // CmbUnidades
-            // 
-            this.CmbUnidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbUnidades.FormattingEnabled = true;
-            this.CmbUnidades.Location = new System.Drawing.Point(185, 151);
-            this.CmbUnidades.Name = "CmbUnidades";
-            this.CmbUnidades.Size = new System.Drawing.Size(121, 21);
-            this.CmbUnidades.TabIndex = 3;
-            this.CmbUnidades.SelectedIndexChanged += new System.EventHandler(this.CmbUnidades_SelectedIndexChanged);
-            // 
             // BtnFacturar
             // 
             this.BtnFacturar.Location = new System.Drawing.Point(139, 270);
@@ -83,19 +73,25 @@
             this.BtnFacturar.UseVisualStyleBackColor = true;
             this.BtnFacturar.Click += new System.EventHandler(this.BtnFacturar_Click);
             // 
+            // TxtUnidades
+            // 
+            this.TxtUnidades.Location = new System.Drawing.Point(185, 151);
+            this.TxtUnidades.Name = "TxtUnidades";
+            this.TxtUnidades.Size = new System.Drawing.Size(121, 20);
+            this.TxtUnidades.TabIndex = 5;
+            // 
             // FrmComprarCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 399);
+            this.Controls.Add(this.TxtUnidades);
             this.Controls.Add(this.BtnFacturar);
-            this.Controls.Add(this.CmbUnidades);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbNombreCurso);
             this.Name = "FrmComprarCurso";
             this.Text = "FrmComprarCurso";
-            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,7 +102,7 @@
         private System.Windows.Forms.ComboBox CmbNombreCurso;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox CmbUnidades;
         private System.Windows.Forms.Button BtnFacturar;
+        private System.Windows.Forms.TextBox TxtUnidades;
     }
 }

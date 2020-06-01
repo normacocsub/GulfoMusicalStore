@@ -17,22 +17,20 @@ namespace GulfoMusicalStoreGUI
         private CursoService cursoService;
         public IVenta Venta { get; set; }
         public Factura Factura { get; set; }
+        public static IList<Curso> Cursos { get; set; }
         public FrmComprarCurso(Factura factura)
         {
             InitializeComponent();
             Factura = factura;
             AñadirComboBox();
-            for (int i = 0; i < 100; i++)
-            {
-                CmbUnidades.Items.Add(i.ToString());
-            }
         }
 
 
         private void AñadirComboBox()
         {
-            cursoService = new CursoService();
-            foreach (var item in cursoService.ConsultarCursos())
+            cursoService = new CursoService(ConfigConnection.ConnectionString);
+            Cursos = cursoService.ConsultarCursos();
+            foreach (var item in Cursos)
             {
                 CmbNombreCurso.Items.Add($"{item.Nombre}");
             }
@@ -54,38 +52,58 @@ namespace GulfoMusicalStoreGUI
         }
         private void AgregarCursos()
         {
-            cursoService = new CursoService();
-            int numero = VerificarComboBox(CmbUnidades.Text);
-            if (cursoService.BuscarCurso(CmbNombreCurso.Text)==null)
+            cursoService = new CursoService(ConfigConnection.ConnectionString);
+            int opcion=5;
+            try
             {
-                MessageBox.Show("No se encontro en la lista. ");
-            }
-            else
-            {
-                for (int i = 0; i < numero; i++)
+                DetalleCurso detalle = null;
+                int numero = VerificarComboBox(TxtUnidades.Text);
+                foreach (var item in Cursos)
                 {
-                    Curso curso = null;
-                    curso = cursoService.BuscarCurso(CmbNombreCurso.Text);
-                    Factura.AgregarDetalleCurso(curso);
+                    if (item.Nombre.Equals(CmbNombreCurso.Text))
+                    {
+                        
+                        foreach (var item2 in Factura.VerListaCursos())
+                        {
+                            if (item2.Curso.Nombre.Equals(CmbNombreCurso.Text))
+                            {
+                                detalle = item2;
+                                opcion = 1;
+                            }
+                            
+                        }
+                        if (Factura.VerListaCursos().Where(C=>C.Curso.Nombre.Equals(CmbNombreCurso.Text)).ToList().Count == 0)
+                        {
+                            opcion = 0;
+                        }
+                        if (opcion == 0)
+                        {
+                            Factura.AgregarDetalleCurso(item, numero);
+                        }
+                    }
+
+                    if (opcion == 1 && item.Nombre.Equals(CmbNombreCurso.Text))
+                    {
+                        Factura.DetallesCursoFactura.Remove(detalle);
+                        Factura.AgregarDetalleCurso(item, numero);
+                    }
+
                 }
             }
+            catch(FormatException ex)
+            {
+                MessageBox.Show($"Error. {ex.Message.ToString()}");
+            }
+            
         }
         
 
        
 
-        private void CmbNombreCurso_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CmbUnidades.Text == "")
-            {
-                MessageBox.Show("Seleccione cuantas unidades llevara. ");
-            }
-            
-        }
 
         private void BtnFacturar_Click(object sender, EventArgs e)
         { 
-            if(CmbNombreCurso.Text=="" || CmbUnidades.Text == "")
+            if(CmbNombreCurso.Text=="" || TxtUnidades.Text == "")
             {
                 MessageBox.Show("Los campos no pueden estar vacios. ");
             }

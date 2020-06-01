@@ -32,7 +32,16 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.PanelFondo = new System.Windows.Forms.Panel();
+            this.BtnEliminarMarca = new System.Windows.Forms.Button();
+            this.BtnModificarMarca = new System.Windows.Forms.Button();
+            this.DtgMarcas = new System.Windows.Forms.DataGridView();
+            this.SK_MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DtgProductos = new System.Windows.Forms.DataGridView();
+            this.CCodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CInstrumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelLateral = new System.Windows.Forms.Panel();
             this.BtnRegistrarMarca = new System.Windows.Forms.Button();
             this.BtnRegistrarProducto = new System.Windows.Forms.Button();
@@ -40,19 +49,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.LabelVenta = new System.Windows.Forms.Label();
             this.Panel1 = new System.Windows.Forms.Panel();
-            this.CCodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CInstrumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DtgMarcas = new System.Windows.Forms.DataGridView();
-            this.SK_MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelFondo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMarcas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).BeginInit();
             this.PanelLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB1)).BeginInit();
             this.Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgMarcas)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnEliminar
@@ -102,6 +104,8 @@
             // PanelFondo
             // 
             this.PanelFondo.BackColor = System.Drawing.Color.White;
+            this.PanelFondo.Controls.Add(this.BtnEliminarMarca);
+            this.PanelFondo.Controls.Add(this.BtnModificarMarca);
             this.PanelFondo.Controls.Add(this.DtgMarcas);
             this.PanelFondo.Controls.Add(this.DtgProductos);
             this.PanelFondo.Controls.Add(this.PanelLateral);
@@ -110,6 +114,79 @@
             this.PanelFondo.Name = "PanelFondo";
             this.PanelFondo.Size = new System.Drawing.Size(957, 558);
             this.PanelFondo.TabIndex = 11;
+            // 
+            // BtnEliminarMarca
+            // 
+            this.BtnEliminarMarca.BackColor = System.Drawing.Color.White;
+            this.BtnEliminarMarca.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnEliminarMarca.BackgroundImage")));
+            this.BtnEliminarMarca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnEliminarMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEliminarMarca.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
+            this.BtnEliminarMarca.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.BtnEliminarMarca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnEliminarMarca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BtnEliminarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEliminarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminarMarca.ForeColor = System.Drawing.Color.Black;
+            this.BtnEliminarMarca.Location = new System.Drawing.Point(645, 413);
+            this.BtnEliminarMarca.Name = "BtnEliminarMarca";
+            this.BtnEliminarMarca.Size = new System.Drawing.Size(138, 78);
+            this.BtnEliminarMarca.TabIndex = 40;
+            this.BtnEliminarMarca.Text = "Eliminar Marca";
+            this.BtnEliminarMarca.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnEliminarMarca.UseVisualStyleBackColor = false;
+            this.BtnEliminarMarca.Click += new System.EventHandler(this.BtnEliminarMarca_Click);
+            // 
+            // BtnModificarMarca
+            // 
+            this.BtnModificarMarca.BackColor = System.Drawing.Color.White;
+            this.BtnModificarMarca.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnModificarMarca.BackgroundImage")));
+            this.BtnModificarMarca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnModificarMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnModificarMarca.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
+            this.BtnModificarMarca.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.BtnModificarMarca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnModificarMarca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BtnModificarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnModificarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModificarMarca.ForeColor = System.Drawing.Color.Black;
+            this.BtnModificarMarca.Location = new System.Drawing.Point(645, 281);
+            this.BtnModificarMarca.Name = "BtnModificarMarca";
+            this.BtnModificarMarca.Size = new System.Drawing.Size(148, 85);
+            this.BtnModificarMarca.TabIndex = 40;
+            this.BtnModificarMarca.Text = "Modificar Marca";
+            this.BtnModificarMarca.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnModificarMarca.UseVisualStyleBackColor = false;
+            this.BtnModificarMarca.Click += new System.EventHandler(this.BtnModificarMarca_Click);
+            // 
+            // DtgMarcas
+            // 
+            this.DtgMarcas.BackgroundColor = System.Drawing.Color.White;
+            this.DtgMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMarcas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SK_MARCA,
+            this.CNOMBRE});
+            this.DtgMarcas.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgMarcas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.DtgMarcas.Location = new System.Drawing.Point(293, 265);
+            this.DtgMarcas.MultiSelect = false;
+            this.DtgMarcas.Name = "DtgMarcas";
+            this.DtgMarcas.ReadOnly = true;
+            this.DtgMarcas.Size = new System.Drawing.Size(262, 185);
+            this.DtgMarcas.TabIndex = 41;
+            this.DtgMarcas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // SK_MARCA
+            // 
+            this.SK_MARCA.HeaderText = "SK_MARCA";
+            this.SK_MARCA.Name = "SK_MARCA";
+            this.SK_MARCA.ReadOnly = true;
+            // 
+            // CNOMBRE
+            // 
+            this.CNOMBRE.HeaderText = "MARCA";
+            this.CNOMBRE.Name = "CNOMBRE";
+            this.CNOMBRE.ReadOnly = true;
             // 
             // DtgProductos
             // 
@@ -129,6 +206,30 @@
             this.DtgProductos.Size = new System.Drawing.Size(440, 185);
             this.DtgProductos.TabIndex = 40;
             this.DtgProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgCurso_CellContentClick);
+            // 
+            // CCodigoProducto
+            // 
+            this.CCodigoProducto.HeaderText = "Codigo Producto";
+            this.CCodigoProducto.Name = "CCodigoProducto";
+            this.CCodigoProducto.ReadOnly = true;
+            // 
+            // CInstrumento
+            // 
+            this.CInstrumento.HeaderText = "Instrumento";
+            this.CInstrumento.Name = "CInstrumento";
+            this.CInstrumento.ReadOnly = true;
+            // 
+            // CPrecio
+            // 
+            this.CPrecio.HeaderText = "Precio";
+            this.CPrecio.Name = "CPrecio";
+            this.CPrecio.ReadOnly = true;
+            // 
+            // CMarca
+            // 
+            this.CMarca.HeaderText = "Marca";
+            this.CMarca.Name = "CMarca";
+            this.CMarca.ReadOnly = true;
             // 
             // PanelLateral
             // 
@@ -234,59 +335,6 @@
             this.Panel1.Size = new System.Drawing.Size(957, 45);
             this.Panel1.TabIndex = 10;
             // 
-            // CCodigoProducto
-            // 
-            this.CCodigoProducto.HeaderText = "Codigo Producto";
-            this.CCodigoProducto.Name = "CCodigoProducto";
-            this.CCodigoProducto.ReadOnly = true;
-            // 
-            // CInstrumento
-            // 
-            this.CInstrumento.HeaderText = "Instrumento";
-            this.CInstrumento.Name = "CInstrumento";
-            this.CInstrumento.ReadOnly = true;
-            // 
-            // CPrecio
-            // 
-            this.CPrecio.HeaderText = "Precio";
-            this.CPrecio.Name = "CPrecio";
-            this.CPrecio.ReadOnly = true;
-            // 
-            // CMarca
-            // 
-            this.CMarca.HeaderText = "Marca";
-            this.CMarca.Name = "CMarca";
-            this.CMarca.ReadOnly = true;
-            // 
-            // DtgMarcas
-            // 
-            this.DtgMarcas.BackgroundColor = System.Drawing.Color.White;
-            this.DtgMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgMarcas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SK_MARCA,
-            this.CNOMBRE});
-            this.DtgMarcas.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgMarcas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.DtgMarcas.Location = new System.Drawing.Point(403, 301);
-            this.DtgMarcas.MultiSelect = false;
-            this.DtgMarcas.Name = "DtgMarcas";
-            this.DtgMarcas.ReadOnly = true;
-            this.DtgMarcas.Size = new System.Drawing.Size(262, 185);
-            this.DtgMarcas.TabIndex = 41;
-            this.DtgMarcas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // SK_MARCA
-            // 
-            this.SK_MARCA.HeaderText = "SK_MARCA";
-            this.SK_MARCA.Name = "SK_MARCA";
-            this.SK_MARCA.ReadOnly = true;
-            // 
-            // CNOMBRE
-            // 
-            this.CNOMBRE.HeaderText = "MARCA";
-            this.CNOMBRE.Name = "CNOMBRE";
-            this.CNOMBRE.ReadOnly = true;
-            // 
             // FrmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,11 +346,11 @@
             this.Name = "FrmInventario";
             this.Text = "FrmInventario";
             this.PanelFondo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMarcas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).EndInit();
             this.PanelLateral.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PB1)).EndInit();
             this.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgMarcas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -326,5 +374,7 @@
         private System.Windows.Forms.DataGridView DtgMarcas;
         private System.Windows.Forms.DataGridViewTextBoxColumn SK_MARCA;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNOMBRE;
+        private System.Windows.Forms.Button BtnEliminarMarca;
+        private System.Windows.Forms.Button BtnModificarMarca;
     }
 }

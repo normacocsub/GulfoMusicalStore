@@ -11,64 +11,96 @@ namespace DAL
     public class CursoRepository
     {
         private IList<Curso> Cursos;
-        private OracleConnection Conexion;
+        private ConectionManager Conection;
         private OracleDataReader Reader;
-        public CursoRepository(OracleConnection conexion)
+        public CursoRepository(ConectionManager conection)
         {
             Cursos = new List<Curso>();
-            Conexion = conexion;
+            Conection = conection;
         }
 
         public void GuardarCurso(Curso curso)
         {
-            OracleCommand command = new OracleCommand("GuardarCurso", Conexion);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("nombre", OracleDbType.Varchar2).Value = curso.Nombre;
-            command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(curso.Total.ToString());
-            command.Parameters.Add("fechac", OracleDbType.Date).Value = curso.FechaCreacion.ToShortDateString();
-            command.Parameters.Add("estadoc", OracleDbType.Varchar2).Value = curso.Estado;
-            command.ExecuteNonQuery();
+            using(var command = Conection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_CURSO.GUARDARCURSOS";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("nombre", OracleDbType.Varchar2).Value = curso.Nombre;
+                command.Parameters.Add("estado", OracleDbType.Varchar2).Value = curso.Estado;
+                command.Parameters.Add("fecha", OracleDbType.Varchar2).Value = curso.FechaCreacion.ToShortDateString();
+                command.Parameters.Add("precio", OracleDbType.Decimal).Value = curso.Total;
+                command.ExecuteNonQuery();
+            }
         }
         public IList<Curso> ConsultarCursos()
         {
-            Cursos.Clear();
-            OracleCommand command = new OracleCommand("ConsultarCursos",Conexion);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-            Reader = command.ExecuteReader();
-            while (Reader.Read())
+            using(var command = Conection.Connection.CreateCommand())
             {
-                Curso curso;
-                curso = MapCurso(Reader);
-                Cursos.Add(curso);
+                Cursos.Clear();
+                command.CommandText = "PAQUETE_CURSO.ConsultarCursos";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                Reader = command.ExecuteReader();
+                while (Reader.Read())
+                {
+                    Curso curso;
+                    curso = MapCurso(Reader);
+                    Cursos.Add(curso);
+                }
+                return Cursos;
             }
-            return Cursos;
         }
 
         public Curso MapCurso(OracleDataReader reader)
         {
             Curso curso = new Curso();
-            curso.Codigo = ((object)reader["id_Curso"]).ToString();
-            curso.Nombre = (string)reader["nombrecurso"];
-            curso.Total = decimal.Parse(((double)reader["preciocurso"]).ToString());
+            curso.Codigo = ((object)reader["sk_Curso"]).ToString();
+            curso.Nombre = (string)reader["nombre"];
+            curso.Total = decimal.Parse(((double)reader["precio"]).ToString());
             curso.Estado = (string)reader["estado"];
-            curso.FechaCreacion = (DateTime)reader["fecha"];
+            curso.FechaCreacion = DateTime.Parse((string)reader["fecha"]);
             return curso;
         }
 
         public Curso BuscarCurso(string nombre)
         {
-            Curso curso=null;
-            OracleCommand command = new OracleCommand("BuscarCurso", Conexion);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-            command.Parameters.Add("nombre", OracleDbType.Varchar2).Value = nombre;
-            Reader = command.ExecuteReader();
-            while (Reader.Read())
+            using(var command = Conection.Connection.CreateCommand())
             {
-                curso = MapCurso(Reader);
+                Curso curso = null;
+                command.CommandText = "PAQUETE_CURSO.BuscarCurso";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("codigo", OracleDbType.Int32).Value = int.Parse(nombre);
+                Reader = command.ExecuteReader();
+                while (Reader.Read())
+                {
+                    curso = MapCurso(Reader);
+                }
+                return curso;
             }
-            return curso;
+        }
+
+        public void ModificarCurso(Curso curso)
+        {
+            using(var command = Conection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_CURSO.MODIFICARCURSO";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("curso", OracleDbType.Int32).Value = int.Parse(curso.Codigo);
+                command.Parameters.Add("precionew", OracleDbType.Decimal).Value = curso.Total;
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void EliminarCurso(Curso curso)
+        {
+            using(var command = Conection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_CURSO.ELIMINARCURSO";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("curso", OracleDbType.Int32).Value = int.Parse(curso.Codigo);
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ namespace GulfoMusicalStoreGUI
 
         private void LlenarComboMarca()
         {
-            marcaservice = new MarcaService();
+            marcaservice = new MarcaService(ConfigConnection.ConnectionString);
             CmbMarca.Items.Clear();
             foreach (var item in marcaservice.ConsultarMarcas())
             {
@@ -40,8 +40,8 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
-            marcaservice = new MarcaService();
-            productoservice = new ProductoService();
+            marcaservice = new MarcaService(ConfigConnection.ConnectionString);
+            productoservice = new ProductoService(ConfigConnection.ConnectionString);
             if (TxtCodigo.Text.Equals("") || TxtInstrumento.Text.Equals("") || TxtPrecio.Text.Equals("")
                 || CmbMarca.Text.Equals(""))
             {

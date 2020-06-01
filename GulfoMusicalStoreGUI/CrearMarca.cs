@@ -23,7 +23,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
-            marcaservice = new MarcaService();
+            marcaservice = new MarcaService(ConfigConnection.ConnectionString);
             if (TxtNombre.Text.Equals(""))
             {
                 MessageBox.Show("Complete el campo. ");

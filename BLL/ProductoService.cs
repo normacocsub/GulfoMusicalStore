@@ -13,12 +13,12 @@ namespace BLL
         private IList<Producto> Productos;
         private IList<Producto> ProductosFiltrados;
 
-        private OracleConnection Conexion;
+        private ConectionManager Conection;
         private ProductoRepository ProductoRepositorio;
-        public ProductoService()
+        public ProductoService(string connection)
         {
-            Conexion = new OracleConnection(@"Data Source=localhost:1521/xe;User Id=Gulfo;Password=Shoops0119");
-            ProductoRepositorio = new ProductoRepository(Conexion);
+            Conection = new ConectionManager(connection);
+            ProductoRepositorio = new ProductoRepository(Conection);
         }
 
        
@@ -26,14 +26,14 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 ProductoRepositorio.GuardarProductos(producto);
-                Conexion.Close();
+                Conection.Close();
                 return $"Se ha guardado el producto. ";
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return $"Error en la base de datos. {ex.Message.ToString()}";
             }
         }
@@ -41,15 +41,15 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 Productos = new List<Producto>();
                 Productos = ProductoRepositorio.Consultar();
-                Conexion.Close();
+                Conection.Close();
                 return Productos;
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return null;
             }
             
@@ -59,15 +59,15 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 Productos = new List<Producto>();
                 Productos = ProductoRepositorio.Consultar();
-                Conexion.Close();
+                Conection.Close();
                 return Productos;
             }
             catch (OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return null;
             }
         }
@@ -77,15 +77,15 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 Producto producto;
                 producto= ProductoRepositorio.ConsultarCodigoProducto(productonombre);
-                Conexion.Close();
+                Conection.Close();
                 return producto;
             }
             catch (OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return null;
             }
         }
@@ -94,34 +94,19 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 Producto producto;
                 producto = ProductoRepositorio.BuscarProducto(codigo);
-                Conexion.Close();
+                Conection.Close();
                 return producto;
             }
             catch (OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return null;
             }
         }
-        public IList<Producto> FiltrarProductos(string productonombre)
-        {
-            try
-            {
-                Conexion.Open();
-                ProductosFiltrados = new List<Producto>();
-                ProductosFiltrados = ProductoRepositorio.FiltrarProductos(productonombre);
-                Conexion.Close();
-                return ProductosFiltrados;
-            }
-            catch(OracleException ex)
-            {
-                Conexion.Close();
-                return null;
-            }
-        }
+        
 
        
 
@@ -129,14 +114,14 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 ProductoRepositorio.ModificarPrecioProductos(producto);
-                Conexion.Close();
+                Conection.Close();
                 return $"Se ha modificado los productos. ";
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return $"Error en la base de datos. {ex.Message.ToString()}";
             }
         }
@@ -145,14 +130,14 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 ProductoRepositorio.EliminarProducto(producto);
-                Conexion.Close();
+                Conection.Close();
                 return $"Se ha eliminado. ";
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return $"Error en la base de datos. {ex.Message.ToString()}";
             }
         }

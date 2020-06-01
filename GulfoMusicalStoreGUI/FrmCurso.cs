@@ -12,7 +12,7 @@ using BLL;
 
 namespace GulfoMusicalStoreGUI
 {
-    public partial class FrmCurso : Form
+    public partial class FrmCurso : Form,ICurso
     {
         private CursoService cursoservice;
         public FrmCurso()
@@ -23,8 +23,8 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
-            cursoservice = new CursoService();
-            if(CmbInstrumento.Text.Equals("") || CmbEstado.Text.Equals("") || TxtPrecio.Text.Equals(""))
+            cursoservice = new CursoService(ConfigConnection.ConnectionString);
+            if(TxtInstrumento.Text.Equals("") || CmbEstado.Text.Equals("") || TxtPrecio.Text.Equals(""))
             {
                 MessageBox.Show("Complete todos los campos. ");
             }
@@ -35,7 +35,7 @@ namespace GulfoMusicalStoreGUI
                     decimal precio = decimal.Parse(TxtPrecio.Text);
                     Curso curso = new Curso();
                     curso.Total = precio;
-                    curso.Nombre = CmbInstrumento.Text;
+                    curso.Nombre = TxtInstrumento.Text;
                     curso.Estado = CmbEstado.Text;
                     curso.FechaCreacion = DateTime.Now;
                     MessageBox.Show(cursoservice.GuardarCurso(curso));
@@ -50,7 +50,7 @@ namespace GulfoMusicalStoreGUI
 
         private void MapearTabla(DataGridView dtg)
         {
-            cursoservice = new CursoService();
+            cursoservice = new CursoService(ConfigConnection.ConnectionString);
             dtg.Rows.Clear();
             foreach (var item in cursoservice.ConsultarCursos())
             {
@@ -61,6 +61,30 @@ namespace GulfoMusicalStoreGUI
                 dtg.Rows[n].Cells[3].Value = item.Estado;
                 dtg.Rows[n].Cells[4].Value = item.FechaCreacion;
             }
+        }
+
+        private void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            MapearTabla(DtgCurso);
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            FrmModificarCurso frmmodi = new FrmModificarCurso();
+            frmmodi.ICurso = this;
+            frmmodi.Show();
+        }
+
+        public void Actualizar()
+        {
+            MapearTabla(DtgCurso);
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            FrmEliminarCursos FrmElimCursos = new FrmEliminarCursos();
+            FrmElimCursos.ICurso = this;
+            FrmElimCursos.Show();
         }
     }
 }

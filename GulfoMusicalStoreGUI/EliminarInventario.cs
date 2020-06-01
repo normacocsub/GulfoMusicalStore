@@ -16,6 +16,7 @@ namespace GulfoMusicalStoreGUI
     {
         private ProductoService productoservice;
         public IInventario Inventario { get; set; }
+        public static IList<Producto> Productos { get; set; }
         public EliminarInventario()
         {
             InitializeComponent();
@@ -25,9 +26,10 @@ namespace GulfoMusicalStoreGUI
 
         private void LlenarComboProducto()
         {
-            productoservice = new ProductoService();
+            productoservice = new ProductoService(ConfigConnection.ConnectionString);
             CmbInstrumento.Items.Clear();
-            foreach (var item in productoservice.ConsultarNombreProductos())
+            Productos = productoservice.ConsultarNombreProductos();
+            foreach (var item in Productos)
             {
                 CmbInstrumento.Items.Add(item.Nombre);
             }
@@ -51,9 +53,17 @@ namespace GulfoMusicalStoreGUI
 
         private void CmbInstrumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            productoservice = new ProductoService();
-            Producto producto;
-            producto = productoservice.FiltrarCodigo(CmbInstrumento.Text);
+            string nombre = CmbInstrumento.Text;
+            productoservice = new ProductoService(ConfigConnection.ConnectionString);
+            Producto producto = null;
+            foreach (var item in Productos)
+            {
+                if (item.Nombre == nombre) 
+                {
+                    producto = item;
+                }
+               
+            }
             TxtCodigo.Text = producto.Codigo;
         }
     }

@@ -18,11 +18,16 @@ namespace GulfoMusicalStoreGUI
         private ClienteService clienteservice;
         public IVenta Venta { get; set; }
         public Factura Factura { get; set; }
+        private LugarService lugarservice;
+        public static IList<Lugar> Lugares { get; set; }
+        public static IList<Barrio> Barrios { get; set; }
         public FrmInfoCliente(Factura factura)
         {
             InitializeComponent();
             Factura = factura;
             MapearDatosCliente();
+            CmbBarrio.Enabled = false;
+            LlenarComboLugar();
         }
 
         private void MapearDatosCliente()
@@ -32,10 +37,9 @@ namespace GulfoMusicalStoreGUI
             TxtSegundoNombre.Text = Factura.Cliente.SegundoNombre;
             TxtPrimerApellido.Text = Factura.Cliente.PrimerApellido;
             TxtSegundoApellido.Text = Factura.Cliente.SegundoApellido;
-            CBSexo.Text = Factura.Cliente.Genero;
             TxtCorreo.Text = Factura.Cliente.Correo;
             TxtTelefono.Text = Factura.Cliente.Telefono;
-            TxtDireccion.Text = Factura.Cliente.Direccion + " " + Factura.Cliente.Barrio + " " + Factura.Cliente.Ciudad;
+            TxtDireccion.Text = Factura.Cliente.Direccion + " " + Factura.Cliente.Barrio.Nombre + " " + Factura.Cliente.Lugar.Ciudad;
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -54,7 +58,7 @@ namespace GulfoMusicalStoreGUI
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             Cliente cliente = new Cliente();
-            clienteservice = new ClienteService();
+            clienteservice = new ClienteService(ConfigConnection.ConnectionString);
             if(TxtPrimerApellido.Text.Equals("") || TxtPrimerNombre.Text.Equals("") ||  TxtCorreo.Text.Equals(""))
             {
                 MessageBox.Show("Por favor Complete los campos. ");
@@ -63,7 +67,7 @@ namespace GulfoMusicalStoreGUI
             {
                
                 cliente.Direccion = Factura.Cliente.Direccion;
-                cliente.Ciudad = Factura.Cliente.Ciudad;
+                cliente.Lugar = Factura.Cliente.Lugar;
                 cliente.Barrio = Factura.Cliente.Barrio;
                 cliente = Factura.Cliente;
                 cliente.PrimerNombre = TxtPrimerNombre.Text;
@@ -71,7 +75,7 @@ namespace GulfoMusicalStoreGUI
                 cliente.PrimerApellido = TxtPrimerApellido.Text;
                 cliente.SegundoApellido = TxtSegundoApellido.Text;
                 cliente.Correo = TxtCorreo.Text;
-                cliente.Genero = CBSexo.Text;
+
                 
                 cliente.Telefono = TxtTelefono.Text;
                 
@@ -92,7 +96,7 @@ namespace GulfoMusicalStoreGUI
         public void Txtdirection()
         {
             TxtDireccion.Text = CB1.Text + " " + CB2.Text + " " + CB3.Text + " " + CB4.Text + " " + CB5.Text + " " + CB6.Text
-                + " " + TxtBarrio.Text + " " + TxtCiudad.Text;
+                + " " + CmbCiudad.Text + " " + CmbBarrio.Text;
         }
 
         private void CB1_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,6 +147,52 @@ namespace GulfoMusicalStoreGUI
         private void TxtCiudad_TextChanged(object sender, EventArgs e)
         {
             Txtdirection();
+        }
+
+        private void CmbCiudad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lugarservice = new LugarService(ConfigConnection.ConnectionString);
+            CmbBarrio.Enabled = true;
+            LlenarComboBarrio(CmbCiudad.Text);
+            foreach (var item in Barrios)
+            {
+                if (item.Nombre.Equals(CmbBarrio.Text))
+                {
+                    Factura.Cliente.Barrio = item;
+                }
+            }
+            foreach (var item in Lugares)
+            {
+                if (item.Ciudad.Equals(CmbCiudad.Text))
+                {
+                    Factura.Cliente.Lugar = item;
+                }
+            }
+            Txtdirection();
+        }
+
+        private void LlenarComboLugar()
+        {
+            lugarservice = new LugarService(ConfigConnection.ConnectionString);
+            Lugares = lugarservice.ConsultarLugares();
+            CmbCiudad.Items.Clear();
+            foreach (var item in Lugares)
+            {
+                CmbCiudad.Items.Add(item.Ciudad);
+            }
+        }
+        private void LlenarComboBarrio(string nombre)
+        {
+            Barrios = new List<Barrio>();
+            CmbBarrio.Items.Clear();
+            foreach (var item in Lugares)
+            {
+                if (item.Ciudad.Equals(CmbCiudad.Text))
+                {
+                    CmbBarrio.Items.Add(item.Barrio.Nombre);
+                    Barrios.Add(item.Barrio);
+                }
+            }
         }
     }
 }

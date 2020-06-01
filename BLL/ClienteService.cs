@@ -11,14 +11,14 @@ namespace BLL
 {
     public class ClienteService
     {
-        private OracleConnection Conexion;
+        private ConectionManager Conection;
         private ClienteRepository ClienteRepositorio;
         private IList<Cliente> Clientes;
 
-        public ClienteService()
+        public ClienteService(string connection)
         {
-            Conexion = new OracleConnection(@"Data Source=localhost:1521/xe;User Id=Gulfo;Password=Shoops0119");
-            ClienteRepositorio = new ClienteRepository(Conexion);
+            Conection = new ConectionManager(connection);
+            ClienteRepositorio = new ClienteRepository(Conection);
             Clientes = new List<Cliente>();
         }
 
@@ -26,14 +26,14 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 ClienteRepositorio.GuardarCliente(cliente);
-                Conexion.Close();
+                Conection.Close();
                 return $"Se ha guardado el cliente. {cliente.PrimerNombre}";
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return $"Error en la base de datos. {ex.Message.ToString()}";
             }
             
@@ -43,14 +43,14 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 ClienteRepositorio.ModificarCliente(cliente);
-                Conexion.Close();
+                Conection.Close();
                 return $"Se ha modificado el cliente. {cliente.PrimerNombre}";
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return $"Error en la base de datos. {ex.Message.ToString()}";
             }
         }
@@ -58,14 +58,14 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 Clientes = ClienteRepositorio.ConsultarClientes();
-                Conexion.Close();
+                Conection.Close();
                 return Clientes;
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 
                 return null;
             }
@@ -77,14 +77,14 @@ namespace BLL
             Cliente cliente;
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 cliente = ClienteRepositorio.BuscarCliente(cedula);
-                Conexion.Close();
+                Conection.Close();
                 return cliente;
             }
             catch (OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 
                 return null;
             }

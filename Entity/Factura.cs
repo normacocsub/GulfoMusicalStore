@@ -28,10 +28,12 @@ namespace Entity
             DetallesCursoFactura = new List<DetalleCurso>();
         }
 
-        public void AgregarDetalleFactura(Producto producto)
+        public void AgregarDetalleFactura(Producto producto,int numero)
         {
             DetalleFactura = new DetalleFactura(producto);
             DetalleFactura.Factura = this;
+            DetalleFactura.Unidades = numero;
+            DetalleFactura.PrecioProducto = producto.Precio;
             DetallesFactura.Add(DetalleFactura);
         }
 
@@ -47,14 +49,14 @@ namespace Entity
 
         public decimal CalcularSubTotal()
         {
-            SubTotal = (DetallesFactura.Sum(D => D.Producto.Precio) +
-                        DetallesCursoFactura.Sum(D => D.Curso.Total));
+            SubTotal = (DetallesFactura.Sum(D => (D.Producto.Precio * D.Unidades)) +
+                        DetallesCursoFactura.Sum(D => (D.Curso.Total * D.Unidades)));
             return SubTotal;
         }
         public decimal CalcularIVA()
         {
-            Iva = (DetallesFactura.Sum(D => D.Producto.Precio * 0.19m) +
-                   DetallesCursoFactura.Sum(D => D.Curso.Total * 0.19m));
+            Iva = (DetallesFactura.Sum(D => ((D.Producto.Precio * D.Unidades) * 0.19m)) +
+                   DetallesCursoFactura.Sum(D => ((D.Curso.Total * D.Unidades) * 0.19m)));
             return Iva;
         }
 
@@ -63,10 +65,19 @@ namespace Entity
             return Cantidad = DetallesFactura.Count;
         }
 
-        public void AgregarDetalleCurso(Curso curso)
+        public void CalcularFactura()
+        {
+            CalcularSubTotal();
+            CalcularIVA();
+            CalcularCantidad();
+            CalcularTotal();
+        }
+        public void AgregarDetalleCurso(Curso curso,int unidades)
         {
             DetalleCursoFactura = new DetalleCurso(curso);
             DetalleCursoFactura.Factura = this;
+            DetalleCursoFactura.Precio = curso.Total;
+            DetalleCursoFactura.Unidades = unidades;
             DetallesCursoFactura.Add(DetalleCursoFactura);
         }
 

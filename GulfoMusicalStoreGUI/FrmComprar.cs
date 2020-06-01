@@ -18,14 +18,12 @@ namespace GulfoMusicalStoreGUI
         public IVenta Venta { get; set; }
         public Factura Factura { get; set; }
         public IList<Producto> Detalles { get; set; }
+        public static IList<Producto> Productos { get; set; }
         public FrmComprar(Factura factura)
         {
             InitializeComponent();
             LlenarCombo();
             Factura = factura;
-          
-            
-
         }
 
        
@@ -35,12 +33,11 @@ namespace GulfoMusicalStoreGUI
       
         private void LlenarCombo()
         {
-            for (int i = 0; i < 200; i++)
+            productoservice = new ProductoService(ConfigConnection.ConnectionString);
+            Productos = productoservice.ConsultarProductos();
+            foreach (var item in Productos)
             {
-                CmbUnidadesAcustica.Items.Add(i.ToString());
-                CmbUnidadesElectricas.Items.Add(i.ToString());
-                CmbUnidadesPiano.Items.Add(i.ToString());
-                CmbUnidadesBajo.Items.Add(i.ToString());
+                CmbInstrumento.Items.Add(item.Nombre);
             }
         }
         
@@ -73,26 +70,47 @@ namespace GulfoMusicalStoreGUI
 
         
 
-        private void AgregarProductos(int numero,string productoname)
+        private void AgregarProductos(string numero,string productoname)
         {
-            if(productoservice.FiltrarProductos(productoname)== null)
+            int unidades;
+            if ((unidades = VerificarComboBox(numero)) == 0)
             {
-                MessageBox.Show("No hay nada en la lista. ");
+                MessageBox.Show("Verifique que sea un numero");
             }
             else
             {
-                Producto producto = null;
-                productoservice = new ProductoService();
-                Detalles = new List<Producto>();
-                for (int i = 0; i < numero; i++)
+                DetalleFactura detalle = null;
+                int opcion = 5;
+                foreach (var item in Productos)
                 {
-                   
-
-                    producto = productoservice.FiltrarProductos(productoname).ElementAt(i);
-                    if (Factura.BuscarElemento(producto.Codigo)==null)
+                    if (item.Nombre.Equals(productoname))
                     {
-                        Factura.AgregarDetalleFactura(producto);
-                    } 
+
+                        foreach (var item2 in Factura.VerListaProductos())
+                        {
+                            if (item2.Producto.Nombre.Equals(CmbInstrumento.Text))
+                            {
+                                detalle = item2;
+                                opcion = 1;
+                            }
+
+                        }
+                        if (Factura.VerListaProductos().Where(P=>P.Producto.Nombre.Equals(CmbInstrumento.Text)).ToList().Count == 0)
+                        {
+                            opcion = 0;
+                        }
+                        if (opcion == 0)
+                        {
+                            Factura.AgregarDetalleFactura(item, unidades);
+                        }
+                    }
+
+                    if (opcion == 1 && item.Nombre.Equals(CmbInstrumento.Text))
+                    {
+                        Factura.DetallesFactura.Remove(detalle);
+                        Factura.AgregarDetalleFactura(item, unidades);
+                    }
+
                 }
             }
         }
@@ -100,7 +118,7 @@ namespace GulfoMusicalStoreGUI
        
         private void BtnFacturar_Click(object sender, EventArgs e)
         {
-            
+            AgregarProductos(TxtTotal.Text, CmbInstrumento.Text);
             Venta.TotalVenta(Factura);
             MessageBox.Show("Se han añadido los productos a la factura.");
             this.Close();

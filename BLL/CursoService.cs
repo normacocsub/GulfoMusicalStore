@@ -13,11 +13,11 @@ namespace BLL
     {
         private CursoRepository CursoRepositorio;
         private IList<Curso> Cursos;
-        private OracleConnection Conexion;
-        public CursoService()
+        private ConectionManager Conection;
+        public CursoService(string connection)
         {
-            Conexion = new OracleConnection(@"Data Source=localhost:1521/xe;User Id=Gulfo;Password=Shoops0119");
-            CursoRepositorio = new CursoRepository(Conexion);
+            Conection = new ConectionManager(connection);
+            CursoRepositorio = new CursoRepository(Conection);
             Cursos = new List<Curso>();
         }
 
@@ -25,14 +25,14 @@ namespace BLL
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 CursoRepositorio.GuardarCurso(curso);
-                Conexion.Close();
+                Conection.Close();
                 return $"Se ha guardado el curso ";
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return $"Error en la base de datos. {ex.Message.ToString()}";
             }
         }
@@ -41,14 +41,14 @@ namespace BLL
             try
             {
                 Cursos.Clear();
-                Conexion.Open();
+                Conection.Open();
                 Cursos = CursoRepositorio.ConsultarCursos();
-                Conexion.Close();
+                Conection.Close();
                 return Cursos;
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return null;
             }
         }
@@ -58,15 +58,47 @@ namespace BLL
             try
             {
                 Curso curso;
-                Conexion.Open();
+                Conection.Open();
                 curso = CursoRepositorio.BuscarCurso(nombre);
-                Conexion.Close();
+                Conection.Close();
                 return curso;
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return null;
+            }
+        }
+
+        public string ModificarCurso(Curso curso)
+        {
+            try
+            {
+                Conection.Open();
+                CursoRepositorio.ModificarCurso(curso);
+                Conection.Close();
+                return $"Se ha modificado. ";
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return $"Error al modificar. {ex.Message.ToString()}";
+            }
+        }
+
+        public string EliminarCurso(Curso curso)
+        {
+            try
+            {
+                Conection.Open();
+                CursoRepositorio.EliminarCurso(curso);
+                Conection.Close();
+                return $"Se ha eliminado. ";
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return $"Error. {ex.Message.ToString()}";
             }
         }
     }

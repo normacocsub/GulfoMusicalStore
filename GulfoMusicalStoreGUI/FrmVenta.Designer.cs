@@ -41,10 +41,8 @@
             this.CCodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUNIDADES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cimage = new System.Windows.Forms.DataGridViewImageColumn();
             this.Labelinstrumento = new System.Windows.Forms.Label();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,6 +57,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.PanelFondo = new System.Windows.Forms.Panel();
             this.LabelCurso = new System.Windows.Forms.Label();
+            this.CUNIDADES2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GBFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).BeginInit();
@@ -80,7 +79,6 @@
             this.GBFactura.TabIndex = 56;
             this.GBFactura.TabStop = false;
             this.GBFactura.Text = "Detalle";
-          
             // 
             // DtgCursos
             // 
@@ -88,12 +86,12 @@
             this.DtgCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CCodigo,
             this.CNombre,
-            this.CValor});
+            this.CValor,
+            this.CUNIDADES2});
             this.DtgCursos.Location = new System.Drawing.Point(410, 64);
             this.DtgCursos.Name = "DtgCursos";
             this.DtgCursos.Size = new System.Drawing.Size(306, 182);
             this.DtgCursos.TabIndex = 94;
-           
             // 
             // CCodigo
             // 
@@ -158,10 +156,8 @@
             this.CCodigoProducto,
             this.CProducto,
             this.CPrecio,
-            this.Modelo,
-            this.CMarca,
-            this.Column2,
-            this.cimage});
+            this.CUNIDADES,
+            this.CMarca});
             this.DtgFactura.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgFactura.Location = new System.Drawing.Point(6, 64);
             this.DtgFactura.Name = "DtgFactura";
@@ -190,12 +186,12 @@
             this.CPrecio.ReadOnly = true;
             this.CPrecio.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // Modelo
+            // CUNIDADES
             // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            this.Modelo.ReadOnly = true;
-            this.Modelo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CUNIDADES.HeaderText = "Unidades";
+            this.CUNIDADES.Name = "CUNIDADES";
+            this.CUNIDADES.ReadOnly = true;
+            this.CUNIDADES.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // CMarca
             // 
@@ -203,20 +199,6 @@
             this.CMarca.Name = "CMarca";
             this.CMarca.ReadOnly = true;
             this.CMarca.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "SuTotal";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // cimage
-            // 
-            this.cimage.HeaderText = "imagen";
-            this.cimage.Name = "cimage";
-            this.cimage.ReadOnly = true;
-            this.cimage.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Labelinstrumento
             // 
@@ -252,7 +234,7 @@
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnEliminar.UseVisualStyleBackColor = false;
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            
             // 
             // label3
             // 
@@ -378,7 +360,7 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Maiandra GD", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(268, 3);
             this.label2.Name = "label2";
@@ -419,6 +401,11 @@
             this.LabelCurso.Text = "Seleccione el curso";
             this.LabelCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LabelCurso.Click += new System.EventHandler(this.LabelCurso_Click_1);
+            // 
+            // CUNIDADES2
+            // 
+            this.CUNIDADES2.HeaderText = "UNIDADES";
+            this.CUNIDADES2.Name = "CUNIDADES2";
             // 
             // FrmVenta
             // 
@@ -461,15 +448,14 @@
         private System.Windows.Forms.Label LabelCodigoProducto;
         private System.Windows.Forms.Label LabelCurso;
         private System.Windows.Forms.DataGridView DtgCursos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCodigoProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewImageColumn cimage;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCodigoProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CUNIDADES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CUNIDADES2;
     }
 }

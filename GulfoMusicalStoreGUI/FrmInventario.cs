@@ -19,7 +19,7 @@ namespace GulfoMusicalStoreGUI
         public FrmInventario()
         {
             InitializeComponent();
-            marcaservice = new MarcaService();
+            marcaservice = new MarcaService(ConfigConnection.ConnectionString);
             MapearProductos(DtgProductos);
             MapearMarcas(DtgMarcas);
         }
@@ -37,7 +37,7 @@ namespace GulfoMusicalStoreGUI
 
         private void MapearProductos(DataGridView dtg)
         {
-            productoservice = new ProductoService();
+            productoservice = new ProductoService(ConfigConnection.ConnectionString);
             dtg.Rows.Clear();
             foreach (var item in productoservice.ConsultarProductos())
             {
@@ -53,7 +53,7 @@ namespace GulfoMusicalStoreGUI
        
         private void MapearMarcas(DataGridView dtg)
         {
-            marcaservice = new MarcaService();
+            marcaservice = new MarcaService(ConfigConnection.ConnectionString);
             dtg.Rows.Clear();
             foreach (var item in marcaservice.ConsultarMarcas())
             {
@@ -103,6 +103,20 @@ namespace GulfoMusicalStoreGUI
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void BtnModificarMarca_Click(object sender, EventArgs e)
+        {
+            FrmModificarMarca FrmModificar = new FrmModificarMarca();
+            FrmModificar.Inventario = this;
+            FrmModificar.Show();
+        }
+
+        private void BtnEliminarMarca_Click(object sender, EventArgs e)
+        {
+            FrmEliminarMarca FrmEliminar = new FrmEliminarMarca();
+            FrmEliminar.Inventario = this;
+            FrmEliminar.Show();
         }
     }
 }
