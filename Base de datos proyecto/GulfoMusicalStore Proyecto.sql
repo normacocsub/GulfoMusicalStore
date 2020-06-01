@@ -64,6 +64,9 @@ CREATE TABLE factura (
 );
 
 ALTER TABLE factura ADD CONSTRAINT factura_pk PRIMARY KEY ( factura_id );
+ALTER TABLE factura modify subTotal number(12,2);
+ALTER TABLE factura modify iva number(12,2);
+ALTER TABLE factura modify total number(12,2);
 
 CREATE TABLE lugar (
     sk_lugar   NUMBER(3) NOT NULL,
@@ -89,6 +92,7 @@ CREATE TABLE product_factura (
 
 ALTER TABLE product_factura ADD CONSTRAINT product_factura_pk PRIMARY KEY ( factura_factura_id,
                                                                             producto_id_producto );
+
 
 CREATE TABLE producto (
     id_producto      VARCHAR2(5) NOT NULL,
@@ -153,6 +157,11 @@ CREATE SEQUENCE SEQUENCE_MARCA INCREMENT BY 1 START WITH 1 MAXVALUE 100 MINVALUE
 CREATE SEQUENCE Cursos_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 100 MINVALUE 1 CACHE 20 ORDER;
 CREATE SEQUENCE LUGAR_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 100 MINVALUE 1 CACHE 20 ORDER;
 CREATE SEQUENCE BARRIO_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 100 MINVALUE 1 CACHE 20 ORDER;
+CREATE SEQUENCE FACTURA_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
+CREATE SEQUENCE Detalleproducto_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
+CREATE SEQUENCE DetalleCurso_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
+CREATE SEQUENCE Estadisticas_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
+CREATE SEQUENCE SEQUENCE_Usuarios INCREMENT BY 1 START WITH 1 MAXVALUE 100 MINVALUE 1;
 --Sinonimos
 
 CREATE PUBLIC SYNONYM Products FOR Producto;
@@ -161,6 +170,10 @@ CREATE PUBLIC SYNONYM Courses FOR Curso;
 CREATE PUBLIC SYNONYM Place FOR lugar;
 CREATE PUBLIC SYNONYM Neigh FOR Barrio;
 CREATE PUBLIC SYNONYM Clients FOR CLiente;
+CREATE PUBLIC SYNONYM Bill FOR FACTURA;
+CREATE PUBLIC SYNONYM ProductoFactura FOR Product_Factura;
+CREATE PUBLIC SYNONYM CursoFactura FOR Curso_Factura;
+CREATE PUBLIC SYNONYM STATICTS FOR Estadisticas;
 
 --TRIGGERS MARCA
 CREATE OR REPLACE TRIGGER MARCA_TRIGGER_SK_KEY
@@ -205,21 +218,364 @@ BEGIN
 END;
 
 
---Procedimiento cliente
+--TRIGERS FACTURA
 
-create or replace procedure GuardarCLientes(cedula in VARCHAR2,primername in varchar2, segundoname in varchar2, primerape in varchar2,
-                                              segundoape in varchar2,  email in varchar2, phone in varchar2,
-                                              city in varchar2, barriocliente in varchar2, direction in varchar2)
-  as
-  begin
-    insert into clientes(id_cliente,primernombre,segundonombre,primerapellido,segundoapellido,correo,telefono,ciudad,
-                                     barrio,direccion)
-                                     VALUES(cedula,primername,segundoname,primerape,segundoape,email,phone,city,barriocliente,direction);
-  end;
+CREATE OR REPLACE TRIGGER factura_trigger
+BEFORE INSERT ON FACTURA
+FOR EACH ROW
+BEGIN
+    SELECT FACTURA_SEQUENCIA.NEXTVAL
+    INTO:NEW.sk_Factura
+    FROM dual;
+    INSERT INTO Factura_tmp VALUES(:NEW.sk_factura);
+END;
+
+--TRIGGERS ESTADISTICAS
+
+CREATE OR REPLACE TRIGGER estadistica_trigger
+BEFORE INSERT ON STATICTS
+FOR EACH ROW
+BEGIN
+    SELECT Estadisticas_SEQUENCIA.NEXTVAL
+    INTO:NEW.sk_estadistica
+    FROM dual;
+END;
+
+CREATE OR REPLACE TRIGGER INSERT_STATICTS_TRIGGER
+AFTER INSERT ON Factura
+FOR EACH ROW
+BEGIN
+    INSERT INTO STATICTS(TOtal,unidades)
+    VALUES(:new.total,:new.cantidad);
+END;
+
+--TRIGGER ACTIVIDAD USUARIOS
+
+CREATE OR REPLACE TRIGGER SEQUENCE_TRIGGER_USERS
+BEFORE INSERT ON RegistroUsuarios
+FOR EACH ROW
+BEGIN
+    SELECT SEQUENCE_Usuarios.nextval
+    INTO:new.sk_usuario
+    FROM DUAL;
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_BARRIO_TRIGGER
+AFTER INSERT ON Barrio
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='INSERT';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_BARRIO2_TRIGGER
+AFTER UPDATE ON Barrio
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='UPDATE';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_CLIENTE_TRIGGER
+AFTER INSERT ON Cliente
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='INSERT';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_Cliente2_TRIGGER
+AFTER UPDATE ON Cliente
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='UPDATE';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_CURSO_TRIGGER
+AFTER UPDATE ON Curso
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='UPDATE';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_Curso2_TRIGGER
+AFTER INSERT ON Curso
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='INSERT';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_Curso3_TRIGGER
+AFTER DELETE ON Curso
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='DELETE';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_Factura_TRIGGER
+AFTER UPDATE ON Factura
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='UPDATE';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_Factura2_TRIGGER
+AFTER INSERT ON Factura
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='INSERT';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_LUGAR_TRIGGER
+AFTER UPDATE ON Lugar
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='UPDATE';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_Lugar2_TRIGGER
+AFTER INSERT ON Lugar
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='INSERT';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_LUGAR3_TRIGGER
+AFTER DELETE ON Lugar
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='DELETE';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_MARCA_TRIGGER
+AFTER UPDATE ON Marca
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='UPDATE';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_Marca2_TRIGGER
+AFTER INSERT ON Marca
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='INSERT';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_MARCA3_TRIGGER
+AFTER DELETE ON Marca
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='DELETE';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_PRODUCTO_TRIGGER
+AFTER UPDATE ON Producto
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='UPDATE';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_Producto2_TRIGGER
+AFTER INSERT ON producto
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='INSERT';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_Producto3_TRIGGER
+AFTER DELETE ON producto
+FOR EACH ROW
+declare accion registrousuarios.accion%type:='DELETE';
+BEGIN
+    INSERT_REGISTROUSUARIO(accion);
+END;
+
+
+--PROCEDIMIENTO PARA TRIGGGER
+CREATE OR REPLACE PROCEDURE INSERT_REGISTROUSUARIO(accion in varchar2)
+AS
+ip_pc RegistroUsuarios.ip_pc%type;
+nombre_pc RegistroUsuarios.nombre_pc%type;
+hora registrousuarios.hora%type;
+BEGIN
+    
+    select SYS_CONTEXT('USERENV', 'IP_ADDRESS') INTO ip_pc from dual;
+    select sys_context('userenv','os_user') INTO nombre_pc FROM DUAL;
+    SELECT TO_CHAR (SYSDATE, 'HH24:MI:SS') INTO hora FROM DUAL;
+    INSERT INTO RegistroUsuarios(usuario,ip_pc,nombre_pc,fecha,accion,hora)
+    VALUES(user,ip_pc,nombre_pc,sysdate,accion,hora);
+END;
+
+
+
+--tablas del esquema sin relacion
+
+CREATE TABLE Factura_tmp(sk_codigo  number(3));
+CREATE TABLE RegistroUsuarios(sk_usuario number(2),
+                              usuario varchar2(15),
+                              ip_pc varchar2(25),
+                              nombre_pc varchar2(15)
+                              , fecha varchar2(10),
+                              Accion varchar2(15),
+                              hora varchar2(20));
+                              
+ALTER TABLE RegistroUsuarios ADD CONSTRAINT RegistroUsuarios_pk PRIMARY KEY ( sk_usuario);
+
+
+
+
+CREATE TABLE ESTADISTICAS(sk_estadistica number(3),total number(12,2),unidades number(3));
+ALTER TABLE Estadisticas ADD CONSTRAINT estadistica_pk PRIMARY KEY ( sk_estadistica );
+
+
 
 --PAQUETES--
+select * from productofactura;
+-->Paquete DetalleProducto
+
+CREATE OR REPLACE PACKAGE PAQUETE_Detalles
+IS
+    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in date, factura in number, producto in varchar2, cliente in number);
+    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in date, factura in number, curso in number, cliente in number);
+END;
 
 
+CREATE OR REPLACE PACKAGE BODY PAQUETE_Detalles
+IS
+    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in date, factura in number, producto in varchar2, cliente in number)
+    AS
+    BEGIN
+        INSERT INTO ProductoFactura(precio,fecha,factura_factura_id,producto_id_producto,cliente_id_clientte)
+        VALUES(precio,fechadate,factura,producto,cliente);
+    END GuardarDetalleFactura;
+    
+    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in date, factura in number, curso in number, cliente in number)
+    AS
+    BEGIN
+        INSERT INTO CursoFactura(precio,fecha,factura_factura_id,curso_Sk_curso,cliente_id_Clientte)
+        VALUES(precio,fechadate,factura,curso,cliente);
+    END GuardarDetalleCurso;
+END;
+
+-->Paquete factura
+
+CREATE OR REPLACE PACKAGE PAQUETE_FACTURA
+IS
+    procedure GuardarFacturas(fecha in date, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
+                                            cantidadfac in number);
+    PROCEDURE OBTENERCODIGOFACTURA(factura out SYS_REFCURSOR);
+    
+    PROCEDURE EliminarTablaTemporal;
+END;
+
+CREATE OR REPLACE PACKAGE BODY PAQUETE_FACTURA
+IS
+    PROCEDURE GuardarFacturas(fecha in date, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
+                              cantidadfac in number)
+    AS
+    BEGIN 
+        INSERT INTO FACTURA(fecha,estado,subtotal,iva,total,cantidad)
+        VALUES(fecha,estadofac,subtotalfac,ivafac,totalfac,cantidadfac);
+    END GuardarFacturas;
+    
+    PROCEDURE OBTENERCODIGOFACTURA(factura out SYS_REFCURSOR)
+    AS
+    BEGIN
+        OPEN factura FOR SELECT *  FROM Factura_TMP;
+    END OBTENERCODIGOFACTURA;
+    
+    PROCEDURE EliminarTablaTemporal
+    AS
+    BEGIN
+        DELETE FROM FACTURA_TMP;
+    END EliminarTablaTemporal;
+END;
+
+-->Paquete cliente
+CREATE OR REPLACE PACKAGE PAQUETE_CLIIENTE
+IS
+    PROCEDURE GuardarCLientes(cedula in VARCHAR2,primername in varchar2, segundoname in varchar2, primerape in varchar2,
+                              segundoape in varchar2,  email in varchar2, phone in varchar2,
+                              city in number, barriocliente in number, direction in varchar2);
+    
+    PROCEDURE BuscarCliente(registro out SYS_REFCURSOR, cedula in varchar2);
+    
+    PROCEDURE ConsultarClientes(registro out SYS_REFCURSOR);
+    
+    PROCEDURE ModificarClientes(cedula in VARCHAR2,primername in varchar2, segundoname in varchar2, primerape in varchar2,
+                                segundoape in varchar2,  email in varchar2, phone in varchar2,
+                                city in number, barriocliente in number, direction in varchar2);
+END;
+
+ 
+CREATE OR REPLACE PACKAGE BODY PAQUETE_CLIIENTE
+IS
+        PROCEDURE GuardarCLientes(cedula in VARCHAR2,primername in varchar2, segundoname in varchar2, primerape in varchar2,
+                                              segundoape in varchar2,  email in varchar2, phone in varchar2,
+                                              city in number, barriocliente in number, direction in varchar2)
+        AS
+        BEGIN
+            INSERT INTO clients(id_clientte,primernombre,segundonombre,primerapellido,segundoapellido,correo,telefono,lugar_sk_lugar,
+                                     barrio_sk_barrio,direccion)
+                                     VALUES(cedula,primername,segundoname,primerape,segundoape,email,phone,city,barriocliente,direction);
+        END GuardarCLientes;
+        
+        PROCEDURE BuscarCliente(registro out SYS_REFCURSOR, cedula in varchar2)
+        AS
+        BEGIN
+            OPEN registro FOR SELECT * FROM CLients  c JOIN PLace p
+                              ON(c.lugar_sk_lugar=p.sk_lugar)
+                              JOIN Neigh N
+                              ON(c.barrio_sk_barrio=N.sk_barrio)
+                              WHERE id_clientte=cedula;
+        END BuscarCliente;
+        
+        PROCEDURE ConsultarClientes(registro out SYS_REFCURSOR)
+        AS
+        BEGIN
+            OPEN registro FOR SELECT * 
+            FROM clients c JOIN PLace p
+            ON(c.lugar_sk_lugar=p.sk_lugar)
+            JOIN Neigh N
+            ON(c.barrio_sk_barrio=N.sk_barrio);
+        END ConsultarClientes;
+        
+        PROCEDURE ModificarClientes(cedula in VARCHAR2,primername in varchar2, segundoname in varchar2, primerape in varchar2,
+                                              segundoape in varchar2, email in varchar2, phone in varchar2,
+                                              city in number, barriocliente in number, direction in varchar2)
+                                              
+        AS
+            VCedula  varchar2(12):=cedula;
+            VPrName  varchar2(15):=primername;
+            VSgName varchar2(15):=segundoname;
+            VPrApe varchar2(15):=primerape;
+            VSgApe varchar2(15):=segundoape;
+            VEmail varchar2(30):=email;
+            VPhone varchar2(10):=phone;
+            VCity NUMBER(15):=city;
+            VBarrio number(15):=barriocliente;
+            VDirection varchar(30):=direction;
+        BEGIN
+            UPDATE clients SET PrimerNombre=VPrName,SegundoNombre=VSgName,PrimerApellido=VPrApe, SegundoAPellido=VSgApe,
+                                   Correo=VEmail, Telefono=VPhone, lugar_sk_lugar=VCity, Barrio_sk_barrio=VBarrio, Direccion=VDirection
+                               WHERE id_clientte= VCedula;
+        END ModificarClientes;
+END;
+ 
 -->Paquete barrio
 CREATE OR REPLACE PACKAGE PAQUETE_BARRIO
 IS
@@ -441,3 +797,4 @@ IS
     END EliminarMarca;
 END;
 
+select * from clients;

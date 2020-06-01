@@ -12,62 +12,97 @@ namespace DAL
     public class FacturaRepository
     {
         private IList<Factura> Facturas;
-        private OracleConnection Conexion;
+        private ConectionManager Connection;
         private OracleDataReader Reader;
 
-        public FacturaRepository(OracleConnection conexion)
+        public FacturaRepository(ConectionManager conection)
         {
-            Conexion = conexion;
+            Connection = conection;
             Facturas = new List<Factura>();
         }
 
         public void GuardarFactura(Factura factura)
         {
-            OracleCommand command = new OracleCommand("GuardarFacturas", Conexion);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("fecha", OracleDbType.Date).Value = factura.Fecha.ToShortDateString();
-            command.Parameters.Add("estadofac", OracleDbType.Varchar2).Value = factura.Estado;
-            command.Parameters.Add("subtotalfac", OracleDbType.Double).Value = double.Parse(factura.SubTotal.ToString());
-            command.Parameters.Add("ivafac", OracleDbType.Double).Value = double.Parse(factura.Iva.ToString());
-            command.Parameters.Add("totalfac", OracleDbType.Double).Value = double.Parse(factura.Total.ToString());
-            command.Parameters.Add("cantidadfac", OracleDbType.Int32).Value = double.Parse(factura.Cantidad.ToString());
-            command.ExecuteNonQuery();
+           using(var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_FACTURA.GuardarFacturas";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("fecha", OracleDbType.Date).Value = factura.Fecha.ToShortDateString();
+                command.Parameters.Add("estadofac", OracleDbType.Varchar2).Value = factura.Estado;
+                command.Parameters.Add("subtotalfac", OracleDbType.Double).Value = double.Parse(factura.SubTotal.ToString());
+                command.Parameters.Add("ivafac", OracleDbType.Double).Value = double.Parse(factura.Iva.ToString());
+                command.Parameters.Add("totalfac", OracleDbType.Double).Value = double.Parse(factura.Total.ToString());
+                command.Parameters.Add("cantidadfac", OracleDbType.Int32).Value = double.Parse(factura.Cantidad.ToString());
+                command.ExecuteNonQuery();
+
+            }
         }
 
-        public int ContarFacturas()
+        public int ObtenerCodigo()
         {
-            OracleCommand command = new OracleCommand("ContarFacturas", Conexion);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-            return int.Parse(command.ExecuteScalar().ToString());
-        }
-        public void GuardarDetalles(Factura factura)
-        {
-            foreach (var item in factura.VerListaProductos())
+            int codigo = 0;
+            using(var command = Connection.Connection.CreateCommand())
             {
-                OracleCommand command = new OracleCommand("GuardarDetalleFactura", Conexion);
+                command.CommandText = "PAQUETE_FACTURA.OBTENERCODIGOFACTURA";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(item.Producto.Precio.ToString());
-                command.Parameters.Add("fechadate", OracleDbType.Date).Value = factura.Fecha.ToShortDateString();
-                command.Parameters.Add("factura", OracleDbType.Varchar2).Value= factura.Numero;
-                command.Parameters.Add("producto", OracleDbType.Varchar2).Value = item.Producto.Codigo;
-                command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
+                command.Parameters.Add("Factura", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                Reader = command.ExecuteReader();
+                while (Reader.Read())
+                {
+                    codigo = int.Parse(((object)Reader["sk_codigo"]).ToString());
+                }
+                return codigo;
+            }
+        }
+
+        public void EliminarCodigoTemp()
+        {
+            using(var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_FACTURA.EliminarTablaTemporal";
+                command.CommandType = CommandType.StoredProcedure;
                 command.ExecuteNonQuery();
             }
         }
-
-        public string ObtenerMaxIdFactura()
+        public void GuardarDetalles(Factura factura)
         {
-            string codigo = null;
-            OracleCommand command = new OracleCommand("MaxIDFactura", Conexion);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-            Reader = command.ExecuteReader();
-            while (Reader.Read())
+            using (var command = Connection.Connection.CreateCommand())
             {
-                codigo = ((object)Reader["max(id_factura)"]).ToString();
+                foreach (var item in factura.VerListaProductos())
+                {
+                    command.CommandText = "PAQUETE_Detalles.GuardarDetalleFactura";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(item.Producto.Precio.ToString());
+                    command.Parameters.Add("fechadate", OracleDbType.Date).Value = factura.Fecha.ToShortDateString();
+                    command.Parameters.Add("factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
+                    command.Parameters.Add("producto", OracleDbType.Varchar2).Value = item.Producto.Codigo;
+                    command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
+                    command.ExecuteNonQuery();
+                }
+               
             }
-            return codigo;
         }
+
+        public void GuardarDetalleCursos(Factura factura)
+        {
+            using(var command = Connection.Connection.CreateCommand())
+            {
+                foreach (var item in factura.VerListaCursos())
+                {
+                    command.CommandText = "PAQUETE_Detalles.GuardarDetalleCurso";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(item.Curso.Total.ToString());
+                    command.Parameters.Add("fechadate", OracleDbType.Date).Value = factura.Fecha.ToShortDateString();
+                    command.Parameters.Add("factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
+                    command.Parameters.Add("curso", OracleDbType.Int32).Value = int.Parse(item.Curso.Codigo);
+                    command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        
+
+        
     }
 }

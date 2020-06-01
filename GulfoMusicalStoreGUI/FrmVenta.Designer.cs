@@ -34,6 +34,7 @@
             this.CCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUNIDADES2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LabelTotal = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.LabelCodigoProducto = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.CUNIDADES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Labelinstrumento = new System.Windows.Forms.Label();
-            this.BtnEliminar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.CBCurso = new System.Windows.Forms.ComboBox();
             this.LabelFechaFactura = new System.Windows.Forms.Label();
@@ -57,7 +57,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.PanelFondo = new System.Windows.Forms.Panel();
             this.LabelCurso = new System.Windows.Forms.Label();
-            this.CUNIDADES2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GBFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).BeginInit();
@@ -107,6 +106,11 @@
             // 
             this.CValor.HeaderText = "Valor";
             this.CValor.Name = "CValor";
+            // 
+            // CUNIDADES2
+            // 
+            this.CUNIDADES2.HeaderText = "UNIDADES";
+            this.CUNIDADES2.Name = "CUNIDADES2";
             // 
             // LabelTotal
             // 
@@ -212,29 +216,6 @@
             this.Labelinstrumento.TabIndex = 91;
             this.Labelinstrumento.Text = "Elija el Instrumento para el curso";
             this.Labelinstrumento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnEliminar
-            // 
-            this.BtnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BtnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
-            this.BtnEliminar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BtnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.BtnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("BtnEliminar.Image")));
-            this.BtnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnEliminar.Location = new System.Drawing.Point(81, 491);
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(115, 97);
-            this.BtnEliminar.TabIndex = 89;
-            this.BtnEliminar.Text = "Eliminar";
-            this.BtnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnEliminar.UseVisualStyleBackColor = false;
-            
             // 
             // label3
             // 
@@ -374,7 +355,6 @@
             this.PanelFondo.BackColor = System.Drawing.Color.DodgerBlue;
             this.PanelFondo.Controls.Add(this.LabelCurso);
             this.PanelFondo.Controls.Add(this.Labelinstrumento);
-            this.PanelFondo.Controls.Add(this.BtnEliminar);
             this.PanelFondo.Controls.Add(this.label3);
             this.PanelFondo.Controls.Add(this.CBCurso);
             this.PanelFondo.Controls.Add(this.LabelFechaFactura);
@@ -402,11 +382,6 @@
             this.LabelCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LabelCurso.Click += new System.EventHandler(this.LabelCurso_Click_1);
             // 
-            // CUNIDADES2
-            // 
-            this.CUNIDADES2.HeaderText = "UNIDADES";
-            this.CUNIDADES2.Name = "CUNIDADES2";
-            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,7 +406,6 @@
         public System.Windows.Forms.Button BtnRegistrarCliente;
         public System.Windows.Forms.GroupBox GBFactura;
         public System.Windows.Forms.Label Labelinstrumento;
-        public System.Windows.Forms.Button BtnEliminar;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.ComboBox CBCurso;
         public System.Windows.Forms.Label LabelFechaFactura;

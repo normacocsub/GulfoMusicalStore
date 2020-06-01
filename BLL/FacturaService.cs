@@ -12,29 +12,31 @@ namespace BLL
     public class FacturaService
     {
         private IList<Factura> Facturas;
-        private OracleConnection Conexion;
+        private ConectionManager Conection;
         private FacturaRepository FacturaRepositorio;
 
-        public FacturaService()
+        public FacturaService(string conection)
         {
-            Conexion = new OracleConnection(@"Data Source=localhost:1521/xe;User Id=Gulfo;Password=Shoops0119");
-            FacturaRepositorio = new FacturaRepository(Conexion);
+            Conection = new ConectionManager(conection);
+            FacturaRepositorio = new FacturaRepository(Conection);
         }
 
         public string GuardarFactura(Factura factura)
         {
             try
             {
-                Conexion.Open();
+                Conection.Open();
                 FacturaRepositorio.GuardarFactura(factura);
-                factura.Numero = FacturaRepositorio.ObtenerMaxIdFactura();
+                factura.Numero = FacturaRepositorio.ObtenerCodigo().ToString();
+                FacturaRepositorio.EliminarCodigoTemp();
                 FacturaRepositorio.GuardarDetalles(factura);
-                Conexion.Close();
+                FacturaRepositorio.GuardarDetalleCursos(factura);
+                Conection.Close();
                 return $"Se ha guardado la factura. ";
             }
             catch(OracleException ex)
             {
-                Conexion.Close();
+                Conection.Close();
                 return $"Error en la base de datos. {ex.Message.ToString()}";
             }
         }

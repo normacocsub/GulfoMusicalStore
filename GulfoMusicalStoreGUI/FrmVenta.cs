@@ -147,7 +147,7 @@ namespace GulfoMusicalStoreGUI
         
         private void BtnFacturar_Click(object sender, EventArgs e)
         {
-            facturaservice = new FacturaService();
+            facturaservice = new FacturaService(ConfigConnection.ConnectionString);
             if(Factura.VerListaCursos().Count==0 && Factura.VerListaProductos().Count == 0)
             {
                 MessageBox.Show("Por favor Compre algo antes de facturar. ");
@@ -161,11 +161,21 @@ namespace GulfoMusicalStoreGUI
                 else
                 {
                     Factura.Estado = "Activo";
-                    Factura.CalcularCantidad();
+                    Factura.CalcularFactura();
                     Factura.Fecha = DateTime.Now;
                     MessageBox.Show(facturaservice.GuardarFactura(Factura));
+                    Factura = new Factura();
+                    LabelTotal.Text = "0";
+                    CBCurso.SelectedIndex = 2;
+                    MapearTabla(DtgFactura);
+                    MapearTablaCurso(DtgCursos);
                 }
             }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

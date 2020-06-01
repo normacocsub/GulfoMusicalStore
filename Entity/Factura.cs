@@ -62,7 +62,7 @@ namespace Entity
 
         public int CalcularCantidad()
         {
-            return Cantidad = DetallesFactura.Count;
+            return Cantidad = DetallesFactura.Sum(P=>P.Unidades) + DetallesCursoFactura.Sum(C=>C.Unidades);
         }
 
         public void CalcularFactura()
