@@ -11,5 +11,12 @@ namespace Entity
         public int Codigo { get; set; }
         public string Nombre { get; set; }
         public Lugar Lugar { get; set; }
+
+        public Barrio()
+        {
+
+        }
     }
+
+    
 }
