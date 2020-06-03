@@ -799,4 +799,3 @@ IS
     END EliminarMarca;
 END;
 
-select * from clients;
