@@ -75,6 +75,7 @@ namespace DAL
                     command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(item.Producto.Precio.ToString());
                     command.Parameters.Add("fechadate", OracleDbType.Date).Value = factura.Fecha.ToShortDateString();
                     command.Parameters.Add("factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
+                    command.Parameters.Add("cantidad", OracleDbType.Int32).Value = item.Unidades;
                     command.Parameters.Add("producto", OracleDbType.Varchar2).Value = item.Producto.Codigo;
                     command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
                     command.ExecuteNonQuery();
@@ -94,6 +95,7 @@ namespace DAL
                     command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(item.Curso.Total.ToString());
                     command.Parameters.Add("fechadate", OracleDbType.Date).Value = factura.Fecha.ToShortDateString();
                     command.Parameters.Add("factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
+                    command.Parameters.Add("cantidad", OracleDbType.Int32).Value = item.Unidades;
                     command.Parameters.Add("curso", OracleDbType.Int32).Value = int.Parse(item.Curso.Codigo);
                     command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
                     command.ExecuteNonQuery();

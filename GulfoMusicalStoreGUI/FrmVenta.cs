@@ -166,7 +166,7 @@ namespace GulfoMusicalStoreGUI
                     MessageBox.Show(facturaservice.GuardarFactura(Factura));
                     Factura = new Factura();
                     LabelTotal.Text = "0";
-                    CBCurso.SelectedIndex = 2;
+                    CBCurso.SelectedIndex = 1;
                     MapearTabla(DtgFactura);
                     MapearTablaCurso(DtgCursos);
                 }

@@ -15,6 +15,7 @@ CREATE TABLE client_factura (
 ALTER TABLE client_factura ADD CONSTRAINT client_factura_pk PRIMARY KEY ( cliente_id_clientte,
                                                                           factura_factura_id );
 
+
 CREATE TABLE cliente (
     id_clientte       VARCHAR2(12) NOT NULL,
     primernombre      VARCHAR2(20) NOT NULL,
@@ -51,6 +52,7 @@ CREATE TABLE curso_factura (
 
 ALTER TABLE curso_factura ADD CONSTRAINT curso_factura_pk PRIMARY KEY ( factura_factura_id,
                                                                         curso_sk_curso );
+ALTER TABLE curso_factura ADD Cantidad number(2);
 
 CREATE TABLE factura (
     sk_factura   NUMBER(3),
@@ -92,7 +94,7 @@ CREATE TABLE product_factura (
 
 ALTER TABLE product_factura ADD CONSTRAINT product_factura_pk PRIMARY KEY ( factura_factura_id,
                                                                             producto_id_producto );
-
+ALTER TABLE product_factura ADD Cantidad number(2);
 
 CREATE TABLE producto (
     id_producto      VARCHAR2(5) NOT NULL,
@@ -233,21 +235,17 @@ END;
 --TRIGGERS ESTADISTICAS
 
 CREATE OR REPLACE TRIGGER estadistica_trigger
-BEFORE INSERT ON STATICTS
+BEFORE INSERT ON Factura
 FOR EACH ROW
+DECLARE
+    fecha estadisticas.fecha%type;
 BEGIN
-    SELECT Estadisticas_SEQUENCIA.NEXTVAL
-    INTO:NEW.sk_estadistica
-    FROM dual;
+    SELECT TO_CHAR (SYSDATE, 'DD-MM-YYYY HH24:MI:SS') INTO fecha FROM DUAL;
+    INSERT INTO STATICTS(sk_estadistica,TOtal,unidades,fecha)
+    VALUES(Estadisticas_SEQUENCIA.NEXTVAL,:new.total,:new.cantidad,fecha);
 END;
 
-CREATE OR REPLACE TRIGGER INSERT_STATICTS_TRIGGER
-AFTER INSERT ON Factura
-FOR EACH ROW
-BEGIN
-    INSERT INTO STATICTS(TOtal,unidades)
-    VALUES(:new.total,:new.cantidad);
-END;
+
 
 --TRIGGER ACTIVIDAD USUARIOS
 
@@ -440,6 +438,8 @@ ALTER TABLE RegistroUsuarios ADD CONSTRAINT RegistroUsuarios_pk PRIMARY KEY ( sk
 
 CREATE TABLE ESTADISTICAS(sk_estadistica number(3),total number(12,2),unidades number(3));
 ALTER TABLE Estadisticas ADD CONSTRAINT estadistica_pk PRIMARY KEY ( sk_estadistica );
+ALTER TABLE Estadisticas ADD fecha  varchar2(25);
+
 
 
 
@@ -449,25 +449,25 @@ select * from productofactura;
 
 CREATE OR REPLACE PACKAGE PAQUETE_Detalles
 IS
-    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in date, factura in number, producto in varchar2, cliente in number);
-    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in date, factura in number, curso in number, cliente in number);
+    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in date, factura in number,cantidad in number, producto in varchar2, cliente in number);
+    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in date, factura in number,cantidad in number, curso in number, cliente in number);
 END;
 
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_Detalles
 IS
-    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in date, factura in number, producto in varchar2, cliente in number)
+    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in date, factura in number,cantidad in number, producto in varchar2, cliente in number)
     AS
     BEGIN
-        INSERT INTO ProductoFactura(precio,fecha,factura_factura_id,producto_id_producto,cliente_id_clientte)
-        VALUES(precio,fechadate,factura,producto,cliente);
+        INSERT INTO ProductoFactura(precio,fecha,factura_factura_id,cantidad,producto_id_producto,cliente_id_clientte)
+        VALUES(precio,fechadate,factura,cantidad,producto,cliente);
     END GuardarDetalleFactura;
     
-    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in date, factura in number, curso in number, cliente in number)
+    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in date, factura in number,cantidad in number, curso in number, cliente in number)
     AS
     BEGIN
-        INSERT INTO CursoFactura(precio,fecha,factura_factura_id,curso_Sk_curso,cliente_id_Clientte)
-        VALUES(precio,fechadate,factura,curso,cliente);
+        INSERT INTO CursoFactura(precio,fecha,factura_factura_id,cantidad,curso_Sk_curso,cliente_id_Clientte)
+        VALUES(precio,fechadate,factura,cantidad,curso,cliente);
     END GuardarDetalleCurso;
 END;
 

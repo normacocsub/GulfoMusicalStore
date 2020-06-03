@@ -284,5 +284,15 @@ namespace GulfoMusicalStoreGUI
                 }
             }
         }
+
+        private void TxtDireccion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CmbBarrio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Txtdirection();
+        }
     }
 }

@@ -517,6 +517,7 @@
             this.TxtDireccion.Size = new System.Drawing.Size(576, 26);
             this.TxtDireccion.TabIndex = 118;
             this.TxtDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtDireccion.TextChanged += new System.EventHandler(this.TxtDireccion_TextChanged);
             // 
             // label2
             // 
@@ -647,6 +648,7 @@
             this.CmbBarrio.Name = "CmbBarrio";
             this.CmbBarrio.Size = new System.Drawing.Size(121, 27);
             this.CmbBarrio.TabIndex = 137;
+            this.CmbBarrio.SelectedIndexChanged += new System.EventHandler(this.CmbBarrio_SelectedIndexChanged);
             // 
             // FrmClienteDatos
             // 

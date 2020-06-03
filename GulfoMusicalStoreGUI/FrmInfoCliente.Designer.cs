@@ -668,6 +668,7 @@
             this.CmbBarrio.Name = "CmbBarrio";
             this.CmbBarrio.Size = new System.Drawing.Size(121, 27);
             this.CmbBarrio.TabIndex = 160;
+            this.CmbBarrio.SelectedIndexChanged += new System.EventHandler(this.CmbBarrio_SelectedIndexChanged);
             // 
             // FrmInfoCliente
             // 
