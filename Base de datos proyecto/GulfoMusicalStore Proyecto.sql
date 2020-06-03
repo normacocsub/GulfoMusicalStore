@@ -444,7 +444,9 @@ ALTER TABLE Estadisticas ADD fecha  varchar2(25);
 
 
 --PAQUETES--
-select * from productofactura;
+
+
+
 -->Paquete DetalleProducto
 
 CREATE OR REPLACE PACKAGE PAQUETE_Detalles
