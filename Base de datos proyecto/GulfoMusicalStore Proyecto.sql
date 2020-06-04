@@ -6,14 +6,6 @@ CREATE TABLE barrio (
 
 ALTER TABLE barrio ADD CONSTRAINT barrio_pk PRIMARY KEY ( sk_barrio );
 
-CREATE TABLE client_factura (
-    cliente_id_clientte   VARCHAR2(12) NOT NULL,
-    factura_factura_id    NUMBER NOT NULL,
-    fecha                 DATE
-);
-
-ALTER TABLE client_factura ADD CONSTRAINT client_factura_pk PRIMARY KEY ( cliente_id_clientte,
-                                                                          factura_factura_id );
 
 
 CREATE TABLE cliente (
@@ -51,7 +43,7 @@ CREATE TABLE curso_factura (
 );
 
 ALTER TABLE curso_factura ADD CONSTRAINT curso_factura_pk PRIMARY KEY ( factura_factura_id,
-                                                                        curso_sk_curso );
+                                                                        cliente_id_clientte );
 ALTER TABLE curso_factura ADD Cantidad number(2);
 
 CREATE TABLE factura (
@@ -69,6 +61,7 @@ ALTER TABLE factura ADD CONSTRAINT factura_pk PRIMARY KEY ( factura_id );
 ALTER TABLE factura modify subTotal number(12,2);
 ALTER TABLE factura modify iva number(12,2);
 ALTER TABLE factura modify total number(12,2);
+ALTER TABLE factura add cliente_id_clientte varchar2(12);
 
 CREATE TABLE lugar (
     sk_lugar   NUMBER(3) NOT NULL,
@@ -109,17 +102,14 @@ ALTER TABLE barrio
     ADD CONSTRAINT barrio_lugar_fk FOREIGN KEY ( lugar_sk_lugar )
         REFERENCES lugar ( sk_lugar );
 
-ALTER TABLE client_factura
-    ADD CONSTRAINT client_factura_cliente_fk FOREIGN KEY ( cliente_id_clientte )
-        REFERENCES cliente ( id_clientte );
-
-ALTER TABLE client_factura
-    ADD CONSTRAINT client_factura_factura_fk FOREIGN KEY ( factura_factura_id )
-        REFERENCES factura ( factura_id );
 
 ALTER TABLE cliente
     ADD CONSTRAINT cliente_lugar_fk FOREIGN KEY ( lugar_sk_lugar )
         REFERENCES lugar ( sk_lugar );
+        
+ALTER TABLE factura
+    ADD CONSTRAINT factura_cliente_fk FOREIGN KEY ( cliente_id_clientte )
+        REFERENCES cliente ( id_clientte );
 
 ALTER TABLE cliente
     ADD CONSTRAINT cliente_barrio_fk FOREIGN KEY ( barrio_sk_barrio )
@@ -129,6 +119,8 @@ ALTER TABLE curso_factura
     ADD CONSTRAINT curso_factura_cliente_fk FOREIGN KEY ( cliente_id_clientte )
         REFERENCES cliente ( id_clientte );
 
+ALTER TABLE curso_factura ADD curso_sk_curso number(3);
+select * from curso_factura;
 ALTER TABLE curso_factura
     ADD CONSTRAINT curso_factura_curso_fk FOREIGN KEY ( curso_sk_curso )
         REFERENCES curso ( sk_curso );
@@ -155,15 +147,13 @@ ALTER TABLE producto
 
 --SECUENCIAS
 
-CREATE SEQUENCE SEQUENCE_MARCA INCREMENT BY 1 START WITH 1 MAXVALUE 100 MINVALUE 1;
-CREATE SEQUENCE Cursos_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 100 MINVALUE 1 CACHE 20 ORDER;
-CREATE SEQUENCE LUGAR_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 100 MINVALUE 1 CACHE 20 ORDER;
-CREATE SEQUENCE BARRIO_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 100 MINVALUE 1 CACHE 20 ORDER;
+CREATE SEQUENCE SEQUENCE_MARCA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1;
+CREATE SEQUENCE Cursos_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
+CREATE SEQUENCE LUGAR_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
+CREATE SEQUENCE BARRIO_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 99999 MINVALUE 1 CACHE 20 ORDER;
 CREATE SEQUENCE FACTURA_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
-CREATE SEQUENCE Detalleproducto_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
-CREATE SEQUENCE DetalleCurso_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
 CREATE SEQUENCE Estadisticas_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
-CREATE SEQUENCE SEQUENCE_Usuarios INCREMENT BY 1 START WITH 1 MAXVALUE 100 MINVALUE 1;
+CREATE SEQUENCE SEQUENCE_Usuarios INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1;
 --Sinonimos
 
 CREATE PUBLIC SYNONYM Products FOR Producto;
@@ -258,153 +248,136 @@ BEGIN
     FROM DUAL;
 END;
 
-CREATE OR REPLACE TRIGGER REGISTRO_BARRIO_TRIGGER
-AFTER INSERT ON Barrio
+CREATE OR REPLACE TRIGGER REGISTRO_BARRIOS_TRIGGER
+AFTER INSERT OR UPDATE OR DELETE ON Barrio
 FOR EACH ROW
-declare accion registrousuarios.accion%type:='INSERT';
+declare accion registrousuarios.accion%type;
+        tabla registrousuarios.tabla%type:='Barrio';
 BEGIN
-    INSERT_REGISTROUSUARIO(accion);
+    if INSERTING THEN
+        accion:='INSERT';
+    end if;
+    if UPDATING THEN
+        accion:='UPDATE';
+    end if;
+    if DELETING THEN
+        accion:='DELETE';
+    end if;
+    INSERT_REGISTROUSUARIO(accion,tabla);
 END;
 
-CREATE OR REPLACE TRIGGER REGISTRO_BARRIO2_TRIGGER
-AFTER UPDATE ON Barrio
+CREATE OR REPLACE TRIGGER REGISTRO_CLIENTES_TRIGGER
+AFTER INSERT OR UPDATE OR DELETE ON Cliente
+FOR EACH ROW
+declare accion registrousuarios.accion%type;
+        tabla registrousuarios.tabla%type:='Cliente';
+BEGIN
+    IF INSERTING THEN
+        accion:='INSERT';
+    END IF;
+    IF UPDATING THEN
+        accion:='UPDATE';
+    END IF;
+    IF DELETING THEN
+        accion:='DELETE';
+    END IF; 
+    INSERT_REGISTROUSUARIO(accion,tabla);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_CURSOS_TRIGGER
+AFTER UPDATE OR INSERT OR DELETE ON Curso
+FOR EACH ROW
+declare accion registrousuarios.accion%type;
+        tabla registrousuarios.tabla%type:='Curso';
+BEGIN
+    IF INSERTING THEN
+        accion:='INSERT';
+    END IF;
+    IF UPDATING THEN
+        accion:='UPDATE';
+    END IF;
+    IF DELETING THEN
+        accion:='DELETE';
+    END IF;
+    INSERT_REGISTROUSUARIO(accion,tabla);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_FACTURAS_TRIGGER
+AFTER UPDATE OR INSERT OR DELETE ON Factura
+FOR EACH ROW
+declare accion registrousuarios.accion%type;
+        tabla registrousuarios.tabla%type:='Factura';
+BEGIN
+    IF INSERTING THEN
+        accion:='INSERT';
+    END IF;
+    IF UPDATING THEN
+        accion:='UPDATE';
+    END IF;
+    IF DELETING THEN
+        accion:='DELETE';
+    END IF;
+    INSERT_REGISTROUSUARIO(accion,tabla);
+END;
+
+CREATE OR REPLACE TRIGGER REGISTRO_LUGARES_TRIGGER
+AFTER UPDATE OR INSERT OR DELETE ON Lugar
 FOR EACH ROW
 declare accion registrousuarios.accion%type:='UPDATE';
+        tabla registrousuarios.tabla%type:='Lugar';
 BEGIN
-    INSERT_REGISTROUSUARIO(accion);
+    IF INSERTING THEN
+        accion:='INSERT';
+    END IF;
+    IF UPDATING THEN
+        accion:='UPDATE';
+    END IF;
+    IF DELETING THEN
+        accion:='DELETE';
+    END IF;
+    INSERT_REGISTROUSUARIO(accion,tabla);
 END;
 
-CREATE OR REPLACE TRIGGER REGISTRO_CLIENTE_TRIGGER
-AFTER INSERT ON Cliente
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='INSERT';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_Cliente2_TRIGGER
-AFTER UPDATE ON Cliente
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='UPDATE';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_CURSO_TRIGGER
-AFTER UPDATE ON Curso
+CREATE OR REPLACE TRIGGER REGISTRO_MARCAS_TRIGGER
+AFTER UPDATE OR INSERT OR DELETE ON Marca
 FOR EACH ROW
 declare accion registrousuarios.accion%type:='UPDATE';
+        tabla registrousuarios.tabla%type:='Marca';
 BEGIN
-    INSERT_REGISTROUSUARIO(accion);
+    IF INSERTING THEN
+        accion:='INSERT';
+    END IF;
+    IF UPDATING THEN
+        accion:='UPDATE';
+    END IF;
+    IF DELETING THEN
+        accion:='DELETE';
+    END IF;
+    INSERT_REGISTROUSUARIO(accion,tabla);
 END;
 
-CREATE OR REPLACE TRIGGER REGISTRO_Curso2_TRIGGER
-AFTER INSERT ON Curso
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='INSERT';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
 
-CREATE OR REPLACE TRIGGER REGISTRO_Curso3_TRIGGER
-AFTER DELETE ON Curso
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='DELETE';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_Factura_TRIGGER
-AFTER UPDATE ON Factura
+CREATE OR REPLACE TRIGGER REGISTRO_PRODUCTOS_TRIGGER
+AFTER UPDATE OR INSERT OR DELETE ON Producto
 FOR EACH ROW
 declare accion registrousuarios.accion%type:='UPDATE';
+        tabla registrousuarios.tabla%type:='Producto';
 BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_Factura2_TRIGGER
-AFTER INSERT ON Factura
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='INSERT';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_LUGAR_TRIGGER
-AFTER UPDATE ON Lugar
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='UPDATE';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_Lugar2_TRIGGER
-AFTER INSERT ON Lugar
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='INSERT';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_LUGAR3_TRIGGER
-AFTER DELETE ON Lugar
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='DELETE';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_MARCA_TRIGGER
-AFTER UPDATE ON Marca
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='UPDATE';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_Marca2_TRIGGER
-AFTER INSERT ON Marca
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='INSERT';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_MARCA3_TRIGGER
-AFTER DELETE ON Marca
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='DELETE';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_PRODUCTO_TRIGGER
-AFTER UPDATE ON Producto
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='UPDATE';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_Producto2_TRIGGER
-AFTER INSERT ON producto
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='INSERT';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
-END;
-
-CREATE OR REPLACE TRIGGER REGISTRO_Producto3_TRIGGER
-AFTER DELETE ON producto
-FOR EACH ROW
-declare accion registrousuarios.accion%type:='DELETE';
-BEGIN
-    INSERT_REGISTROUSUARIO(accion);
+    IF INSERTING THEN
+        accion:='INSERT';
+    END IF;
+    IF UPDATING THEN
+        accion:='UPDATE';
+    END IF;
+    IF DELETING THEN
+        accion:='DELETE';
+    END IF;
+    INSERT_REGISTROUSUARIO(accion,tabla);
 END;
 
 
 --PROCEDIMIENTO PARA TRIGGGER
-CREATE OR REPLACE PROCEDURE INSERT_REGISTROUSUARIO(accion in varchar2)
+CREATE OR REPLACE PROCEDURE INSERT_REGISTROUSUARIO(x_accion in varchar2,x_tabla in varchar2)
 AS
 ip_pc RegistroUsuarios.ip_pc%type;
 nombre_pc RegistroUsuarios.nombre_pc%type;
@@ -414,8 +387,8 @@ BEGIN
     select SYS_CONTEXT('USERENV', 'IP_ADDRESS') INTO ip_pc from dual;
     select sys_context('userenv','os_user') INTO nombre_pc FROM DUAL;
     SELECT TO_CHAR (SYSDATE, 'HH24:MI:SS') INTO hora FROM DUAL;
-    INSERT INTO RegistroUsuarios(usuario,ip_pc,nombre_pc,fecha,accion,hora)
-    VALUES(user,ip_pc,nombre_pc,sysdate,accion,hora);
+    INSERT INTO RegistroUsuarios(usuario,ip_pc,nombre_pc,fecha,accion,hora,tabla)
+    VALUES(user,ip_pc,nombre_pc,sysdate,x_accion,hora,x_tabla);
 END;
 
 
@@ -432,7 +405,7 @@ CREATE TABLE RegistroUsuarios(sk_usuario number(2),
                               hora varchar2(20));
                               
 ALTER TABLE RegistroUsuarios ADD CONSTRAINT RegistroUsuarios_pk PRIMARY KEY ( sk_usuario);
-
+ALTER TABLE RegistroUsuarios ADD Tabla varchar(20);
 
 
 
@@ -453,7 +426,7 @@ CREATE OR REPLACE PACKAGE PAQUETE_Detalles
 IS
     PROCEDURE GuardarDetalleFactura(precio in number, fechadate in date, factura in number,cantidad in number, producto in varchar2, cliente in number);
     PROCEDURE GuardarDetalleCurso(precio in number, fechadate in date, factura in number,cantidad in number, curso in number, cliente in number);
-END;
+END PAQUETE_Detalles;
 
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_Detalles
@@ -471,27 +444,29 @@ IS
         INSERT INTO CursoFactura(precio,fecha,factura_factura_id,cantidad,curso_Sk_curso,cliente_id_Clientte)
         VALUES(precio,fechadate,factura,cantidad,curso,cliente);
     END GuardarDetalleCurso;
-END;
+END PAQUETE_Detalles;
 
 -->Paquete factura
 
 CREATE OR REPLACE PACKAGE PAQUETE_FACTURA
 IS
     procedure GuardarFacturas(fecha in date, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
-                                            cantidadfac in number);
+                                            cantidadfac in number,x_id_cliente in varchar2);
     PROCEDURE OBTENERCODIGOFACTURA(factura out SYS_REFCURSOR);
     
     PROCEDURE EliminarTablaTemporal;
-END;
+    
+    PROCEDURE ConsultarFacturas(facturas OUT SYS_REFCURSOR);
+END PAQUETE_FACTURA;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_FACTURA
 IS
     PROCEDURE GuardarFacturas(fecha in date, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
-                              cantidadfac in number)
+                              cantidadfac in number,x_id_cliente in varchar2)
     AS
     BEGIN 
-        INSERT INTO FACTURA(fecha,estado,subtotal,iva,total,cantidad)
-        VALUES(fecha,estadofac,subtotalfac,ivafac,totalfac,cantidadfac);
+        INSERT INTO FACTURA(fecha,estado,subtotal,iva,total,cantidad,cliente_id_clientte)
+        VALUES(fecha,estadofac,subtotalfac,ivafac,totalfac,cantidadfac,x_id_cliente);
     END GuardarFacturas;
     
     PROCEDURE OBTENERCODIGOFACTURA(factura out SYS_REFCURSOR)
@@ -505,7 +480,19 @@ IS
     BEGIN
         DELETE FROM FACTURA_TMP;
     END EliminarTablaTemporal;
-END;
+    
+    
+    PROCEDURE ConsultarFacturas(facturas OUT SYS_REFCURSOR)
+    AS
+    BEGIN
+        OPEN facturas FOR SELECT * FROM Factura F
+                          JOIN CLIENTE c
+                          ON(c.id_clientte=f.CLIENTE_id_clientte) 
+                          ORDER BY f.sk_factura;
+    END ConsultarFacturas;
+    
+END PAQUETE_FACTURA;
+
 
 -->Paquete cliente
 CREATE OR REPLACE PACKAGE PAQUETE_CLIIENTE

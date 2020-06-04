@@ -33,6 +33,7 @@ namespace DAL
                 command.Parameters.Add("ivafac", OracleDbType.Double).Value = double.Parse(factura.Iva.ToString());
                 command.Parameters.Add("totalfac", OracleDbType.Double).Value = double.Parse(factura.Total.ToString());
                 command.Parameters.Add("cantidadfac", OracleDbType.Int32).Value = double.Parse(factura.Cantidad.ToString());
+                command.Parameters.Add("x_id_cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
                 command.ExecuteNonQuery();
 
             }
@@ -101,6 +102,45 @@ namespace DAL
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+
+        public IList<Factura> ConsultarFacturas()
+        {
+            Facturas.Clear();
+            using(var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_FACTURA.ConsultarFacturas";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("facturas", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Factura factura;
+                    factura = MapFactura(Reader);
+                    Facturas.Add(factura);
+                }
+            }
+            return Facturas;
+        }
+
+        private Factura MapFactura(OracleDataReader reader)
+        {
+            Factura factura = new Factura();
+            factura.Numero = ((object)reader["sk_factura"]).ToString();
+            factura.Fecha = DateTime.Parse(((object)reader["fecha"]).ToString());
+            factura.Estado = (string)reader["estado"];
+            factura.SubTotal = decimal.Parse(((object)reader["subtotal"]).ToString());
+            factura.Iva = decimal.Parse(((object)reader["iva"]).ToString());
+            factura.Total = decimal.Parse(((object)reader["total"]).ToString());
+            factura.Cantidad = int.Parse(((object)reader["cantidad"]).ToString());
+            Cliente cliente = new Cliente();
+            cliente.Cedula = (string)reader["id_clientte"];
+            cliente.PrimerNombre = (string)reader["primernombre"];
+            cliente.Telefono = (string)reader["telefono"];
+            factura.AgregarCliente(cliente);
+            return factura;
         }
 
         

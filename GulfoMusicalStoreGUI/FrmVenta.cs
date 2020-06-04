@@ -177,5 +177,10 @@ namespace GulfoMusicalStoreGUI
         {
 
         }
+
+        private void DtgFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

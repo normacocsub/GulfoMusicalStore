@@ -40,5 +40,21 @@ namespace BLL
                 return $"Error en la base de datos. {ex.Message.ToString()}";
             }
         }
+
+        public IList<Factura> ConsultarFacturas()
+        {
+            try
+            {
+                Conection.Open();
+                Facturas = FacturaRepositorio.ConsultarFacturas();
+                Conection.Close();
+                return Facturas;
+            }
+            catch(OracleException e)
+            {
+                Conection.Close();
+                return null;
+            }
+        }
     }
 }
