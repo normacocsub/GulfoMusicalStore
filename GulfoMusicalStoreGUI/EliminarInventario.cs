@@ -66,5 +66,10 @@ namespace GulfoMusicalStoreGUI
             }
             TxtCodigo.Text = producto.Codigo;
         }
+
+        private void EliminarInventario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

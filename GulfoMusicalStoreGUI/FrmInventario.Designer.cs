@@ -45,15 +45,12 @@
             this.PanelLateral = new System.Windows.Forms.Panel();
             this.BtnRegistrarMarca = new System.Windows.Forms.Button();
             this.BtnRegistrarProducto = new System.Windows.Forms.Button();
-            this.PB1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LabelVenta = new System.Windows.Forms.Label();
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.PanelFondo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMarcas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).BeginInit();
             this.PanelLateral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB1)).BeginInit();
             this.Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,9 +67,9 @@
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.BtnEliminar.Location = new System.Drawing.Point(40, 475);
+            this.BtnEliminar.Location = new System.Drawing.Point(4, 440);
             this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(138, 78);
+            this.BtnEliminar.Size = new System.Drawing.Size(256, 78);
             this.BtnEliminar.TabIndex = 7;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -92,9 +89,9 @@
             this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModificar.ForeColor = System.Drawing.Color.Black;
-            this.BtnModificar.Location = new System.Drawing.Point(40, 379);
+            this.BtnModificar.Location = new System.Drawing.Point(5, 309);
             this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(138, 78);
+            this.BtnModificar.Size = new System.Drawing.Size(256, 78);
             this.BtnModificar.TabIndex = 6;
             this.BtnModificar.Text = "Modificar";
             this.BtnModificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -112,7 +109,7 @@
             this.PanelFondo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelFondo.Location = new System.Drawing.Point(0, 45);
             this.PanelFondo.Name = "PanelFondo";
-            this.PanelFondo.Size = new System.Drawing.Size(957, 558);
+            this.PanelFondo.Size = new System.Drawing.Size(800, 555);
             this.PanelFondo.TabIndex = 11;
             // 
             // BtnEliminarMarca
@@ -128,9 +125,9 @@
             this.BtnEliminarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEliminarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminarMarca.ForeColor = System.Drawing.Color.Black;
-            this.BtnEliminarMarca.Location = new System.Drawing.Point(645, 413);
+            this.BtnEliminarMarca.Location = new System.Drawing.Point(585, 430);
             this.BtnEliminarMarca.Name = "BtnEliminarMarca";
-            this.BtnEliminarMarca.Size = new System.Drawing.Size(138, 78);
+            this.BtnEliminarMarca.Size = new System.Drawing.Size(148, 78);
             this.BtnEliminarMarca.TabIndex = 40;
             this.BtnEliminarMarca.Text = "Eliminar Marca";
             this.BtnEliminarMarca.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -150,7 +147,7 @@
             this.BtnModificarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnModificarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModificarMarca.ForeColor = System.Drawing.Color.Black;
-            this.BtnModificarMarca.Location = new System.Drawing.Point(645, 281);
+            this.BtnModificarMarca.Location = new System.Drawing.Point(585, 322);
             this.BtnModificarMarca.Name = "BtnModificarMarca";
             this.BtnModificarMarca.Size = new System.Drawing.Size(148, 85);
             this.BtnModificarMarca.TabIndex = 40;
@@ -168,7 +165,7 @@
             this.CNOMBRE});
             this.DtgMarcas.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgMarcas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.DtgMarcas.Location = new System.Drawing.Point(293, 265);
+            this.DtgMarcas.Location = new System.Drawing.Point(293, 323);
             this.DtgMarcas.MultiSelect = false;
             this.DtgMarcas.Name = "DtgMarcas";
             this.DtgMarcas.ReadOnly = true;
@@ -237,9 +234,7 @@
             this.PanelLateral.Controls.Add(this.BtnRegistrarMarca);
             this.PanelLateral.Controls.Add(this.BtnRegistrarProducto);
             this.PanelLateral.Controls.Add(this.BtnEliminar);
-            this.PanelLateral.Controls.Add(this.PB1);
             this.PanelLateral.Controls.Add(this.BtnModificar);
-            this.PanelLateral.Controls.Add(this.label2);
             this.PanelLateral.Location = new System.Drawing.Point(0, -7);
             this.PanelLateral.Name = "PanelLateral";
             this.PanelLateral.Size = new System.Drawing.Size(266, 562);
@@ -258,9 +253,9 @@
             this.BtnRegistrarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRegistrarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrarMarca.ForeColor = System.Drawing.Color.Black;
-            this.BtnRegistrarMarca.Location = new System.Drawing.Point(40, 299);
+            this.BtnRegistrarMarca.Location = new System.Drawing.Point(5, 182);
             this.BtnRegistrarMarca.Name = "BtnRegistrarMarca";
-            this.BtnRegistrarMarca.Size = new System.Drawing.Size(138, 74);
+            this.BtnRegistrarMarca.Size = new System.Drawing.Size(256, 74);
             this.BtnRegistrarMarca.TabIndex = 25;
             this.BtnRegistrarMarca.Text = "Registrar Marca";
             this.BtnRegistrarMarca.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -280,66 +275,43 @@
             this.BtnRegistrarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRegistrarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrarProducto.ForeColor = System.Drawing.Color.Black;
-            this.BtnRegistrarProducto.Location = new System.Drawing.Point(40, 197);
+            this.BtnRegistrarProducto.Location = new System.Drawing.Point(5, 44);
             this.BtnRegistrarProducto.Name = "BtnRegistrarProducto";
-            this.BtnRegistrarProducto.Size = new System.Drawing.Size(138, 85);
+            this.BtnRegistrarProducto.Size = new System.Drawing.Size(256, 85);
             this.BtnRegistrarProducto.TabIndex = 39;
             this.BtnRegistrarProducto.Text = "Registrar Producto";
             this.BtnRegistrarProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnRegistrarProducto.UseVisualStyleBackColor = false;
             this.BtnRegistrarProducto.Click += new System.EventHandler(this.BtnRegistrarProducto_Click);
             // 
-            // PB1
+            // Panel1
             // 
-            this.PB1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PB1.Location = new System.Drawing.Point(40, 69);
-            this.PB1.Name = "PB1";
-            this.PB1.Size = new System.Drawing.Size(174, 122);
-            this.PB1.TabIndex = 23;
-            this.PB1.TabStop = false;
+            this.Panel1.BackColor = System.Drawing.Color.White;
+            this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Panel1.Controls.Add(this.label2);
+            this.Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel1.Location = new System.Drawing.Point(0, 0);
+            this.Panel1.Name = "Panel1";
+            this.Panel1.Size = new System.Drawing.Size(800, 45);
+            this.Panel1.TabIndex = 10;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(3, 11);
+            this.label2.Location = new System.Drawing.Point(268, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(260, 34);
-            this.label2.TabIndex = 19;
+            this.label2.TabIndex = 20;
             this.label2.Text = "Registro de Instrumento";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelVenta
-            // 
-            this.LabelVenta.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LabelVenta.BackColor = System.Drawing.Color.Transparent;
-            this.LabelVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.LabelVenta.Location = new System.Drawing.Point(415, 9);
-            this.LabelVenta.Name = "LabelVenta";
-            this.LabelVenta.Size = new System.Drawing.Size(123, 23);
-            this.LabelVenta.TabIndex = 1;
-            this.LabelVenta.Text = "Inventario";
-            this.LabelVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Panel1
-            // 
-            this.Panel1.BackColor = System.Drawing.Color.White;
-            this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Panel1.Controls.Add(this.LabelVenta);
-            this.Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel1.Location = new System.Drawing.Point(0, 0);
-            this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(957, 45);
-            this.Panel1.TabIndex = 10;
             // 
             // FrmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 603);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.PanelFondo);
             this.Controls.Add(this.Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -349,7 +321,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DtgMarcas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).EndInit();
             this.PanelLateral.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PB1)).EndInit();
             this.Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -360,9 +331,6 @@
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Panel PanelFondo;
         private System.Windows.Forms.Panel PanelLateral;
-        private System.Windows.Forms.PictureBox PB1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label LabelVenta;
         private System.Windows.Forms.Panel Panel1;
         private System.Windows.Forms.Button BtnRegistrarMarca;
         private System.Windows.Forms.Button BtnRegistrarProducto;
@@ -376,5 +344,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CNOMBRE;
         private System.Windows.Forms.Button BtnEliminarMarca;
         private System.Windows.Forms.Button BtnModificarMarca;
+        private System.Windows.Forms.Label label2;
     }
 }

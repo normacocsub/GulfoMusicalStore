@@ -124,6 +124,9 @@ namespace GulfoMusicalStoreGUI
             this.Close();
         }
 
-       
+        private void CmbInstrumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

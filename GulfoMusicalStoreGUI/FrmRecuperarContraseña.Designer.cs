@@ -38,6 +38,7 @@
             // LabelCedula
             // 
             this.LabelCedula.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold);
+            this.LabelCedula.ForeColor = System.Drawing.Color.White;
             this.LabelCedula.Location = new System.Drawing.Point(87, 29);
             this.LabelCedula.Name = "LabelCedula";
             this.LabelCedula.Size = new System.Drawing.Size(232, 40);
@@ -92,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SkyBlue;
+            this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(389, 219);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.BtnConfrimar);
