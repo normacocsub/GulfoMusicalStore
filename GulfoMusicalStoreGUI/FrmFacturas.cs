@@ -85,5 +85,17 @@ namespace GulfoMusicalStoreGUI
             }
             TxtTotal.Text = facturaService.FiltrarFacturaFecha(fechainicial, fechafinal).Count.ToString();
         }
+
+        private void CmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(CmbFiltro.Text== "Total Facturas")
+            {
+                MapearDtgFactura(DtgFacturas);
+            }
+            else
+            {
+
+            }
+        }
     }
 }

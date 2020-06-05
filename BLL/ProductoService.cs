@@ -11,8 +11,6 @@ namespace BLL
     public class ProductoService
     {
         private IList<Producto> Productos;
-        private IList<Producto> ProductosFiltrados;
-
         private ConectionManager Conection;
         private ProductoRepository ProductoRepositorio;
         public ProductoService(string connection)

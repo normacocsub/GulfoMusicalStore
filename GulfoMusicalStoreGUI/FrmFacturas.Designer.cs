@@ -66,7 +66,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CmbFiltro = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.TxtTotal = new System.Windows.Forms.TextBox();
             this.DtgFacturas = new System.Windows.Forms.DataGridView();
@@ -435,7 +435,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.CmbFiltro);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.TxtTotal);
             this.groupBox1.Controls.Add(this.DtgFacturas);
@@ -458,20 +458,21 @@
             this.label5.Text = "Total";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // CmbFiltro
             // 
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CmbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CmbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbFiltro.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbFiltro.FormattingEnabled = true;
+            this.CmbFiltro.Items.AddRange(new object[] {
             "Total Facturas",
             "Facturas Activas",
             "Facturas Inactivas"});
-            this.comboBox1.Location = new System.Drawing.Point(500, 76);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(144, 26);
-            this.comboBox1.TabIndex = 71;
+            this.CmbFiltro.Location = new System.Drawing.Point(500, 76);
+            this.CmbFiltro.Name = "CmbFiltro";
+            this.CmbFiltro.Size = new System.Drawing.Size(144, 26);
+            this.CmbFiltro.TabIndex = 71;
+            this.CmbFiltro.SelectedIndexChanged += new System.EventHandler(this.CmbFiltro_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -694,7 +695,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CmbFiltro;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtTotal;
         private System.Windows.Forms.DataGridView DtgFacturas;

@@ -74,8 +74,8 @@ namespace GulfoMusicalStoreGUI
             clienteservice = new ClienteService(ConfigConnection.ConnectionString);
             Cliente cliente=null;
             
-            string  primernombre, segundonombre, primerapellido, segundoapellido, genero, correo;
-            string ciudad, barrio, direccion;
+            string  primernombre, segundonombre, primerapellido, segundoapellido,  correo;
+            string  direccion;
             string cedula, telefono;
 
             

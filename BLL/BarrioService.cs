@@ -8,6 +8,6 @@ namespace BLL
 {
     public class BarrioService
     {
-        string message = "Hola";
+        
     }
 }

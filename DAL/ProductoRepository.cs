@@ -11,8 +11,7 @@ namespace DAL
     public class ProductoRepository
     {
         private IList<Producto> Productos;
-        private IList<Producto> ProductosFiltrados;
-        private readonly ConectionManager Conection;
+        private ConectionManager Conection;
         private OracleDataReader reader;
         public ProductoRepository(ConectionManager conection)
         {
