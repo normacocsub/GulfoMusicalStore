@@ -45,6 +45,7 @@ CREATE TABLE curso_factura (
 ALTER TABLE curso_factura ADD CONSTRAINT curso_factura_pk PRIMARY KEY ( factura_factura_id,
                                                                         cliente_id_clientte );
 ALTER TABLE curso_factura ADD Cantidad number(2);
+ALTER TABLE curso_factura modify fecha varchar2(27);
 
 CREATE TABLE factura (
     sk_factura   NUMBER(3),
@@ -62,6 +63,7 @@ ALTER TABLE factura modify subTotal number(12,2);
 ALTER TABLE factura modify iva number(12,2);
 ALTER TABLE factura modify total number(12,2);
 ALTER TABLE factura add cliente_id_clientte varchar2(12);
+ALTER TABLE factura modify fecha varchar2(27);
 
 CREATE TABLE lugar (
     sk_lugar   NUMBER(3) NOT NULL,
@@ -88,6 +90,7 @@ CREATE TABLE product_factura (
 ALTER TABLE product_factura ADD CONSTRAINT product_factura_pk PRIMARY KEY ( factura_factura_id,
                                                                             producto_id_producto );
 ALTER TABLE product_factura ADD Cantidad number(2);
+ALTER TABLE product_factura modify fecha varchar2(27);
 
 CREATE TABLE producto (
     id_producto      VARCHAR2(5) NOT NULL,
@@ -424,21 +427,21 @@ ALTER TABLE Estadisticas ADD fecha  varchar2(25);
 
 CREATE OR REPLACE PACKAGE PAQUETE_Detalles
 IS
-    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in date, factura in number,cantidad in number, producto in varchar2, cliente in number);
-    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in date, factura in number,cantidad in number, curso in number, cliente in number);
+    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in varchar2, factura in number,cantidad in number, producto in varchar2, cliente in number);
+    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in number,cantidad in number, curso in number, cliente in number);
 END PAQUETE_Detalles;
 
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_Detalles
 IS
-    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in date, factura in number,cantidad in number, producto in varchar2, cliente in number)
+    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in varchar2, factura in number,cantidad in number, producto in varchar2, cliente in number)
     AS
     BEGIN
         INSERT INTO ProductoFactura(precio,fecha,factura_factura_id,cantidad,producto_id_producto,cliente_id_clientte)
         VALUES(precio,fechadate,factura,cantidad,producto,cliente);
     END GuardarDetalleFactura;
     
-    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in date, factura in number,cantidad in number, curso in number, cliente in number)
+    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in number,cantidad in number, curso in number, cliente in number)
     AS
     BEGIN
         INSERT INTO CursoFactura(precio,fecha,factura_factura_id,cantidad,curso_Sk_curso,cliente_id_Clientte)
@@ -450,7 +453,7 @@ END PAQUETE_Detalles;
 
 CREATE OR REPLACE PACKAGE PAQUETE_FACTURA
 IS
-    procedure GuardarFacturas(fecha in date, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
+    procedure GuardarFacturas(fecha in varchar2, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
                                             cantidadfac in number,x_id_cliente in varchar2);
     PROCEDURE OBTENERCODIGOFACTURA(factura out SYS_REFCURSOR);
     
@@ -461,7 +464,7 @@ END PAQUETE_FACTURA;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_FACTURA
 IS
-    PROCEDURE GuardarFacturas(fecha in date, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
+    PROCEDURE GuardarFacturas(fecha in varchar2, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
                               cantidadfac in number,x_id_cliente in varchar2)
     AS
     BEGIN 

@@ -27,7 +27,7 @@ namespace DAL
             {
                 command.CommandText = "PAQUETE_FACTURA.GuardarFacturas";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("fecha", OracleDbType.Date).Value = factura.Fecha.ToShortDateString();
+                command.Parameters.Add("fecha", OracleDbType.Varchar2).Value = factura.Fecha;
                 command.Parameters.Add("estadofac", OracleDbType.Varchar2).Value = factura.Estado;
                 command.Parameters.Add("subtotalfac", OracleDbType.Double).Value = double.Parse(factura.SubTotal.ToString());
                 command.Parameters.Add("ivafac", OracleDbType.Double).Value = double.Parse(factura.Iva.ToString());
@@ -74,7 +74,7 @@ namespace DAL
                     command.CommandText = "PAQUETE_Detalles.GuardarDetalleFactura";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(item.Producto.Precio.ToString());
-                    command.Parameters.Add("fechadate", OracleDbType.Date).Value = factura.Fecha.ToShortDateString();
+                    command.Parameters.Add("fechadate", OracleDbType.Varchar2).Value = factura.Fecha;
                     command.Parameters.Add("factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
                     command.Parameters.Add("cantidad", OracleDbType.Int32).Value = item.Unidades;
                     command.Parameters.Add("producto", OracleDbType.Varchar2).Value = item.Producto.Codigo;
@@ -94,7 +94,7 @@ namespace DAL
                     command.CommandText = "PAQUETE_Detalles.GuardarDetalleCurso";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(item.Curso.Total.ToString());
-                    command.Parameters.Add("fechadate", OracleDbType.Date).Value = factura.Fecha.ToShortDateString();
+                    command.Parameters.Add("fechadate", OracleDbType.Varchar2).Value = factura.Fecha;
                     command.Parameters.Add("factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
                     command.Parameters.Add("cantidad", OracleDbType.Int32).Value = item.Unidades;
                     command.Parameters.Add("curso", OracleDbType.Int32).Value = int.Parse(item.Curso.Codigo);
@@ -141,6 +141,12 @@ namespace DAL
             cliente.Telefono = (string)reader["telefono"];
             factura.AgregarCliente(cliente);
             return factura;
+        }
+
+        public IList<Factura> FiltrarFacturaFecha(DateTime fechainicial,DateTime fechafinal)
+        {
+            ConsultarFacturas();
+            return Facturas.Where(F => F.Fecha > fechainicial && F.Fecha < fechafinal).ToList();
         }
 
         

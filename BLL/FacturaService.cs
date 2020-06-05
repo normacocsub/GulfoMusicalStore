@@ -56,5 +56,21 @@ namespace BLL
                 return null;
             }
         }
+
+        public IList<Factura> FiltrarFacturaFecha(DateTime fechainicial, DateTime fechafinal)
+        {
+            try
+            {
+                Conection.Open();
+                Facturas = FacturaRepositorio.FiltrarFacturaFecha(fechainicial, fechafinal);
+                Conection.Close();
+                return Facturas;
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return null;
+            }
+        }
     }
 }
