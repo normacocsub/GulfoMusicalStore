@@ -149,6 +149,49 @@ namespace DAL
             return Facturas.Where(F => F.Fecha > fechainicial && F.Fecha < fechafinal).ToList();
         }
 
+        public IList<Factura> FiltroFacturaEstado(string estado)
+        {
+            Facturas.Clear();
+            using(var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_FACTURA.FILTRARFACTURASESTADO";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("facturas", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("f_estado", OracleDbType.Varchar2).Value = estado;
+
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Factura factura;
+                    factura = MapFactura(Reader);
+                    Facturas.Add(factura);
+                }
+            }
+            return Facturas;
+        }
+
+        public IList<Factura> FiltrarFacturasCedula(string cedula)
+        {
+            Facturas.Clear();
+            using (var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_FACTURA.FILTRARFACTURACEDULA";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("facturas", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("f_cedula", OracleDbType.Varchar2).Value = cedula;
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Factura factura;
+                    factura = MapFactura(Reader);
+                    Facturas.Add(factura);
+                }
+            }
+            return Facturas;
+        }
+
         
 
         

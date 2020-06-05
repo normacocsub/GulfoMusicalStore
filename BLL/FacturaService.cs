@@ -72,5 +72,37 @@ namespace BLL
                 return null;
             }
         }
+
+        public IList<Factura> FiltroFacturaEstado(string estado)
+        {
+            try
+            {
+                Conection.Open();
+                Facturas = FacturaRepositorio.FiltroFacturaEstado(estado);
+                Conection.Close();
+                return Facturas;
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return null;
+            }
+        }
+
+        public IList<Factura> FiltrarFacturasCedula(string cedula)
+        {
+            try
+            {
+                Conection.Open();
+                Facturas = FacturaRepositorio.FiltrarFacturasCedula(cedula);
+                Conection.Close();
+                return Facturas;
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return null;
+            }
+        }
     }
 }

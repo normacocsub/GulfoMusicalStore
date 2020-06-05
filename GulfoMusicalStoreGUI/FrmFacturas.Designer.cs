@@ -86,6 +86,8 @@
             this.DtpFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.BtnFiltrarFecha = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TxtCedula = new System.Windows.Forms.TextBox();
             this.GBTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).BeginInit();
             this.GB2.SuspendLayout();
@@ -434,6 +436,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TxtCedula);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.CmbFiltro);
             this.groupBox1.Controls.Add(this.label6);
@@ -451,7 +455,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(483, 115);
+            this.label5.Location = new System.Drawing.Point(519, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 24);
             this.label5.TabIndex = 72;
@@ -468,7 +472,7 @@
             "Total Facturas",
             "Facturas Activas",
             "Facturas Inactivas"});
-            this.CmbFiltro.Location = new System.Drawing.Point(500, 76);
+            this.CmbFiltro.Location = new System.Drawing.Point(522, 51);
             this.CmbFiltro.Name = "CmbFiltro";
             this.CmbFiltro.Size = new System.Drawing.Size(144, 26);
             this.CmbFiltro.TabIndex = 71;
@@ -478,7 +482,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(519, 51);
+            this.label6.Location = new System.Drawing.Point(540, 21);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(128, 18);
             this.label6.TabIndex = 70;
@@ -488,7 +492,7 @@
             // 
             this.TxtTotal.Enabled = false;
             this.TxtTotal.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTotal.Location = new System.Drawing.Point(559, 115);
+            this.TxtTotal.Location = new System.Drawing.Point(581, 152);
             this.TxtTotal.Multiline = true;
             this.TxtTotal.Name = "TxtTotal";
             this.TxtTotal.Size = new System.Drawing.Size(85, 24);
@@ -628,6 +632,24 @@
             this.BtnFiltrarFecha.UseVisualStyleBackColor = true;
             this.BtnFiltrarFecha.Click += new System.EventHandler(this.BtnFiltrarFecha_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(538, 91);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 18);
+            this.label10.TabIndex = 77;
+            this.label10.Text = "Busqueda Cedula";
+            // 
+            // TxtCedula
+            // 
+            this.TxtCedula.Location = new System.Drawing.Point(522, 112);
+            this.TxtCedula.Name = "TxtCedula";
+            this.TxtCedula.Size = new System.Drawing.Size(144, 25);
+            this.TxtCedula.TabIndex = 78;
+            this.TxtCedula.TextChanged += new System.EventHandler(this.TxtCedula_TextChanged);
+            // 
             // FrmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -715,5 +737,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelofono;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.TextBox TxtCedula;
+        private System.Windows.Forms.Label label10;
     }
 }

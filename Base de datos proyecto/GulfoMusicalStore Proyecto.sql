@@ -460,6 +460,10 @@ IS
     PROCEDURE EliminarTablaTemporal;
     
     PROCEDURE ConsultarFacturas(facturas OUT SYS_REFCURSOR);
+    
+    PROCEDURE FILTRARFACTURASESTADO(facturas OUT SYS_REFCURSOR, f_estado in varchar2);
+    
+    PROCEDURE FILTRARFACTURACEDULA(facturas OUT SYS_REFCURSOR,f_cedula in varchar2);
 END PAQUETE_FACTURA;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_FACTURA
@@ -493,6 +497,26 @@ IS
                           ON(c.id_clientte=f.CLIENTE_id_clientte) 
                           ORDER BY f.sk_factura;
     END ConsultarFacturas;
+    
+    PROCEDURE FILTRARFACTURASESTADO(facturas OUT SYS_REFCURSOR, f_estado in varchar2)
+    AS
+    BEGIN
+        OPEN facturas FOR SELECT * FROM Factura F
+                          JOIN CLIENTE c
+                          ON(c.id_clientte=f.CLIENTE_id_clientte)
+                          WHERE F.estado=f_estado
+                          ORDER BY F.sk_factura;
+    END FILTRARFACTURASESTADO;
+    
+    PROCEDURE FILTRARFACTURACEDULA(facturas OUT SYS_REFCURSOR,f_cedula in varchar2)
+    AS
+    BEGIN
+        OPEN facturas FOR SELECT * FROM Factura F
+                          JOIN CLIENTE c
+                          ON(c.id_clientte=f.CLIENTE_id_clientte)
+                          WHERE F.cliente_id_clientte=f_cedula
+                          ORDER BY F.sk_factura;
+    END FILTRARFACTURACEDULA;
     
 END PAQUETE_FACTURA;
 

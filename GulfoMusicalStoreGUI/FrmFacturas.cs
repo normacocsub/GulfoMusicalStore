@@ -92,10 +92,65 @@ namespace GulfoMusicalStoreGUI
             {
                 MapearDtgFactura(DtgFacturas);
             }
-            else
-            {
+            
 
+            if (CmbFiltro.Text== "Facturas Activas")
+            {
+                MapearDtgFiltroEstado(DtgFacturas, "Activo");
             }
+            if(CmbFiltro.Text== "Facturas Inactivas")
+            {
+                MapearDtgFiltroEstado(DtgFacturas, "Inactivo");
+            }
+        }
+
+
+        private void MapearDtgFiltroEstado(DataGridView dtg, string estado)
+        {
+            dtg.Rows.Clear();
+            facturaService = new FacturaService(ConfigConnection.ConnectionString);
+            foreach (var item in facturaService.FiltroFacturaEstado(estado))
+            {
+                int n = dtg.Rows.Add();
+                dtg.Rows[n].Cells[0].Value = item.Numero;
+                dtg.Rows[n].Cells[1].Value = item.Cantidad;
+                dtg.Rows[n].Cells[2].Value = item.Iva;
+                dtg.Rows[n].Cells[3].Value = item.SubTotal;
+                dtg.Rows[n].Cells[4].Value = item.Total;
+                dtg.Rows[n].Cells[5].Value = item.Cliente.Cedula;
+                dtg.Rows[n].Cells[6].Value = item.Cliente.PrimerNombre;
+                dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
+                dtg.Rows[n].Cells[8].Value = item.Fecha;
+                dtg.Rows[n].Cells[9].Value = item.Estado;
+            }
+            TxtTotal.Text = facturaService.FiltroFacturaEstado(estado).Count.ToString();
+        }
+
+        private void TxtCedula_TextChanged(object sender, EventArgs e)
+        {
+            MapearDtgFiltroCedula(DtgFacturas,TxtCedula.Text);
+        }
+
+
+        private void MapearDtgFiltroCedula(DataGridView dtg, string cedula)
+        {
+            dtg.Rows.Clear();
+            facturaService = new FacturaService(ConfigConnection.ConnectionString);
+            foreach (var item in facturaService.FiltrarFacturasCedula(cedula))
+            {
+                int n = dtg.Rows.Add();
+                dtg.Rows[n].Cells[0].Value = item.Numero;
+                dtg.Rows[n].Cells[1].Value = item.Cantidad;
+                dtg.Rows[n].Cells[2].Value = item.Iva;
+                dtg.Rows[n].Cells[3].Value = item.SubTotal;
+                dtg.Rows[n].Cells[4].Value = item.Total;
+                dtg.Rows[n].Cells[5].Value = item.Cliente.Cedula;
+                dtg.Rows[n].Cells[6].Value = item.Cliente.PrimerNombre;
+                dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
+                dtg.Rows[n].Cells[8].Value = item.Fecha;
+                dtg.Rows[n].Cells[9].Value = item.Estado;
+            }
+            TxtTotal.Text = facturaService.FiltrarFacturasCedula(cedula).Count.ToString();
         }
     }
 }
