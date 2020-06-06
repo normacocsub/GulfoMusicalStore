@@ -237,7 +237,7 @@
             this.BtnCursos.Name = "BtnCursos";
             this.BtnCursos.Size = new System.Drawing.Size(261, 66);
             this.BtnCursos.TabIndex = 16;
-            this.BtnCursos.Text = "Cursos";
+            this.BtnCursos.Text = "Clientes";
             this.BtnCursos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnCursos.UseVisualStyleBackColor = false;
             this.BtnCursos.Click += new System.EventHandler(this.BtnCursos_Click);

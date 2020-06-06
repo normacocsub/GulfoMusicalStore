@@ -1,6 +1,6 @@
 ﻿namespace GulfoMusicalStoreGUI
 {
-    partial class CrearMarca
+    partial class FrmRegistrarMarca
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearMarca));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarMarca));
             this.label1 = new System.Windows.Forms.Label();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.BtnRegistrar = new System.Windows.Forms.Button();
@@ -98,10 +98,10 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(375, 47);
             this.label2.TabIndex = 53;
-            this.label2.Text = "Crear Marca";
+            this.label2.Text = "Registrar Marca";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // CrearMarca
+            // FrmRegistrarMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -113,7 +113,7 @@
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CrearMarca";
+            this.Name = "FrmRegistrarMarca";
             this.Text = "CrearMarca";
             this.ResumeLayout(false);
             this.PerformLayout();

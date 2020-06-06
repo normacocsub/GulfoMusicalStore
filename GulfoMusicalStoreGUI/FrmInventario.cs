@@ -22,6 +22,7 @@ namespace GulfoMusicalStoreGUI
             marcaservice = new MarcaService(ConfigConnection.ConnectionString);
             MapearProductos(DtgProductos);
             MapearMarcas(DtgMarcas);
+            LlenarComboMarca();
         }
 
        
@@ -30,7 +31,7 @@ namespace GulfoMusicalStoreGUI
        
         private void BtnRegistrarMarca_Click(object sender, EventArgs e)
         {
-            CrearMarca frmcrearmarca = new CrearMarca();
+            FrmRegistrarMarca frmcrearmarca = new FrmRegistrarMarca();
             frmcrearmarca.Inventario = this;
             frmcrearmarca.Show();
         }
@@ -48,6 +49,7 @@ namespace GulfoMusicalStoreGUI
                 dtg.Rows[n].Cells[2].Value = item.Precio;
                 dtg.Rows[n].Cells[3].Value = item.Marca.Nombre;
             }
+            TxtTotal.Text = productoservice.ConsultarProductos().Count.ToString();
         }
 
        
@@ -62,6 +64,7 @@ namespace GulfoMusicalStoreGUI
                 dtg.Rows[n].Cells[0].Value = item.NumeroMarca;
                 dtg.Rows[n].Cells[1].Value = item.Nombre;
             }
+            TxtTotalMarcas.Text = marcaservice.ConsultarMarcas().Count().ToString();
         }
 
         
@@ -75,12 +78,7 @@ namespace GulfoMusicalStoreGUI
         }
 
        
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            EliminarInventario frmeliminar = new EliminarInventario();
-            frmeliminar.Inventario = this;
-            frmeliminar.Show();
-        }
+       
 
         private void BtnRegistrarProducto_Click(object sender, EventArgs e)
         {
@@ -112,11 +110,38 @@ namespace GulfoMusicalStoreGUI
             FrmModificar.Show();
         }
 
-        private void BtnEliminarMarca_Click(object sender, EventArgs e)
+        private void CmbFiltradoMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FrmEliminarMarca FrmEliminar = new FrmEliminarMarca();
-            FrmEliminar.Inventario = this;
-            FrmEliminar.Show();
+            marcaservice = new MarcaService(ConfigConnection.ConnectionString);
+            productoservice = new ProductoService(ConfigConnection.ConnectionString);
+            Marca marca;
+            marca = marcaservice.FiltrarMarca(CmbFiltradoMarca.Text);
+            DtgProductos.Rows.Clear();
+            foreach (var item in productoservice.FiltrarProductosMarca(marca.NumeroMarca))
+            {
+                int n = DtgProductos.Rows.Add();
+
+                DtgProductos.Rows[n].Cells[0].Value = item.Codigo;
+                DtgProductos.Rows[n].Cells[1].Value = item.Nombre;
+                DtgProductos.Rows[n].Cells[2].Value = item.Precio;
+                DtgProductos.Rows[n].Cells[3].Value = item.Marca.Nombre;
+            }
+            TxtTotal.Text = productoservice.FiltrarProductosMarca(marca.NumeroMarca).Count.ToString();
+        }
+
+        private void LlenarComboMarca()
+        {
+            marcaservice = new MarcaService(ConfigConnection.ConnectionString);
+            CmbFiltradoMarca.Items.Clear();
+            foreach (var item in marcaservice.ConsultarMarcas())
+            {
+                CmbFiltradoMarca.Items.Add(item.Nombre);
+            }
+        }
+
+        private void BtnTodos_Click(object sender, EventArgs e)
+        {
+            MapearProductos(DtgProductos);
         }
     }
 }

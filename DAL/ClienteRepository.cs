@@ -112,5 +112,47 @@ namespace DAL
             cliente.AgregarBarrio(barrio);
             return cliente;
         }
+
+        public IList<Cliente> FiltrarCLientesCedula(string cedula)
+        {
+            Clientes.Clear();
+            using(var command = Conection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_CLIIENTE.FILTRARCEDULACLIENTES";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("clientes", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("c_cedula", OracleDbType.Varchar2).Value = $"%{cedula}%";
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Cliente cliente;
+                    cliente = MapCLiente(Reader);
+                    Clientes.Add(cliente);
+                }
+            }
+            return Clientes;
+        }
+
+        public IList<Cliente> FiltrarClientesPrimerNombre(string primernombre)
+        {
+            Clientes.Clear();
+            using(var command = Conection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_CLIIENTE.FILTRARPRIMERNOMBRECLIENTES";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("clientes", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("c_primernombre", OracleDbType.Varchar2).Value = $"%{primernombre}%";
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Cliente cliente;
+                    cliente = MapCLiente(Reader);
+                    Clientes.Add(cliente);
+                }
+            }
+            return Clientes;
+        }
     }
 }

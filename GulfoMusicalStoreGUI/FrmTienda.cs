@@ -70,7 +70,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnCursos_Click(object sender, EventArgs e)
         {
-            AbrirContainer(new FrmCursos());
+            AbrirContainer(new FrmClientes());
             BtnVenta.Enabled = true;
         }
 

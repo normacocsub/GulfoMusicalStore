@@ -35,7 +35,7 @@ namespace GulfoMusicalStoreGUI
                     decimal precio = decimal.Parse(TxtPrecio.Text);
                     Curso curso = new Curso();
                     curso.Total = precio;
-                    curso.Nombre = TxtInstrumento.Text;
+                    curso.Nombre = (TxtInstrumento.Text).Trim().ToUpper();
                     curso.Estado = CmbEstado.Text;
                     curso.FechaCreacion = DateTime.Now;
                     MessageBox.Show(cursoservice.GuardarCurso(curso));
@@ -61,6 +61,23 @@ namespace GulfoMusicalStoreGUI
                 dtg.Rows[n].Cells[3].Value = item.Estado;
                 dtg.Rows[n].Cells[4].Value = item.FechaCreacion;
             }
+            TxtTodos.Text = cursoservice.ConsultarCursos().Count.ToString();
+        }
+
+        private void MapearTablaFiltroEstado(DataGridView dtg,string estado)
+        {
+            cursoservice = new CursoService(ConfigConnection.ConnectionString);
+            dtg.Rows.Clear();
+            foreach (var item in cursoservice.FiltroEstadoCurso(estado))
+            {
+                int n = dtg.Rows.Add();
+                dtg.Rows[n].Cells[0].Value = item.Codigo;
+                dtg.Rows[n].Cells[1].Value = item.Nombre;
+                dtg.Rows[n].Cells[2].Value = item.Total;
+                dtg.Rows[n].Cells[3].Value = item.Estado;
+                dtg.Rows[n].Cells[4].Value = item.FechaCreacion;
+            }
+            TxtTodos.Text = cursoservice.FiltroEstadoCurso(estado).Count.ToString();
         }
 
         private void BtnActualizar_Click(object sender, EventArgs e)
@@ -80,11 +97,23 @@ namespace GulfoMusicalStoreGUI
             MapearTabla(DtgCurso);
         }
 
-        private void BtnEliminar_Click(object sender, EventArgs e)
+        private void BtnVaciar_Click(object sender, EventArgs e)
         {
-            FrmEliminarCursos FrmElimCursos = new FrmEliminarCursos();
-            FrmElimCursos.ICurso = this;
-            FrmElimCursos.Show();
+            TxtInstrumento.Text = "";
+            TxtPrecio.Text = "";
+            CmbEstado.Text = "";
+        }
+
+        private void CmbFiltroEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbFiltroEstado.Text == "Todos")
+            {
+                MapearTabla(DtgCurso);
+            }
+            else
+            {
+                MapearTablaFiltroEstado(DtgCurso,CmbFiltroEstado.Text);
+            }
         }
     }
 }

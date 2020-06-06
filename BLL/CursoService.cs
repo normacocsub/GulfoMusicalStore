@@ -101,5 +101,21 @@ namespace BLL
                 return $"Error. {ex.Message.ToString()}";
             }
         }
+
+        public IList<Curso> FiltroEstadoCurso(string estado)
+        {
+            try
+            {
+                Conection.Open();
+                Cursos = CursoRepositorio.FiltroEstadoCurso(estado);
+                Conection.Close();
+                return Cursos;
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return null;
+            }
+        }
     }
 }

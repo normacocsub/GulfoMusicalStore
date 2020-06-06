@@ -40,15 +40,16 @@ namespace GulfoMusicalStoreGUI
             try
             {
                 
-                if(CmbInstrumento.Text.Equals("") || TxtPrecio.Text.Equals(""))
+                if(CmbInstrumento.Text.Equals("") || TxtPrecio.Text.Equals("") || TxtNombre.Text.Equals(""))
                 {
                     MessageBox.Show("Complete los campos. ");
                 }
                 else
                 {
-                    decimal.Parse(TxtPrecio.Text);
+                    decimal.Parse(TxtPrecio.Text.Trim());
                     Producto producto=productoservice.BuscarProducto(TxtCodigo.Text);
                     producto.Precio = decimal.Parse(TxtPrecio.Text);
+                    producto.Nombre = TxtNombre.Text.Trim().ToUpper();
                     MessageBox.Show(productoservice.ModificarPrecioProductos(producto));
                     IInventario.Actualizar();
                     this.Close();
@@ -78,7 +79,8 @@ namespace GulfoMusicalStoreGUI
                 }
             }
             TxtCodigo.Text = producto.Codigo;
-            TxtPrecio.Text = producto.Precio.ToString(); 
+            TxtPrecio.Text = producto.Precio.ToString();
+            TxtNombre.Text = producto.Nombre;
         }
 
         private void BtnConsultar_Click(object sender, EventArgs e)

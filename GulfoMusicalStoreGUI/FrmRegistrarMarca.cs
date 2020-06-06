@@ -12,11 +12,11 @@ using Entity;
 
 namespace GulfoMusicalStoreGUI
 {
-    public partial class CrearMarca : Form
+    public partial class FrmRegistrarMarca : Form
     {
         MarcaService marcaservice;
         public IInventario Inventario { get; set; }
-        public CrearMarca()
+        public FrmRegistrarMarca()
         {
             InitializeComponent();
         }
@@ -31,7 +31,7 @@ namespace GulfoMusicalStoreGUI
             else
             {
                 Marca marca = new Marca();
-                marca.Nombre = TxtNombre.Text;
+                marca.Nombre = TxtNombre.Text.Trim().ToUpper();
                 MessageBox.Show(marcaservice.GuardarMarca(marca));
                 Inventario.Actualizar();
                 this.Close();

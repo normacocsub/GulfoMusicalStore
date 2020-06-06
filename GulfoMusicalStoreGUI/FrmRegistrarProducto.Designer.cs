@@ -91,6 +91,7 @@
             this.CmbMarca.Name = "CmbMarca";
             this.CmbMarca.Size = new System.Drawing.Size(120, 24);
             this.CmbMarca.TabIndex = 28;
+            this.CmbMarca.SelectedIndexChanged += new System.EventHandler(this.CmbMarca_SelectedIndexChanged);
             // 
             // LabelPrecioUnidad
             // 

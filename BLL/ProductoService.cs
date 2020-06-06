@@ -140,7 +140,24 @@ namespace BLL
             }
         }
 
-       
+        public IList<Producto> FiltrarProductosMarca(string numero)
+        {
+            try
+            {
+                Conection.Open();
+                Productos = ProductoRepositorio.FiltrarProductosMarca(numero);
+                Conection.Close();
+                return Productos;
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return null;
+            }
+        }
+
+
+
 
 
 

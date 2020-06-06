@@ -88,6 +88,8 @@ namespace DAL
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add("curso", OracleDbType.Int32).Value = int.Parse(curso.Codigo);
                 command.Parameters.Add("precionew", OracleDbType.Decimal).Value = curso.Total;
+                command.Parameters.Add("estadonew", OracleDbType.Varchar2).Value = curso.Estado;
+                command.Parameters.Add("nombrenew", OracleDbType.Varchar2).Value = curso.Nombre;
                 command.ExecuteNonQuery();
             }
         }
@@ -101,6 +103,27 @@ namespace DAL
                 command.Parameters.Add("curso", OracleDbType.Int32).Value = int.Parse(curso.Codigo);
                 command.ExecuteNonQuery();
             }
+        }
+
+        public IList<Curso> FiltroEstadoCurso(string estado)
+        {
+            Cursos.Clear();
+            using(var command = Conection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_CURSO.FILTRARESTADOCURSO";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("cursos", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("c_estado", OracleDbType.Varchar2).Value = estado;
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Curso curso;
+                    curso = MapCurso(Reader);
+                    Cursos.Add(curso);
+                }
+            }
+            return Cursos;
         }
     }
 }

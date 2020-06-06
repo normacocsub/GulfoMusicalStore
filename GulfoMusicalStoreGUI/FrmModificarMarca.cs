@@ -62,7 +62,7 @@ namespace GulfoMusicalStoreGUI
             {
                 marcaservice = new MarcaService(ConfigConnection.ConnectionString);
                 Marca marca = marcaservice.BuscarMarca(TxtCodigo.Text);
-                marca.Nombre = TxtNombre.Text;
+                marca.Nombre = TxtNombre.Text.Trim().ToUpper();
                 MessageBox.Show(marcaservice.ModificarMarca(marca));
                 Inventario.Actualizar();
                 this.Close();

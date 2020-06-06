@@ -125,6 +125,7 @@ namespace DAL
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.Add("precionew", OracleDbType.Double).Value = double.Parse(producto.Precio.ToString());
                 command.Parameters.Add("codigo", OracleDbType.Varchar2).Value = producto.Codigo;
+                command.Parameters.Add("nombrenew", OracleDbType.Varchar2).Value = producto.Nombre;
                 command.ExecuteNonQuery();
             }
         }
@@ -140,7 +141,26 @@ namespace DAL
             }
         }
           
-        
+        public IList<Producto> FiltrarProductosMarca(string numero)
+        {
+            Productos.Clear();
+            using(var command = Conection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_PRODUCTO.FILTRARPRODUCTOSMARCA";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("productos", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("p_sk_marca", OracleDbType.Int32).Value = int.Parse(numero);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Producto producto;
+                    producto = Map(reader);
+                    Productos.Add(producto);
+                }
+            }
+            return Productos;
+        }
 
         
     }

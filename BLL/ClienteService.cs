@@ -89,5 +89,38 @@ namespace BLL
                 return null;
             }
         }
+
+        public IList<Cliente> FiltrarCLientesCedula(string cedula)
+        {
+            try
+            {
+                Conection.Open();
+                Clientes = ClienteRepositorio.FiltrarCLientesCedula(cedula);
+                Conection.Close();
+                return Clientes;
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return null;
+            }
+
+        }
+
+        public IList<Cliente> FiltrarClientesPrimerNombre(string primernombre)
+        {
+            try
+            {
+                Conection.Open();
+                Clientes = ClienteRepositorio.FiltrarClientesPrimerNombre(primernombre);
+                Conection.Close();
+                return Clientes;
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return Clientes;
+            }
+        }
     }
 }

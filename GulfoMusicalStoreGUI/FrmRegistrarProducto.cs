@@ -47,11 +47,11 @@ namespace GulfoMusicalStoreGUI
             {
                 try
                 {
-                    decimal precio = decimal.Parse(TxtPrecio.Text);
+                    decimal precio = decimal.Parse(TxtPrecio.Text.Trim());
                     Producto producto = new Producto();
-                    producto.Codigo = TxtCodigo.Text;
+                    producto.Codigo = TxtCodigo.Text.Trim().ToUpper();
                     producto.Marca = marcaservice.FiltrarMarca(CmbMarca.Text);
-                    producto.Nombre = TxtInstrumento.Text;
+                    producto.Nombre = TxtInstrumento.Text.Trim().ToUpper();
                     producto.Precio = precio;
                     MessageBox.Show(productoservice.GuardarProducto(producto));
                     Inventario.Actualizar();
@@ -78,6 +78,11 @@ namespace GulfoMusicalStoreGUI
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CmbMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

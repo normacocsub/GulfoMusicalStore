@@ -70,11 +70,11 @@ namespace GulfoMusicalStoreGUI
                 cliente.Lugar = Factura.Cliente.Lugar;
                 cliente.Barrio = Factura.Cliente.Barrio;
                 cliente = Factura.Cliente;
-                cliente.PrimerNombre = TxtPrimerNombre.Text;
-                cliente.SegundoNombre = TxtSegundoNombre.Text;
-                cliente.PrimerApellido = TxtPrimerApellido.Text;
-                cliente.SegundoApellido = TxtSegundoApellido.Text;
-                cliente.Correo = TxtCorreo.Text;
+                cliente.PrimerNombre = TxtPrimerNombre.Text.Trim().ToUpper();
+                cliente.SegundoNombre = TxtSegundoNombre.Text.Trim().ToUpper();
+                cliente.PrimerApellido = TxtPrimerApellido.Text.Trim().ToUpper();
+                cliente.SegundoApellido = TxtSegundoApellido.Text.Trim().ToUpper();
+                cliente.Correo = TxtCorreo.Text.Trim().ToUpper();
 
                 
                 cliente.Telefono = TxtTelefono.Text;

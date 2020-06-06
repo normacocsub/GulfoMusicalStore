@@ -38,6 +38,8 @@
             this.CmbInstrumento = new System.Windows.Forms.ComboBox();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.TxtNombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LabelInstrumento
@@ -167,12 +169,39 @@
             this.label2.Text = "Modificar Producto";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // TxtNombre
+            // 
+            this.TxtNombre.BackColor = System.Drawing.Color.White;
+            this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNombre.ForeColor = System.Drawing.Color.Black;
+            this.TxtNombre.Location = new System.Drawing.Point(226, 216);
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.Size = new System.Drawing.Size(120, 22);
+            this.TxtNombre.TabIndex = 55;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Location = new System.Drawing.Point(101, 216);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 20);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "Nombre";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // FrmModificarInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(449, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CmbInstrumento);
@@ -200,5 +229,7 @@
         private System.Windows.Forms.ComboBox CmbInstrumento;
         public System.Windows.Forms.Button BtnSalir;
         public System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtNombre;
+        private System.Windows.Forms.Label label1;
     }
 }

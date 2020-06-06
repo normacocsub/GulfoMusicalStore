@@ -33,6 +33,8 @@ namespace GulfoMusicalStoreGUI
                 {
                     TxtCodigo.Text = item.Codigo;
                     TxtPrecio.Text = item.Total.ToString();
+                    CmbEstado.Text = item.Estado;
+                    TxtNombre.Text = item.Nombre;
                 }
             }
         }
@@ -51,7 +53,7 @@ namespace GulfoMusicalStoreGUI
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             cursoservice = new CursoService(ConfigConnection.ConnectionString);
-            if(CmbCurso.Text.Equals("") || TxtCodigo.Text.Equals("") || TxtPrecio.Text.Equals(""))
+            if(CmbCurso.Text.Equals("") || TxtCodigo.Text.Equals("") || TxtPrecio.Text.Equals("") || CmbEstado.Text.Equals(""))
             {
                 MessageBox.Show("Complete los campos.");
             }
@@ -63,6 +65,8 @@ namespace GulfoMusicalStoreGUI
                     Curso curso = new Curso();
                     curso = cursoservice.BuscarCurso(TxtCodigo.Text);
                     curso.Total = precio;
+                    curso.Estado = CmbEstado.Text;
+                    curso.Nombre = TxtNombre.Text;
                     MessageBox.Show(cursoservice.ModificarCurso(curso));
                     ICurso.Actualizar();
                     this.Close();

@@ -557,7 +557,12 @@ IS
     PROCEDURE ModificarClientes(cedula in VARCHAR2,primername in varchar2, segundoname in varchar2, primerape in varchar2,
                                 segundoape in varchar2,  email in varchar2, phone in varchar2,
                                 city in number, barriocliente in number, direction in varchar2);
-END;
+    
+    PROCEDURE FILTRARCEDULACLIENTES(clientes OUT SYS_REFCURSOR, c_cedula in varchar2);
+    
+    PROCEDURE FILTRARPRIMERNOMBRECLIENTES(clientes OUT SYS_REFCURSOR, c_primernombre in varchar2);
+    
+END PAQUETE_CLIIENTE;
 
  
 CREATE OR REPLACE PACKAGE BODY PAQUETE_CLIIENTE
@@ -612,14 +617,38 @@ IS
                                    Correo=VEmail, Telefono=VPhone, lugar_sk_lugar=VCity, Barrio_sk_barrio=VBarrio, Direccion=VDirection
                                WHERE id_clientte= VCedula;
         END ModificarClientes;
-END;
+        
+        PROCEDURE FILTRARCEDULACLIENTES(clientes OUT SYS_REFCURSOR, c_cedula in varchar2)
+        AS
+        BEGIN
+            OPEN clientes FOR select * from cliente c
+                              JOIN Lugar l
+                              ON(l.sk_lugar=c.lugar_sk_lugar)
+                              JOIN Barrio b
+                              ON(b.sk_barrio=barrio_sk_barrio)
+                              WHERE c.id_clientte like c_cedula;
+                              
+        END FILTRARCEDULACLIENTES;
+        
+        PROCEDURE FILTRARPRIMERNOMBRECLIENTES(clientes OUT SYS_REFCURSOR, c_primernombre in varchar2)
+        AS
+        BEGIN
+            OPEN clientes FOR select * from cliente c
+                              JOIN Lugar l
+                              ON(l.sk_lugar=c.lugar_sk_lugar)
+                              JOIN Barrio b
+                              ON(b.sk_barrio=barrio_sk_barrio)
+                              WHERE c.primernombre like c_primernombre;
+        END FILTRARPRIMERNOMBRECLIENTES;
+        
+END PAQUETE_CLIIENTE;
  
 -->Paquete barrio
 CREATE OR REPLACE PACKAGE PAQUETE_BARRIO
 IS
     PROCEDURE GuardarBarrio(barrio in varchar2,lugar in number);
     PROCEDURE ConsultarBarrio(registro out SYS_REFCURSOR);
-END;
+END PAQUETE_BARRIO;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_BARRIO
 IS
@@ -637,14 +666,14 @@ IS
                           JOIN Place p 
                           ON(N.lugar_sk_lugar=p.sk_lugar);
     END ConsultarBarrio;
-END;
+END PAQUETE_BARRIO;
 
 -->Paquete lugar
 CREATE OR REPLACE PACKAGE PAQUETE_LUGAR
 IS
     PROCEDURE GuardarLugar(ciudadnew in varchar2);
     PROCEDURE ConsultarLugares(registro out SYS_refCURSOR);  
-END;
+END PAQUETE_LUGAR;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_LUGAR
 IS
@@ -662,7 +691,7 @@ IS
                           Neigh B 
                           ON(B.lugar_sk_lugar=sk_lugar);
     END ConsultarLugares;
-END;
+END PAQUETE_LUGAR;
 
 -->Paquete CUrso
 CREATE OR REPLACE PACKAGE PAQUETE_CURSO
@@ -670,9 +699,10 @@ IS
     PROCEDURE GUARDARCURSOS(nombre in varchar2,estado in varchar2,fecha in varchar2,precio in numeric);
     PROCEDURE ConsultarCursos(registro out SYS_REFCURSOR);
     PROCEDURE BuscarCurso(registro out SYS_REFCURSOR, codigo in numeric);
-    PROCEDURE MODIFICARCURSO(curso in number,precionew in number);
+    PROCEDURE MODIFICARCURSO(curso in number,precionew in number,estadonew in varchar2,nombrenew in varchar2);
     PROCEDURE ELIMINARCURSO(curso in number);
-END;
+    PROCEDURE FILTRARESTADOCURSO(cursos OUT SYS_REFCURSOR,c_estado in varchar2);
+END PAQUETE_CURSO;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_CURSO
 IS
@@ -698,10 +728,10 @@ IS
                           WHERE sk_curso=codigo;
     END BuscarCurso;
 
-    PROCEDURE MODIFICARCURSO(curso in number,precionew in number)
+    PROCEDURE MODIFICARCURSO(curso in number,precionew in number,estadonew in varchar2,nombrenew in varchar2)
     AS
     BEGIN
-        UPDATE Courses SET precio=precionew
+        UPDATE Courses SET precio=precionew,estado=estadonew, nombre=nombrenew
         WHERE sk_curso=curso;
     END MODIFICARCURSO;
     
@@ -712,7 +742,14 @@ IS
         WHERE sk_curso=curso;
     END ELIMINARCURSO;
     
-END;
+    PROCEDURE FILTRARESTADOCURSO(cursos OUT SYS_REFCURSOR,c_estado in varchar2)
+    AS
+    BEGIN
+        OPEN cursos FOR SELECT *
+                          FROM Courses
+                          WHERE estado=c_estado;
+    END FILTRARESTADOCURSO;
+END PAQUETE_CURSO;
 
 
 -->Paquete producto
@@ -722,9 +759,10 @@ IS
     PROCEDURE ConsultarProductos(registro OUT SYS_REFCURSOR);
     PROCEDURE BuscarProducto(registro OUT SYS_REFCURSOR,codigo IN VARCHAR2);
     PROCEDURE ConsultarCodigo(registro OUT SYS_REFCURSOR,nombre IN VARCHAR2);
-    PROCEDURE ModificarPrecioProductos(precionew IN NUMBER, codigo IN VARCHAR2);
+    PROCEDURE ModificarPrecioProductos(precionew IN NUMBER, codigo IN VARCHAR2,nombrenew in varchar2);
     PROCEDURE EliminarProductos(codigo IN VARCHAR2);
-END;
+    PROCEDURE FILTRARPRODUCTOSMARCA(productos OUT SYS_REFCURSOR,p_sk_marca in number);
+END PAQUETE_PRODUCTO;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_PRODUCTO
 IS
@@ -757,10 +795,10 @@ IS
                           WHERE p.nombre=nombre;
     END ConsultarCodigo;
     
-    PROCEDURE ModificarPrecioProductos(precionew IN NUMBER, codigo IN VARCHAR2)
+    PROCEDURE ModificarPrecioProductos(precionew IN NUMBER, codigo IN VARCHAR2,nombrenew in varchar2)
     AS
     BEGIN
-        UPDATE Products SET precio=precionew
+        UPDATE Products SET precio=precionew,nombre=nombrenew
         WHERE id_producto=codigo;
     END ModificarPrecioProductos;
     
@@ -771,8 +809,15 @@ IS
         WHERE id_producto=codigo;
     END EliminarProductos;
 
-END;
-
+    PROCEDURE FILTRARPRODUCTOSMARCA(productos OUT SYS_REFCURSOR,p_sk_marca in number)
+    AS
+    BEGIN
+        OPEN productos FOR SELECT * FROM products p JOIN Brands m
+                          ON(p.marca_sk_marca=m.sk_marca)
+                          WHERE m.sk_marca=p_sk_marca;
+    END FILTRARPRODUCTOSMARCA;
+END PAQUETE_PRODUCTO;
+select * from marca;
 -->Paquete Marca
 CREATE OR REPLACE PACKAGE PAQUETE_MARCA
 IS
@@ -783,7 +828,7 @@ IS
     PROCEDURE ModificarMarca(marca in number, nombre in varchar2);
     PROCEDURE BuscarMarca(registro OUT SYS_REFCURSOR,marca in number);
     PROCEDURE EliminarMarca(marca in number);
-END;
+END PAQUETE_MARCA;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_MARCA
 IS
@@ -833,5 +878,6 @@ IS
         DELETE FROM Brands
         WHERE sk_marca=marca;
     END EliminarMarca;
-END;
+END PAQUETE_MARCA;
+
 

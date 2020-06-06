@@ -48,7 +48,10 @@
             this.CEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Panel2 = new System.Windows.Forms.Panel();
-            this.BtnEliminar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TxtTodos = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CmbFiltroEstado = new System.Windows.Forms.ComboBox();
             this.BtnActualizar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -117,8 +120,8 @@
             this.CmbEstado.FormattingEnabled = true;
             this.CmbEstado.Items.AddRange(new object[] {
             "Seleccionar",
-            "Activo",
-            "DesHabilitado"});
+            "ACTIVO",
+            "DESHABILITADO"});
             this.CmbEstado.Location = new System.Drawing.Point(122, 386);
             this.CmbEstado.Name = "CmbEstado";
             this.CmbEstado.Size = new System.Drawing.Size(120, 23);
@@ -156,6 +159,7 @@
             this.BtnVaciar.Text = "Vaciar";
             this.BtnVaciar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnVaciar.UseVisualStyleBackColor = false;
+            this.BtnVaciar.Click += new System.EventHandler(this.BtnVaciar_Click);
             // 
             // BtnRegistrar
             // 
@@ -277,7 +281,10 @@
             // Panel2
             // 
             this.Panel2.BackColor = System.Drawing.Color.White;
-            this.Panel2.Controls.Add(this.BtnEliminar);
+            this.Panel2.Controls.Add(this.label5);
+            this.Panel2.Controls.Add(this.TxtTodos);
+            this.Panel2.Controls.Add(this.label4);
+            this.Panel2.Controls.Add(this.CmbFiltroEstado);
             this.Panel2.Controls.Add(this.BtnActualizar);
             this.Panel2.Controls.Add(this.DtgCurso);
             this.Panel2.Controls.Add(this.BtnModificar);
@@ -288,27 +295,49 @@
             this.Panel2.Size = new System.Drawing.Size(800, 600);
             this.Panel2.TabIndex = 12;
             // 
-            // BtnEliminar
+            // label5
             // 
-            this.BtnEliminar.BackColor = System.Drawing.Color.White;
-            this.BtnEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnEliminar.BackgroundImage")));
-            this.BtnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
-            this.BtnEliminar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.BtnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.BtnEliminar.Location = new System.Drawing.Point(419, 469);
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(111, 78);
-            this.BtnEliminar.TabIndex = 51;
-            this.BtnEliminar.Text = "Eliminar";
-            this.BtnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnEliminar.UseVisualStyleBackColor = false;
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(564, 101);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Total";
+            // 
+            // TxtTodos
+            // 
+            this.TxtTodos.Enabled = false;
+            this.TxtTodos.Location = new System.Drawing.Point(659, 101);
+            this.TxtTodos.Name = "TxtTodos";
+            this.TxtTodos.Size = new System.Drawing.Size(100, 20);
+            this.TxtTodos.TabIndex = 28;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(561, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 13);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Filtrado Estado";
+            // 
+            // CmbFiltroEstado
+            // 
+            this.CmbFiltroEstado.BackColor = System.Drawing.Color.White;
+            this.CmbFiltroEstado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CmbFiltroEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbFiltroEstado.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbFiltroEstado.ForeColor = System.Drawing.Color.Black;
+            this.CmbFiltroEstado.FormattingEnabled = true;
+            this.CmbFiltroEstado.Items.AddRange(new object[] {
+            "Todos",
+            "ACTIVO",
+            "DESHABILITADO"});
+            this.CmbFiltroEstado.Location = new System.Drawing.Point(659, 64);
+            this.CmbFiltroEstado.Name = "CmbFiltroEstado";
+            this.CmbFiltroEstado.Size = new System.Drawing.Size(120, 23);
+            this.CmbFiltroEstado.TabIndex = 26;
+            this.CmbFiltroEstado.SelectedIndexChanged += new System.EventHandler(this.CmbFiltroEstado_SelectedIndexChanged);
             // 
             // BtnActualizar
             // 
@@ -369,6 +398,7 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgCurso)).EndInit();
             this.Panel2.ResumeLayout(false);
+            this.Panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -395,6 +425,9 @@
         private System.Windows.Forms.Button BtnActualizar;
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.TextBox TxtInstrumento;
-        private System.Windows.Forms.Button BtnEliminar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox TxtTodos;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox CmbFiltroEstado;
     }
 }
