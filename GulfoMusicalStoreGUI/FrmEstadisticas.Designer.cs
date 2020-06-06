@@ -72,7 +72,7 @@
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(800, 540);
             this.Panel2.TabIndex = 10;
-            this.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
+
             // 
             // LabelTotal
             // 

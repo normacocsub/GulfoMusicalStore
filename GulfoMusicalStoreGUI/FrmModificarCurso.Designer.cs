@@ -234,7 +234,6 @@
             this.Location = new System.Drawing.Point(539, 165);
             this.Name = "FrmModificarCurso";
             this.Text = "FrmModificarCurso";
-            this.Load += new System.EventHandler(this.FrmModificarCurso_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

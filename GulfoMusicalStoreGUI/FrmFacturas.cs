@@ -21,10 +21,7 @@ namespace GulfoMusicalStoreGUI
             MapearDtgFactura(DtgFactura);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void MapearDtgFactura(DataGridView dtg)
         {
@@ -47,11 +44,7 @@ namespace GulfoMusicalStoreGUI
             TxtTotal.Text = facturaService.ConsultarFacturas().Count.ToString();
         }
 
-        private void BtnFiltrarFecha_Click(object sender, EventArgs e)
-        {
-           
-            
-        }
+        
 
 
         private void MapearDtgFiltroFecha(DataGridView dtg,DateTime fechainicial,DateTime fechafinal)
@@ -75,10 +68,7 @@ namespace GulfoMusicalStoreGUI
             TxtTotal.Text = facturaService.FiltrarFacturaFecha(fechainicial, fechafinal).Count.ToString();
         }
 
-        private void CmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+       
 
 
         private void MapearDtgFiltroEstado(DataGridView dtg, string estado)
@@ -102,10 +92,7 @@ namespace GulfoMusicalStoreGUI
             TxtTotal.Text = facturaService.FiltroFacturaEstado(estado).Count.ToString();
         }
 
-        private void TxtCedula_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+       
 
 
         private void MapearDtgFiltroCedula(DataGridView dtg, string cedula)
@@ -129,16 +116,7 @@ namespace GulfoMusicalStoreGUI
             TxtTotal.Text = facturaService.FiltrarFacturasCedula(cedula).Count.ToString();
         }
 
-        private void BtnBuscarFactura_Click(object sender, EventArgs e)
-        {
-           
-            
-        }
-
-        private void TxtNumeroFactura_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
+       
 
 
 
@@ -242,9 +220,6 @@ namespace GulfoMusicalStoreGUI
             MapearDtgFiltroCedula(DtgFactura, TxtCedula.Text);
         }
 
-        private void DtgFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
     }
 }

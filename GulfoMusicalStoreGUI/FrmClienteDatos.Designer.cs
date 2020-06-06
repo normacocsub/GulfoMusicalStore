@@ -39,8 +39,6 @@
             this.TxtPrimerApellido = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtSegundoApellido = new System.Windows.Forms.TextBox();
-            this.LabelSexo = new System.Windows.Forms.Label();
-            this.CBSexo = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtCorreo = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -183,43 +181,13 @@
             this.TxtSegundoApellido.TabIndex = 116;
             this.TxtSegundoApellido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // LabelSexo
-            // 
-            this.LabelSexo.BackColor = System.Drawing.Color.White;
-            this.LabelSexo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.LabelSexo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelSexo.ForeColor = System.Drawing.Color.Black;
-            this.LabelSexo.Location = new System.Drawing.Point(112, 276);
-            this.LabelSexo.Name = "LabelSexo";
-            this.LabelSexo.Size = new System.Drawing.Size(273, 24);
-            this.LabelSexo.TabIndex = 107;
-            this.LabelSexo.Text = "Sexo";
-            this.LabelSexo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CBSexo
-            // 
-            this.CBSexo.BackColor = System.Drawing.Color.White;
-            this.CBSexo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBSexo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBSexo.ForeColor = System.Drawing.Color.Black;
-            this.CBSexo.FormattingEnabled = true;
-            this.CBSexo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CBSexo.Items.AddRange(new object[] {
-            "M",
-            "F"});
-            this.CBSexo.Location = new System.Drawing.Point(418, 273);
-            this.CBSexo.Name = "CBSexo";
-            this.CBSexo.Size = new System.Drawing.Size(270, 27);
-            this.CBSexo.TabIndex = 105;
-            // 
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label8.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(112, 312);
+            this.label8.Location = new System.Drawing.Point(112, 293);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(272, 22);
             this.label8.TabIndex = 109;
@@ -230,7 +198,7 @@
             // 
             this.TxtCorreo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCorreo.ForeColor = System.Drawing.Color.Black;
-            this.TxtCorreo.Location = new System.Drawing.Point(418, 308);
+            this.TxtCorreo.Location = new System.Drawing.Point(418, 293);
             this.TxtCorreo.Name = "TxtCorreo";
             this.TxtCorreo.Size = new System.Drawing.Size(270, 26);
             this.TxtCorreo.TabIndex = 110;
@@ -519,7 +487,6 @@
             this.TxtDireccion.Size = new System.Drawing.Size(576, 26);
             this.TxtDireccion.TabIndex = 118;
             this.TxtDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtDireccion.TextChanged += new System.EventHandler(this.TxtDireccion_TextChanged);
             // 
             // label2
             // 
@@ -689,11 +656,9 @@
             this.Controls.Add(this.TxtCorreo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.TxtSegundoApellido);
-            this.Controls.Add(this.CBSexo);
             this.Controls.Add(this.LabelCedula);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.TxtCedula);
-            this.Controls.Add(this.LabelSexo);
             this.Controls.Add(this.TxtDireccion);
             this.Controls.Add(this.CB1);
             this.Controls.Add(this.LabelNombre);
@@ -729,8 +694,6 @@
         private System.Windows.Forms.TextBox TxtPrimerApellido;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TxtSegundoApellido;
-        private System.Windows.Forms.Label LabelSexo;
-        private System.Windows.Forms.ComboBox CBSexo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TxtCorreo;
         private System.Windows.Forms.Label label12;

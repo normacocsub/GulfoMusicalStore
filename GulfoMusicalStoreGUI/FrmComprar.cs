@@ -132,10 +132,7 @@ namespace GulfoMusicalStoreGUI
             
         }
 
-        private void CmbInstrumento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {

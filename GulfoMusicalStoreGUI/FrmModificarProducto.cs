@@ -61,10 +61,7 @@ namespace GulfoMusicalStoreGUI
             }
         }
 
-        private void CmbInstrumento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+       
 
         private void CmbInstrumento_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -83,9 +80,6 @@ namespace GulfoMusicalStoreGUI
             TxtNombre.Text = producto.Nombre;
         }
 
-        private void BtnConsultar_Click(object sender, EventArgs e)
-        {
-            
-        }
+       
     }
 }

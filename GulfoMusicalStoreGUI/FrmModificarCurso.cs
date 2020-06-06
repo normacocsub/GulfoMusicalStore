@@ -78,9 +78,6 @@ namespace GulfoMusicalStoreGUI
             }
         }
 
-        private void FrmModificarCurso_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

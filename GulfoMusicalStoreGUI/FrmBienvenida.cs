@@ -54,5 +54,7 @@ namespace GulfoMusicalStoreGUI
         {
             //Con la base de datos haces que aparesca el usuario que ingresó.
         }
+
+        
     }
 }

@@ -168,7 +168,6 @@
             this.DtgFactura.ReadOnly = true;
             this.DtgFactura.Size = new System.Drawing.Size(363, 182);
             this.DtgFactura.TabIndex = 88;
-            this.DtgFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgFactura_CellContentClick);
             // 
             // CCodigoProducto
             // 

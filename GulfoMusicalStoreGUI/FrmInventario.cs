@@ -93,15 +93,7 @@ namespace GulfoMusicalStoreGUI
             MapearMarcas(DtgMarcas);
         }
 
-        private void DtgCurso_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
 
         private void BtnModificarMarca_Click(object sender, EventArgs e)
         {

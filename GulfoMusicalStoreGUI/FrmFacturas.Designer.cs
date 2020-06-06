@@ -311,7 +311,6 @@
             this.DtgFactura.Name = "DtgFactura";
             this.DtgFactura.Size = new System.Drawing.Size(589, 240);
             this.DtgFactura.TabIndex = 77;
-            this.DtgFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgFactura_CellContentClick);
             // 
             // CNumero
             // 

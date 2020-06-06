@@ -201,7 +201,6 @@
             this.DtgMarcas.ReadOnly = true;
             this.DtgMarcas.Size = new System.Drawing.Size(262, 185);
             this.DtgMarcas.TabIndex = 41;
-            this.DtgMarcas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // SK_MARCA
             // 
@@ -232,7 +231,6 @@
             this.DtgProductos.ReadOnly = true;
             this.DtgProductos.Size = new System.Drawing.Size(440, 185);
             this.DtgProductos.TabIndex = 40;
-            this.DtgProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgCurso_CellContentClick);
             // 
             // CCodigoProducto
             // 

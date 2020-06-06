@@ -65,15 +65,7 @@ namespace GulfoMusicalStoreGUI
             
         }
 
-        private void BtnFiltar_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {

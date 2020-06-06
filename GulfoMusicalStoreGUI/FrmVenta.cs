@@ -173,14 +173,6 @@ namespace GulfoMusicalStoreGUI
             }
         }
 
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DtgFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -46,7 +46,6 @@
             this.CmbNombreCurso.Name = "CmbNombreCurso";
             this.CmbNombreCurso.Size = new System.Drawing.Size(121, 21);
             this.CmbNombreCurso.TabIndex = 0;
-            this.CmbNombreCurso.SelectedIndexChanged += new System.EventHandler(this.CmbNombreCurso_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -93,7 +92,7 @@
             this.TxtUnidades.Name = "TxtUnidades";
             this.TxtUnidades.Size = new System.Drawing.Size(121, 20);
             this.TxtUnidades.TabIndex = 5;
-            this.TxtUnidades.TextChanged += new System.EventHandler(this.TxtUnidades_TextChanged);
+
             // 
             // BtnSalir
             // 

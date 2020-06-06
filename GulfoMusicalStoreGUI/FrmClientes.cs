@@ -21,11 +21,7 @@ namespace GulfoMusicalStoreGUI
             MapearDtgTodos(DtgClientes);
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void TxtPrimerNombre_TextChanged(object sender, EventArgs e)
         {
              MapearDtgClientesPrimerNombre(DtgClientes, TxtPrimerNombre.Text.ToUpper());
@@ -106,9 +102,6 @@ namespace GulfoMusicalStoreGUI
             MapearDtgClientesCedula(DtgClientes,TxtCedula.Text);
         }
 
-        private void BtnGenerarInforme_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

@@ -46,7 +46,6 @@
             this.CmbInstrumento.Name = "CmbInstrumento";
             this.CmbInstrumento.Size = new System.Drawing.Size(121, 21);
             this.CmbInstrumento.TabIndex = 0;
-            this.CmbInstrumento.SelectedIndexChanged += new System.EventHandler(this.CmbInstrumento_SelectedIndexChanged);
             // 
             // BtnFacturar
             // 

@@ -23,11 +23,7 @@ namespace GulfoMusicalStoreGUI
             LlenarComboProducto();
         }
 
-        private void BtnModificar_Click(object sender, EventArgs e)
-        {
-           
-
-        }
+       
 
         private void CmbInstrumento_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -47,10 +43,7 @@ namespace GulfoMusicalStoreGUI
             }
         }
 
-        private void BtnEliminarMarca_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void BtnModificar_Click_1(object sender, EventArgs e)
         {

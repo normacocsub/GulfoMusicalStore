@@ -36,7 +36,7 @@ namespace GulfoMusicalStoreGUI
             {
                 if (TxtCedula.Text.Equals("") || TxtPrimerNombre.Text.Equals("")
                        || TxtPrimerApellido.Text.Equals("") || TxtCorreo.Text.Equals("")
-                       || CBSexo.Text.Equals("") || CB1.Text.Equals("") || CB2.Text.Equals("")
+                       || CB1.Text.Equals("") || CB2.Text.Equals("")
                        || CB3.Text.Equals("") || CB4.Text.Equals("") || CB5.Text.Equals("")
                        || CB6.Text.Equals("") || CmbCiudad.Text.Equals("") || CmbBarrio.Text.Equals(""))
                 {
@@ -66,7 +66,6 @@ namespace GulfoMusicalStoreGUI
             TxtSegundoApellido.Text = "";
             TxtSegundoNombre.Text = "";
             TxtCorreo.Text = "";
-            CBSexo.Text = "";
         }
 
         private void RegistrarNuevoCLiente()
@@ -172,8 +171,6 @@ namespace GulfoMusicalStoreGUI
 
         private void ActivarTxt()
         {
-            CBSexo.AllowDrop = true;
-            CBSexo.Enabled = true;
             TxtPrimerNombre.Enabled = true;
             TxtPrimerApellido.Enabled = true;
             TxtSegundoApellido.Enabled = true;
@@ -184,8 +181,6 @@ namespace GulfoMusicalStoreGUI
         }
         private void DesactivarTxt()
         {
-            CBSexo.AllowDrop = false;
-            CBSexo.Enabled = false;
             TxtPrimerNombre.Enabled = false;
             TxtPrimerApellido.Enabled = false;
             TxtSegundoApellido.Enabled = false;
@@ -268,7 +263,11 @@ namespace GulfoMusicalStoreGUI
             CmbCiudad.Items.Clear();
             foreach (var item in Lugares)
             {
-                CmbCiudad.Items.Add(item.Ciudad);
+                if (CmbCiudad.Items.Contains(item.Ciudad)==false)
+                {
+                    CmbCiudad.Items.Add(item.Ciudad);
+                }
+                
             }
         }
         private void LlenarComboBarrio(string nombre)
@@ -285,10 +284,7 @@ namespace GulfoMusicalStoreGUI
             }
         }
 
-        private void TxtDireccion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void CmbBarrio_SelectedIndexChanged(object sender, EventArgs e)
         {

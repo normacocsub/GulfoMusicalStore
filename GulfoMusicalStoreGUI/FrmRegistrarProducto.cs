@@ -65,24 +65,13 @@ namespace GulfoMusicalStoreGUI
             }
         }
 
-        private void LabelPrecioUnidad_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelInstrumento_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void CmbMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

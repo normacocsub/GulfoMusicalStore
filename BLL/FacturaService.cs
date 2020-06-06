@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using DAL;
 using Entity;
+using InfraEstructura;
 
 namespace BLL
 {
@@ -14,7 +15,8 @@ namespace BLL
         private IList<Factura> Facturas;
         private ConectionManager Conection;
         private FacturaRepository FacturaRepositorio;
-
+        private PDF pdf;
+        private Email Email;
         public FacturaService(string conection)
         {
             Conection = new ConectionManager(conection);
@@ -23,14 +25,19 @@ namespace BLL
 
         public string GuardarFactura(Factura factura)
         {
+            
             try
             {
+                pdf = new PDF();
+                Email = new Email();
                 Conection.Open();
                 FacturaRepositorio.GuardarFactura(factura);
                 factura.Numero = FacturaRepositorio.ObtenerCodigo().ToString();
                 FacturaRepositorio.EliminarCodigoTemp();
                 FacturaRepositorio.GuardarDetalles(factura);
                 FacturaRepositorio.GuardarDetalleCursos(factura);
+                pdf.CrearPDF(factura);
+                Email.EnviarEmail(factura);
                 Conection.Close();
                 return $"Se ha guardado la factura. ";
             }
@@ -38,6 +45,10 @@ namespace BLL
             {
                 Conection.Close();
                 return $"Error en la base de datos. {ex.Message.ToString()}";
+            }
+            catch(Exception ex)
+            {
+                return $"error. {ex.Message.ToString()}";
             }
         }
 

@@ -54,7 +54,7 @@
             this.LabelInstrumento.TabIndex = 3;
             this.LabelInstrumento.Text = "Instrumento";
             this.LabelInstrumento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LabelInstrumento.Click += new System.EventHandler(this.LabelInstrumento_Click);
+
             // 
             // TxtInstrumento
             // 
@@ -91,7 +91,7 @@
             this.CmbMarca.Name = "CmbMarca";
             this.CmbMarca.Size = new System.Drawing.Size(120, 24);
             this.CmbMarca.TabIndex = 28;
-            this.CmbMarca.SelectedIndexChanged += new System.EventHandler(this.CmbMarca_SelectedIndexChanged);
+
             // 
             // LabelPrecioUnidad
             // 
@@ -105,7 +105,7 @@
             this.LabelPrecioUnidad.TabIndex = 29;
             this.LabelPrecioUnidad.Text = "Precio";
             this.LabelPrecioUnidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LabelPrecioUnidad.Click += new System.EventHandler(this.LabelPrecioUnidad_Click);
+
             // 
             // TxtPrecio
             // 

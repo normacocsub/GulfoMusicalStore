@@ -62,6 +62,10 @@
       <Project>{df0e7b95-6c2f-482c-8d4c-266d68e17834}</Project>
       <Name>Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InfraEstructura\InfraEstructura.csproj">
+      <Project>{17a4b960-38dc-4948-ae11-87ae12f2bc7e}</Project>
+      <Name>InfraEstructura</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

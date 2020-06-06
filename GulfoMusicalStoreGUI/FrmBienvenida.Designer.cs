@@ -96,6 +96,7 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(292, 32);
             this.progressBar1.TabIndex = 5;
+           
             // 
             // FrmBienvenida
             // 
