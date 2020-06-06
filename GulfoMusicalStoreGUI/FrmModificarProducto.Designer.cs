@@ -50,7 +50,7 @@
             this.LabelInstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInstrumento.ForeColor = System.Drawing.Color.White;
             this.LabelInstrumento.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LabelInstrumento.Location = new System.Drawing.Point(100, 170);
+            this.LabelInstrumento.Location = new System.Drawing.Point(277, 175);
             this.LabelInstrumento.Name = "LabelInstrumento";
             this.LabelInstrumento.Size = new System.Drawing.Size(106, 20);
             this.LabelInstrumento.TabIndex = 23;
@@ -62,7 +62,7 @@
             this.TxtPrecio.BackColor = System.Drawing.Color.White;
             this.TxtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPrecio.ForeColor = System.Drawing.Color.Black;
-            this.TxtPrecio.Location = new System.Drawing.Point(225, 300);
+            this.TxtPrecio.Location = new System.Drawing.Point(402, 305);
             this.TxtPrecio.Name = "TxtPrecio";
             this.TxtPrecio.Size = new System.Drawing.Size(120, 22);
             this.TxtPrecio.TabIndex = 24;
@@ -75,7 +75,7 @@
             this.LabelPrecioUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelPrecioUnidad.ForeColor = System.Drawing.Color.White;
             this.LabelPrecioUnidad.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LabelPrecioUnidad.Location = new System.Drawing.Point(101, 299);
+            this.LabelPrecioUnidad.Location = new System.Drawing.Point(278, 304);
             this.LabelPrecioUnidad.Name = "LabelPrecioUnidad";
             this.LabelPrecioUnidad.Size = new System.Drawing.Size(59, 20);
             this.LabelPrecioUnidad.TabIndex = 25;
@@ -96,7 +96,7 @@
             this.BtnModificar.ForeColor = System.Drawing.Color.White;
             this.BtnModificar.Image = ((System.Drawing.Image)(resources.GetObject("BtnModificar.Image")));
             this.BtnModificar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnModificar.Location = new System.Drawing.Point(225, 343);
+            this.BtnModificar.Location = new System.Drawing.Point(402, 348);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(120, 78);
             this.BtnModificar.TabIndex = 26;
@@ -113,7 +113,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label3.Location = new System.Drawing.Point(100, 260);
+            this.label3.Location = new System.Drawing.Point(277, 265);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 34;
@@ -126,7 +126,7 @@
             this.TxtCodigo.Enabled = false;
             this.TxtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigo.ForeColor = System.Drawing.Color.Black;
-            this.TxtCodigo.Location = new System.Drawing.Point(225, 261);
+            this.TxtCodigo.Location = new System.Drawing.Point(402, 266);
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.Size = new System.Drawing.Size(120, 22);
             this.TxtCodigo.TabIndex = 35;
@@ -134,7 +134,7 @@
             // CmbInstrumento
             // 
             this.CmbInstrumento.FormattingEnabled = true;
-            this.CmbInstrumento.Location = new System.Drawing.Point(225, 172);
+            this.CmbInstrumento.Location = new System.Drawing.Point(402, 177);
             this.CmbInstrumento.Name = "CmbInstrumento";
             this.CmbInstrumento.Size = new System.Drawing.Size(121, 21);
             this.CmbInstrumento.TabIndex = 36;
@@ -150,7 +150,7 @@
             this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSalir.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("BtnSalir.Image")));
-            this.BtnSalir.Location = new System.Drawing.Point(397, 6);
+            this.BtnSalir.Location = new System.Drawing.Point(742, 12);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(46, 34);
             this.BtnSalir.TabIndex = 54;
@@ -161,10 +161,10 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(449, 47);
+            this.label2.Size = new System.Drawing.Size(800, 60);
             this.label2.TabIndex = 53;
             this.label2.Text = "Modificar Producto";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -174,7 +174,7 @@
             this.TxtNombre.BackColor = System.Drawing.Color.White;
             this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombre.ForeColor = System.Drawing.Color.Black;
-            this.TxtNombre.Location = new System.Drawing.Point(226, 216);
+            this.TxtNombre.Location = new System.Drawing.Point(403, 221);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(120, 22);
             this.TxtNombre.TabIndex = 55;
@@ -187,7 +187,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(101, 216);
+            this.label1.Location = new System.Drawing.Point(278, 221);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 20);
             this.label1.TabIndex = 56;
@@ -199,7 +199,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(449, 450);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.BtnSalir);
@@ -212,6 +212,7 @@
             this.Controls.Add(this.TxtPrecio);
             this.Controls.Add(this.LabelInstrumento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(539, 165);
             this.Name = "FrmModificarInventario";
             this.Text = "FrmModificarInventario";
             this.ResumeLayout(false);

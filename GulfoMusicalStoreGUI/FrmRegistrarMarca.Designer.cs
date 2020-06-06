@@ -41,7 +41,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(80, 84);
+            this.label1.Location = new System.Drawing.Point(289, 232);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 18);
             this.label1.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             // TxtNombre
             // 
-            this.TxtNombre.Location = new System.Drawing.Point(203, 85);
+            this.TxtNombre.Location = new System.Drawing.Point(412, 233);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(100, 20);
             this.TxtNombre.TabIndex = 2;
@@ -63,7 +63,7 @@
             this.BtnRegistrar.ForeColor = System.Drawing.Color.White;
             this.BtnRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("BtnRegistrar.Image")));
             this.BtnRegistrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnRegistrar.Location = new System.Drawing.Point(203, 142);
+            this.BtnRegistrar.Location = new System.Drawing.Point(412, 290);
             this.BtnRegistrar.Name = "BtnRegistrar";
             this.BtnRegistrar.Size = new System.Drawing.Size(100, 79);
             this.BtnRegistrar.TabIndex = 3;
@@ -82,7 +82,7 @@
             this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSalir.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("BtnSalir.Image")));
-            this.BtnSalir.Location = new System.Drawing.Point(323, 6);
+            this.BtnSalir.Location = new System.Drawing.Point(742, 12);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(46, 34);
             this.BtnSalir.TabIndex = 54;
@@ -96,7 +96,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(375, 47);
+            this.label2.Size = new System.Drawing.Size(800, 60);
             this.label2.TabIndex = 53;
             this.label2.Text = "Registrar Marca";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -106,13 +106,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(375, 246);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnRegistrar);
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(539, 165);
             this.Name = "FrmRegistrarMarca";
             this.Text = "CrearMarca";
             this.ResumeLayout(false);

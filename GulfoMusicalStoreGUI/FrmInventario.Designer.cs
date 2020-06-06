@@ -31,6 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInventario));
             this.BtnModificar = new System.Windows.Forms.Button();
             this.PanelFondo = new System.Windows.Forms.Panel();
+            this.BtnTodos = new System.Windows.Forms.Button();
+            this.TxtTotalMarcas = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CmbFiltradoMarca = new System.Windows.Forms.ComboBox();
+            this.TxtTotal = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.BtnModificarMarca = new System.Windows.Forms.Button();
             this.DtgMarcas = new System.Windows.Forms.DataGridView();
             this.SK_MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,13 +52,6 @@
             this.BtnRegistrarProducto = new System.Windows.Forms.Button();
             this.Panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TxtTotal = new System.Windows.Forms.TextBox();
-            this.CmbFiltradoMarca = new System.Windows.Forms.ComboBox();
-            this.TxtTotalMarcas = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.BtnTodos = new System.Windows.Forms.Button();
             this.PanelFondo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMarcas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).BeginInit();
@@ -96,10 +96,73 @@
             this.PanelFondo.Controls.Add(this.DtgProductos);
             this.PanelFondo.Controls.Add(this.PanelLateral);
             this.PanelFondo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelFondo.Location = new System.Drawing.Point(0, 45);
+            this.PanelFondo.Location = new System.Drawing.Point(0, 60);
             this.PanelFondo.Name = "PanelFondo";
-            this.PanelFondo.Size = new System.Drawing.Size(800, 555);
+            this.PanelFondo.Size = new System.Drawing.Size(800, 540);
             this.PanelFondo.TabIndex = 11;
+            // 
+            // BtnTodos
+            // 
+            this.BtnTodos.Location = new System.Drawing.Point(293, 53);
+            this.BtnTodos.Name = "BtnTodos";
+            this.BtnTodos.Size = new System.Drawing.Size(75, 23);
+            this.BtnTodos.TabIndex = 48;
+            this.BtnTodos.Text = "Todos";
+            this.BtnTodos.UseVisualStyleBackColor = true;
+            this.BtnTodos.Click += new System.EventHandler(this.BtnTodos_Click);
+            // 
+            // TxtTotalMarcas
+            // 
+            this.TxtTotalMarcas.Enabled = false;
+            this.TxtTotalMarcas.Location = new System.Drawing.Point(652, 323);
+            this.TxtTotalMarcas.Name = "TxtTotalMarcas";
+            this.TxtTotalMarcas.Size = new System.Drawing.Size(81, 20);
+            this.TxtTotalMarcas.TabIndex = 47;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(596, 326);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "Total";
+            // 
+            // CmbFiltradoMarca
+            // 
+            this.CmbFiltradoMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbFiltradoMarca.FormattingEnabled = true;
+            this.CmbFiltradoMarca.Location = new System.Drawing.Point(652, 29);
+            this.CmbFiltradoMarca.Name = "CmbFiltradoMarca";
+            this.CmbFiltradoMarca.Size = new System.Drawing.Size(121, 21);
+            this.CmbFiltradoMarca.TabIndex = 45;
+            this.CmbFiltradoMarca.SelectedIndexChanged += new System.EventHandler(this.CmbFiltradoMarca_SelectedIndexChanged);
+            // 
+            // TxtTotal
+            // 
+            this.TxtTotal.Enabled = false;
+            this.TxtTotal.Location = new System.Drawing.Point(652, 67);
+            this.TxtTotal.Name = "TxtTotal";
+            this.TxtTotal.Size = new System.Drawing.Size(81, 20);
+            this.TxtTotal.TabIndex = 44;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(596, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "Total";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(553, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Filtrado Marca";
             // 
             // BtnModificarMarca
             // 
@@ -258,83 +321,20 @@
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel1.Location = new System.Drawing.Point(0, 0);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(800, 45);
+            this.Panel1.Size = new System.Drawing.Size(800, 60);
             this.Panel1.TabIndex = 10;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(268, 3);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(268, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(260, 34);
             this.label2.TabIndex = 20;
             this.label2.Text = "Registro de Instrumento";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(553, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "Filtrado Marca";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(596, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 43;
-            this.label3.Text = "Total";
-            // 
-            // TxtTotal
-            // 
-            this.TxtTotal.Enabled = false;
-            this.TxtTotal.Location = new System.Drawing.Point(652, 67);
-            this.TxtTotal.Name = "TxtTotal";
-            this.TxtTotal.Size = new System.Drawing.Size(81, 20);
-            this.TxtTotal.TabIndex = 44;
-            // 
-            // CmbFiltradoMarca
-            // 
-            this.CmbFiltradoMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbFiltradoMarca.FormattingEnabled = true;
-            this.CmbFiltradoMarca.Location = new System.Drawing.Point(652, 29);
-            this.CmbFiltradoMarca.Name = "CmbFiltradoMarca";
-            this.CmbFiltradoMarca.Size = new System.Drawing.Size(121, 21);
-            this.CmbFiltradoMarca.TabIndex = 45;
-            this.CmbFiltradoMarca.SelectedIndexChanged += new System.EventHandler(this.CmbFiltradoMarca_SelectedIndexChanged);
-            // 
-            // TxtTotalMarcas
-            // 
-            this.TxtTotalMarcas.Enabled = false;
-            this.TxtTotalMarcas.Location = new System.Drawing.Point(652, 323);
-            this.TxtTotalMarcas.Name = "TxtTotalMarcas";
-            this.TxtTotalMarcas.Size = new System.Drawing.Size(81, 20);
-            this.TxtTotalMarcas.TabIndex = 47;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(596, 326);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Total";
-            // 
-            // BtnTodos
-            // 
-            this.BtnTodos.Location = new System.Drawing.Point(293, 53);
-            this.BtnTodos.Name = "BtnTodos";
-            this.BtnTodos.Size = new System.Drawing.Size(75, 23);
-            this.BtnTodos.TabIndex = 48;
-            this.BtnTodos.Text = "Todos";
-            this.BtnTodos.UseVisualStyleBackColor = true;
-            this.BtnTodos.Click += new System.EventHandler(this.BtnTodos_Click);
             // 
             // FrmInventario
             // 

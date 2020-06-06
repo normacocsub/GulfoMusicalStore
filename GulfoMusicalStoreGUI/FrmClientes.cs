@@ -105,5 +105,10 @@ namespace GulfoMusicalStoreGUI
         {
             MapearDtgClientesCedula(DtgClientes,TxtCedula.Text);
         }
+
+        private void BtnGenerarInforme_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

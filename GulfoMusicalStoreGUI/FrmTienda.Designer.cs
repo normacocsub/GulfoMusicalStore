@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTienda));
-            this.BtnMinimizar = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.PanelTitulo = new System.Windows.Forms.Panel();
             this.LabelTitulo = new System.Windows.Forms.Label();
@@ -50,21 +49,6 @@
             this.Panel1.SuspendLayout();
             this.FLPItems.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BtnMinimizar
-            // 
-            this.BtnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnMinimizar.FlatAppearance.BorderSize = 0;
-            this.BtnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BtnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BtnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("BtnMinimizar.Image")));
-            this.BtnMinimizar.Location = new System.Drawing.Point(993, 12);
-            this.BtnMinimizar.Name = "BtnMinimizar";
-            this.BtnMinimizar.Size = new System.Drawing.Size(46, 34);
-            this.BtnMinimizar.TabIndex = 8;
-            this.BtnMinimizar.UseVisualStyleBackColor = true;
-            this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
             // 
             // BtnSalir
             // 
@@ -86,7 +70,6 @@
             // 
             this.PanelTitulo.Controls.Add(this.LabelTitulo);
             this.PanelTitulo.Controls.Add(this.BtnSalir);
-            this.PanelTitulo.Controls.Add(this.BtnMinimizar);
             this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitulo.Location = new System.Drawing.Point(0, 0);
             this.PanelTitulo.Name = "PanelTitulo";
@@ -327,7 +310,6 @@
         public System.Windows.Forms.Button BtnCursos;
         public System.Windows.Forms.Button BtnEstadisticas;
         public System.Windows.Forms.Button BtnLogo;
-        public System.Windows.Forms.Button BtnMinimizar;
         public System.Windows.Forms.Button BtnSalir;
         public System.Windows.Forms.Panel PanelTitulo;
         public System.Windows.Forms.Panel PanelContenedor;

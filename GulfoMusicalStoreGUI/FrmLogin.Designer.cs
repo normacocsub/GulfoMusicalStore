@@ -37,7 +37,6 @@
             this.TxtContraseña = new System.Windows.Forms.TextBox();
             this.TxtUsuario = new System.Windows.Forms.TextBox();
             this.BtnSalir = new System.Windows.Forms.Button();
-            this.BtnMinimizar = new System.Windows.Forms.Button();
             this.LabelRecuperarContraseña = new System.Windows.Forms.Label();
             this.PBVerContraseña = new System.Windows.Forms.PictureBox();
             this.PanelLogin.SuspendLayout();
@@ -149,21 +148,6 @@
             this.BtnSalir.UseVisualStyleBackColor = true;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
-            // BtnMinimizar
-            // 
-            this.BtnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnMinimizar.FlatAppearance.BorderSize = 0;
-            this.BtnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BtnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BtnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("BtnMinimizar.Image")));
-            this.BtnMinimizar.Location = new System.Drawing.Point(443, 12);
-            this.BtnMinimizar.Name = "BtnMinimizar";
-            this.BtnMinimizar.Size = new System.Drawing.Size(46, 34);
-            this.BtnMinimizar.TabIndex = 6;
-            this.BtnMinimizar.UseVisualStyleBackColor = true;
-            this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
-            // 
             // LabelRecuperarContraseña
             // 
             this.LabelRecuperarContraseña.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -197,7 +181,6 @@
             this.ClientSize = new System.Drawing.Size(550, 400);
             this.Controls.Add(this.PBVerContraseña);
             this.Controls.Add(this.LabelRecuperarContraseña);
-            this.Controls.Add(this.BtnMinimizar);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -225,7 +208,6 @@
         private System.Windows.Forms.TextBox TxtContraseña;
         private System.Windows.Forms.TextBox TxtUsuario;
         private System.Windows.Forms.Button BtnSalir;
-        private System.Windows.Forms.Button BtnMinimizar;
         private System.Windows.Forms.Label LabelRecuperarContraseña;
         private System.Windows.Forms.PictureBox PBVerContraseña;
     }

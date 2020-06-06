@@ -48,7 +48,7 @@
             this.LabelInstrumento.BackColor = System.Drawing.Color.Transparent;
             this.LabelInstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInstrumento.ForeColor = System.Drawing.Color.White;
-            this.LabelInstrumento.Location = new System.Drawing.Point(109, 166);
+            this.LabelInstrumento.Location = new System.Drawing.Point(262, 199);
             this.LabelInstrumento.Name = "LabelInstrumento";
             this.LabelInstrumento.Size = new System.Drawing.Size(106, 20);
             this.LabelInstrumento.TabIndex = 3;
@@ -61,7 +61,7 @@
             this.TxtInstrumento.BackColor = System.Drawing.Color.White;
             this.TxtInstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtInstrumento.ForeColor = System.Drawing.Color.Black;
-            this.TxtInstrumento.Location = new System.Drawing.Point(266, 167);
+            this.TxtInstrumento.Location = new System.Drawing.Point(419, 200);
             this.TxtInstrumento.Name = "TxtInstrumento";
             this.TxtInstrumento.Size = new System.Drawing.Size(120, 22);
             this.TxtInstrumento.TabIndex = 26;
@@ -72,7 +72,7 @@
             this.LabelMarca.BackColor = System.Drawing.Color.Transparent;
             this.LabelMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelMarca.ForeColor = System.Drawing.Color.White;
-            this.LabelMarca.Location = new System.Drawing.Point(109, 212);
+            this.LabelMarca.Location = new System.Drawing.Point(262, 245);
             this.LabelMarca.Name = "LabelMarca";
             this.LabelMarca.Size = new System.Drawing.Size(58, 20);
             this.LabelMarca.TabIndex = 27;
@@ -87,7 +87,7 @@
             this.CmbMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbMarca.ForeColor = System.Drawing.Color.Black;
             this.CmbMarca.FormattingEnabled = true;
-            this.CmbMarca.Location = new System.Drawing.Point(266, 212);
+            this.CmbMarca.Location = new System.Drawing.Point(419, 245);
             this.CmbMarca.Name = "CmbMarca";
             this.CmbMarca.Size = new System.Drawing.Size(120, 24);
             this.CmbMarca.TabIndex = 28;
@@ -99,7 +99,7 @@
             this.LabelPrecioUnidad.BackColor = System.Drawing.Color.Transparent;
             this.LabelPrecioUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelPrecioUnidad.ForeColor = System.Drawing.Color.White;
-            this.LabelPrecioUnidad.Location = new System.Drawing.Point(109, 258);
+            this.LabelPrecioUnidad.Location = new System.Drawing.Point(262, 291);
             this.LabelPrecioUnidad.Name = "LabelPrecioUnidad";
             this.LabelPrecioUnidad.Size = new System.Drawing.Size(59, 20);
             this.LabelPrecioUnidad.TabIndex = 29;
@@ -112,7 +112,7 @@
             this.TxtPrecio.BackColor = System.Drawing.Color.White;
             this.TxtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPrecio.ForeColor = System.Drawing.Color.Black;
-            this.TxtPrecio.Location = new System.Drawing.Point(266, 259);
+            this.TxtPrecio.Location = new System.Drawing.Point(419, 292);
             this.TxtPrecio.Name = "TxtPrecio";
             this.TxtPrecio.Size = new System.Drawing.Size(120, 22);
             this.TxtPrecio.TabIndex = 30;
@@ -123,7 +123,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(109, 121);
+            this.label1.Location = new System.Drawing.Point(262, 154);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 31;
@@ -135,7 +135,7 @@
             this.TxtCodigo.BackColor = System.Drawing.Color.White;
             this.TxtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigo.ForeColor = System.Drawing.Color.Black;
-            this.TxtCodigo.Location = new System.Drawing.Point(266, 122);
+            this.TxtCodigo.Location = new System.Drawing.Point(419, 155);
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.Size = new System.Drawing.Size(120, 22);
             this.TxtCodigo.TabIndex = 32;
@@ -153,7 +153,7 @@
             this.BtnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.BtnRegistrar.Location = new System.Drawing.Point(266, 312);
+            this.BtnRegistrar.Location = new System.Drawing.Point(419, 345);
             this.BtnRegistrar.Name = "BtnRegistrar";
             this.BtnRegistrar.Size = new System.Drawing.Size(120, 101);
             this.BtnRegistrar.TabIndex = 33;
@@ -172,7 +172,7 @@
             this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSalir.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("BtnSalir.Image")));
-            this.BtnSalir.Location = new System.Drawing.Point(448, 9);
+            this.BtnSalir.Location = new System.Drawing.Point(754, 12);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(34, 30);
             this.BtnSalir.TabIndex = 54;
@@ -184,10 +184,10 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(494, 47);
+            this.label2.Size = new System.Drawing.Size(800, 60);
             this.label2.TabIndex = 53;
             this.label2.Text = "Registrar Producto";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -197,7 +197,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(494, 450);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnRegistrar);
@@ -210,6 +210,7 @@
             this.Controls.Add(this.TxtInstrumento);
             this.Controls.Add(this.LabelInstrumento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(539, 165);
             this.Name = "FrmRegistrarProducto";
             this.Text = "FrmRegistrarProducto";
             this.ResumeLayout(false);

@@ -51,7 +51,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(95, 97);
+            this.label1.Location = new System.Drawing.Point(299, 162);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 20);
             this.label1.TabIndex = 0;
@@ -62,7 +62,7 @@
             // 
             this.CmbCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbCurso.FormattingEnabled = true;
-            this.CmbCurso.Location = new System.Drawing.Point(180, 96);
+            this.CmbCurso.Location = new System.Drawing.Point(384, 161);
             this.CmbCurso.Name = "CmbCurso";
             this.CmbCurso.Size = new System.Drawing.Size(121, 21);
             this.CmbCurso.TabIndex = 1;
@@ -75,7 +75,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(95, 207);
+            this.label2.Location = new System.Drawing.Point(299, 272);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 20);
             this.label2.TabIndex = 2;
@@ -84,7 +84,7 @@
             // 
             // TxtPrecio
             // 
-            this.TxtPrecio.Location = new System.Drawing.Point(180, 207);
+            this.TxtPrecio.Location = new System.Drawing.Point(384, 272);
             this.TxtPrecio.Name = "TxtPrecio";
             this.TxtPrecio.Size = new System.Drawing.Size(121, 20);
             this.TxtPrecio.TabIndex = 3;
@@ -103,7 +103,7 @@
             this.BtnModificar.ForeColor = System.Drawing.Color.White;
             this.BtnModificar.Image = ((System.Drawing.Image)(resources.GetObject("BtnModificar.Image")));
             this.BtnModificar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnModificar.Location = new System.Drawing.Point(162, 296);
+            this.BtnModificar.Location = new System.Drawing.Point(366, 361);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(120, 79);
             this.BtnModificar.TabIndex = 8;
@@ -115,7 +115,7 @@
             // TxtCodigo
             // 
             this.TxtCodigo.Enabled = false;
-            this.TxtCodigo.Location = new System.Drawing.Point(180, 168);
+            this.TxtCodigo.Location = new System.Drawing.Point(384, 233);
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.Size = new System.Drawing.Size(121, 20);
             this.TxtCodigo.TabIndex = 9;
@@ -127,7 +127,7 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(95, 168);
+            this.label3.Location = new System.Drawing.Point(299, 233);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 10;
@@ -145,7 +145,7 @@
             this.BtnSalir.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("BtnSalir.Image")));
-            this.BtnSalir.Location = new System.Drawing.Point(348, 7);
+            this.BtnSalir.Location = new System.Drawing.Point(742, 12);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(46, 34);
             this.BtnSalir.TabIndex = 54;
@@ -156,10 +156,10 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(399, 47);
+            this.label4.Size = new System.Drawing.Size(800, 60);
             this.label4.TabIndex = 53;
             this.label4.Text = "Modificar Curso";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,7 +171,7 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(92, 247);
+            this.label5.Location = new System.Drawing.Point(296, 312);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 20);
             this.label5.TabIndex = 55;
@@ -185,14 +185,14 @@
             this.CmbEstado.Items.AddRange(new object[] {
             "DESHABILITADO",
             "ACTIVO"});
-            this.CmbEstado.Location = new System.Drawing.Point(180, 249);
+            this.CmbEstado.Location = new System.Drawing.Point(384, 314);
             this.CmbEstado.Name = "CmbEstado";
             this.CmbEstado.Size = new System.Drawing.Size(121, 21);
             this.CmbEstado.TabIndex = 56;
             // 
             // TxtNombre
             // 
-            this.TxtNombre.Location = new System.Drawing.Point(180, 132);
+            this.TxtNombre.Location = new System.Drawing.Point(384, 197);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(121, 20);
             this.TxtNombre.TabIndex = 57;
@@ -204,7 +204,7 @@
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(92, 132);
+            this.label6.Location = new System.Drawing.Point(296, 197);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 20);
             this.label6.TabIndex = 58;
@@ -216,7 +216,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(399, 387);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.CmbEstado);
@@ -231,6 +231,7 @@
             this.Controls.Add(this.CmbCurso);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(539, 165);
             this.Name = "FrmModificarCurso";
             this.Text = "FrmModificarCurso";
             this.Load += new System.EventHandler(this.FrmModificarCurso_Load);

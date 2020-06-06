@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInfoCliente));
             this.BtnModificar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtCorreo = new System.Windows.Forms.TextBox();
@@ -58,6 +59,7 @@
             this.TxtTelefono = new System.Windows.Forms.TextBox();
             this.CmbCiudad = new System.Windows.Forms.ComboBox();
             this.CmbBarrio = new System.Windows.Forms.ComboBox();
+            this.BtnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnModificar
@@ -77,7 +79,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(244, 31);
+            this.label2.Location = new System.Drawing.Point(244, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(312, 34);
             this.label2.TabIndex = 153;
@@ -670,12 +672,29 @@
             this.CmbBarrio.TabIndex = 160;
             this.CmbBarrio.SelectedIndexChanged += new System.EventHandler(this.CmbBarrio_SelectedIndexChanged);
             // 
+            // BtnSalir
+            // 
+            this.BtnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSalir.FlatAppearance.BorderSize = 0;
+            this.BtnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSalir.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("BtnSalir.Image")));
+            this.BtnSalir.Location = new System.Drawing.Point(742, 12);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(46, 34);
+            this.BtnSalir.TabIndex = 161;
+            this.BtnSalir.UseVisualStyleBackColor = true;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
             // FrmInfoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.CmbBarrio);
             this.Controls.Add(this.CmbCiudad);
             this.Controls.Add(this.TxtTelefono);
@@ -748,5 +767,6 @@
         private System.Windows.Forms.TextBox TxtTelefono;
         private System.Windows.Forms.ComboBox CmbCiudad;
         private System.Windows.Forms.ComboBox CmbBarrio;
+        public System.Windows.Forms.Button BtnSalir;
     }
 }

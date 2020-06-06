@@ -68,7 +68,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 45);
+            this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 11;
             // 
             // label2
@@ -76,7 +76,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(268, 3);
+            this.label2.Location = new System.Drawing.Point(268, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(260, 34);
             this.label2.TabIndex = 23;

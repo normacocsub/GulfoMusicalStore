@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClienteDatos));
             this.LabelCedula = new System.Windows.Forms.Label();
             this.TxtCedula = new System.Windows.Forms.TextBox();
             this.LabelNombre = new System.Windows.Forms.Label();
@@ -59,6 +60,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.CmbCiudad = new System.Windows.Forms.ComboBox();
             this.CmbBarrio = new System.Windows.Forms.ComboBox();
+            this.BtnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LabelCedula
@@ -521,12 +523,13 @@
             // 
             // label2
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(244, 23);
+            this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(312, 34);
+            this.label2.Size = new System.Drawing.Size(800, 60);
             this.label2.TabIndex = 127;
             this.label2.Text = "Registrar Cliente";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -545,9 +548,9 @@
             // 
             // BtnBuscarCedula
             // 
-            this.BtnBuscarCedula.Location = new System.Drawing.Point(445, 57);
+            this.BtnBuscarCedula.Location = new System.Drawing.Point(418, 72);
             this.BtnBuscarCedula.Name = "BtnBuscarCedula";
-            this.BtnBuscarCedula.Size = new System.Drawing.Size(75, 23);
+            this.BtnBuscarCedula.Size = new System.Drawing.Size(270, 23);
             this.BtnBuscarCedula.TabIndex = 129;
             this.BtnBuscarCedula.Text = "Buscar";
             this.BtnBuscarCedula.UseVisualStyleBackColor = true;
@@ -555,15 +558,15 @@
             // 
             // TxtCedulaBuscar
             // 
-            this.TxtCedulaBuscar.Location = new System.Drawing.Point(250, 60);
+            this.TxtCedulaBuscar.Location = new System.Drawing.Point(212, 75);
             this.TxtCedulaBuscar.Name = "TxtCedulaBuscar";
-            this.TxtCedulaBuscar.Size = new System.Drawing.Size(135, 20);
+            this.TxtCedulaBuscar.Size = new System.Drawing.Size(172, 20);
             this.TxtCedulaBuscar.TabIndex = 130;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(147, 63);
+            this.label3.Location = new System.Drawing.Point(110, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 131;
@@ -650,12 +653,30 @@
             this.CmbBarrio.TabIndex = 137;
             this.CmbBarrio.SelectedIndexChanged += new System.EventHandler(this.CmbBarrio_SelectedIndexChanged);
             // 
+            // BtnSalir
+            // 
+            this.BtnSalir.BackColor = System.Drawing.Color.White;
+            this.BtnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSalir.FlatAppearance.BorderSize = 0;
+            this.BtnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSalir.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("BtnSalir.Image")));
+            this.BtnSalir.Location = new System.Drawing.Point(742, 12);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(46, 34);
+            this.BtnSalir.TabIndex = 138;
+            this.BtnSalir.UseVisualStyleBackColor = false;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
             // FrmClienteDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.CmbBarrio);
             this.Controls.Add(this.CmbCiudad);
             this.Controls.Add(this.label4);
@@ -729,5 +750,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox CmbCiudad;
         private System.Windows.Forms.ComboBox CmbBarrio;
+        public System.Windows.Forms.Button BtnSalir;
     }
 }

@@ -35,9 +35,11 @@
             this.BtnGenerarInforme = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnTodos = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TxtPrimerNombre = new System.Windows.Forms.TextBox();
+            this.TxtCedula = new System.Windows.Forms.TextBox();
             this.DtgClientes = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrimerNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CSegundoNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,10 +50,8 @@
             this.CDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CBarrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TxtCedula = new System.Windows.Forms.TextBox();
-            this.TxtPrimerNombre = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BtnTodos = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgClientes)).BeginInit();
@@ -61,7 +61,8 @@
             // LabelInfor
             // 
             this.LabelInfor.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelInfor.Location = new System.Drawing.Point(424, 43);
+            this.LabelInfor.ForeColor = System.Drawing.Color.White;
+            this.LabelInfor.Location = new System.Drawing.Point(424, 32);
             this.LabelInfor.Name = "LabelInfor";
             this.LabelInfor.Size = new System.Drawing.Size(151, 21);
             this.LabelInfor.TabIndex = 72;
@@ -71,7 +72,8 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(483, 138);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(424, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 21);
             this.label1.TabIndex = 75;
@@ -82,27 +84,30 @@
             // 
             this.TxtTotal.Enabled = false;
             this.TxtTotal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTotal.Location = new System.Drawing.Point(578, 135);
+            this.TxtTotal.Location = new System.Drawing.Point(493, 110);
             this.TxtTotal.Multiline = true;
             this.TxtTotal.Name = "TxtTotal";
-            this.TxtTotal.Size = new System.Drawing.Size(85, 24);
+            this.TxtTotal.Size = new System.Drawing.Size(79, 24);
             this.TxtTotal.TabIndex = 74;
             this.TxtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BtnGenerarInforme
             // 
             this.BtnGenerarInforme.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGenerarInforme.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
             this.BtnGenerarInforme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGenerarInforme.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGenerarInforme.ForeColor = System.Drawing.Color.White;
             this.BtnGenerarInforme.Image = ((System.Drawing.Image)(resources.GetObject("BtnGenerarInforme.Image")));
             this.BtnGenerarInforme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGenerarInforme.Location = new System.Drawing.Point(583, 493);
+            this.BtnGenerarInforme.Location = new System.Drawing.Point(553, 478);
             this.BtnGenerarInforme.Name = "BtnGenerarInforme";
             this.BtnGenerarInforme.Size = new System.Drawing.Size(205, 50);
             this.BtnGenerarInforme.TabIndex = 81;
             this.BtnGenerarInforme.Text = "Generar Informe";
             this.BtnGenerarInforme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnGenerarInforme.UseVisualStyleBackColor = true;
+            this.BtnGenerarInforme.Click += new System.EventHandler(this.BtnGenerarInforme_Click);
             // 
             // panel2
             // 
@@ -110,9 +115,9 @@
             this.panel2.Controls.Add(this.BtnGenerarInforme);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 45);
+            this.panel2.Location = new System.Drawing.Point(0, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 555);
+            this.panel2.Size = new System.Drawing.Size(800, 540);
             this.panel2.TabIndex = 71;
             // 
             // groupBox1
@@ -126,12 +131,54 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.TxtTotal);
             this.groupBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(43, 20);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(43, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(715, 467);
+            this.groupBox1.Size = new System.Drawing.Size(715, 443);
             this.groupBox1.TabIndex = 81;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta Total";
+            // 
+            // BtnTodos
+            // 
+            this.BtnTodos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTodos.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
+            this.BtnTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTodos.Location = new System.Drawing.Point(49, 98);
+            this.BtnTodos.Name = "BtnTodos";
+            this.BtnTodos.Size = new System.Drawing.Size(92, 40);
+            this.BtnTodos.TabIndex = 79;
+            this.BtnTodos.Text = "Todos";
+            this.BtnTodos.UseVisualStyleBackColor = true;
+            this.BtnTodos.Click += new System.EventHandler(this.BtnTodos_Click);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(110, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(220, 21);
+            this.label3.TabIndex = 78;
+            this.label3.Text = "Busqueda PrimerNombre";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // TxtPrimerNombre
+            // 
+            this.TxtPrimerNombre.Location = new System.Drawing.Point(136, 66);
+            this.TxtPrimerNombre.Name = "TxtPrimerNombre";
+            this.TxtPrimerNombre.Size = new System.Drawing.Size(164, 26);
+            this.TxtPrimerNombre.TabIndex = 77;
+            this.TxtPrimerNombre.TextChanged += new System.EventHandler(this.TxtPrimerNombre_TextChanged);
+            // 
+            // TxtCedula
+            // 
+            this.TxtCedula.Location = new System.Drawing.Point(428, 66);
+            this.TxtCedula.Name = "TxtCedula";
+            this.TxtCedula.Size = new System.Drawing.Size(144, 26);
+            this.TxtCedula.TabIndex = 76;
+            this.TxtCedula.TextChanged += new System.EventHandler(this.TxtCedula_TextChanged);
             // 
             // DtgClientes
             // 
@@ -147,32 +194,10 @@
             this.CDireccion,
             this.CCiudad,
             this.CBarrio});
-            this.DtgClientes.Location = new System.Drawing.Point(50, 178);
+            this.DtgClientes.Location = new System.Drawing.Point(49, 158);
             this.DtgClientes.Name = "DtgClientes";
             this.DtgClientes.Size = new System.Drawing.Size(613, 261);
             this.DtgClientes.TabIndex = 67;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(268, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 34);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Clientes";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 45);
-            this.panel1.TabIndex = 70;
             // 
             // CCedula
             // 
@@ -224,42 +249,27 @@
             this.CBarrio.HeaderText = "Barrio";
             this.CBarrio.Name = "CBarrio";
             // 
-            // TxtCedula
+            // label2
             // 
-            this.TxtCedula.Location = new System.Drawing.Point(428, 77);
-            this.TxtCedula.Name = "TxtCedula";
-            this.TxtCedula.Size = new System.Drawing.Size(144, 26);
-            this.TxtCedula.TabIndex = 76;
-            this.TxtCedula.TextChanged += new System.EventHandler(this.TxtCedula_TextChanged);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(270, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(260, 34);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Clientes";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TxtPrimerNombre
+            // panel1
             // 
-            this.TxtPrimerNombre.Location = new System.Drawing.Point(136, 77);
-            this.TxtPrimerNombre.Name = "TxtPrimerNombre";
-            this.TxtPrimerNombre.Size = new System.Drawing.Size(164, 26);
-            this.TxtPrimerNombre.TabIndex = 77;
-            this.TxtPrimerNombre.TextChanged += new System.EventHandler(this.TxtPrimerNombre_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(110, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(220, 21);
-            this.label3.TabIndex = 78;
-            this.label3.Text = "Busqueda PrimerNombre";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // BtnTodos
-            // 
-            this.BtnTodos.Location = new System.Drawing.Point(51, 135);
-            this.BtnTodos.Name = "BtnTodos";
-            this.BtnTodos.Size = new System.Drawing.Size(92, 26);
-            this.BtnTodos.TabIndex = 79;
-            this.BtnTodos.Text = "Todos";
-            this.BtnTodos.UseVisualStyleBackColor = true;
-            this.BtnTodos.Click += new System.EventHandler(this.BtnTodos_Click);
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 60);
+            this.panel1.TabIndex = 70;
             // 
             // FrmClientes
             // 
