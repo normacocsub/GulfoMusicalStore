@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TxtCodigo = new System.Windows.Forms.TextBox();
             this.CmbInstrumento = new System.Windows.Forms.ComboBox();
-            this.BtnConsultar = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -49,7 +48,7 @@
             this.LabelInstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInstrumento.ForeColor = System.Drawing.Color.White;
             this.LabelInstrumento.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LabelInstrumento.Location = new System.Drawing.Point(100, 79);
+            this.LabelInstrumento.Location = new System.Drawing.Point(100, 170);
             this.LabelInstrumento.Name = "LabelInstrumento";
             this.LabelInstrumento.Size = new System.Drawing.Size(106, 20);
             this.LabelInstrumento.TabIndex = 23;
@@ -133,29 +132,11 @@
             // CmbInstrumento
             // 
             this.CmbInstrumento.FormattingEnabled = true;
-            this.CmbInstrumento.Location = new System.Drawing.Point(225, 80);
+            this.CmbInstrumento.Location = new System.Drawing.Point(225, 172);
             this.CmbInstrumento.Name = "CmbInstrumento";
             this.CmbInstrumento.Size = new System.Drawing.Size(121, 21);
             this.CmbInstrumento.TabIndex = 36;
             this.CmbInstrumento.SelectedIndexChanged += new System.EventHandler(this.CmbInstrumento_SelectedIndexChanged_1);
-            // 
-            // BtnConsultar
-            // 
-            this.BtnConsultar.BackColor = System.Drawing.Color.Transparent;
-            this.BtnConsultar.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
-            this.BtnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConsultar.ForeColor = System.Drawing.Color.White;
-            this.BtnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("BtnConsultar.Image")));
-            this.BtnConsultar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnConsultar.Location = new System.Drawing.Point(225, 107);
-            this.BtnConsultar.Name = "BtnConsultar";
-            this.BtnConsultar.Size = new System.Drawing.Size(121, 98);
-            this.BtnConsultar.TabIndex = 37;
-            this.BtnConsultar.Text = "Consultar";
-            this.BtnConsultar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnConsultar.UseVisualStyleBackColor = false;
-            this.BtnConsultar.Click += new System.EventHandler(this.BtnConsultar_Click);
             // 
             // BtnSalir
             // 
@@ -194,7 +175,6 @@
             this.ClientSize = new System.Drawing.Size(449, 450);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.BtnConsultar);
             this.Controls.Add(this.CmbInstrumento);
             this.Controls.Add(this.TxtCodigo);
             this.Controls.Add(this.label3);
@@ -218,7 +198,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtCodigo;
         private System.Windows.Forms.ComboBox CmbInstrumento;
-        private System.Windows.Forms.Button BtnConsultar;
         public System.Windows.Forms.Button BtnSalir;
         public System.Windows.Forms.Label label2;
     }
