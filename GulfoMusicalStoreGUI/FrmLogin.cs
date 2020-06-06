@@ -20,7 +20,7 @@ namespace GulfoMusicalStoreGUI
        
         private void BtnMinimizar_Click(object sender, EventArgs e)
         {
-            his.WindowState = FormWindowState.Minimized;
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)

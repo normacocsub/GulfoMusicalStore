@@ -114,6 +114,7 @@
             this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel2.Controls.Add(this.BtnGenerarInforme);
             this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.DtgClientes);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 60);
             this.panel2.Name = "panel2";
@@ -126,7 +127,6 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TxtPrimerNombre);
             this.groupBox1.Controls.Add(this.TxtCedula);
-            this.groupBox1.Controls.Add(this.DtgClientes);
             this.groupBox1.Controls.Add(this.LabelInfor);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.TxtTotal);
@@ -134,7 +134,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(43, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(715, 443);
+            this.groupBox1.Size = new System.Drawing.Size(715, 163);
             this.groupBox1.TabIndex = 81;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta Total";
@@ -144,7 +144,7 @@
             this.BtnTodos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTodos.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
             this.BtnTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTodos.Location = new System.Drawing.Point(49, 98);
+            this.BtnTodos.Location = new System.Drawing.Point(28, 102);
             this.BtnTodos.Name = "BtnTodos";
             this.BtnTodos.Size = new System.Drawing.Size(92, 40);
             this.BtnTodos.TabIndex = 79;
@@ -194,7 +194,7 @@
             this.CDireccion,
             this.CCiudad,
             this.CBarrio});
-            this.DtgClientes.Location = new System.Drawing.Point(49, 158);
+            this.DtgClientes.Location = new System.Drawing.Point(83, 185);
             this.DtgClientes.Name = "DtgClientes";
             this.DtgClientes.Size = new System.Drawing.Size(613, 261);
             this.DtgClientes.TabIndex = 67;

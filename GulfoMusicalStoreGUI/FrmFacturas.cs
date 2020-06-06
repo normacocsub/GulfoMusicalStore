@@ -18,7 +18,7 @@ namespace GulfoMusicalStoreGUI
         public FrmFacturas()
         {
             InitializeComponent();
-            MapearDtgFactura(DtgFacturas);
+            MapearDtgFactura(DtgFactura);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -49,19 +49,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnFiltrarFecha_Click(object sender, EventArgs e)
         {
-            if (DtpFechaFinal.Value < DtpFechaInicial.Value)
-            {
-                MessageBox.Show("La fecha final no puede ser menor. ");
-            }
-            else
-            {
-                DateTime fechaDesde, fechaHasta, fecha, fecha2;
-                fecha = DtpFechaInicial.Value;
-                fechaDesde = new DateTime(fecha.Year, fecha.Month, fecha.Day, 0, 0, 0);
-                fecha2 = DtpFechaFinal.Value;
-                fechaHasta = new DateTime(fecha2.Year, fecha2.Month, fecha2.Day, 23, 59, 59);
-                MapearDtgFiltroFecha(DtgFacturas, fechaDesde, fechaHasta);
-            }
+           
             
         }
 
@@ -89,20 +77,7 @@ namespace GulfoMusicalStoreGUI
 
         private void CmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(CmbFiltro.Text== "Total Facturas")
-            {
-                MapearDtgFactura(DtgFacturas);
-            }
             
-
-            if (CmbFiltro.Text== "Facturas Activas")
-            {
-                MapearDtgFiltroEstado(DtgFacturas, "Activo");
-            }
-            if(CmbFiltro.Text== "Facturas Inactivas")
-            {
-                MapearDtgFiltroEstado(DtgFacturas, "Inactivo");
-            }
         }
 
 
@@ -129,7 +104,7 @@ namespace GulfoMusicalStoreGUI
 
         private void TxtCedula_TextChanged(object sender, EventArgs e)
         {
-            MapearDtgFiltroCedula(DtgFacturas,TxtCedula.Text);
+            
         }
 
 
@@ -156,42 +131,13 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnBuscarFactura_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int numero = int.Parse(TxtNumeroFactura.Text);
-                facturaService = new FacturaService(ConfigConnection.ConnectionString);
-                if (facturaService.BuscarFactura(numero) == null)
-                {
-                    MessageBox.Show("No existe esta factura. ");
-                }
-                else
-                {
-                    Factura factura;
-                    factura = facturaService.BuscarFactura(numero);
-                    //aqui mando la factura al otro form tipo el otro form recibe una factura
-                    //entonces
-                    //frmfactura frmfac=new frmfactura(numero);
-                }
-            }
-            catch(FormatException ex)
-            {
-                MessageBox.Show("Solo puede escribir numeros aqui. ");
-            }
+           
             
         }
 
         private void TxtNumeroFactura_TextChanged(object sender, EventArgs e)
         {
-            int numero;
-            if (TxtNumeroFactura.Text == "")
-            {
-                numero = 0;
-            }
-            else
-            {
-                numero = int.Parse(TxtNumeroFactura.Text);
-            }
-            MapearDtgFiltroNumeroFactura(DtgFacturas, numero);
+           
         }
 
 
@@ -215,6 +161,90 @@ namespace GulfoMusicalStoreGUI
                 dtg.Rows[n].Cells[9].Value = item.Estado;
             }
             TxtTotal.Text = facturaService.FiltroNumeroFactura(numero).Count.ToString();
+        }
+
+        private void CBBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CBBusqueda.Text == "Total Facturas")
+            {
+                MapearDtgFactura(DtgFactura);
+            }
+
+
+            if (CBBusqueda.Text == "Facturas Activas")
+            {
+                MapearDtgFiltroEstado(DtgFactura, "Activo");
+            }
+            if (CBBusqueda.Text == "Facturas Inactivas")
+            {
+                MapearDtgFiltroEstado(DtgFactura, "Inactivo");
+            }
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int numero = int.Parse(TxtNumeroFactura.Text);
+                facturaService = new FacturaService(ConfigConnection.ConnectionString);
+                if (facturaService.BuscarFactura(numero) == null)
+                {
+                    MessageBox.Show("No existe esta factura. ");
+                }
+                else
+                {
+                    Factura factura;
+                    factura = facturaService.BuscarFactura(numero);
+                    //aqui mando la factura al otro form tipo el otro form recibe una factura
+                    //entonces
+                    //frmfactura frmfac=new frmfactura(numero);
+                }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Solo puede escribir numeros aqui. ");
+            }
+        }
+
+        private void TxtNumeroFactura_TextChanged_1(object sender, EventArgs e)
+        {
+            int numero;
+            if (TxtNumeroFactura.Text == "")
+            {
+                numero = 0;
+            }
+            else
+            {
+                numero = int.Parse(TxtNumeroFactura.Text);
+            }
+            MapearDtgFiltroNumeroFactura(DtgFactura, numero);
+        }
+
+        private void BtnFiltrar_Click(object sender, EventArgs e)
+        {
+            if (DtpHasta.Value < DtpDesde.Value)
+            {
+                MessageBox.Show("La fecha final no puede ser menor. ");
+            }
+            else
+            {
+                DateTime fechaDesde, fechaHasta, fecha, fecha2;
+                fecha = DtpDesde.Value;
+                fechaDesde = new DateTime(fecha.Year, fecha.Month, fecha.Day, 0, 0, 0);
+                fecha2 = DtpHasta.Value;
+                fechaHasta = new DateTime(fecha2.Year, fecha2.Month, fecha2.Day, 23, 59, 59);
+                MapearDtgFiltroFecha(DtgFactura, fechaDesde, fechaHasta);
+            }
+        }
+
+        private void TxtCedula_TextChanged_1(object sender, EventArgs e)
+        {
+            MapearDtgFiltroCedula(DtgFactura, TxtCedula.Text);
+        }
+
+        private void DtgFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
