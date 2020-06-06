@@ -11,6 +11,8 @@ namespace Entity
         public DateTime Fecha { get; set; }
         public Factura Factura { get; set; }
         public string NumeroEstadistica { get; set; }
+        public int Cantidad { get; set; }
+        public decimal Total { get; set; }
 
         public EstadisticasVentas()
         {

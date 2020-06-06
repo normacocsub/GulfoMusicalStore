@@ -47,6 +47,7 @@
     <Compile Include="ConectionManager.cs" />
     <Compile Include="CursoRepository.cs" />
     <Compile Include="ClienteRepository.cs" />
+    <Compile Include="EstadisticasRepository.cs" />
     <Compile Include="FacturaRepository.cs" />
     <Compile Include="LugarRepository.cs" />
     <Compile Include="MarcaRepository.cs" />

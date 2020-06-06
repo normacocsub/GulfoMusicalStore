@@ -118,10 +118,18 @@ namespace GulfoMusicalStoreGUI
        
         private void BtnFacturar_Click(object sender, EventArgs e)
         {
-            AgregarProductos(TxtTotal.Text, CmbInstrumento.Text);
-            Venta.TotalVenta(Factura);
-            MessageBox.Show("Se han añadido los productos a la factura.");
-            this.Close();
+            if (TxtTotal.Text.Equals("") || CmbInstrumento.Text.Equals(""))
+            {
+                MessageBox.Show("Seleccione Cuantos productos va a llevar o de Click en la x");
+            }
+            else
+            {
+                AgregarProductos(TxtTotal.Text, CmbInstrumento.Text);
+                Venta.TotalVenta(Factura);
+                MessageBox.Show("Se han añadido los productos a la factura.");
+                this.Close();
+            }
+            
         }
 
         private void CmbInstrumento_SelectedIndexChanged(object sender, EventArgs e)

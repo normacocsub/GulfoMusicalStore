@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ClienteService.cs" />
     <Compile Include="CursoService.cs" />
+    <Compile Include="EstadisticasService.cs" />
     <Compile Include="FacturaService.cs" />
     <Compile Include="LugarService.cs" />
     <Compile Include="MarcaService.cs" />
