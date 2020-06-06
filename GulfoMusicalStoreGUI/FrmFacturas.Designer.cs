@@ -61,10 +61,12 @@
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnBuscarFactura = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtNumeroFactura = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtCedula = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.CmbFiltro = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -86,8 +88,6 @@
             this.DtpFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.BtnFiltrarFecha = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.TxtCedula = new System.Windows.Forms.TextBox();
             this.GBTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).BeginInit();
             this.GB2.SuspendLayout();
@@ -393,9 +393,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.BtnBuscarFactura);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.TxtNumeroFactura);
             this.groupBox3.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(243, 503);
             this.groupBox3.Name = "groupBox3";
@@ -404,16 +404,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Consulta Individual";
             // 
-            // button2
+            // BtnBuscarFactura
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(172, 52);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 27);
-            this.button2.TabIndex = 70;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnBuscarFactura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscarFactura.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscarFactura.Location = new System.Drawing.Point(172, 52);
+            this.BtnBuscarFactura.Name = "BtnBuscarFactura";
+            this.BtnBuscarFactura.Size = new System.Drawing.Size(124, 27);
+            this.BtnBuscarFactura.TabIndex = 70;
+            this.BtnBuscarFactura.Text = "Buscar";
+            this.BtnBuscarFactura.UseVisualStyleBackColor = true;
+            this.BtnBuscarFactura.Click += new System.EventHandler(this.BtnBuscarFactura_Click);
             // 
             // label9
             // 
@@ -425,14 +426,15 @@
             this.label9.Text = "Ingresar el codigo de factura";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // TxtNumeroFactura
             // 
-            this.textBox2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(181, 19);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(104, 27);
-            this.textBox2.TabIndex = 69;
+            this.TxtNumeroFactura.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNumeroFactura.Location = new System.Drawing.Point(181, 19);
+            this.TxtNumeroFactura.Multiline = true;
+            this.TxtNumeroFactura.Name = "TxtNumeroFactura";
+            this.TxtNumeroFactura.Size = new System.Drawing.Size(104, 27);
+            this.TxtNumeroFactura.TabIndex = 69;
+            this.TxtNumeroFactura.TextChanged += new System.EventHandler(this.TxtNumeroFactura_TextChanged);
             // 
             // groupBox1
             // 
@@ -451,6 +453,24 @@
             this.groupBox1.TabIndex = 72;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ConsultaTotal";
+            // 
+            // TxtCedula
+            // 
+            this.TxtCedula.Location = new System.Drawing.Point(522, 112);
+            this.TxtCedula.Name = "TxtCedula";
+            this.TxtCedula.Size = new System.Drawing.Size(144, 25);
+            this.TxtCedula.TabIndex = 78;
+            this.TxtCedula.TextChanged += new System.EventHandler(this.TxtCedula_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(538, 91);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 18);
+            this.label10.TabIndex = 77;
+            this.label10.Text = "Busqueda Cedula";
             // 
             // label5
             // 
@@ -632,24 +652,6 @@
             this.BtnFiltrarFecha.UseVisualStyleBackColor = true;
             this.BtnFiltrarFecha.Click += new System.EventHandler(this.BtnFiltrarFecha_Click);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(538, 91);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(128, 18);
-            this.label10.TabIndex = 77;
-            this.label10.Text = "Busqueda Cedula";
-            // 
-            // TxtCedula
-            // 
-            this.TxtCedula.Location = new System.Drawing.Point(522, 112);
-            this.TxtCedula.Name = "TxtCedula";
-            this.TxtCedula.Size = new System.Drawing.Size(144, 25);
-            this.TxtCedula.TabIndex = 78;
-            this.TxtCedula.TextChanged += new System.EventHandler(this.TxtCedula_TextChanged);
-            // 
             // FrmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -712,9 +714,9 @@
         private System.Windows.Forms.Panel PanelContenedor;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnBuscarFactura;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtNumeroFactura;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox CmbFiltro;

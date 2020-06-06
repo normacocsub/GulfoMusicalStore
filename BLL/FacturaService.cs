@@ -104,5 +104,38 @@ namespace BLL
                 return null;
             }
         }
+
+        public Factura BuscarFactura(int numero)
+        {
+            Factura factura = null;
+            try
+            {
+                Conection.Open();
+                factura = FacturaRepositorio.BuscarFactura(numero);
+                Conection.Close();
+                return factura;
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return null;
+            }
+        }
+
+        public IList<Factura> FiltroNumeroFactura(int numero)
+        {
+            try
+            {
+                Conection.Open();
+                Facturas = FacturaRepositorio.FiltroNumeroFactura(numero);
+                Conection.Close();
+                return Facturas;
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return null;
+            }
+        }
     }
 }

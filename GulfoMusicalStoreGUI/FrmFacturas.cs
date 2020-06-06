@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -151,6 +152,69 @@ namespace GulfoMusicalStoreGUI
                 dtg.Rows[n].Cells[9].Value = item.Estado;
             }
             TxtTotal.Text = facturaService.FiltrarFacturasCedula(cedula).Count.ToString();
+        }
+
+        private void BtnBuscarFactura_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int numero = int.Parse(TxtNumeroFactura.Text);
+                facturaService = new FacturaService(ConfigConnection.ConnectionString);
+                if (facturaService.BuscarFactura(numero) == null)
+                {
+                    MessageBox.Show("No existe esta factura. ");
+                }
+                else
+                {
+                    Factura factura;
+                    factura = facturaService.BuscarFactura(numero);
+                    //aqui mando la factura al otro form tipo el otro form recibe una factura
+                    //entonces
+                    //frmfactura frmfac=new frmfactura(numero);
+                }
+            }
+            catch(FormatException ex)
+            {
+                MessageBox.Show("Solo puede escribir numeros aqui. ");
+            }
+            
+        }
+
+        private void TxtNumeroFactura_TextChanged(object sender, EventArgs e)
+        {
+            int numero;
+            if (TxtNumeroFactura.Text == "")
+            {
+                numero = 0;
+            }
+            else
+            {
+                numero = int.Parse(TxtNumeroFactura.Text);
+            }
+            MapearDtgFiltroNumeroFactura(DtgFacturas, numero);
+        }
+
+
+
+        private void MapearDtgFiltroNumeroFactura(DataGridView dtg, int numero)
+        {
+            dtg.Rows.Clear();
+            facturaService = new FacturaService(ConfigConnection.ConnectionString);
+            foreach (var item in facturaService.FiltroNumeroFactura(numero))
+            {
+                int n = dtg.Rows.Add();
+                dtg.Rows[n].Cells[0].Value = item.Numero;
+                dtg.Rows[n].Cells[1].Value = item.Cantidad;
+                dtg.Rows[n].Cells[2].Value = item.Iva;
+                dtg.Rows[n].Cells[3].Value = item.SubTotal;
+                dtg.Rows[n].Cells[4].Value = item.Total;
+                dtg.Rows[n].Cells[5].Value = item.Cliente.Cedula;
+                dtg.Rows[n].Cells[6].Value = item.Cliente.PrimerNombre;
+                dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
+                dtg.Rows[n].Cells[8].Value = item.Fecha;
+                dtg.Rows[n].Cells[9].Value = item.Estado;
+            }
+            TxtTotal.Text = facturaService.FiltroNumeroFactura(numero).Count.ToString();
         }
     }
 }

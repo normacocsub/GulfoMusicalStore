@@ -464,6 +464,10 @@ IS
     PROCEDURE FILTRARFACTURASESTADO(facturas OUT SYS_REFCURSOR, f_estado in varchar2);
     
     PROCEDURE FILTRARFACTURACEDULA(facturas OUT SYS_REFCURSOR,f_cedula in varchar2);
+    
+    PROCEDURE BUSCARFACTURA(facturas OUT SYS_REFCURSOR,f_factura in number);
+    
+    PROCEDURE FILTRONUMEROFACTURALIKE(facturas OUT SYS_REFCURSOR, f_factura in number);
 END PAQUETE_FACTURA;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_FACTURA
@@ -517,6 +521,24 @@ IS
                           WHERE F.cliente_id_clientte=f_cedula
                           ORDER BY F.sk_factura;
     END FILTRARFACTURACEDULA;
+    
+    PROCEDURE BUSCARFACTURA(facturas OUT SYS_REFCURSOR,f_factura in number)
+    AS
+    BEGIN
+        OPEN facturas FOR SELECT * FROM Factura F
+                          JOIN CLIENTE c
+                          ON(c.id_clientte=f.CLIENTE_id_clientte)
+                          WHERE F.sk_Factura=f_factura; 
+    END;
+    
+    PROCEDURE FILTRONUMEROFACTURALIKE(facturas OUT SYS_REFCURSOR, f_factura in number)
+    AS
+    BEGIN
+        OPEN facturas FOR SELECT * FROM Factura F
+                          JOIN CLIENTE c
+                          ON(c.id_clientte=f.CLIENTE_id_clientte)
+                          WHERE F.sk_Factura like f_factura;
+    END;
     
 END PAQUETE_FACTURA;
 

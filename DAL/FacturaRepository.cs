@@ -192,6 +192,47 @@ namespace DAL
             return Facturas;
         }
 
+        public Factura BuscarFactura(int numero)
+        {
+            Factura factura = null;
+            using(var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_FACTURA.BUSCARFACTURA";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("facturas", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("f_factura", OracleDbType.Int32).Value = numero;
+
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    factura = MapFactura(Reader);
+                }
+            }
+            return factura;
+        }
+
+        public IList<Factura> FiltroNumeroFactura(int numero)
+        {
+            Facturas.Clear();
+            using(var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_FACTURA.FILTRONUMEROFACTURALIKE";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("facturas", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("f_factura", OracleDbType.Int32).Value = numero;
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Factura factura;
+                    factura = MapFactura(Reader);
+                    Facturas.Add(factura);
+                }
+            }
+            return Facturas;
+        }
+
         
 
         
