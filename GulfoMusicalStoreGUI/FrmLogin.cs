@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -30,18 +31,50 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnIniciarSesion_Click(object sender, EventArgs e)
         {
-            if (TxtUsuario.Text == "Admin" && TxtContraseña.Text == "ABC123")
+            if (CmbCiudad.Text == "")
             {
-                TxtUsuario.Text = "Usuario";
-                TxtContraseña.Text = "Contraseña";
-                this.SetVisibleCore(false);
-                FrmBienvenida frmBienvenida = new FrmBienvenida();
-                frmBienvenida.Show();
+                MessageBox.Show("La ciudad no puede estar vacia. ");
             }
             else
             {
-                MessageBox.Show("Usuario / Contraseña errada","Información", 
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (TxtUsuario.Text == "Admin" && TxtContraseña.Text == "ABC123")
+                {
+                    if (CmbCiudad.SelectedIndex == 0)
+                    {
+                        TxtUsuario.Text = "Usuario";
+                        TxtContraseña.Text = "Contraseña";
+                        this.SetVisibleCore(false);
+                        ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                        ConfigConnection.CiudadConectada = "Bogota";
+                        FrmBienvenida frmBienvenida = new FrmBienvenida();
+                        frmBienvenida.Show();
+                    }
+                    if (CmbCiudad.SelectedIndex == 1)
+                    {
+                        TxtUsuario.Text = "Usuario";
+                        TxtContraseña.Text = "Contraseña";
+                        this.SetVisibleCore(false);
+                        ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection2"].ConnectionString;
+                        ConfigConnection.CiudadConectada = "Cali";
+                        FrmBienvenida frmBienvenida = new FrmBienvenida();
+                        frmBienvenida.Show();
+                    }
+                    if (CmbCiudad.SelectedIndex == 2)
+                    {
+                        TxtUsuario.Text = "Usuario";
+                        TxtContraseña.Text = "Contraseña";
+                        this.SetVisibleCore(false);
+                        ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection3"].ConnectionString;
+                        ConfigConnection.CiudadConectada = "Barranquilla";
+                        FrmBienvenida frmBienvenida = new FrmBienvenida();
+                        frmBienvenida.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Usuario / Contraseña errada", "Información",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 

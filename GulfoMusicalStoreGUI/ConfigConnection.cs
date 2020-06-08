@@ -9,6 +9,7 @@ namespace GulfoMusicalStoreGUI
 {
     public static class ConfigConnection
     {
-        public static string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        public static string ConnectionString ;
+        public static string CiudadConectada;
     }
 }

@@ -163,6 +163,7 @@ namespace GulfoMusicalStoreGUI
                     Factura.Estado = "Activo";
                     Factura.CalcularFactura();
                     Factura.Fecha = DateTime.Now;
+                    Factura.CiudadFactura = ConfigConnection.CiudadConectada;
                     MessageBox.Show(facturaservice.GuardarFactura(Factura));
                     Factura = new Factura();
                     LabelTotal.Text = "0";

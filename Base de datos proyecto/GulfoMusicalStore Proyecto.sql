@@ -48,9 +48,8 @@ ALTER TABLE curso_factura ADD Cantidad number(2);
 ALTER TABLE curso_factura modify fecha varchar2(27);
 
 CREATE TABLE factura (
-    sk_factura   NUMBER(3),
+    sk_factura   NUMBER(3) NOT NULL,
     fecha        DATE,
-    factura_id   NUMBER NOT NULL,
     estado       VARCHAR2(10) DEFAULT 'ACTIVO',
     subtotal     NUMBER(8, 2),
     iva          NUMBER(8, 2),
@@ -58,12 +57,13 @@ CREATE TABLE factura (
     cantidad     NUMBER(2)
 );
 
-ALTER TABLE factura ADD CONSTRAINT factura_pk PRIMARY KEY ( factura_id );
+ALTER TABLE factura ADD CONSTRAINT factura_pk PRIMARY KEY ( sk_factura );
 ALTER TABLE factura modify subTotal number(12,2);
 ALTER TABLE factura modify iva number(12,2);
 ALTER TABLE factura modify total number(12,2);
 ALTER TABLE factura add cliente_id_clientte varchar2(12);
 ALTER TABLE factura modify fecha varchar2(27);
+ALTER TABLE factura add CiudadFactura varchar2(20);
 
 CREATE TABLE lugar (
     sk_lugar   NUMBER(3) NOT NULL,
@@ -74,7 +74,7 @@ ALTER TABLE lugar ADD CONSTRAINT lugar_pk PRIMARY KEY ( sk_lugar );
 
 CREATE TABLE marca (
     sk_marca   NUMBER(3) NOT NULL,
-    nombre     VARCHAR2(20) NOT NULL
+    nombremarca     VARCHAR2(20) NOT NULL
 );
 
 ALTER TABLE marca ADD CONSTRAINT marca_pk PRIMARY KEY ( sk_marca );
@@ -147,6 +147,26 @@ ALTER TABLE product_factura
 ALTER TABLE producto
     ADD CONSTRAINT producto_marca_fk FOREIGN KEY ( marca_sk_marca )
         REFERENCES marca ( sk_marca );
+        
+--tablas del esquema sin relacion
+
+CREATE TABLE Factura_tmp(sk_codigo  number(3));
+CREATE TABLE RegistroUsuarios(sk_usuario number(2),
+                              usuario varchar2(15),
+                              ip_pc varchar2(25),
+                              nombre_pc varchar2(15)
+                              , fecha varchar2(10),
+                              Accion varchar2(15),
+                              hora varchar2(20));
+                              
+ALTER TABLE RegistroUsuarios ADD CONSTRAINT RegistroUsuarios_pk PRIMARY KEY ( sk_usuario);
+ALTER TABLE RegistroUsuarios ADD Tabla varchar2(20);
+
+--Alter table RegistroUsuarios Add CiudadRegistro varchar2(20);
+
+CREATE TABLE ESTADISTICAS(sk_estadistica number(3),total number(12,2),unidades number(3));
+ALTER TABLE Estadisticas ADD CONSTRAINT estadistica_pk PRIMARY KEY ( sk_estadistica );
+ALTER TABLE Estadisticas ADD fecha  varchar2(25);
 
 --SECUENCIAS
 
@@ -170,47 +190,70 @@ CREATE PUBLIC SYNONYM ProductoFactura FOR Product_Factura;
 CREATE PUBLIC SYNONYM CursoFactura FOR Curso_Factura;
 CREATE PUBLIC SYNONYM STATICTS FOR Estadisticas;
 
+
+
+
+--TRIGERS Conexion REMOTA;
+
+CREATE OR REPLACE TRIGGER LUGAR_TRIGGER_Conection_Remote
+AFTER INSERT ON Lugar
+FOR EACH ROW
+BEGIN
+    INSERT INTO gulfocali.Lugar@Gulfo_Bogo_Cali(ciudad)
+    VALUES(:new.ciudad);
+END;
+
+CREATE OR REPLACE TRIGGER BARRIO_TRIGGER_Conection_Remote
+AFTER INSERT ON BARRIO
+FOR EACH ROW
+declare
+PRAGMA AUTONOMOUS_TRANSACTION;
+BEGIN
+    INSERT INTO gulfocali.Barrio@Gulfo_Bogo_Cali(nombre,lugar_sk_lugar)
+    VALUES(:new.nombre,:new.lugar_sk_lugar);
+END;
+
 --TRIGGERS MARCA
 CREATE OR REPLACE TRIGGER MARCA_TRIGGER_SK_KEY
-BEFORE INSERT ON Brands
-FOR EACH ROW 
+BEFORE INSERT ON Marca
+FOR EACH ROW
 BEGIN
     SELECT SEQUENCE_MARCA.NEXTVAL
     INTO:NEW.sk_marca
     FROM DUAL;
-END;
+END MARCA_TRIGGER_SK_KEY;
 
 --TRIGGERS CURSO
 create or replace trigger Cursos_TRIGGER
-before insert on Courses
+before insert on Curso
 for each row
 begin
 select cursos_Sequencia.nextval
 into:new.sk_curso
 from dual;
-end;
+end Cursos_TRIGGER;
 
 --TRIGGERS LUGAR
 
 CREATE OR REPLACE TRIGGER SEQUENCIA_TRIGGER_LUGAR
-BEFORE INSERT ON Place
+BEFORE INSERT ON Lugar
 FOR EACH ROW
 BEGIN
     SELECT LUGAR_SEQUENCIA.NEXTVAL
     INTO:NEW.sk_lugar
     FROM DUAL;
-END;
+END SEQUENCIA_TRIGGER_LUGAR;
 
 --TRIGGERS BARRIO
 
 CREATE OR REPLACE TRIGGER SEQUENCIA_TRIGGER_BARRIO
-BEFORE INSERT ON Neigh
+BEFORE INSERT ON Barrio
 FOR EACH ROW
 BEGIN
     SELECT BARRIO_SEQUENCIA.NEXTVAL
     INTO:NEW.sk_barrio
     FROM DUAL;
-END;
+END SEQUENCIA_TRIGGER_BARRIO;
 
 
 --TRIGERS FACTURA
@@ -223,7 +266,7 @@ BEGIN
     INTO:NEW.sk_Factura
     FROM dual;
     INSERT INTO Factura_tmp VALUES(:NEW.sk_factura);
-END;
+END factura_trigger;
 
 --TRIGGERS ESTADISTICAS
 
@@ -234,9 +277,9 @@ DECLARE
     fecha estadisticas.fecha%type;
 BEGIN
     SELECT TO_CHAR (SYSDATE, 'DD-MM-YYYY HH24:MI:SS') INTO fecha FROM DUAL;
-    INSERT INTO STATICTS(sk_estadistica,TOtal,unidades,fecha)
+    INSERT INTO estadisticas(sk_estadistica,TOtal,unidades,fecha)
     VALUES(Estadisticas_SEQUENCIA.NEXTVAL,:new.total,:new.cantidad,fecha);
-END;
+END estadistica_trigger;
 
 
 
@@ -249,7 +292,7 @@ BEGIN
     SELECT SEQUENCE_Usuarios.nextval
     INTO:new.sk_usuario
     FROM DUAL;
-END;
+END SEQUENCE_TRIGGER_USERS;
 
 CREATE OR REPLACE TRIGGER REGISTRO_BARRIOS_TRIGGER
 AFTER INSERT OR UPDATE OR DELETE ON Barrio
@@ -267,7 +310,7 @@ BEGIN
         accion:='DELETE';
     end if;
     INSERT_REGISTROUSUARIO(accion,tabla);
-END;
+END REGISTRO_BARRIOS_TRIGGER;
 
 CREATE OR REPLACE TRIGGER REGISTRO_CLIENTES_TRIGGER
 AFTER INSERT OR UPDATE OR DELETE ON Cliente
@@ -285,7 +328,7 @@ BEGIN
         accion:='DELETE';
     END IF; 
     INSERT_REGISTROUSUARIO(accion,tabla);
-END;
+END REGISTRO_CLIENTES_TRIGGER;
 
 CREATE OR REPLACE TRIGGER REGISTRO_CURSOS_TRIGGER
 AFTER UPDATE OR INSERT OR DELETE ON Curso
@@ -303,7 +346,7 @@ BEGIN
         accion:='DELETE';
     END IF;
     INSERT_REGISTROUSUARIO(accion,tabla);
-END;
+END REGISTRO_CURSOS_TRIGGER;
 
 CREATE OR REPLACE TRIGGER REGISTRO_FACTURAS_TRIGGER
 AFTER UPDATE OR INSERT OR DELETE ON Factura
@@ -321,7 +364,7 @@ BEGIN
         accion:='DELETE';
     END IF;
     INSERT_REGISTROUSUARIO(accion,tabla);
-END;
+END REGISTRO_FACTURAS_TRIGGER;
 
 CREATE OR REPLACE TRIGGER REGISTRO_LUGARES_TRIGGER
 AFTER UPDATE OR INSERT OR DELETE ON Lugar
@@ -339,7 +382,7 @@ BEGIN
         accion:='DELETE';
     END IF;
     INSERT_REGISTROUSUARIO(accion,tabla);
-END;
+END REGISTRO_LUGARES_TRIGGER;
 
 CREATE OR REPLACE TRIGGER REGISTRO_MARCAS_TRIGGER
 AFTER UPDATE OR INSERT OR DELETE ON Marca
@@ -357,7 +400,7 @@ BEGIN
         accion:='DELETE';
     END IF;
     INSERT_REGISTROUSUARIO(accion,tabla);
-END;
+END REGISTRO_MARCAS_TRIGGER;
 
 
 CREATE OR REPLACE TRIGGER REGISTRO_PRODUCTOS_TRIGGER
@@ -376,7 +419,7 @@ BEGIN
         accion:='DELETE';
     END IF;
     INSERT_REGISTROUSUARIO(accion,tabla);
-END;
+END REGISTRO_PRODUCTOS_TRIGGER;
 
 
 --PROCEDIMIENTO PARA TRIGGGER
@@ -392,29 +435,11 @@ BEGIN
     SELECT TO_CHAR (SYSDATE, 'HH24:MI:SS') INTO hora FROM DUAL;
     INSERT INTO RegistroUsuarios(usuario,ip_pc,nombre_pc,fecha,accion,hora,tabla)
     VALUES(user,ip_pc,nombre_pc,sysdate,x_accion,hora,x_tabla);
-END;
+END INSERT_REGISTROUSUARIO;
 
 
 
---tablas del esquema sin relacion
 
-CREATE TABLE Factura_tmp(sk_codigo  number(3));
-CREATE TABLE RegistroUsuarios(sk_usuario number(2),
-                              usuario varchar2(15),
-                              ip_pc varchar2(25),
-                              nombre_pc varchar2(15)
-                              , fecha varchar2(10),
-                              Accion varchar2(15),
-                              hora varchar2(20));
-                              
-ALTER TABLE RegistroUsuarios ADD CONSTRAINT RegistroUsuarios_pk PRIMARY KEY ( sk_usuario);
-ALTER TABLE RegistroUsuarios ADD Tabla varchar(20);
-
-
-
-CREATE TABLE ESTADISTICAS(sk_estadistica number(3),total number(12,2),unidades number(3));
-ALTER TABLE Estadisticas ADD CONSTRAINT estadistica_pk PRIMARY KEY ( sk_estadistica );
-ALTER TABLE Estadisticas ADD fecha  varchar2(25);
 
 
 
@@ -450,14 +475,14 @@ IS
     PROCEDURE GuardarDetalleFactura(precio in number, fechadate in varchar2, factura in number,cantidad in number, producto in varchar2, cliente in number)
     AS
     BEGIN
-        INSERT INTO ProductoFactura(precio,fecha,factura_factura_id,cantidad,producto_id_producto,cliente_id_clientte)
+        INSERT INTO Product_Factura(precio,fecha,factura_factura_id,cantidad,producto_id_producto,cliente_id_clientte)
         VALUES(precio,fechadate,factura,cantidad,producto,cliente);
     END GuardarDetalleFactura;
     
     PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in number,cantidad in number, curso in number, cliente in number)
     AS
     BEGIN
-        INSERT INTO CursoFactura(precio,fecha,factura_factura_id,cantidad,curso_Sk_curso,cliente_id_Clientte)
+        INSERT INTO Curso_Factura(precio,fecha,factura_factura_id,cantidad,curso_Sk_curso,cliente_id_Clientte)
         VALUES(precio,fechadate,factura,cantidad,curso,cliente);
     END GuardarDetalleCurso;
 END PAQUETE_Detalles;
@@ -467,7 +492,7 @@ END PAQUETE_Detalles;
 CREATE OR REPLACE PACKAGE PAQUETE_FACTURA
 IS
     procedure GuardarFacturas(fecha in varchar2, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
-                                            cantidadfac in number,x_id_cliente in varchar2);
+                                            cantidadfac in number,x_id_cliente in varchar2,x_CiudadFactura in varchar2);
     PROCEDURE OBTENERCODIGOFACTURA(factura out SYS_REFCURSOR);
     
     PROCEDURE EliminarTablaTemporal;
@@ -486,11 +511,11 @@ END PAQUETE_FACTURA;
 CREATE OR REPLACE PACKAGE BODY PAQUETE_FACTURA
 IS
     PROCEDURE GuardarFacturas(fecha in varchar2, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
-                              cantidadfac in number,x_id_cliente in varchar2)
+                              cantidadfac in number,x_id_cliente in varchar2, x_CiudadFactura in varchar2)
     AS
     BEGIN 
-        INSERT INTO FACTURA(fecha,estado,subtotal,iva,total,cantidad,cliente_id_clientte)
-        VALUES(fecha,estadofac,subtotalfac,ivafac,totalfac,cantidadfac,x_id_cliente);
+        INSERT INTO FACTURA(fecha,estado,subtotal,iva,total,cantidad,cliente_id_clientte,CiudadFactura)
+        VALUES(fecha,estadofac,subtotalfac,ivafac,totalfac,cantidadfac,x_id_cliente,x_CiudadFactura);
     END GuardarFacturas;
     
     PROCEDURE OBTENERCODIGOFACTURA(factura out SYS_REFCURSOR)
@@ -585,7 +610,7 @@ IS
                                               city in number, barriocliente in number, direction in varchar2)
         AS
         BEGIN
-            INSERT INTO clients(id_clientte,primernombre,segundonombre,primerapellido,segundoapellido,correo,telefono,lugar_sk_lugar,
+            INSERT INTO cliente(id_clientte,primernombre,segundonombre,primerapellido,segundoapellido,correo,telefono,lugar_sk_lugar,
                                      barrio_sk_barrio,direccion)
                                      VALUES(cedula,primername,segundoname,primerape,segundoape,email,phone,city,barriocliente,direction);
         END GuardarCLientes;
@@ -593,9 +618,9 @@ IS
         PROCEDURE BuscarCliente(registro out SYS_REFCURSOR, cedula in varchar2)
         AS
         BEGIN
-            OPEN registro FOR SELECT * FROM CLients  c JOIN PLace p
+            OPEN registro FOR SELECT * FROM CLiente  c JOIN lugar p
                               ON(c.lugar_sk_lugar=p.sk_lugar)
-                              JOIN Neigh N
+                              JOIN barrio N
                               ON(c.barrio_sk_barrio=N.sk_barrio)
                               WHERE id_clientte=cedula;
         END BuscarCliente;
@@ -604,9 +629,9 @@ IS
         AS
         BEGIN
             OPEN registro FOR SELECT * 
-            FROM clients c JOIN PLace p
+            FROM cliente c JOIN lugar p
             ON(c.lugar_sk_lugar=p.sk_lugar)
-            JOIN Neigh N
+            JOIN barrio N
             ON(c.barrio_sk_barrio=N.sk_barrio);
         END ConsultarClientes;
         
@@ -626,7 +651,7 @@ IS
             VBarrio number(15):=barriocliente;
             VDirection varchar(30):=direction;
         BEGIN
-            UPDATE clients SET PrimerNombre=VPrName,SegundoNombre=VSgName,PrimerApellido=VPrApe, SegundoAPellido=VSgApe,
+            UPDATE cliente SET PrimerNombre=VPrName,SegundoNombre=VSgName,PrimerApellido=VPrApe, SegundoAPellido=VSgApe,
                                    Correo=VEmail, Telefono=VPhone, lugar_sk_lugar=VCity, Barrio_sk_barrio=VBarrio, Direccion=VDirection
                                WHERE id_clientte= VCedula;
         END ModificarClientes;
@@ -668,15 +693,15 @@ IS
     PROCEDURE GuardarBarrio(barrio in varchar2,lugar in number)
     AS
     BEGIN
-        INSERT INTO Neigh(nombre,lugar_sk_lugar)
+        INSERT INTO Barrio(nombre,lugar_sk_lugar)
         VALUES(barrio,lugar);
     END GuardarBarrio;
     
     PROCEDURE ConsultarBarrio(registro out SYS_REFCURSOR)
     AS
     BEGIN
-        OPEN registro FOR SELECT * FROM Neigh N
-                          JOIN Place p 
+        OPEN registro FOR SELECT * FROM Barrio N
+                          JOIN Lugar p 
                           ON(N.lugar_sk_lugar=p.sk_lugar);
     END ConsultarBarrio;
 END PAQUETE_BARRIO;
@@ -693,15 +718,15 @@ IS
     PROCEDURE GuardarLugar(ciudadnew in varchar2)
     AS
     BEGIN
-        INSERT INTO Place(ciudad)
+        INSERT INTO lugar(ciudad)
         VALUES(ciudadnew);
     END GuardarLugar;
     
     PROCEDURE ConsultarLugares(registro out SYS_refCURSOR)
     AS
     BEGIN
-        OPEN registro FOR SELECT * FROM Place L JOIN
-                          Neigh B 
+        OPEN registro FOR SELECT * FROM lugar L JOIN
+                          barrio B 
                           ON(B.lugar_sk_lugar=sk_lugar);
     END ConsultarLugares;
 END PAQUETE_LUGAR;
@@ -722,7 +747,7 @@ IS
     PROCEDURE GUARDARCURSOS(nombre in varchar2,estado in varchar2,fecha in varchar2,precio in numeric)
     AS
     BEGIN
-        INSERT INTO Courses(nombre,estado,fecha,precio)
+        INSERT INTO Curso(nombre,estado,fecha,precio)
         VALUES(nombre,estado,fecha,precio);
     END;
     
@@ -730,28 +755,28 @@ IS
     AS
     BEGIN
         OPEN registro FOR SELECT * 
-                          FROM Courses;
+                          FROM Curso;
     END ConsultarCursos;
     
     PROCEDURE BuscarCurso(registro out SYS_REFCURSOR, codigo in numeric)
     AS
     BEGIN
         OPEN registro FOR SELECT *
-                          FROM Courses
+                          FROM Curso
                           WHERE sk_curso=codigo;
     END BuscarCurso;
 
     PROCEDURE MODIFICARCURSO(curso in number,precionew in number,estadonew in varchar2,nombrenew in varchar2)
     AS
     BEGIN
-        UPDATE Courses SET precio=precionew,estado=estadonew, nombre=nombrenew
+        UPDATE Curso SET precio=precionew,estado=estadonew, nombre=nombrenew
         WHERE sk_curso=curso;
     END MODIFICARCURSO;
     
     PROCEDURE ELIMINARCURSO(curso in number)
     AS
     BEGIN
-        DELETE FROM Courses
+        DELETE FROM Curso
         WHERE sk_curso=curso;
     END ELIMINARCURSO;
     
@@ -759,7 +784,7 @@ IS
     AS
     BEGIN
         OPEN cursos FOR SELECT *
-                          FROM Courses
+                          FROM Curso
                           WHERE estado=c_estado;
     END FILTRARESTADOCURSO;
 END PAQUETE_CURSO;
@@ -782,21 +807,21 @@ IS
     PROCEDURE GuardarProducto(producto in varchar2,nombre in varchar2,precio in number,marca in number)
     AS
     BEGIN
-        INSERT INTO Products(id_producto,nombre,precio,Marca_sk_marca)
+        INSERT INTO Producto(id_producto,nombre,precio,Marca_sk_marca)
         VALUES(producto,nombre,precio,marca);
     END GuardarProducto;
     
     PROCEDURE ConsultarProductos(registro OUT SYS_REFCURSOR)
     AS
     BEGIN
-        OPEN registro FOR SELECT * FROM products p JOIN Brands m
+        OPEN registro FOR SELECT * FROM Producto p JOIN Marca m
                           ON(p.marca_sk_marca=m.sk_marca);
     END ConsultarProductos;
     
     PROCEDURE BuscarProducto(registro OUT SYS_REFCURSOR,codigo IN VARCHAR2)
     AS
     BEGIN
-        OPEN registro FOR SELECT * FROM products p JOIN Brands m
+        OPEN registro FOR SELECT * FROM Producto p JOIN Marca m
                           ON(p.marca_sk_marca=m.sk_marca)
                           WHERE p.id_producto=codigo; 
     END BuscarProducto;
@@ -804,33 +829,34 @@ IS
     PROCEDURE ConsultarCodigo(registro OUT SYS_REFCURSOR,nombre IN VARCHAR2)
     AS
     BEGIN
-        OPEN registro FOR SELECT * FROM products p
+        OPEN registro FOR SELECT * FROM Producto p
                           WHERE p.nombre=nombre;
     END ConsultarCodigo;
     
     PROCEDURE ModificarPrecioProductos(precionew IN NUMBER, codigo IN VARCHAR2,nombrenew in varchar2)
     AS
     BEGIN
-        UPDATE Products SET precio=precionew,nombre=nombrenew
+        UPDATE Producto SET precio=precionew,nombre=nombrenew
         WHERE id_producto=codigo;
     END ModificarPrecioProductos;
     
     PROCEDURE EliminarProductos(codigo IN VARCHAR2)
     AS
     BEGIN
-        DELETE FROM Products
+        DELETE FROM Producto
         WHERE id_producto=codigo;
     END EliminarProductos;
 
     PROCEDURE FILTRARPRODUCTOSMARCA(productos OUT SYS_REFCURSOR,p_sk_marca in number)
     AS
     BEGIN
-        OPEN productos FOR SELECT * FROM products p JOIN Brands m
+        OPEN productos FOR SELECT * FROM Producto p JOIN Marca m
                           ON(p.marca_sk_marca=m.sk_marca)
                           WHERE m.sk_marca=p_sk_marca;
     END FILTRARPRODUCTOSMARCA;
 END PAQUETE_PRODUCTO;
-select * from marca;
+
+
 -->Paquete Marca
 CREATE OR REPLACE PACKAGE PAQUETE_MARCA
 IS
@@ -848,49 +874,51 @@ IS
     PROCEDURE GuardarMarcas(nombre in varchar2)
     AS
     BEGIN
-        INSERT INTO Brands(nombremarca)
+        INSERT INTO Marca(nombremarca)
         VALUES(nombre);
     END GuardarMarcas;
     
     PROCEDURE ConsultarMarcas(registro OUT SYS_REFCURSOR)
     AS
     BEGIN
-        OPEN registro FOR SELECT * FROM Brands;
+        OPEN registro FOR SELECT * FROM Marca;
     END ConsultarMarcas;
     
     PROCEDURE FiltrarMarcas(registro OUT SYS_REFCURSOR,nombre IN VARCHAR2)
     AS
     BEGIN
-        OPEN registro FOR SELECT * FROM Brands WHERE nombremarca=nombre;
+        OPEN registro FOR SELECT * FROM Marca WHERE nombremarca=nombre;
     END FiltrarMarcas;
     
     PROCEDURE CodigoNombreMarca(registro OUT SYS_REFCURSOR, nombre IN VARCHAR2)
     AS
     BEGIN
-        OPEN registro FOR SELECT * FROM Brands 
+        OPEN registro FOR SELECT * FROM Marca 
                           WHERE nombremarca=nombre;
     END CodigoNombreMarca;
     
     PROCEDURE ModificarMarca(marca in number, nombre in varchar2)
     AS
     BEGIN
-        UPDATE Brands SET nombremarca=nombre
+        UPDATE Marca SET nombremarca=nombre
         WHERE sk_marca=marca;
     END ModificarMarca;
     
     PROCEDURE BuscarMarca(registro OUT SYS_REFCURSOR,marca in number)
     AS
     BEGIN
-        OPEN registro FOR SELECT * FROM Brands 
+        OPEN registro FOR SELECT * FROM Marca 
                           WHERE sk_marca=marca;
     END BuscarMarca;
     
     PROCEDURE EliminarMarca(marca in number)
     AS
     BEGIN
-        DELETE FROM Brands
+        DELETE FROM Marca
         WHERE sk_marca=marca;
     END EliminarMarca;
 END PAQUETE_MARCA;
+
+
 
 

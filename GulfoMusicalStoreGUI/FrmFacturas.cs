@@ -40,6 +40,7 @@ namespace GulfoMusicalStoreGUI
                 dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
                 dtg.Rows[n].Cells[8].Value = item.Fecha;
                 dtg.Rows[n].Cells[9].Value = item.Estado;
+                dtg.Rows[n].Cells[10].Value = item.CiudadFactura;
             }
             TxtTotal.Text = facturaService.ConsultarFacturas().Count.ToString();
         }
@@ -64,6 +65,7 @@ namespace GulfoMusicalStoreGUI
                 dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
                 dtg.Rows[n].Cells[8].Value = item.Fecha;
                 dtg.Rows[n].Cells[9].Value = item.Estado;
+                dtg.Rows[n].Cells[10].Value = item.CiudadFactura;
             }
             TxtTotal.Text = facturaService.FiltrarFacturaFecha(fechainicial, fechafinal).Count.ToString();
         }
@@ -88,6 +90,7 @@ namespace GulfoMusicalStoreGUI
                 dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
                 dtg.Rows[n].Cells[8].Value = item.Fecha;
                 dtg.Rows[n].Cells[9].Value = item.Estado;
+                dtg.Rows[n].Cells[10].Value = item.CiudadFactura;
             }
             TxtTotal.Text = facturaService.FiltroFacturaEstado(estado).Count.ToString();
         }
@@ -112,6 +115,7 @@ namespace GulfoMusicalStoreGUI
                 dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
                 dtg.Rows[n].Cells[8].Value = item.Fecha;
                 dtg.Rows[n].Cells[9].Value = item.Estado;
+                dtg.Rows[n].Cells[10].Value = item.CiudadFactura;
             }
             TxtTotal.Text = facturaService.FiltrarFacturasCedula(cedula).Count.ToString();
         }
@@ -137,6 +141,7 @@ namespace GulfoMusicalStoreGUI
                 dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
                 dtg.Rows[n].Cells[8].Value = item.Fecha;
                 dtg.Rows[n].Cells[9].Value = item.Estado;
+                dtg.Rows[n].Cells[10].Value = item.CiudadFactura;
             }
             TxtTotal.Text = facturaService.FiltroNumeroFactura(numero).Count.ToString();
         }

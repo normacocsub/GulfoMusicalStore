@@ -15,6 +15,7 @@ namespace Entity
         public decimal Iva { get; set; }
         public decimal Total { get; set; }
         public int Cantidad { get; set; }
+        public string CiudadFactura { get; set; }
         public DetalleFactura DetalleFactura { get; set; }
         public DetalleCurso DetalleCursoFactura { get; set; }
         public IList<DetalleFactura> DetallesFactura { get; set; }

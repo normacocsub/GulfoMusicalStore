@@ -95,7 +95,13 @@ namespace InfraEstructura
             pharase = new Phrase("Correo Electronico: GulfoMusicalStore@gmail.com");
             document.Add(paragrafph2);
             document.Add(Chunk.NEWLINE);
-            document.Add(pharase);
+            paragrafph2 = new Paragraph();
+            paragrafph2.Add(pharase);
+            paragrafph2.Add(Chunk.TABBING);
+            paragrafph2.Add(Chunk.TABBING);
+            pharase = new Phrase("Ciudad Factura: " + factura.CiudadFactura);
+            paragrafph2.Add(pharase);
+            document.Add(paragrafph2);
             document.Add(Chunk.NEWLINE);
             document.Add(paragraph);
             document.Add(Chunk.NEWLINE);

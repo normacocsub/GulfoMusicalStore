@@ -34,6 +34,7 @@ namespace DAL
                 command.Parameters.Add("totalfac", OracleDbType.Double).Value = double.Parse(factura.Total.ToString());
                 command.Parameters.Add("cantidadfac", OracleDbType.Int32).Value = double.Parse(factura.Cantidad.ToString());
                 command.Parameters.Add("x_id_cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
+                command.Parameters.Add("x_CiudadFactura", OracleDbType.Varchar2).Value = factura.CiudadFactura;
                 command.ExecuteNonQuery();
 
             }

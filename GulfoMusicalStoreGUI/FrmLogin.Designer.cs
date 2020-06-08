@@ -39,6 +39,8 @@
             this.BtnSalir = new System.Windows.Forms.Button();
             this.LabelRecuperarContraseña = new System.Windows.Forms.Label();
             this.PBVerContraseña = new System.Windows.Forms.PictureBox();
+            this.CmbCiudad = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.PanelLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBVerContraseña)).BeginInit();
             this.SuspendLayout();
@@ -94,7 +96,7 @@
             this.BtnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnIniciarSesion.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnIniciarSesion.ForeColor = System.Drawing.Color.Black;
-            this.BtnIniciarSesion.Location = new System.Drawing.Point(225, 215);
+            this.BtnIniciarSesion.Location = new System.Drawing.Point(225, 256);
             this.BtnIniciarSesion.Name = "BtnIniciarSesion";
             this.BtnIniciarSesion.Size = new System.Drawing.Size(304, 39);
             this.BtnIniciarSesion.TabIndex = 3;
@@ -173,12 +175,36 @@
             this.PBVerContraseña.TabStop = false;
             this.PBVerContraseña.Click += new System.EventHandler(this.PBVerContraseña_Click);
             // 
+            // CmbCiudad
+            // 
+            this.CmbCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbCiudad.FormattingEnabled = true;
+            this.CmbCiudad.Items.AddRange(new object[] {
+            "Bogota",
+            "Cali",
+            "Barranquilla"});
+            this.CmbCiudad.Location = new System.Drawing.Point(391, 212);
+            this.CmbCiudad.Name = "CmbCiudad";
+            this.CmbCiudad.Size = new System.Drawing.Size(138, 21);
+            this.CmbCiudad.TabIndex = 31;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(244, 219);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Ciudad Gulfo";
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(550, 400);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CmbCiudad);
             this.Controls.Add(this.PBVerContraseña);
             this.Controls.Add(this.LabelRecuperarContraseña);
             this.Controls.Add(this.BtnSalir);
@@ -210,6 +236,8 @@
         private System.Windows.Forms.Button BtnSalir;
         private System.Windows.Forms.Label LabelRecuperarContraseña;
         private System.Windows.Forms.PictureBox PBVerContraseña;
+        private System.Windows.Forms.ComboBox CmbCiudad;
+        private System.Windows.Forms.Label label1;
     }
 }
 
