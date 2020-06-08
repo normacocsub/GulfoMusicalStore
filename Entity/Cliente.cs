@@ -16,7 +16,7 @@ namespace Entity
         public string Correo { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
-        public Barrio Barrio { get; set; }
+        public string Barrio { get; set; }
         public Lugar Lugar { get; set; }
         public Factura Factura { get; set; }
         public IList<Factura> Facturas { get; set; }
@@ -47,9 +47,6 @@ namespace Entity
             Lugar = lugar;
         }
 
-        public void AgregarBarrio(Barrio barrio)
-        {
-            Barrio = barrio;
-        }
+
     }
 }

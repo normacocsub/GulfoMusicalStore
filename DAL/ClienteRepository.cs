@@ -51,7 +51,7 @@ namespace DAL
             command.Parameters.Add("email", OracleDbType.Varchar2).Value = cliente.Correo;
             command.Parameters.Add("phone", OracleDbType.Varchar2).Value = cliente.Telefono;
             command.Parameters.Add("city", OracleDbType.Varchar2).Value = cliente.Lugar.Codigo;
-            command.Parameters.Add("barriocliente", OracleDbType.Varchar2).Value = cliente.Barrio.Codigo;
+            command.Parameters.Add("barriocliente", OracleDbType.Varchar2).Value = cliente.Barrio;
             command.Parameters.Add("direction", OracleDbType.Varchar2).Value = cliente.Direccion;
         }
         public IList<Cliente> ConsultarClientes()
@@ -104,12 +104,8 @@ namespace DAL
             Lugar lugar = new Lugar();
             lugar.Codigo = int.Parse(((object)reader["sk_lugar"]).ToString());
             lugar.Ciudad = (string)reader["ciudad"];
-            Barrio barrio = new Barrio();
-            barrio.Codigo = int.Parse(((object)reader["sk_barrio"]).ToString());
-            barrio.Nombre = (string)reader["nombre"];
             cliente.Direccion = (string)reader["direccion"];
             cliente.AgregarLugar(lugar);
-            cliente.AgregarBarrio(barrio);
             return cliente;
         }
 

@@ -56,8 +56,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TxtTelefono = new System.Windows.Forms.TextBox();
             this.CmbCiudad = new System.Windows.Forms.ComboBox();
-            this.CmbBarrio = new System.Windows.Forms.ComboBox();
             this.BtnSalir = new System.Windows.Forms.Button();
+            this.TxtBarrio = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // BtnModificar
@@ -599,47 +599,6 @@
             this.CmbCiudad.TabIndex = 159;
             this.CmbCiudad.SelectedIndexChanged += new System.EventHandler(this.CmbCiudad_SelectedIndexChanged);
             // 
-            // CmbBarrio
-            // 
-            this.CmbBarrio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CmbBarrio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbBarrio.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbBarrio.ForeColor = System.Drawing.Color.Black;
-            this.CmbBarrio.FormattingEnabled = true;
-            this.CmbBarrio.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "Ñ",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.CmbBarrio.Location = new System.Drawing.Point(568, 455);
-            this.CmbBarrio.Name = "CmbBarrio";
-            this.CmbBarrio.Size = new System.Drawing.Size(121, 27);
-            this.CmbBarrio.TabIndex = 160;
-            this.CmbBarrio.SelectedIndexChanged += new System.EventHandler(this.CmbBarrio_SelectedIndexChanged);
-            // 
             // BtnSalir
             // 
             this.BtnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -656,14 +615,23 @@
             this.BtnSalir.UseVisualStyleBackColor = true;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
+            // TxtBarrio
+            // 
+            this.TxtBarrio.Location = new System.Drawing.Point(567, 462);
+            this.TxtBarrio.Name = "TxtBarrio";
+            this.TxtBarrio.Size = new System.Drawing.Size(121, 20);
+            this.TxtBarrio.TabIndex = 162;
+            this.TxtBarrio.Text = "Barrio";
+            this.TxtBarrio.TextChanged += new System.EventHandler(this.TxtBarrio_TextChanged_1);
+            // 
             // FrmInfoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.TxtBarrio);
             this.Controls.Add(this.BtnSalir);
-            this.Controls.Add(this.CmbBarrio);
             this.Controls.Add(this.CmbCiudad);
             this.Controls.Add(this.TxtTelefono);
             this.Controls.Add(this.label3);
@@ -730,7 +698,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtTelefono;
         private System.Windows.Forms.ComboBox CmbCiudad;
-        private System.Windows.Forms.ComboBox CmbBarrio;
         public System.Windows.Forms.Button BtnSalir;
+        private System.Windows.Forms.TextBox TxtBarrio;
     }
 }

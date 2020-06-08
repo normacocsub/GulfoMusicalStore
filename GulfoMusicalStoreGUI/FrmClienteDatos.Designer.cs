@@ -57,8 +57,8 @@
             this.TxtTelefono = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CmbCiudad = new System.Windows.Forms.ComboBox();
-            this.CmbBarrio = new System.Windows.Forms.ComboBox();
             this.BtnSalir = new System.Windows.Forms.Button();
+            this.TxtBarrio = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // LabelCedula
@@ -603,23 +603,6 @@
             this.CmbCiudad.TabIndex = 136;
             this.CmbCiudad.SelectedIndexChanged += new System.EventHandler(this.CmbCiudad_SelectedIndexChanged);
             // 
-            // CmbBarrio
-            // 
-            this.CmbBarrio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CmbBarrio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbBarrio.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbBarrio.ForeColor = System.Drawing.Color.Black;
-            this.CmbBarrio.FormattingEnabled = true;
-            this.CmbBarrio.Items.AddRange(new object[] {
-            "#1",
-            "#2",
-            "#3"});
-            this.CmbBarrio.Location = new System.Drawing.Point(567, 468);
-            this.CmbBarrio.Name = "CmbBarrio";
-            this.CmbBarrio.Size = new System.Drawing.Size(121, 27);
-            this.CmbBarrio.TabIndex = 137;
-            this.CmbBarrio.SelectedIndexChanged += new System.EventHandler(this.CmbBarrio_SelectedIndexChanged);
-            // 
             // BtnSalir
             // 
             this.BtnSalir.BackColor = System.Drawing.Color.White;
@@ -637,14 +620,23 @@
             this.BtnSalir.UseVisualStyleBackColor = false;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
+            // TxtBarrio
+            // 
+            this.TxtBarrio.Location = new System.Drawing.Point(567, 472);
+            this.TxtBarrio.Name = "TxtBarrio";
+            this.TxtBarrio.Size = new System.Drawing.Size(121, 20);
+            this.TxtBarrio.TabIndex = 139;
+            this.TxtBarrio.Text = "Barrio";
+            this.TxtBarrio.TextChanged += new System.EventHandler(this.TxtBarrio_TextChanged_1);
+            // 
             // FrmClienteDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.TxtBarrio);
             this.Controls.Add(this.BtnSalir);
-            this.Controls.Add(this.CmbBarrio);
             this.Controls.Add(this.CmbCiudad);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtTelefono);
@@ -712,7 +704,7 @@
         private System.Windows.Forms.TextBox TxtTelefono;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox CmbCiudad;
-        private System.Windows.Forms.ComboBox CmbBarrio;
         public System.Windows.Forms.Button BtnSalir;
+        private System.Windows.Forms.TextBox TxtBarrio;
     }
 }

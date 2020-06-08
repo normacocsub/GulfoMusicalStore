@@ -17,12 +17,11 @@ CREATE TABLE cliente (
     correo            VARCHAR2(50),
     telefono          VARCHAR2(10),
     direccion         VARCHAR2(30),
-    lugar_sk_lugar    NUMBER(3) NOT NULL
+    lugar_sk_lugar    NUMBER(3) NOT NULL,
+    Barrio varchar2(20)
 );
 
 ALTER TABLE cliente ADD CONSTRAINT cliente_pk PRIMARY KEY ( id_clientte );
-ALTER TABLE cliente ADD Barrio_Sk_Barrio number(3);
-
 CREATE TABLE curso (
     sk_curso   NUMBER(3) NOT NULL,
     nombre     VARCHAR2(20),
@@ -33,6 +32,8 @@ CREATE TABLE curso (
 ALTER TABLE curso ADD CONSTRAINT curso_pk PRIMARY KEY ( sk_curso );
 ALTER TABLE curso ADD Precio number(8,2);
 ALTER TABLE curso modify fecha varchar2(15);
+ALTER TABLE curso add sk_curso varchar2(5);
+ALter table curso_Factura modify curso_Sk_curso varchar2(5);
 
 CREATE TABLE curso_factura (
     factura_factura_id    NUMBER NOT NULL,
@@ -46,6 +47,7 @@ ALTER TABLE curso_factura ADD CONSTRAINT curso_factura_pk PRIMARY KEY ( factura_
                                                                         cliente_id_clientte );
 ALTER TABLE curso_factura ADD Cantidad number(2);
 ALTER TABLE curso_factura modify fecha varchar2(27);
+
 
 CREATE TABLE factura (
     sk_factura   NUMBER(3) NOT NULL,
@@ -78,6 +80,8 @@ CREATE TABLE marca (
 );
 
 ALTER TABLE marca ADD CONSTRAINT marca_pk PRIMARY KEY ( sk_marca );
+ALTER TABLE marca modify  sk_marca varchar2(5);
+ALter table producto modify marca_sk_marca varchar2(5);
 
 CREATE TABLE product_factura (
     factura_factura_id     NUMBER NOT NULL,
@@ -114,9 +118,6 @@ ALTER TABLE factura
     ADD CONSTRAINT factura_cliente_fk FOREIGN KEY ( cliente_id_clientte )
         REFERENCES cliente ( id_clientte );
 
-ALTER TABLE cliente
-    ADD CONSTRAINT cliente_barrio_fk FOREIGN KEY ( barrio_sk_barrio )
-        REFERENCES barrio (sk_barrio);
 
 ALTER TABLE curso_factura
     ADD CONSTRAINT curso_factura_cliente_fk FOREIGN KEY ( cliente_id_clientte )
@@ -170,10 +171,8 @@ ALTER TABLE Estadisticas ADD fecha  varchar2(25);
 
 --SECUENCIAS
 
-CREATE SEQUENCE SEQUENCE_MARCA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1;
-CREATE SEQUENCE Cursos_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
+
 CREATE SEQUENCE LUGAR_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
-CREATE SEQUENCE BARRIO_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 99999 MINVALUE 1 CACHE 20 ORDER;
 CREATE SEQUENCE FACTURA_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
 CREATE SEQUENCE Estadisticas_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
 CREATE SEQUENCE SEQUENCE_Usuarios INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1;
@@ -203,35 +202,41 @@ BEGIN
     VALUES(:new.ciudad);
 END;
 
-CREATE OR REPLACE TRIGGER BARRIO_TRIGGER_Conection_Remote
-AFTER INSERT ON BARRIO
+CREATE OR REPLACE TRIGGER Conexion_Marca_Remote_Cali
+AFTER INSERT OR UPDATE ON Gulfo.Marca
 FOR EACH ROW
-declare
-PRAGMA AUTONOMOUS_TRANSACTION;
 BEGIN
-    INSERT INTO gulfocali.Barrio@Gulfo_Bogo_Cali(nombre,lugar_sk_lugar)
-    VALUES(:new.nombre,:new.lugar_sk_lugar);
+    if INSERTING THEN
+    INSERT INTO gulfocali.marca@Gulfo_Bogo_Cali(sk_marca,nombremarca)
+    VALUES(:new.sk_marca,:new.nombremarca);
+    END IF;
+    IF UPDATING THEN
+    UPDATE gulfocali.marca@Gulfo_Bogo_Cali
+    SET nombremarca=:new.nombremarca
+    WHERE sk_marca=:new.sk_marca;
+    END IF;
 END;
 
---TRIGGERS MARCA
-CREATE OR REPLACE TRIGGER MARCA_TRIGGER_SK_KEY
-BEFORE INSERT ON Marca
+CREATE OR REPLACE TRIGGER Conexion_Marca_Remote_Barra
+AFTER INSERT OR UPDATE ON Gulfo.Marca
 FOR EACH ROW
 BEGIN
-    SELECT SEQUENCE_MARCA.NEXTVAL
-    INTO:NEW.sk_marca
-    FROM DUAL;
-END MARCA_TRIGGER_SK_KEY;
+    if INSERTING THEN
+    INSERT INTO gulfobarra.marca@Gulfo_Bogo_Barra(sk_marca,nombremarca)
+    VALUES(:new.sk_marca,:new.nombremarca);
+    END IF;
+    IF UPDATING THEN
+    UPDATE gulfobarra.marca@Gulfo_Bogo_Barra
+    SET nombremarca=:new.nombremarca
+    WHERE sk_marca=:new.sk_marca;
+    END IF;
+END;
+rollback;
+select * from marca;
+INSERT INTO marca(sk_marca,nombremarca)
+VALUES('AC','Acer');
 
---TRIGGERS CURSO
-create or replace trigger Cursos_TRIGGER
-before insert on Curso
-for each row
-begin
-select cursos_Sequencia.nextval
-into:new.sk_curso
-from dual;
-end Cursos_TRIGGER;
+
 
 --TRIGGERS LUGAR
 
@@ -244,16 +249,7 @@ BEGIN
     FROM DUAL;
 END SEQUENCIA_TRIGGER_LUGAR;
 
---TRIGGERS BARRIO
 
-CREATE OR REPLACE TRIGGER SEQUENCIA_TRIGGER_BARRIO
-BEFORE INSERT ON Barrio
-FOR EACH ROW
-BEGIN
-    SELECT BARRIO_SEQUENCIA.NEXTVAL
-    INTO:NEW.sk_barrio
-    FROM DUAL;
-END SEQUENCIA_TRIGGER_BARRIO;
 
 
 --TRIGERS FACTURA
@@ -586,7 +582,7 @@ CREATE OR REPLACE PACKAGE PAQUETE_CLIIENTE
 IS
     PROCEDURE GuardarCLientes(cedula in VARCHAR2,primername in varchar2, segundoname in varchar2, primerape in varchar2,
                               segundoape in varchar2,  email in varchar2, phone in varchar2,
-                              city in number, barriocliente in number, direction in varchar2);
+                              city in number, barriocliente in varchar2, direction in varchar2);
     
     PROCEDURE BuscarCliente(registro out SYS_REFCURSOR, cedula in varchar2);
     
@@ -594,7 +590,7 @@ IS
     
     PROCEDURE ModificarClientes(cedula in VARCHAR2,primername in varchar2, segundoname in varchar2, primerape in varchar2,
                                 segundoape in varchar2,  email in varchar2, phone in varchar2,
-                                city in number, barriocliente in number, direction in varchar2);
+                                city in number, barriocliente in varchar2, direction in varchar2);
     
     PROCEDURE FILTRARCEDULACLIENTES(clientes OUT SYS_REFCURSOR, c_cedula in varchar2);
     
@@ -607,7 +603,7 @@ CREATE OR REPLACE PACKAGE BODY PAQUETE_CLIIENTE
 IS
         PROCEDURE GuardarCLientes(cedula in VARCHAR2,primername in varchar2, segundoname in varchar2, primerape in varchar2,
                                               segundoape in varchar2,  email in varchar2, phone in varchar2,
-                                              city in number, barriocliente in number, direction in varchar2)
+                                              city in number, barriocliente in varchar2, direction in varchar2)
         AS
         BEGIN
             INSERT INTO cliente(id_clientte,primernombre,segundonombre,primerapellido,segundoapellido,correo,telefono,lugar_sk_lugar,
@@ -637,7 +633,7 @@ IS
         
         PROCEDURE ModificarClientes(cedula in VARCHAR2,primername in varchar2, segundoname in varchar2, primerape in varchar2,
                                               segundoape in varchar2, email in varchar2, phone in varchar2,
-                                              city in number, barriocliente in number, direction in varchar2)
+                                              city in number, barriocliente in varchar2, direction in varchar2)
                                               
         AS
             VCedula  varchar2(12):=cedula;
@@ -734,21 +730,21 @@ END PAQUETE_LUGAR;
 -->Paquete CUrso
 CREATE OR REPLACE PACKAGE PAQUETE_CURSO
 IS
-    PROCEDURE GUARDARCURSOS(nombre in varchar2,estado in varchar2,fecha in varchar2,precio in numeric);
+    PROCEDURE GUARDARCURSOS(x_sk_curso in varchar2,nombre in varchar2,estado in varchar2,fecha in varchar2,precio in numeric);
     PROCEDURE ConsultarCursos(registro out SYS_REFCURSOR);
-    PROCEDURE BuscarCurso(registro out SYS_REFCURSOR, codigo in numeric);
-    PROCEDURE MODIFICARCURSO(curso in number,precionew in number,estadonew in varchar2,nombrenew in varchar2);
-    PROCEDURE ELIMINARCURSO(curso in number);
+    PROCEDURE BuscarCurso(registro out SYS_REFCURSOR, codigo in varchar2);
+    PROCEDURE MODIFICARCURSO(curso in varchar2,precionew in number,estadonew in varchar2,nombrenew in varchar2);
+    PROCEDURE ELIMINARCURSO(curso in varchar2);
     PROCEDURE FILTRARESTADOCURSO(cursos OUT SYS_REFCURSOR,c_estado in varchar2);
 END PAQUETE_CURSO;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_CURSO
 IS
-    PROCEDURE GUARDARCURSOS(nombre in varchar2,estado in varchar2,fecha in varchar2,precio in numeric)
+    PROCEDURE GUARDARCURSOS(x_sk_curso in varchar2,nombre in varchar2,estado in varchar2,fecha in varchar2,precio in numeric)
     AS
     BEGIN
-        INSERT INTO Curso(nombre,estado,fecha,precio)
-        VALUES(nombre,estado,fecha,precio);
+        INSERT INTO Curso(sk_curso,nombre,estado,fecha,precio)
+        VALUES(x_sk_curso,nombre,estado,fecha,precio);
     END;
     
     PROCEDURE ConsultarCursos(registro out SYS_REFCURSOR)
@@ -758,7 +754,7 @@ IS
                           FROM Curso;
     END ConsultarCursos;
     
-    PROCEDURE BuscarCurso(registro out SYS_REFCURSOR, codigo in numeric)
+    PROCEDURE BuscarCurso(registro out SYS_REFCURSOR, codigo in varchar2)
     AS
     BEGIN
         OPEN registro FOR SELECT *
@@ -766,14 +762,14 @@ IS
                           WHERE sk_curso=codigo;
     END BuscarCurso;
 
-    PROCEDURE MODIFICARCURSO(curso in number,precionew in number,estadonew in varchar2,nombrenew in varchar2)
+    PROCEDURE MODIFICARCURSO(curso in varchar2,precionew in number,estadonew in varchar2,nombrenew in varchar2)
     AS
     BEGIN
         UPDATE Curso SET precio=precionew,estado=estadonew, nombre=nombrenew
         WHERE sk_curso=curso;
     END MODIFICARCURSO;
     
-    PROCEDURE ELIMINARCURSO(curso in number)
+    PROCEDURE ELIMINARCURSO(curso in varchar2)
     AS
     BEGIN
         DELETE FROM Curso
@@ -860,22 +856,22 @@ END PAQUETE_PRODUCTO;
 -->Paquete Marca
 CREATE OR REPLACE PACKAGE PAQUETE_MARCA
 IS
-    PROCEDURE GuardarMarcas(nombre in varchar2);
+    PROCEDURE GuardarMarcas(m_sk_marca in varchar2,nombre in varchar2);
     PROCEDURE ConsultarMarcas(registro OUT SYS_REFCURSOR);
     PROCEDURE FiltrarMarcas(registro OUT SYS_REFCURSOR,nombre IN VARCHAR2);
     PROCEDURE CodigoNombreMarca(registro OUT SYS_REFCURSOR, nombre IN VARCHAR2);
-    PROCEDURE ModificarMarca(marca in number, nombre in varchar2);
-    PROCEDURE BuscarMarca(registro OUT SYS_REFCURSOR,marca in number);
-    PROCEDURE EliminarMarca(marca in number);
+    PROCEDURE ModificarMarca(marca in varchar2, nombre in varchar2);
+    PROCEDURE BuscarMarca(registro OUT SYS_REFCURSOR,marca in varchar2);
+    PROCEDURE EliminarMarca(marca in varchar2);
 END PAQUETE_MARCA;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_MARCA
 IS
-    PROCEDURE GuardarMarcas(nombre in varchar2)
+    PROCEDURE GuardarMarcas(m_sk_marca in varchar2,nombre in varchar2)
     AS
     BEGIN
-        INSERT INTO Marca(nombremarca)
-        VALUES(nombre);
+        INSERT INTO Marca(sk_marca,nombremarca)
+        VALUES(m_sk_marca,nombre);
     END GuardarMarcas;
     
     PROCEDURE ConsultarMarcas(registro OUT SYS_REFCURSOR)
@@ -897,21 +893,21 @@ IS
                           WHERE nombremarca=nombre;
     END CodigoNombreMarca;
     
-    PROCEDURE ModificarMarca(marca in number, nombre in varchar2)
+    PROCEDURE ModificarMarca(marca in varchar2, nombre in varchar2)
     AS
     BEGIN
         UPDATE Marca SET nombremarca=nombre
         WHERE sk_marca=marca;
     END ModificarMarca;
     
-    PROCEDURE BuscarMarca(registro OUT SYS_REFCURSOR,marca in number)
+    PROCEDURE BuscarMarca(registro OUT SYS_REFCURSOR,marca in varchar2)
     AS
     BEGIN
         OPEN registro FOR SELECT * FROM Marca 
                           WHERE sk_marca=marca;
     END BuscarMarca;
     
-    PROCEDURE EliminarMarca(marca in number)
+    PROCEDURE EliminarMarca(marca in varchar2)
     AS
     BEGIN
         DELETE FROM Marca

@@ -19,13 +19,12 @@ namespace GulfoMusicalStoreGUI
         public IVenta Venta { get; set; }
         public Factura Factura { get; set; }
         public static IList<Lugar> Lugares { get; set; }
-        public static IList<Barrio> Barrios { get; set; }
         public FrmClienteDatos(Factura factura)
         {
             InitializeComponent();
             Factura = factura;
             DesactivarTxt();
-            CmbBarrio.Enabled = false;
+            TxtBarrio.Enabled = false;
             LlenarComboLugar();
         }
 
@@ -38,7 +37,7 @@ namespace GulfoMusicalStoreGUI
                        || TxtPrimerApellido.Text.Equals("") || TxtCorreo.Text.Equals("")
                        || CB1.Text.Equals("") || CB2.Text.Equals("")
                        || CB3.Text.Equals("") || CB4.Text.Equals("") || CB5.Text.Equals("")
-                       || CB6.Text.Equals("") || CmbCiudad.Text.Equals("") || CmbBarrio.Text.Equals(""))
+                       || CB6.Text.Equals("") || CmbCiudad.Text.Equals("") || TxtBarrio.Text.Equals(""))
                 {
                     MessageBox.Show("Por Favor Complete los campos. ");
                 }
@@ -99,13 +98,7 @@ namespace GulfoMusicalStoreGUI
             cliente.Direccion = direccion;
             cliente.Telefono = telefono;
 
-            foreach (var item in Barrios)
-            {
-                if (item.Nombre.Equals(CmbBarrio.Text))
-                {
-                    cliente.Barrio = item;
-                }
-            }
+            cliente.Barrio = TxtBarrio.Text;
             foreach (var item in Lugares)
             {
                 if (item.Ciudad.Equals(CmbCiudad.Text))
@@ -157,7 +150,7 @@ namespace GulfoMusicalStoreGUI
                         TxtSegundoApellido.Text = cliente.SegundoApellido;
                         TxtCorreo.Text = cliente.Correo;
                         TxtTelefono.Text = cliente.Telefono;
-                        TxtDireccion.Text = cliente.Direccion + " " + cliente.Barrio.Nombre + " " + cliente.Lugar.Ciudad;
+                        TxtDireccion.Text = cliente.Direccion + " " + cliente.Barrio + " " + cliente.Lugar.Ciudad;
                     }
                     Factura.AgregarCliente(cliente);
                 }
@@ -193,7 +186,7 @@ namespace GulfoMusicalStoreGUI
         public void Txtdirection()
         {
             TxtDireccion.Text = CB1.Text + " " + CB2.Text + " " + CB3.Text + " " + CB4.Text + " " + CB5.Text + " " + CB6.Text
-                + " " + CmbCiudad.Text + " " + CmbBarrio.Text;
+                + " " + CmbCiudad.Text + " " + TxtBarrio.Text;
         }
 
         private void CB1_SelectedIndexChanged(object sender, EventArgs e)
@@ -249,10 +242,7 @@ namespace GulfoMusicalStoreGUI
         private void CmbCiudad_SelectedIndexChanged(object sender, EventArgs e)
         {
             lugarservice = new LugarService(ConfigConnection.ConnectionString);
-            CmbBarrio.Enabled = true;
-            LlenarComboBarrio(CmbCiudad.Text);
-            
-
+            TxtBarrio.Enabled = true;
             Txtdirection();
         }
 
@@ -270,30 +260,20 @@ namespace GulfoMusicalStoreGUI
                 
             }
         }
-        private void LlenarComboBarrio(string nombre)
-        {
-            Barrios = new List<Barrio>();
-            CmbBarrio.Items.Clear();
-            foreach (var item in Lugares)
-            {
-                if (item.Ciudad.Equals(CmbCiudad.Text))
-                {
-                    CmbBarrio.Items.Add(item.Barrio.Nombre);
-                    Barrios.Add(item.Barrio);
-                }
-            }
-        }
+      
 
         
 
-        private void CmbBarrio_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Txtdirection();
-        }
+      
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TxtBarrio_TextChanged_1(object sender, EventArgs e)
+        {
+            Txtdirection();
         }
     }
 }

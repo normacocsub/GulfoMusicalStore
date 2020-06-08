@@ -44,32 +44,9 @@ namespace DAL
 
                 while (Reader.Read())
                 {
-                    int opcion = 5;
                     Lugar lugar;
                     lugar = Map(Reader);
-                    if (Lugares.Count == 0)
-                    {
-                        Lugares.Add(lugar);
-                    }
-                    foreach (var item in Lugares)
-                    {
-                        if (lugar.Codigo.Equals(item.Codigo))
-                        {
-                            opcion = 1;
-                        }
-                        else
-                        {
-                            opcion = 2;
-                        }
-                    }
-                    if (opcion == 1)
-                    {
-                        lugar.AgregarBarrios(lugar.Barrio);
-                    }
-                    if (opcion == 2)
-                    {
-                        Lugares.Add(lugar);
-                    }
+                    Lugares.Add(lugar);
                     
                 }
             }
@@ -81,10 +58,6 @@ namespace DAL
             Lugar lugar = new Lugar();
             lugar.Codigo = int.Parse(((object)reader["sk_lugar"]).ToString());
             lugar.Ciudad = (string)reader["ciudad"];
-            Barrio barrio = new Barrio();
-            barrio.Codigo = int.Parse(((object)reader["sk_barrio"]).ToString());
-            barrio.Nombre = (string)reader["nombre"];
-            lugar.AgregarBarrios(barrio);
             return lugar;
         }
     }

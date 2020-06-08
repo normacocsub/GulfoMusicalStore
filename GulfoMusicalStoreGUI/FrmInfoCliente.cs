@@ -20,13 +20,12 @@ namespace GulfoMusicalStoreGUI
         public Factura Factura { get; set; }
         private LugarService lugarservice;
         public static IList<Lugar> Lugares { get; set; }
-        public static IList<Barrio> Barrios { get; set; }
         public FrmInfoCliente(Factura factura)
         {
             InitializeComponent();
             Factura = factura;
             MapearDatosCliente();
-            CmbBarrio.Enabled = false;
+            TxtBarrio.Enabled = false;
             LlenarComboLugar();
         }
 
@@ -39,7 +38,7 @@ namespace GulfoMusicalStoreGUI
             TxtSegundoApellido.Text = Factura.Cliente.SegundoApellido;
             TxtCorreo.Text = Factura.Cliente.Correo;
             TxtTelefono.Text = Factura.Cliente.Telefono;
-            TxtDireccion.Text = Factura.Cliente.Direccion + " " + Factura.Cliente.Barrio.Nombre + " " + Factura.Cliente.Lugar.Ciudad;
+            TxtDireccion.Text = Factura.Cliente.Direccion + " " + Factura.Cliente.Barrio + " " + Factura.Cliente.Lugar.Ciudad;
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -96,7 +95,7 @@ namespace GulfoMusicalStoreGUI
         public void Txtdirection()
         {
             TxtDireccion.Text = CB1.Text + " " + CB2.Text + " " + CB3.Text + " " + CB4.Text + " " + CB5.Text + " " + CB6.Text
-                + " " + CmbCiudad.Text + " " + CmbBarrio.Text;
+                + " " + CmbCiudad.Text + " " + TxtBarrio.Text;
         }
 
         private void CB1_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,15 +151,7 @@ namespace GulfoMusicalStoreGUI
         private void CmbCiudad_SelectedIndexChanged(object sender, EventArgs e)
         {
             lugarservice = new LugarService(ConfigConnection.ConnectionString);
-            CmbBarrio.Enabled = true;
-            LlenarComboBarrio(CmbCiudad.Text);
-            foreach (var item in Barrios)
-            {
-                if (item.Nombre.Equals(CmbBarrio.Text))
-                {
-                    Factura.Cliente.Barrio = item;
-                }
-            }
+            TxtBarrio.Enabled = true;
             foreach (var item in Lugares)
             {
                 if (item.Ciudad.Equals(CmbCiudad.Text))
@@ -181,28 +172,17 @@ namespace GulfoMusicalStoreGUI
                 CmbCiudad.Items.Add(item.Ciudad);
             }
         }
-        private void LlenarComboBarrio(string nombre)
-        {
-            Barrios = new List<Barrio>();
-            CmbBarrio.Items.Clear();
-            foreach (var item in Lugares)
-            {
-                if (item.Ciudad.Equals(CmbCiudad.Text))
-                {
-                    CmbBarrio.Items.Add(item.Barrio.Nombre);
-                    Barrios.Add(item.Barrio);
-                }
-            }
-        }
 
-        private void CmbBarrio_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Txtdirection();
-        }
+       
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TxtBarrio_TextChanged_1(object sender, EventArgs e)
+        {
+            Txtdirection();
         }
     }
 }
