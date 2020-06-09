@@ -14,6 +14,7 @@ namespace GulfoMusicalStoreGUI
 {
     public partial class FrmModificarInventario : Form
     {
+        public iUnlockInventario UnlockInventario { get; set; }
         private ProductoService productoservice;
         public IInventario IInventario { get; set; }
         public static IList<Producto> Productos { get; set; }
@@ -52,6 +53,7 @@ namespace GulfoMusicalStoreGUI
                     producto.Nombre = TxtNombre.Text.Trim().ToUpper();
                     MessageBox.Show(productoservice.ModificarPrecioProductos(producto));
                     IInventario.Actualizar();
+                    UnlockInventario.unlockInventario();
                     this.Close();
                 }
             }
@@ -80,6 +82,10 @@ namespace GulfoMusicalStoreGUI
             TxtNombre.Text = producto.Nombre;
         }
 
-       
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            UnlockInventario.unlockInventario();
+            this.Close();
+        }
     }
 }

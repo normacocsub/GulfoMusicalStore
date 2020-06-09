@@ -12,7 +12,7 @@ using BLL;
 
 namespace GulfoMusicalStoreGUI
 {
-    public partial class FrmInventario : Form,IInventario
+    public partial class FrmInventario : Form, IInventario , iUnlockInventario
     {
         private MarcaService marcaservice;
         private ProductoService productoservice;
@@ -31,6 +31,7 @@ namespace GulfoMusicalStoreGUI
        
         private void BtnRegistrarMarca_Click(object sender, EventArgs e)
         {
+            BtnRegistrarMarca.Enabled = false;
             FrmRegistrarMarca frmcrearmarca = new FrmRegistrarMarca();
             frmcrearmarca.Inventario = this;
             frmcrearmarca.Show();
@@ -72,6 +73,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
+            BtnModificar.Enabled = false;
             FrmModificarInventario frmmodi = new FrmModificarInventario();
             frmmodi.IInventario = this;
             frmmodi.Show();
@@ -82,6 +84,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnRegistrarProducto_Click(object sender, EventArgs e)
         {
+            BtnRegistrarProducto.Enabled = false;
             FrmRegistrarProducto frmprod = new FrmRegistrarProducto();
             frmprod.Inventario = this;
             frmprod.Show();
@@ -97,6 +100,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnModificarMarca_Click(object sender, EventArgs e)
         {
+            BtnModificarMarca.Enabled = false;
             FrmModificarMarca FrmModificar = new FrmModificarMarca();
             FrmModificar.Inventario = this;
             FrmModificar.Show();
@@ -134,6 +138,14 @@ namespace GulfoMusicalStoreGUI
         private void BtnTodos_Click(object sender, EventArgs e)
         {
             MapearProductos(DtgProductos);
+        }
+
+        public void unlockInventario()
+        {
+            BtnRegistrarProducto.Enabled = true;
+            BtnRegistrarMarca.Enabled = true;
+            BtnModificar.Enabled = true;
+            BtnModificarMarca.Enabled = true;
         }
     }
 }

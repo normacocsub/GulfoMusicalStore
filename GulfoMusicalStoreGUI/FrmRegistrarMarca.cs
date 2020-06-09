@@ -14,6 +14,7 @@ namespace GulfoMusicalStoreGUI
 {
     public partial class FrmRegistrarMarca : Form
     {
+        public iUnlockInventario UnlockInventario { get; set; }
         MarcaService marcaservice;
         public IInventario Inventario { get; set; }
         public FrmRegistrarMarca()
@@ -35,8 +36,15 @@ namespace GulfoMusicalStoreGUI
                 marca.NumeroMarca = TxtCodigo.Text;
                 MessageBox.Show(marcaservice.GuardarMarca(marca));
                 Inventario.Actualizar();
+                UnlockInventario.unlockInventario();
                 this.Close();
             }
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            UnlockInventario.unlockInventario();
+            this.Close();
         }
     }
 }

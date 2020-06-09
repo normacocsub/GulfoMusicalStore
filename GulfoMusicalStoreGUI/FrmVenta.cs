@@ -12,7 +12,7 @@ using BLL;
 
 namespace GulfoMusicalStoreGUI
 {
-    public partial class FrmVenta : Form,IVenta
+    public partial class FrmVenta : Form, IVenta, iUnlockVenta
     {
         public Factura Factura { get; set; }
         public FacturaService facturaservice;
@@ -36,9 +36,10 @@ namespace GulfoMusicalStoreGUI
             FrmClienteDatos frmClienteDatos;
             if (Factura.Cliente == null)
             {
-               frmClienteDatos = new FrmClienteDatos(Factura);
+                BtnRegistrarCliente.Enabled = false;
+                frmClienteDatos = new FrmClienteDatos(Factura);
                 frmClienteDatos.Venta = this;
-               frmClienteDatos.Show();
+                frmClienteDatos.Show();
             }
             else
             {
@@ -54,6 +55,7 @@ namespace GulfoMusicalStoreGUI
             }
             else
             {
+                BtnClienteActual.Enabled = false;
                 FrmInfoCliente frmInfoCliente = new FrmInfoCliente(Factura);
                 frmInfoCliente.Venta = this;
                 frmInfoCliente.Show();
@@ -64,6 +66,7 @@ namespace GulfoMusicalStoreGUI
         
         private void LabelCodigoProducto_Click(object sender, EventArgs e)
         {
+            LabelCodigoProducto.Enabled = false;
             FrmComprar frmcomp = new FrmComprar(Factura);
            
             frmcomp.Venta = this;
@@ -135,6 +138,7 @@ namespace GulfoMusicalStoreGUI
      
         private void LabelCurso_Click_1(object sender, EventArgs e)
         {
+            LabelCurso.Enabled = false;
             FrmComprarCurso frmCurso = frmCurso = new FrmComprarCurso(Factura);
             frmCurso.Venta = this;
             frmCurso.Show();
@@ -174,6 +178,12 @@ namespace GulfoMusicalStoreGUI
             }
         }
 
-        
+        public void unlockventa()
+        {
+            BtnRegistrarCliente.Enabled = true;
+            BtnClienteActual.Enabled = true;
+            LabelCodigoProducto.Enabled = true;
+            LabelCurso.Enabled = true;
+        }
     }
 }

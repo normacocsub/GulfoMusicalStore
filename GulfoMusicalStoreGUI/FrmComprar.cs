@@ -15,6 +15,7 @@ namespace GulfoMusicalStoreGUI
     public partial class FrmComprar : Form
     {
         ProductoService productoservice;
+        public iUnlockVenta UnlockVenta { get; set; }
         public IVenta Venta { get; set; }
         public Factura Factura { get; set; }
         public IList<Producto> Detalles { get; set; }
@@ -127,6 +128,7 @@ namespace GulfoMusicalStoreGUI
                 AgregarProductos(TxtTotal.Text, CmbInstrumento.Text);
                 Venta.TotalVenta(Factura);
                 MessageBox.Show("Se han añadido los productos a la factura.");
+                UnlockVenta.unlockventa();
                 this.Close();
             }
             
@@ -136,6 +138,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
+            UnlockVenta.unlockventa();
             this.Close();
         }
     }

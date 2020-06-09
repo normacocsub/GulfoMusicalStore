@@ -103,9 +103,9 @@
             // 
             // BtnTodos
             // 
-            this.BtnTodos.Location = new System.Drawing.Point(293, 53);
+            this.BtnTodos.Location = new System.Drawing.Point(293, 37);
             this.BtnTodos.Name = "BtnTodos";
-            this.BtnTodos.Size = new System.Drawing.Size(75, 23);
+            this.BtnTodos.Size = new System.Drawing.Size(101, 39);
             this.BtnTodos.TabIndex = 48;
             this.BtnTodos.Text = "Todos";
             this.BtnTodos.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             this.TxtTotal.Enabled = false;
             this.TxtTotal.Location = new System.Drawing.Point(652, 67);
             this.TxtTotal.Name = "TxtTotal";
-            this.TxtTotal.Size = new System.Drawing.Size(81, 20);
+            this.TxtTotal.Size = new System.Drawing.Size(121, 20);
             this.TxtTotal.TabIndex = 44;
             // 
             // label3

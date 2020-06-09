@@ -14,6 +14,7 @@ namespace GulfoMusicalStoreGUI
 {
     public partial class FrmRegistrarProducto : Form
     {
+        public iUnlockInventario UnlockInventario { get; set; }
         private MarcaService marcaservice;
         private ProductoService productoservice;
         public IInventario Inventario { get; set; }
@@ -55,6 +56,7 @@ namespace GulfoMusicalStoreGUI
                     producto.Precio = precio;
                     MessageBox.Show(productoservice.GuardarProducto(producto));
                     Inventario.Actualizar();
+                    UnlockInventario.unlockInventario();
                     this.Close();
                 }
                 catch(FormatException ex)
@@ -69,6 +71,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
+            UnlockInventario.unlockInventario();
             this.Close();
         }
 

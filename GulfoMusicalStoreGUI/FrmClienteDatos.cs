@@ -14,6 +14,7 @@ namespace GulfoMusicalStoreGUI
 {
     public partial class FrmClienteDatos : Form
     {
+        public iUnlockVenta UnlockVenta { get; set; }
         private ClienteService clienteservice;
         private LugarService lugarservice;
         public IVenta Venta { get; set; }
@@ -45,6 +46,7 @@ namespace GulfoMusicalStoreGUI
                 {
                     RegistrarNuevoCLiente();
                     Venta.TotalVenta(Factura);
+                    UnlockVenta.unlockventa();
                     this.Close();
                 }
 
@@ -268,6 +270,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
+            UnlockVenta.unlockventa();
             this.Close();
         }
 

@@ -15,6 +15,7 @@ namespace GulfoMusicalStoreGUI
 {
     public partial class FrmInfoCliente : Form
     {
+        public iUnlockVenta UnlockVenta { get; set; }
         private ClienteService clienteservice;
         public IVenta Venta { get; set; }
         public Factura Factura { get; set; }
@@ -45,12 +46,14 @@ namespace GulfoMusicalStoreGUI
         {
             Factura.Cliente = null;
             MessageBox.Show("Se ha eliminado al cliente de la factura. ");
+            UnlockVenta.unlockventa();
             this.Close();
         }
 
         private void BtnConfirmarDatos_Click(object sender, EventArgs e)
         {
             Venta.TotalVenta(Factura);
+            UnlockVenta.unlockventa();
             this.Close();
         }
 
@@ -177,6 +180,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
+            UnlockVenta.unlockventa();
             this.Close();
         }
 

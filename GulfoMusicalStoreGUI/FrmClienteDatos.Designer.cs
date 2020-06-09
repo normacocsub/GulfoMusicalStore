@@ -67,7 +67,7 @@
             this.LabelCedula.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.LabelCedula.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCedula.ForeColor = System.Drawing.Color.Black;
-            this.LabelCedula.Location = new System.Drawing.Point(113, 106);
+            this.LabelCedula.Location = new System.Drawing.Point(113, 110);
             this.LabelCedula.Name = "LabelCedula";
             this.LabelCedula.Size = new System.Drawing.Size(271, 22);
             this.LabelCedula.TabIndex = 103;
@@ -79,7 +79,7 @@
             this.TxtCedula.BackColor = System.Drawing.Color.White;
             this.TxtCedula.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCedula.ForeColor = System.Drawing.Color.Black;
-            this.TxtCedula.Location = new System.Drawing.Point(418, 102);
+            this.TxtCedula.Location = new System.Drawing.Point(418, 106);
             this.TxtCedula.Name = "TxtCedula";
             this.TxtCedula.Size = new System.Drawing.Size(270, 26);
             this.TxtCedula.TabIndex = 104;
@@ -91,7 +91,7 @@
             this.LabelNombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.LabelNombre.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelNombre.ForeColor = System.Drawing.Color.Black;
-            this.LabelNombre.Location = new System.Drawing.Point(113, 140);
+            this.LabelNombre.Location = new System.Drawing.Point(114, 144);
             this.LabelNombre.Name = "LabelNombre";
             this.LabelNombre.Size = new System.Drawing.Size(271, 22);
             this.LabelNombre.TabIndex = 106;
@@ -103,7 +103,7 @@
             this.TxtPrimerNombre.BackColor = System.Drawing.Color.White;
             this.TxtPrimerNombre.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPrimerNombre.ForeColor = System.Drawing.Color.Black;
-            this.TxtPrimerNombre.Location = new System.Drawing.Point(418, 134);
+            this.TxtPrimerNombre.Location = new System.Drawing.Point(418, 140);
             this.TxtPrimerNombre.Name = "TxtPrimerNombre";
             this.TxtPrimerNombre.Size = new System.Drawing.Size(270, 26);
             this.TxtPrimerNombre.TabIndex = 108;
@@ -115,7 +115,7 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(113, 174);
+            this.label1.Location = new System.Drawing.Point(115, 178);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(271, 22);
             this.label1.TabIndex = 111;
@@ -127,7 +127,7 @@
             this.TxtSegundoNombre.BackColor = System.Drawing.Color.White;
             this.TxtSegundoNombre.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtSegundoNombre.ForeColor = System.Drawing.Color.Black;
-            this.TxtSegundoNombre.Location = new System.Drawing.Point(418, 170);
+            this.TxtSegundoNombre.Location = new System.Drawing.Point(418, 174);
             this.TxtSegundoNombre.Name = "TxtSegundoNombre";
             this.TxtSegundoNombre.Size = new System.Drawing.Size(270, 26);
             this.TxtSegundoNombre.TabIndex = 112;
@@ -139,7 +139,7 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(113, 208);
+            this.label5.Location = new System.Drawing.Point(114, 210);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(271, 22);
             this.label5.TabIndex = 113;
@@ -151,7 +151,7 @@
             this.TxtPrimerApellido.BackColor = System.Drawing.Color.White;
             this.TxtPrimerApellido.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPrimerApellido.ForeColor = System.Drawing.Color.Black;
-            this.TxtPrimerApellido.Location = new System.Drawing.Point(418, 204);
+            this.TxtPrimerApellido.Location = new System.Drawing.Point(419, 206);
             this.TxtPrimerApellido.Name = "TxtPrimerApellido";
             this.TxtPrimerApellido.Size = new System.Drawing.Size(270, 26);
             this.TxtPrimerApellido.TabIndex = 114;
@@ -163,7 +163,7 @@
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label7.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(113, 242);
+            this.label7.Location = new System.Drawing.Point(114, 242);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(271, 22);
             this.label7.TabIndex = 115;
@@ -187,7 +187,7 @@
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label8.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(112, 293);
+            this.label8.Location = new System.Drawing.Point(114, 274);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(272, 22);
             this.label8.TabIndex = 109;
@@ -198,7 +198,7 @@
             // 
             this.TxtCorreo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCorreo.ForeColor = System.Drawing.Color.Black;
-            this.TxtCorreo.Location = new System.Drawing.Point(418, 293);
+            this.TxtCorreo.Location = new System.Drawing.Point(418, 270);
             this.TxtCorreo.Name = "TxtCorreo";
             this.TxtCorreo.Size = new System.Drawing.Size(270, 26);
             this.TxtCorreo.TabIndex = 110;
@@ -209,7 +209,7 @@
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label12.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(113, 405);
+            this.label12.Location = new System.Drawing.Point(113, 367);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(576, 22);
             this.label12.TabIndex = 117;
@@ -229,7 +229,7 @@
             "DIAGONAL",
             "AVENIDA",
             "TRANSVERSAL"});
-            this.CB1.Location = new System.Drawing.Point(112, 430);
+            this.CB1.Location = new System.Drawing.Point(114, 410);
             this.CB1.Name = "CB1";
             this.CB1.Size = new System.Drawing.Size(121, 27);
             this.CB1.TabIndex = 120;
@@ -300,7 +300,7 @@
             "26",
             "27",
             "28"});
-            this.CB2.Location = new System.Drawing.Point(263, 430);
+            this.CB2.Location = new System.Drawing.Point(264, 410);
             this.CB2.Name = "CB2";
             this.CB2.Size = new System.Drawing.Size(121, 27);
             this.CB2.TabIndex = 119;
@@ -341,7 +341,7 @@
             "X",
             "Y",
             "Z"});
-            this.CB3.Location = new System.Drawing.Point(418, 430);
+            this.CB3.Location = new System.Drawing.Point(418, 410);
             this.CB3.Name = "CB3";
             this.CB3.Size = new System.Drawing.Size(121, 27);
             this.CB3.TabIndex = 121;
@@ -358,7 +358,7 @@
             "#1",
             "#2",
             "#3"});
-            this.CB4.Location = new System.Drawing.Point(567, 430);
+            this.CB4.Location = new System.Drawing.Point(567, 410);
             this.CB4.Name = "CB4";
             this.CB4.Size = new System.Drawing.Size(121, 27);
             this.CB4.TabIndex = 122;
@@ -505,7 +505,7 @@
             // 
             this.BtnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnConfirmar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConfirmar.Location = new System.Drawing.Point(346, 533);
+            this.BtnConfirmar.Location = new System.Drawing.Point(347, 545);
             this.BtnConfirmar.Name = "BtnConfirmar";
             this.BtnConfirmar.Size = new System.Drawing.Size(107, 33);
             this.BtnConfirmar.TabIndex = 128;
@@ -525,17 +525,18 @@
             // 
             // TxtCedulaBuscar
             // 
-            this.TxtCedulaBuscar.Location = new System.Drawing.Point(212, 75);
+            this.TxtCedulaBuscar.Location = new System.Drawing.Point(242, 78);
             this.TxtCedulaBuscar.Name = "TxtCedulaBuscar";
-            this.TxtCedulaBuscar.Size = new System.Drawing.Size(172, 20);
+            this.TxtCedulaBuscar.Size = new System.Drawing.Size(142, 20);
             this.TxtCedulaBuscar.TabIndex = 130;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(110, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.Size = new System.Drawing.Size(126, 20);
             this.label3.TabIndex = 131;
             this.label3.Text = "Buscar Cedula";
             // 
@@ -543,7 +544,7 @@
             // 
             this.TxtTelefono.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTelefono.ForeColor = System.Drawing.Color.Black;
-            this.TxtTelefono.Location = new System.Drawing.Point(418, 358);
+            this.TxtTelefono.Location = new System.Drawing.Point(418, 302);
             this.TxtTelefono.Name = "TxtTelefono";
             this.TxtTelefono.Size = new System.Drawing.Size(270, 26);
             this.TxtTelefono.TabIndex = 132;
@@ -554,7 +555,7 @@
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(112, 358);
+            this.label4.Location = new System.Drawing.Point(114, 306);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(272, 22);
             this.label4.TabIndex = 133;

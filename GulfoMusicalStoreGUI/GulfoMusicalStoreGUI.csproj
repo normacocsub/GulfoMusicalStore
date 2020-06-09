@@ -49,6 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigConnection.cs" />
+    <Compile Include="FrmFacturaIndividual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFacturaIndividual.Designer.cs">
+      <DependentUpon>FrmFacturaIndividual.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistrarMarca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,9 +177,14 @@
     </Compile>
     <Compile Include="ICurso.cs" />
     <Compile Include="IInventario.cs" />
+    <Compile Include="iUnlockInventario.cs" />
+    <Compile Include="iUnlockVenta.cs" />
     <Compile Include="IVenta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmFacturaIndividual.resx">
+      <DependentUpon>FrmFacturaIndividual.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarMarca.resx">
       <DependentUpon>FrmRegistrarMarca.cs</DependentUpon>
     </EmbeddedResource>

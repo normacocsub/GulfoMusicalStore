@@ -38,6 +38,17 @@
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.DtgFactura = new System.Windows.Forms.DataGridView();
+            this.CNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCiudadFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GB2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtCedula = new System.Windows.Forms.TextBox();
@@ -51,17 +62,6 @@
             this.DtpDesde = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnFiltrar = new System.Windows.Forms.Button();
-            this.CNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCiudadFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CIVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GBB.SuspendLayout();
             this.panel1.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
@@ -140,7 +140,7 @@
             // 
             // PanelContenedor
             // 
-            this.PanelContenedor.BackColor = System.Drawing.Color.SteelBlue;
+            this.PanelContenedor.BackColor = System.Drawing.Color.DodgerBlue;
             this.PanelContenedor.Controls.Add(this.button3);
             this.PanelContenedor.Controls.Add(this.GBB);
             this.PanelContenedor.Controls.Add(this.DtgFactura);
@@ -187,6 +187,61 @@
             this.DtgFactura.Name = "DtgFactura";
             this.DtgFactura.Size = new System.Drawing.Size(589, 240);
             this.DtgFactura.TabIndex = 77;
+            // 
+            // CNumero
+            // 
+            this.CNumero.HeaderText = "Numero";
+            this.CNumero.Name = "CNumero";
+            // 
+            // CCiudadFactura
+            // 
+            this.CCiudadFactura.HeaderText = "Ciudad Factura";
+            this.CCiudadFactura.Name = "CCiudadFactura";
+            // 
+            // CCantidad
+            // 
+            this.CCantidad.HeaderText = "Cantidad";
+            this.CCantidad.Name = "CCantidad";
+            // 
+            // CIVA
+            // 
+            this.CIVA.HeaderText = "IVA";
+            this.CIVA.Name = "CIVA";
+            // 
+            // CSubTotal
+            // 
+            this.CSubTotal.HeaderText = "Sub Total";
+            this.CSubTotal.Name = "CSubTotal";
+            // 
+            // CTotal
+            // 
+            this.CTotal.HeaderText = "Total";
+            this.CTotal.Name = "CTotal";
+            // 
+            // CCedula
+            // 
+            this.CCedula.HeaderText = "Cedula";
+            this.CCedula.Name = "CCedula";
+            // 
+            // CNombre
+            // 
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            // 
+            // CTelefono
+            // 
+            this.CTelefono.HeaderText = "Telefono";
+            this.CTelefono.Name = "CTelefono";
+            // 
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha";
+            this.CFecha.Name = "CFecha";
+            // 
+            // CEstado
+            // 
+            this.CEstado.HeaderText = "Estado";
+            this.CEstado.Name = "CEstado";
             // 
             // GB2
             // 
@@ -332,61 +387,6 @@
             this.BtnFiltrar.Text = "Filtrar";
             this.BtnFiltrar.UseVisualStyleBackColor = true;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
-            // CNumero
-            // 
-            this.CNumero.HeaderText = "Numero";
-            this.CNumero.Name = "CNumero";
-            // 
-            // CCiudadFactura
-            // 
-            this.CCiudadFactura.HeaderText = "Ciudad Factura";
-            this.CCiudadFactura.Name = "CCiudadFactura";
-            // 
-            // CCantidad
-            // 
-            this.CCantidad.HeaderText = "Cantidad";
-            this.CCantidad.Name = "CCantidad";
-            // 
-            // CIVA
-            // 
-            this.CIVA.HeaderText = "IVA";
-            this.CIVA.Name = "CIVA";
-            // 
-            // CSubTotal
-            // 
-            this.CSubTotal.HeaderText = "Sub Total";
-            this.CSubTotal.Name = "CSubTotal";
-            // 
-            // CTotal
-            // 
-            this.CTotal.HeaderText = "Total";
-            this.CTotal.Name = "CTotal";
-            // 
-            // CCedula
-            // 
-            this.CCedula.HeaderText = "Cedula";
-            this.CCedula.Name = "CCedula";
-            // 
-            // CNombre
-            // 
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.HeaderText = "Telefono";
-            this.CTelefono.Name = "CTelefono";
-            // 
-            // CFecha
-            // 
-            this.CFecha.HeaderText = "Fecha";
-            this.CFecha.Name = "CFecha";
-            // 
-            // CEstado
-            // 
-            this.CEstado.HeaderText = "Estado";
-            this.CEstado.Name = "CEstado";
             // 
             // FrmFacturas
             // 

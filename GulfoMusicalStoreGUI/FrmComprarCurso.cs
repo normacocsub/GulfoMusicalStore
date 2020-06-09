@@ -14,6 +14,7 @@ namespace GulfoMusicalStoreGUI
 {
     public partial class FrmComprarCurso : Form
     {
+        public iUnlockVenta UnlockVenta { get; set; }
         private CursoService cursoService;
         public IVenta Venta { get; set; }
         public Factura Factura { get; set; }
@@ -112,6 +113,7 @@ namespace GulfoMusicalStoreGUI
                 AgregarCursos();
                 Venta.TotalVenta(Factura);
                 MessageBox.Show("Se han añadido los cursos a la factura. ");
+                UnlockVenta.unlockventa();
                 this.Close();
             }
         }
@@ -127,6 +129,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
+            UnlockVenta.unlockventa();
             this.Close();
         }
 
