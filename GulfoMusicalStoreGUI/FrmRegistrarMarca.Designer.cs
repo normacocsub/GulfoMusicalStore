@@ -34,6 +34,8 @@
             this.BtnRegistrar = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -101,12 +103,32 @@
             this.label2.Text = "Registrar Marca";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // TxtCodigo
+            // 
+            this.TxtCodigo.Location = new System.Drawing.Point(412, 192);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.Size = new System.Drawing.Size(100, 20);
+            this.TxtCodigo.TabIndex = 55;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(289, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 18);
+            this.label3.TabIndex = 56;
+            this.label3.Text = "Codigo";
+            // 
             // FrmRegistrarMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TxtCodigo);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnRegistrar);
@@ -128,5 +150,7 @@
         private System.Windows.Forms.Button BtnRegistrar;
         public System.Windows.Forms.Button BtnSalir;
         public System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtCodigo;
+        private System.Windows.Forms.Label label3;
     }
 }

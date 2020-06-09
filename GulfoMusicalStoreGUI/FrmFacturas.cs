@@ -31,16 +31,16 @@ namespace GulfoMusicalStoreGUI
             {
                 int n = dtg.Rows.Add();
                 dtg.Rows[n].Cells[0].Value = item.Numero;
-                dtg.Rows[n].Cells[1].Value = item.Cantidad;
-                dtg.Rows[n].Cells[2].Value = item.Iva;
-                dtg.Rows[n].Cells[3].Value = item.SubTotal;
-                dtg.Rows[n].Cells[4].Value = item.Total;
-                dtg.Rows[n].Cells[5].Value = item.Cliente.Cedula;
-                dtg.Rows[n].Cells[6].Value = item.Cliente.PrimerNombre;
-                dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
-                dtg.Rows[n].Cells[8].Value = item.Fecha;
-                dtg.Rows[n].Cells[9].Value = item.Estado;
-                dtg.Rows[n].Cells[10].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[1].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[2].Value = item.Cantidad;
+                dtg.Rows[n].Cells[3].Value = item.Iva;
+                dtg.Rows[n].Cells[4].Value = item.SubTotal;
+                dtg.Rows[n].Cells[5].Value = item.Total;
+                dtg.Rows[n].Cells[6].Value = item.Cliente.Cedula;
+                dtg.Rows[n].Cells[7].Value = item.Cliente.PrimerNombre;
+                dtg.Rows[n].Cells[8].Value = item.Cliente.Telefono;
+                dtg.Rows[n].Cells[9].Value = item.Fecha;
+                dtg.Rows[n].Cells[10].Value = item.Estado;
             }
             TxtTotal.Text = facturaService.ConsultarFacturas().Count.ToString();
         }
@@ -56,16 +56,16 @@ namespace GulfoMusicalStoreGUI
             {
                 int n = dtg.Rows.Add();
                 dtg.Rows[n].Cells[0].Value = item.Numero;
-                dtg.Rows[n].Cells[1].Value = item.Cantidad;
-                dtg.Rows[n].Cells[2].Value = item.Iva;
-                dtg.Rows[n].Cells[3].Value = item.SubTotal;
-                dtg.Rows[n].Cells[4].Value = item.Total;
-                dtg.Rows[n].Cells[5].Value = item.Cliente.Cedula;
-                dtg.Rows[n].Cells[6].Value = item.Cliente.PrimerNombre;
-                dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
-                dtg.Rows[n].Cells[8].Value = item.Fecha;
-                dtg.Rows[n].Cells[9].Value = item.Estado;
-                dtg.Rows[n].Cells[10].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[1].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[2].Value = item.Cantidad;
+                dtg.Rows[n].Cells[3].Value = item.Iva;
+                dtg.Rows[n].Cells[4].Value = item.SubTotal;
+                dtg.Rows[n].Cells[5].Value = item.Total;
+                dtg.Rows[n].Cells[6].Value = item.Cliente.Cedula;
+                dtg.Rows[n].Cells[7].Value = item.Cliente.PrimerNombre;
+                dtg.Rows[n].Cells[8].Value = item.Cliente.Telefono;
+                dtg.Rows[n].Cells[9].Value = item.Fecha;
+                dtg.Rows[n].Cells[10].Value = item.Estado;
             }
             TxtTotal.Text = facturaService.FiltrarFacturaFecha(fechainicial, fechafinal).Count.ToString();
         }
@@ -81,16 +81,16 @@ namespace GulfoMusicalStoreGUI
             {
                 int n = dtg.Rows.Add();
                 dtg.Rows[n].Cells[0].Value = item.Numero;
-                dtg.Rows[n].Cells[1].Value = item.Cantidad;
-                dtg.Rows[n].Cells[2].Value = item.Iva;
-                dtg.Rows[n].Cells[3].Value = item.SubTotal;
-                dtg.Rows[n].Cells[4].Value = item.Total;
-                dtg.Rows[n].Cells[5].Value = item.Cliente.Cedula;
-                dtg.Rows[n].Cells[6].Value = item.Cliente.PrimerNombre;
-                dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
-                dtg.Rows[n].Cells[8].Value = item.Fecha;
-                dtg.Rows[n].Cells[9].Value = item.Estado;
-                dtg.Rows[n].Cells[10].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[1].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[2].Value = item.Cantidad;
+                dtg.Rows[n].Cells[3].Value = item.Iva;
+                dtg.Rows[n].Cells[4].Value = item.SubTotal;
+                dtg.Rows[n].Cells[5].Value = item.Total;
+                dtg.Rows[n].Cells[6].Value = item.Cliente.Cedula;
+                dtg.Rows[n].Cells[7].Value = item.Cliente.PrimerNombre;
+                dtg.Rows[n].Cells[8].Value = item.Cliente.Telefono;
+                dtg.Rows[n].Cells[9].Value = item.Fecha;
+                dtg.Rows[n].Cells[10].Value = item.Estado;
             }
             TxtTotal.Text = facturaService.FiltroFacturaEstado(estado).Count.ToString();
         }
@@ -106,16 +106,16 @@ namespace GulfoMusicalStoreGUI
             {
                 int n = dtg.Rows.Add();
                 dtg.Rows[n].Cells[0].Value = item.Numero;
-                dtg.Rows[n].Cells[1].Value = item.Cantidad;
-                dtg.Rows[n].Cells[2].Value = item.Iva;
-                dtg.Rows[n].Cells[3].Value = item.SubTotal;
-                dtg.Rows[n].Cells[4].Value = item.Total;
-                dtg.Rows[n].Cells[5].Value = item.Cliente.Cedula;
-                dtg.Rows[n].Cells[6].Value = item.Cliente.PrimerNombre;
-                dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
-                dtg.Rows[n].Cells[8].Value = item.Fecha;
-                dtg.Rows[n].Cells[9].Value = item.Estado;
-                dtg.Rows[n].Cells[10].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[1].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[2].Value = item.Cantidad;
+                dtg.Rows[n].Cells[3].Value = item.Iva;
+                dtg.Rows[n].Cells[4].Value = item.SubTotal;
+                dtg.Rows[n].Cells[5].Value = item.Total;
+                dtg.Rows[n].Cells[6].Value = item.Cliente.Cedula;
+                dtg.Rows[n].Cells[7].Value = item.Cliente.PrimerNombre;
+                dtg.Rows[n].Cells[8].Value = item.Cliente.Telefono;
+                dtg.Rows[n].Cells[9].Value = item.Fecha;
+                dtg.Rows[n].Cells[10].Value = item.Estado;
             }
             TxtTotal.Text = facturaService.FiltrarFacturasCedula(cedula).Count.ToString();
         }
@@ -132,16 +132,17 @@ namespace GulfoMusicalStoreGUI
             {
                 int n = dtg.Rows.Add();
                 dtg.Rows[n].Cells[0].Value = item.Numero;
-                dtg.Rows[n].Cells[1].Value = item.Cantidad;
-                dtg.Rows[n].Cells[2].Value = item.Iva;
-                dtg.Rows[n].Cells[3].Value = item.SubTotal;
-                dtg.Rows[n].Cells[4].Value = item.Total;
-                dtg.Rows[n].Cells[5].Value = item.Cliente.Cedula;
-                dtg.Rows[n].Cells[6].Value = item.Cliente.PrimerNombre;
-                dtg.Rows[n].Cells[7].Value = item.Cliente.Telefono;
-                dtg.Rows[n].Cells[8].Value = item.Fecha;
-                dtg.Rows[n].Cells[9].Value = item.Estado;
-                dtg.Rows[n].Cells[10].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[1].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[2].Value = item.Cantidad;
+                dtg.Rows[n].Cells[3].Value = item.Iva;
+                dtg.Rows[n].Cells[4].Value = item.SubTotal;
+                dtg.Rows[n].Cells[5].Value = item.Total;
+                dtg.Rows[n].Cells[6].Value = item.Cliente.Cedula;
+                dtg.Rows[n].Cells[7].Value = item.Cliente.PrimerNombre;
+                dtg.Rows[n].Cells[8].Value = item.Cliente.Telefono;
+                dtg.Rows[n].Cells[9].Value = item.Fecha;
+                dtg.Rows[n].Cells[10].Value = item.Estado;
+                
             }
             TxtTotal.Text = facturaService.FiltroNumeroFactura(numero).Count.ToString();
         }

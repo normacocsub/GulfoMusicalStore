@@ -24,7 +24,7 @@ namespace GulfoMusicalStoreGUI
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
             marcaservice = new MarcaService(ConfigConnection.ConnectionString);
-            if (TxtNombre.Text.Equals(""))
+            if (TxtNombre.Text.Equals("") || TxtCodigo.Text.Equals(""))
             {
                 MessageBox.Show("Complete el campo. ");
             }
@@ -32,6 +32,7 @@ namespace GulfoMusicalStoreGUI
             {
                 Marca marca = new Marca();
                 marca.Nombre = TxtNombre.Text.Trim().ToUpper();
+                marca.NumeroMarca = TxtCodigo.Text;
                 MessageBox.Show(marcaservice.GuardarMarca(marca));
                 Inventario.Actualizar();
                 this.Close();

@@ -205,6 +205,8 @@ END;
 CREATE OR REPLACE TRIGGER Conexion_Marca_Remote_Cali
 AFTER INSERT OR UPDATE ON Gulfo.Marca
 FOR EACH ROW
+Declare 
+idCali marca.sk_marca%type;
 BEGIN
     if INSERTING THEN
     INSERT INTO gulfocali.marca@Gulfo_Bogo_Cali(sk_marca,nombremarca)
@@ -231,10 +233,119 @@ BEGIN
     WHERE sk_marca=:new.sk_marca;
     END IF;
 END;
+
+CREATE OR REPLACE TRIGGER Conexion_Producto_Remote_Cali
+AFTER INSERT OR UPDATE ON gulfo.Producto
+FOR EACH ROW
+BEGIN
+    IF INSERTING THEN 
+        INSERT INTO GulfoCali.Producto@Gulfo_Bogo_Cali(id_producto,nombre,precio,marca_sk_marca)
+        VALUES(:new.id_producto,:new.nombre,:new.precio,:new.marca_sk_marca);
+    END IF;
+    IF UPDATING THEN
+        UPDATE GulfoCali.Producto@Gulfo_Bogo_Cali
+        SET nombre=:new.nombre,precio=:new.precio
+        WHERE id_producto=:new.id_producto;
+    END IF;
+END;
+
+CREATE OR REPLACE TRIGGER Conexion_Producto_Remote_Barra
+AFTER INSERT OR UPDATE ON gulfo.Producto
+FOR EACH ROW
+BEGIN
+    IF INSERTING THEN 
+        INSERT INTO gulfobarra.producto@Gulfo_Bogo_Barra(id_producto,nombre,precio,marca_sk_marca)
+        VALUES(:new.id_producto,:new.nombre,:new.precio,:new.marca_sk_marca);
+    END IF;
+    IF UPDATING THEN
+        UPDATE gulfobarra.producto@Gulfo_Bogo_Barra
+        SET nombre=:new.nombre,precio=:new.precio
+        WHERE id_producto=:new.id_producto;
+    END IF;
+END;
+
+CREATE OR REPLACE TRIGGER Conexion_Curso_Remote_Cali
+AFTER INSERT OR UPDATE ON gulfo.Curso
+FOR EACH ROW
+BEGIN
+    IF INSERTING THEN
+        INSERT INTO gulfocali.curso@Gulfo_Bogo_Cali(sk_curso,nombre,estado,fecha,precio)
+        VALUES(:new.sk_curso,:new.nombre,:new.estado,:new.fecha,:new.precio);
+    END IF;
+    IF UPDATING THEN
+        UPDATE gulfocali.curso@Gulfo_Bogo_Cali
+        SET Nombre=:new.nombre, estado=:new.estado,precio=:new.precio
+        WHERE sk_curso=:new.sk_curso;
+    END IF;
+END;
+
+CREATE OR REPLACE TRIGGER Conexion_Curso_Remote_Barra
+AFTER INSERT OR UPDATE ON gulfo.Curso
+FOR EACH ROW
+BEGIN
+    IF INSERTING THEN
+        INSERT INTO gulfoBarra.curso@Gulfo_Bogo_Barra(sk_curso,nombre,estado,fecha,precio)
+        VALUES(:new.sk_curso,:new.nombre,:new.estado,:new.fecha,:new.precio);
+    END IF;
+    IF UPDATING THEN
+        UPDATE gulfoBarra.curso@Gulfo_Bogo_Barra
+        SET Nombre=:new.nombre, estado=:new.estado,precio=:new.precio
+        WHERE sk_curso=:new.sk_curso;
+    END IF;
+END;
+
+CREATE OR REPLACE TRIGGER Conexion_Cliente_Remote_Cali
+AFTER INSERT OR UPDATE ON gulfo.cliente
+FOR EACH ROW
+declare 
+idcali gulfo.cliente.id_Clientte%type:='no';
+
+BEGIN
+    IF INSERTING THEN        
+            INSERT INTO gulfocali.cliente@Gulfo_Bogo_Cali(id_clientte,primernombre,segundonombre,primerapellido,segundoapellido,
+                                                        correo,telefono,direccion,lugar_sk_lugar,barrio)
+            VALUES(:new.id_Clientte,:new.primernombre,:new.segundonombre,:new.primerapellido,:new.segundoapellido,
+                   :new.correo,:new.telefono,:new.direccion,:new.lugar_sk_lugar,:new.barrio);
+    END IF;
+    
+    IF UPDATING THEN
+        UPDATE gulfocali.cliente@Gulfo_Bogo_Cali
+        set primernombre=:new.primernombre,segundonombre=:new.segundonombre,
+            primerapellido=:new.primerapellido,segundoapellido=:new.segundoapellido,correo=:new.correo,
+            telefono=:new.telefono,direccion=:new.direccion,lugar_sk_lugar=:new.lugar_sk_lugar,barrio=:new.barrio
+        WHERE id_clientte=:new.id_clientte;
+    END IF;
+END;
+
+CREATE OR REPLACE TRIGGER Conexion_Cliente_Remote_Barra
+AFTER INSERT OR UPDATE ON gulfo.cliente
+FOR EACH ROW
+declare 
+idcali gulfo.cliente.id_Clientte%type:='no';
+x_id_Cliente gulfo.cliente.id_Clientte%type:=:new.id_clientte;
+BEGIN
+    IF INSERTING THEN
+        
+            INSERT INTO gulfoBarra.cliente@Gulfo_Bogo_Barra(id_clientte,primernombre,segundonombre,primerapellido,segundoapellido,
+                                                        correo,telefono,direccion,lugar_sk_lugar,barrio)
+            VALUES(x_id_Cliente,:new.primernombre,:new.segundonombre,:new.primerapellido,:new.segundoapellido,
+                   :new.correo,:new.telefono,:new.direccion,:new.lugar_sk_lugar,:new.barrio);
+    END IF;
+    
+    IF UPDATING THEN
+        UPDATE gulfoBarra.cliente@Gulfo_Bogo_Barra
+        set primernombre=:new.primernombre,segundonombre=:new.segundonombre,
+            primerapellido=:new.primerapellido,segundoapellido=:new.segundoapellido,correo=:new.correo,
+            telefono=:new.telefono,direccion=:new.direccion,lugar_sk_lugar=:new.lugar_sk_lugar,barrio=:new.barrio
+        WHERE id_clientte=x_id_Cliente;
+    END IF;
+END;
+
 rollback;
 select * from marca;
 INSERT INTO marca(sk_marca,nombremarca)
-VALUES('AC','Acer');
+VALUES('AS','Asmit');
+
 
 
 
@@ -789,18 +900,18 @@ END PAQUETE_CURSO;
 -->Paquete producto
 CREATE OR REPLACE PACKAGE PAQUETE_PRODUCTO
 IS
-    PROCEDURE GuardarProducto(producto in varchar2,nombre in varchar2,precio in number,marca in number);
+    PROCEDURE GuardarProducto(producto in varchar2,nombre in varchar2,precio in number,marca in varchar2);
     PROCEDURE ConsultarProductos(registro OUT SYS_REFCURSOR);
     PROCEDURE BuscarProducto(registro OUT SYS_REFCURSOR,codigo IN VARCHAR2);
     PROCEDURE ConsultarCodigo(registro OUT SYS_REFCURSOR,nombre IN VARCHAR2);
     PROCEDURE ModificarPrecioProductos(precionew IN NUMBER, codigo IN VARCHAR2,nombrenew in varchar2);
     PROCEDURE EliminarProductos(codigo IN VARCHAR2);
-    PROCEDURE FILTRARPRODUCTOSMARCA(productos OUT SYS_REFCURSOR,p_sk_marca in number);
+    PROCEDURE FILTRARPRODUCTOSMARCA(productos OUT SYS_REFCURSOR,p_sk_marca in varchar2);
 END PAQUETE_PRODUCTO;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_PRODUCTO
 IS
-    PROCEDURE GuardarProducto(producto in varchar2,nombre in varchar2,precio in number,marca in number)
+    PROCEDURE GuardarProducto(producto in varchar2,nombre in varchar2,precio in number,marca in varchar2)
     AS
     BEGIN
         INSERT INTO Producto(id_producto,nombre,precio,Marca_sk_marca)
@@ -843,7 +954,7 @@ IS
         WHERE id_producto=codigo;
     END EliminarProductos;
 
-    PROCEDURE FILTRARPRODUCTOSMARCA(productos OUT SYS_REFCURSOR,p_sk_marca in number)
+    PROCEDURE FILTRARPRODUCTOSMARCA(productos OUT SYS_REFCURSOR,p_sk_marca in varchar2)
     AS
     BEGIN
         OPEN productos FOR SELECT * FROM Producto p JOIN Marca m

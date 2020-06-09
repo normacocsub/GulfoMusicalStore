@@ -54,6 +54,8 @@
             this.CmbFiltroEstado = new System.Windows.Forms.ComboBox();
             this.BtnActualizar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgCurso)).BeginInit();
@@ -86,6 +88,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.TxtCodigo);
             this.panel3.Controls.Add(this.TxtInstrumento);
             this.panel3.Controls.Add(this.CmbEstado);
             this.panel3.Controls.Add(this.label3);
@@ -105,7 +109,7 @@
             this.TxtInstrumento.BackColor = System.Drawing.Color.White;
             this.TxtInstrumento.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtInstrumento.ForeColor = System.Drawing.Color.Black;
-            this.TxtInstrumento.Location = new System.Drawing.Point(122, 219);
+            this.TxtInstrumento.Location = new System.Drawing.Point(122, 249);
             this.TxtInstrumento.Name = "TxtInstrumento";
             this.TxtInstrumento.Size = new System.Drawing.Size(120, 23);
             this.TxtInstrumento.TabIndex = 25;
@@ -222,7 +226,7 @@
             this.LabelInstrumento.BackColor = System.Drawing.Color.White;
             this.LabelInstrumento.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInstrumento.ForeColor = System.Drawing.Color.Black;
-            this.LabelInstrumento.Location = new System.Drawing.Point(16, 218);
+            this.LabelInstrumento.Location = new System.Drawing.Point(12, 248);
             this.LabelInstrumento.Name = "LabelInstrumento";
             this.LabelInstrumento.Size = new System.Drawing.Size(100, 23);
             this.LabelInstrumento.TabIndex = 2;
@@ -383,6 +387,28 @@
             this.BtnModificar.UseVisualStyleBackColor = false;
             this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
+            // TxtCodigo
+            // 
+            this.TxtCodigo.BackColor = System.Drawing.Color.White;
+            this.TxtCodigo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCodigo.ForeColor = System.Drawing.Color.Black;
+            this.TxtCodigo.Location = new System.Drawing.Point(122, 197);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.Size = new System.Drawing.Size(120, 23);
+            this.TxtCodigo.TabIndex = 26;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(16, 196);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 23);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Codigo";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,5 +455,7 @@
         private System.Windows.Forms.TextBox TxtTodos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox CmbFiltroEstado;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TxtCodigo;
     }
 }

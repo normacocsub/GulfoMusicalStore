@@ -25,6 +25,7 @@ namespace DAL
             {
                 command.CommandText = "PAQUETE_CURSO.GUARDARCURSOS";
                 command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("x_sk_curso", OracleDbType.Varchar2).Value = curso.Codigo;
                 command.Parameters.Add("nombre", OracleDbType.Varchar2).Value = curso.Nombre;
                 command.Parameters.Add("estado", OracleDbType.Varchar2).Value = curso.Estado;
                 command.Parameters.Add("fecha", OracleDbType.Varchar2).Value = curso.FechaCreacion.ToShortDateString();
@@ -70,7 +71,7 @@ namespace DAL
                 command.CommandText = "PAQUETE_CURSO.BuscarCurso";
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add("registro", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                command.Parameters.Add("codigo", OracleDbType.Int32).Value = int.Parse(nombre);
+                command.Parameters.Add("codigo", OracleDbType.Varchar2).Value = nombre;
                 Reader = command.ExecuteReader();
                 while (Reader.Read())
                 {
@@ -86,7 +87,7 @@ namespace DAL
             {
                 command.CommandText = "PAQUETE_CURSO.MODIFICARCURSO";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("curso", OracleDbType.Int32).Value = int.Parse(curso.Codigo);
+                command.Parameters.Add("curso", OracleDbType.Varchar2).Value = curso.Codigo;
                 command.Parameters.Add("precionew", OracleDbType.Decimal).Value = curso.Total;
                 command.Parameters.Add("estadonew", OracleDbType.Varchar2).Value = curso.Estado;
                 command.Parameters.Add("nombrenew", OracleDbType.Varchar2).Value = curso.Nombre;
@@ -100,7 +101,7 @@ namespace DAL
             {
                 command.CommandText = "PAQUETE_CURSO.ELIMINARCURSO";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("curso", OracleDbType.Int32).Value = int.Parse(curso.Codigo);
+                command.Parameters.Add("curso", OracleDbType.Varchar2).Value = curso.Codigo;
                 command.ExecuteNonQuery();
             }
         }

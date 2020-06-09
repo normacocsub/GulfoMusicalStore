@@ -36,6 +36,7 @@ namespace GulfoMusicalStoreGUI
                     Curso curso = new Curso();
                     curso.Total = precio;
                     curso.Nombre = (TxtInstrumento.Text).Trim().ToUpper();
+                    curso.Codigo = TxtCodigo.Text;
                     curso.Estado = CmbEstado.Text;
                     curso.FechaCreacion = DateTime.Now;
                     MessageBox.Show(cursoservice.GuardarCurso(curso));

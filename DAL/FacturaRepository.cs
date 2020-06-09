@@ -98,7 +98,7 @@ namespace DAL
                     command.Parameters.Add("fechadate", OracleDbType.Varchar2).Value = factura.Fecha;
                     command.Parameters.Add("factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
                     command.Parameters.Add("cantidad", OracleDbType.Int32).Value = item.Unidades;
-                    command.Parameters.Add("curso", OracleDbType.Int32).Value = int.Parse(item.Curso.Codigo);
+                    command.Parameters.Add("curso", OracleDbType.Varchar2).Value = item.Curso.Codigo;
                     command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
                     command.ExecuteNonQuery();
                 }
@@ -136,6 +136,7 @@ namespace DAL
             factura.Iva = decimal.Parse(((object)reader["iva"]).ToString());
             factura.Total = decimal.Parse(((object)reader["total"]).ToString());
             factura.Cantidad = int.Parse(((object)reader["cantidad"]).ToString());
+            factura.CiudadFactura = (string)reader["ciudadfactura"];
             Cliente cliente = new Cliente();
             cliente.Cedula = (string)reader["id_clientte"];
             cliente.PrimerNombre = (string)reader["primernombre"];

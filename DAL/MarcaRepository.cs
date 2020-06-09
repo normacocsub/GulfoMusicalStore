@@ -27,6 +27,7 @@ namespace DAL
             {
                 command.CommandText= "PAQUETE_MARCA.GuardarMarcas";
                 command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("m_sk_marca", OracleDbType.Varchar2).Value = marca.NumeroMarca;
                 command.Parameters.Add("nombre", OracleDbType.Varchar2).Value = marca.Nombre;
                 command.ExecuteNonQuery();
             }
@@ -105,7 +106,7 @@ namespace DAL
             {
                 command.CommandText = "PAQUETE_MARCA.ModificarMarca";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("marca", OracleDbType.Int32).Value = int.Parse(marca.NumeroMarca);
+                command.Parameters.Add("marca", OracleDbType.Varchar2).Value = marca.NumeroMarca;
                 command.Parameters.Add("nombre", OracleDbType.Varchar2).Value = marca.Nombre;
                 command.ExecuteNonQuery();
             }
@@ -136,7 +137,7 @@ namespace DAL
             {
                 command.CommandText = "PAQUETE_MARCA.EliminarMarca";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("marca", OracleDbType.Int32).Value = int.Parse(marca.NumeroMarca);
+                command.Parameters.Add("marca", OracleDbType.Varchar2).Value = marca.NumeroMarca;
                 command.ExecuteNonQuery();
             }
         }

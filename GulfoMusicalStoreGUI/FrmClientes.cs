@@ -43,7 +43,7 @@ namespace GulfoMusicalStoreGUI
                 Dtg.Rows[n].Cells[6].Value = item.Telefono;
                 Dtg.Rows[n].Cells[7].Value = item.Direccion;
                 Dtg.Rows[n].Cells[8].Value = item.Lugar.Ciudad;
-                Dtg.Rows[n].Cells[9].Value = item.Barrio.Nombre;
+                Dtg.Rows[n].Cells[9].Value = item.Barrio;
             }
             TxtTotal.Text = ClienteService.ConsultarClientes().Count.ToString();
         }
@@ -65,7 +65,7 @@ namespace GulfoMusicalStoreGUI
                 Dtg.Rows[n].Cells[6].Value = item.Telefono;
                 Dtg.Rows[n].Cells[7].Value = item.Direccion;
                 Dtg.Rows[n].Cells[8].Value = item.Lugar.Ciudad;
-                Dtg.Rows[n].Cells[9].Value = item.Barrio.Nombre;
+                Dtg.Rows[n].Cells[9].Value = item.Barrio;
             }
             TxtTotal.Text = ClienteService.FiltrarCLientesCedula(cedula).Count.ToString();
         }
@@ -87,7 +87,7 @@ namespace GulfoMusicalStoreGUI
                 Dtg.Rows[n].Cells[6].Value = item.Telefono;
                 Dtg.Rows[n].Cells[7].Value = item.Direccion;
                 Dtg.Rows[n].Cells[8].Value = item.Lugar.Ciudad;
-                Dtg.Rows[n].Cells[9].Value = item.Barrio.Nombre;
+                Dtg.Rows[n].Cells[9].Value = item.Barrio;
             }
             TxtTotal.Text = ClienteService.FiltrarClientesPrimerNombre(primernombre).Count.ToString();
         }
