@@ -65,8 +65,8 @@
             this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cimage = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.BtnSalir = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.PanelFondo.SuspendLayout();
             this.GBCliente.SuspendLayout();
             this.GBFactura.SuspendLayout();
@@ -494,18 +494,6 @@
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 12;
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Maiandra GD", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(270, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 34);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Factura";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // BtnSalir
             // 
             this.BtnSalir.BackColor = System.Drawing.Color.White;
@@ -521,6 +509,19 @@
             this.BtnSalir.Size = new System.Drawing.Size(46, 34);
             this.BtnSalir.TabIndex = 139;
             this.BtnSalir.UseVisualStyleBackColor = false;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Maiandra GD", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(270, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(260, 34);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Factura";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmFacturaIndividual
             // 
