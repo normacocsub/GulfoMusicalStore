@@ -17,7 +17,7 @@ namespace GulfoMusicalStoreGUI
         public iUnlockInventario UnlockInventario { get; set; }
         private MarcaService marcaservice;
         private ProductoService productoservice;
-        public IInventario Inventario { get; set; }
+        public iInventario Inventario { get; set; }
         public FrmRegistrarProducto()
         {
             InitializeComponent();

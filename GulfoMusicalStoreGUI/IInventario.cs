@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GulfoMusicalStoreGUI
 {
-    public interface IInventario
+    public interface iInventario
     {
        void Actualizar();
     }

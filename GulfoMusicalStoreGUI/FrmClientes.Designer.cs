@@ -52,6 +52,7 @@
             this.CBarrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgClientes)).BeginInit();
@@ -107,7 +108,6 @@
             this.BtnGenerarInforme.Text = "Generar Informe";
             this.BtnGenerarInforme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnGenerarInforme.UseVisualStyleBackColor = true;
-   
             // 
             // panel2
             // 
@@ -263,12 +263,24 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 70;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(557, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 20);
+            this.label4.TabIndex = 82;
+            this.label4.Text = "Sede: ";
             // 
             // FrmClientes
             // 
@@ -285,6 +297,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgClientes)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -314,5 +327,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CCiudad;
         private System.Windows.Forms.DataGridViewTextBoxColumn CBarrio;
         private System.Windows.Forms.Button BtnTodos;
+        private System.Windows.Forms.Label label4;
     }
 }

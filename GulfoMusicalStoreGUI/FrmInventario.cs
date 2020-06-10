@@ -12,7 +12,7 @@ using BLL;
 
 namespace GulfoMusicalStoreGUI
 {
-    public partial class FrmInventario : Form, IInventario , iUnlockInventario
+    public partial class FrmInventario : Form, iInventario , iUnlockInventario
     {
         private MarcaService marcaservice;
         private ProductoService productoservice;
@@ -33,6 +33,7 @@ namespace GulfoMusicalStoreGUI
         {
             BtnRegistrarMarca.Enabled = false;
             FrmRegistrarMarca frmcrearmarca = new FrmRegistrarMarca();
+            frmcrearmarca.UnlockInventario = this;
             frmcrearmarca.Inventario = this;
             frmcrearmarca.Show();
         }
@@ -76,6 +77,7 @@ namespace GulfoMusicalStoreGUI
             BtnModificar.Enabled = false;
             FrmModificarInventario frmmodi = new FrmModificarInventario();
             frmmodi.IInventario = this;
+            frmmodi.UnlockInventario = this;
             frmmodi.Show();
         }
 
@@ -87,6 +89,7 @@ namespace GulfoMusicalStoreGUI
             BtnRegistrarProducto.Enabled = false;
             FrmRegistrarProducto frmprod = new FrmRegistrarProducto();
             frmprod.Inventario = this;
+            frmprod.UnlockInventario = this;
             frmprod.Show();
         }
 
@@ -103,6 +106,7 @@ namespace GulfoMusicalStoreGUI
             BtnModificarMarca.Enabled = false;
             FrmModificarMarca FrmModificar = new FrmModificarMarca();
             FrmModificar.Inventario = this;
+            FrmModificar.UnlockInventario = this;
             FrmModificar.Show();
         }
 

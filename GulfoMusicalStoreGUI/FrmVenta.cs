@@ -39,6 +39,7 @@ namespace GulfoMusicalStoreGUI
                 BtnRegistrarCliente.Enabled = false;
                 frmClienteDatos = new FrmClienteDatos(Factura);
                 frmClienteDatos.Venta = this;
+                frmClienteDatos.UnlockVenta = this;
                 frmClienteDatos.Show();
             }
             else
@@ -58,6 +59,7 @@ namespace GulfoMusicalStoreGUI
                 BtnClienteActual.Enabled = false;
                 FrmInfoCliente frmInfoCliente = new FrmInfoCliente(Factura);
                 frmInfoCliente.Venta = this;
+                frmInfoCliente.UnlockVenta = this;
                 frmInfoCliente.Show();
             }
            
@@ -68,9 +70,8 @@ namespace GulfoMusicalStoreGUI
         {
             LabelCodigoProducto.Enabled = false;
             FrmComprar frmcomp = new FrmComprar(Factura);
-           
             frmcomp.Venta = this;
-            
+            frmcomp.UnlockVenta = this;
             frmcomp.Show();
         }
 
@@ -141,6 +142,7 @@ namespace GulfoMusicalStoreGUI
             LabelCurso.Enabled = false;
             FrmComprarCurso frmCurso = frmCurso = new FrmComprarCurso(Factura);
             frmCurso.Venta = this;
+            frmCurso.UnlockVenta = this;
             frmCurso.Show();
         }
 

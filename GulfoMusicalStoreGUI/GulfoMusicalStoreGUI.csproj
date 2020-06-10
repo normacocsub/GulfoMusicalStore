@@ -176,7 +176,7 @@
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="ICurso.cs" />
-    <Compile Include="IInventario.cs" />
+    <Compile Include="iInventario.cs" />
     <Compile Include="iUnlockInventario.cs" />
     <Compile Include="iUnlockVenta.cs" />
     <Compile Include="IVenta.cs" />

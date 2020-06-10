@@ -42,6 +42,7 @@
             this.CmbEstado = new System.Windows.Forms.ComboBox();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -212,12 +213,24 @@
             this.label6.Text = "Nombre";
             this.label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(561, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 20);
+            this.label7.TabIndex = 59;
+            this.label7.Text = "Sede: ";
+            // 
             // FrmModificarCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.CmbEstado);
@@ -255,5 +268,6 @@
         private System.Windows.Forms.ComboBox CmbEstado;
         private System.Windows.Forms.TextBox TxtNombre;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

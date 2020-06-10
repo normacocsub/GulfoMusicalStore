@@ -52,6 +52,7 @@
             this.BtnRegistrarProducto = new System.Windows.Forms.Button();
             this.Panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.PanelFondo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMarcas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).BeginInit();
@@ -315,6 +316,7 @@
             // 
             this.Panel1.BackColor = System.Drawing.Color.White;
             this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Panel1.Controls.Add(this.label5);
             this.Panel1.Controls.Add(this.label2);
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel1.Location = new System.Drawing.Point(0, 0);
@@ -334,6 +336,17 @@
             this.label2.Text = "Registro de Instrumento";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(564, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 20);
+            this.label5.TabIndex = 56;
+            this.label5.Text = "Sede: ";
+            // 
             // FrmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,6 +363,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).EndInit();
             this.PanelLateral.ResumeLayout(false);
             this.Panel1.ResumeLayout(false);
+            this.Panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -378,5 +392,6 @@
         private System.Windows.Forms.TextBox TxtTotalMarcas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnTodos;
+        private System.Windows.Forms.Label label5;
     }
 }

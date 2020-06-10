@@ -36,6 +36,7 @@
             this.TxtUnidades = new System.Windows.Forms.TextBox();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CmbNombreCurso
@@ -92,7 +93,6 @@
             this.TxtUnidades.Name = "TxtUnidades";
             this.TxtUnidades.Size = new System.Drawing.Size(121, 20);
             this.TxtUnidades.TabIndex = 5;
-
             // 
             // BtnSalir
             // 
@@ -124,12 +124,24 @@
             this.label3.Text = "Comprar Curso";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(576, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 20);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "Sede: ";
+            // 
             // FrmComprarCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TxtUnidades);
@@ -155,5 +167,6 @@
         private System.Windows.Forms.TextBox TxtUnidades;
         public System.Windows.Forms.Button BtnSalir;
         public System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

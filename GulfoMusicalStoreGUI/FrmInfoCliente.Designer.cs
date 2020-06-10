@@ -58,6 +58,7 @@
             this.CmbCiudad = new System.Windows.Forms.ComboBox();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.TxtBarrio = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnModificar
@@ -624,12 +625,24 @@
             this.TxtBarrio.Text = "Barrio";
             this.TxtBarrio.TextChanged += new System.EventHandler(this.TxtBarrio_TextChanged_1);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(563, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 20);
+            this.label4.TabIndex = 163;
+            this.label4.Text = "Sede: ";
+            // 
             // FrmInfoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtBarrio);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.CmbCiudad);
@@ -700,5 +713,6 @@
         private System.Windows.Forms.ComboBox CmbCiudad;
         public System.Windows.Forms.Button BtnSalir;
         private System.Windows.Forms.TextBox TxtBarrio;
+        private System.Windows.Forms.Label label4;
     }
 }

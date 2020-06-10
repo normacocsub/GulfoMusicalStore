@@ -45,6 +45,7 @@
             this.BtnLogo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.PanelTitulo.SuspendLayout();
             this.Panel1.SuspendLayout();
             this.FLPItems.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             // PanelTitulo
             // 
+            this.PanelTitulo.Controls.Add(this.label1);
             this.PanelTitulo.Controls.Add(this.LabelTitulo);
             this.PanelTitulo.Controls.Add(this.BtnSalir);
             this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -282,6 +284,16 @@
             this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(808, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 20);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Sede: ";
+            // 
             // FrmTienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,6 +308,7 @@
             this.Text = "FrmTienda";
             this.Load += new System.EventHandler(this.FrmTienda_Load);
             this.PanelTitulo.ResumeLayout(false);
+            this.PanelTitulo.PerformLayout();
             this.Panel1.ResumeLayout(false);
             this.FLPItems.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -318,5 +331,6 @@
         public System.Windows.Forms.FlowLayoutPanel FLPItems;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
     }
 }

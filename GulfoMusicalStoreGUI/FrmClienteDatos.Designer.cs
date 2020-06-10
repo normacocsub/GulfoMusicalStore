@@ -54,11 +54,12 @@
             this.BtnBuscarCedula = new System.Windows.Forms.Button();
             this.TxtCedulaBuscar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.TxtTelefono = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CmbCiudad = new System.Windows.Forms.ComboBox();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.TxtBarrio = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TxtTelefono = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // LabelCedula
@@ -540,15 +541,6 @@
             this.label3.TabIndex = 131;
             this.label3.Text = "Buscar Cedula";
             // 
-            // TxtTelefono
-            // 
-            this.TxtTelefono.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTelefono.ForeColor = System.Drawing.Color.Black;
-            this.TxtTelefono.Location = new System.Drawing.Point(418, 302);
-            this.TxtTelefono.Name = "TxtTelefono";
-            this.TxtTelefono.Size = new System.Drawing.Size(270, 26);
-            this.TxtTelefono.TabIndex = 132;
-            // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.White;
@@ -630,12 +622,33 @@
             this.TxtBarrio.Text = "Barrio";
             this.TxtBarrio.TextChanged += new System.EventHandler(this.TxtBarrio_TextChanged_1);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(563, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 20);
+            this.label6.TabIndex = 140;
+            this.label6.Text = "Sede: ";
+            // 
+            // TxtTelefono
+            // 
+            this.TxtTelefono.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTelefono.ForeColor = System.Drawing.Color.Black;
+            this.TxtTelefono.Location = new System.Drawing.Point(418, 302);
+            this.TxtTelefono.Name = "TxtTelefono";
+            this.TxtTelefono.Size = new System.Drawing.Size(270, 26);
+            this.TxtTelefono.TabIndex = 132;
+            // 
             // FrmClienteDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.TxtBarrio);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.CmbCiudad);
@@ -702,10 +715,11 @@
         private System.Windows.Forms.Button BtnBuscarCedula;
         private System.Windows.Forms.TextBox TxtCedulaBuscar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TxtTelefono;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox CmbCiudad;
         public System.Windows.Forms.Button BtnSalir;
         private System.Windows.Forms.TextBox TxtBarrio;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TxtTelefono;
     }
 }
