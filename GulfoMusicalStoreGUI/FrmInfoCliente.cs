@@ -26,8 +26,7 @@ namespace GulfoMusicalStoreGUI
             InitializeComponent();
             Factura = factura;
             MapearDatosCliente();
-            TxtBarrio.Enabled = false;
-            LlenarComboLugar();
+            labelsede.Text = ConfigConnection.CiudadConectada;
         }
 
         private void MapearDatosCliente()
@@ -98,7 +97,7 @@ namespace GulfoMusicalStoreGUI
         public void Txtdirection()
         {
             TxtDireccion.Text = CB1.Text + " " + CB2.Text + " " + CB3.Text + " " + CB4.Text + " " + CB5.Text + " " + CB6.Text
-                + " " + CmbCiudad.Text + " " + TxtBarrio.Text;
+                + " " + TxtBarrio.Text;
         }
 
         private void CB1_SelectedIndexChanged(object sender, EventArgs e)
@@ -151,31 +150,7 @@ namespace GulfoMusicalStoreGUI
             Txtdirection();
         }
 
-        private void CmbCiudad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lugarservice = new LugarService(ConfigConnection.ConnectionString);
-            TxtBarrio.Enabled = true;
-            foreach (var item in Lugares)
-            {
-                if (item.Ciudad.Equals(CmbCiudad.Text))
-                {
-                    Factura.Cliente.Lugar = item;
-                }
-            }
-            Txtdirection();
-        }
-
-        private void LlenarComboLugar()
-        {
-            lugarservice = new LugarService(ConfigConnection.ConnectionString);
-            Lugares = lugarservice.ConsultarLugares();
-            CmbCiudad.Items.Clear();
-            foreach (var item in Lugares)
-            {
-                CmbCiudad.Items.Add(item.Ciudad);
-            }
-        }
-
+       
        
 
         private void BtnSalir_Click(object sender, EventArgs e)

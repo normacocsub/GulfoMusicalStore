@@ -58,6 +58,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelSede = new System.Windows.Forms.Panel();
             this.LabelCurso = new System.Windows.Forms.Label();
+            this.sedelabel = new System.Windows.Forms.Label();
             this.GBFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).BeginInit();
@@ -332,6 +333,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.sedelabel);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -394,6 +396,16 @@
             this.LabelCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LabelCurso.Click += new System.EventHandler(this.LabelCurso_Click_1);
             // 
+            // sedelabel
+            // 
+            this.sedelabel.AutoSize = true;
+            this.sedelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sedelabel.Location = new System.Drawing.Point(661, 22);
+            this.sedelabel.Name = "sedelabel";
+            this.sedelabel.Size = new System.Drawing.Size(108, 20);
+            this.sedelabel.TabIndex = 26;
+            this.sedelabel.Text = "nombresede";
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,5 +457,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CMarca;
         private System.Windows.Forms.DataGridViewTextBoxColumn CUNIDADES2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label sedelabel;
     }
 }

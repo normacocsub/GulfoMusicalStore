@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFacturaIndividual));
-            this.LabelSexo = new System.Windows.Forms.Label();
             this.PanelFondo = new System.Windows.Forms.Panel();
             this.LabelFechaFactura = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,13 +38,10 @@
             this.LabelCedula = new System.Windows.Forms.Label();
             this.TxtCedula = new System.Windows.Forms.TextBox();
             this.TxtNombre = new System.Windows.Forms.TextBox();
-            this.CBSexo = new System.Windows.Forms.ComboBox();
             this.LabelNombre = new System.Windows.Forms.Label();
             this.GBFactura = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.LabelTotalCurso = new System.Windows.Forms.Label();
             this.LabelCantidad = new System.Windows.Forms.Label();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.CBCambiarEstado = new System.Windows.Forms.ComboBox();
@@ -67,24 +63,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.labelsede = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.PanelFondo.SuspendLayout();
             this.GBCliente.SuspendLayout();
             this.GBFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // LabelSexo
-            // 
-            this.LabelSexo.BackColor = System.Drawing.Color.White;
-            this.LabelSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.LabelSexo.ForeColor = System.Drawing.Color.Black;
-            this.LabelSexo.Location = new System.Drawing.Point(487, 28);
-            this.LabelSexo.Name = "LabelSexo";
-            this.LabelSexo.Size = new System.Drawing.Size(101, 24);
-            this.LabelSexo.TabIndex = 48;
-            this.LabelSexo.Text = "Sexo";
-            this.LabelSexo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PanelFondo
             // 
@@ -156,8 +142,6 @@
             this.GBCliente.Controls.Add(this.LabelCedula);
             this.GBCliente.Controls.Add(this.TxtCedula);
             this.GBCliente.Controls.Add(this.TxtNombre);
-            this.GBCliente.Controls.Add(this.CBSexo);
-            this.GBCliente.Controls.Add(this.LabelSexo);
             this.GBCliente.Controls.Add(this.LabelNombre);
             this.GBCliente.Location = new System.Drawing.Point(39, 51);
             this.GBCliente.Name = "GBCliente";
@@ -206,24 +190,6 @@
             this.TxtNombre.TabIndex = 49;
             this.TxtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // CBSexo
-            // 
-            this.CBSexo.BackColor = System.Drawing.Color.White;
-            this.CBSexo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBSexo.Enabled = false;
-            this.CBSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.CBSexo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CBSexo.FormattingEnabled = true;
-            this.CBSexo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CBSexo.Items.AddRange(new object[] {
-            "Masculino",
-            "Femenino"});
-            this.CBSexo.Location = new System.Drawing.Point(593, 28);
-            this.CBSexo.Name = "CBSexo";
-            this.CBSexo.Size = new System.Drawing.Size(121, 24);
-            this.CBSexo.TabIndex = 46;
-            // 
             // LabelNombre
             // 
             this.LabelNombre.BackColor = System.Drawing.Color.White;
@@ -240,8 +206,6 @@
             // 
             this.GBFactura.Controls.Add(this.label5);
             this.GBFactura.Controls.Add(this.label3);
-            this.GBFactura.Controls.Add(this.label7);
-            this.GBFactura.Controls.Add(this.LabelTotalCurso);
             this.GBFactura.Controls.Add(this.LabelCantidad);
             this.GBFactura.Controls.Add(this.BtnModificar);
             this.GBFactura.Controls.Add(this.CBCambiarEstado);
@@ -285,29 +249,6 @@
             this.label3.Text = "Cantidad";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(495, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 20);
-            this.label7.TabIndex = 94;
-            this.label7.Text = "Valor Curso";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelTotalCurso
-            // 
-            this.LabelTotalCurso.BackColor = System.Drawing.Color.White;
-            this.LabelTotalCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelTotalCurso.Location = new System.Drawing.Point(495, 60);
-            this.LabelTotalCurso.Name = "LabelTotalCurso";
-            this.LabelTotalCurso.Size = new System.Drawing.Size(94, 22);
-            this.LabelTotalCurso.TabIndex = 93;
-            this.LabelTotalCurso.Text = "0";
-            this.LabelTotalCurso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // LabelCantidad
             // 
             this.LabelCantidad.BackColor = System.Drawing.Color.White;
@@ -327,6 +268,7 @@
             this.BtnModificar.TabIndex = 89;
             this.BtnModificar.Text = "Aceptar";
             this.BtnModificar.UseVisualStyleBackColor = true;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // CBCambiarEstado
             // 
@@ -486,6 +428,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.labelsede);
             this.panel1.Controls.Add(this.BtnSalir);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -514,7 +458,7 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Maiandra GD", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(270, 13);
             this.label2.Name = "label2";
@@ -522,6 +466,28 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Factura";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelsede
+            // 
+            this.labelsede.AutoSize = true;
+            this.labelsede.BackColor = System.Drawing.Color.White;
+            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelsede.Location = new System.Drawing.Point(619, 22);
+            this.labelsede.Name = "labelsede";
+            this.labelsede.Size = new System.Drawing.Size(108, 20);
+            this.labelsede.TabIndex = 60;
+            this.labelsede.Text = "nombresede";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(494, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 20);
+            this.label1.TabIndex = 140;
+            this.label1.Text = "Sede Factura: ";
             // 
             // FrmFacturaIndividual
             // 
@@ -540,13 +506,12 @@
             this.GBFactura.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label LabelSexo;
         private System.Windows.Forms.Panel PanelFondo;
         private System.Windows.Forms.Label LabelFechaFactura;
         private System.Windows.Forms.Label label4;
@@ -556,13 +521,10 @@
         private System.Windows.Forms.Label LabelCedula;
         private System.Windows.Forms.TextBox TxtCedula;
         private System.Windows.Forms.TextBox TxtNombre;
-        private System.Windows.Forms.ComboBox CBSexo;
         private System.Windows.Forms.Label LabelNombre;
         private System.Windows.Forms.GroupBox GBFactura;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label LabelTotalCurso;
         private System.Windows.Forms.Label LabelCantidad;
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.ComboBox CBCambiarEstado;
@@ -584,5 +546,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button BtnSalir;
+        private System.Windows.Forms.Label labelsede;
+        private System.Windows.Forms.Label label1;
     }
 }

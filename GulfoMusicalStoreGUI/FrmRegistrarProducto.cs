@@ -22,6 +22,7 @@ namespace GulfoMusicalStoreGUI
         {
             InitializeComponent();
             LlenarComboMarca();
+            labelsede.Text = ConfigConnection.CiudadConectada;
         }
 
 

@@ -34,7 +34,7 @@ namespace DAL
                 command.Parameters.Add("totalfac", OracleDbType.Double).Value = double.Parse(factura.Total.ToString());
                 command.Parameters.Add("cantidadfac", OracleDbType.Int32).Value = double.Parse(factura.Cantidad.ToString());
                 command.Parameters.Add("x_id_cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
-                command.Parameters.Add("x_CiudadFactura", OracleDbType.Varchar2).Value = factura.CiudadFactura;
+                command.Parameters.Add("x_CiudadFactura", OracleDbType.Int32).Value = factura.Lugar.Codigo;
                 command.ExecuteNonQuery();
 
             }
@@ -136,12 +136,15 @@ namespace DAL
             factura.Iva = decimal.Parse(((object)reader["iva"]).ToString());
             factura.Total = decimal.Parse(((object)reader["total"]).ToString());
             factura.Cantidad = int.Parse(((object)reader["cantidad"]).ToString());
-            factura.CiudadFactura = (string)reader["ciudadfactura"];
             Cliente cliente = new Cliente();
             cliente.Cedula = (string)reader["id_clientte"];
             cliente.PrimerNombre = (string)reader["primernombre"];
             cliente.Telefono = (string)reader["telefono"];
             factura.AgregarCliente(cliente);
+            Lugar lugar = new Lugar();
+            lugar.Codigo = int.Parse(((object)reader["sk_lugar"]).ToString());
+            lugar.Ciudad = (string)reader["ciudad"];
+            factura.AgregarLugar(lugar);
             return factura;
         }
 

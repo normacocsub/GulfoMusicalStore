@@ -15,13 +15,13 @@ namespace Entity
         public decimal Iva { get; set; }
         public decimal Total { get; set; }
         public int Cantidad { get; set; }
-        public string CiudadFactura { get; set; }
         public DetalleFactura DetalleFactura { get; set; }
         public DetalleCurso DetalleCursoFactura { get; set; }
         public IList<DetalleFactura> DetallesFactura { get; set; }
         public IList<DetalleCurso> DetallesCursoFactura { get; set; }
         public Cliente Cliente { get; set; }
         public Curso Curso { get; set; }
+        public Lugar Lugar { get; set; }
 
         public Factura()
         {
@@ -127,6 +127,11 @@ namespace Entity
         public void CalcularTotalDetalles()
         {
             Cantidad = DetallesFactura.Count + DetallesCursoFactura.Count;
+        }
+
+        public void AgregarLugar(Lugar lugar)
+        {
+            Lugar = lugar;
         }
 
 

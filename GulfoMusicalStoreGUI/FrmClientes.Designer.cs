@@ -53,6 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.labelsede = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgClientes)).BeginInit();
@@ -263,6 +264,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.labelsede);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -281,6 +283,17 @@
             this.label4.Size = new System.Drawing.Size(61, 20);
             this.label4.TabIndex = 82;
             this.label4.Text = "Sede: ";
+            // 
+            // labelsede
+            // 
+            this.labelsede.AutoSize = true;
+            this.labelsede.BackColor = System.Drawing.Color.White;
+            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelsede.Location = new System.Drawing.Point(624, 23);
+            this.labelsede.Name = "labelsede";
+            this.labelsede.Size = new System.Drawing.Size(108, 20);
+            this.labelsede.TabIndex = 83;
+            this.labelsede.Text = "nombresede";
             // 
             // FrmClientes
             // 
@@ -328,5 +341,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CBarrio;
         private System.Windows.Forms.Button BtnTodos;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelsede;
     }
 }

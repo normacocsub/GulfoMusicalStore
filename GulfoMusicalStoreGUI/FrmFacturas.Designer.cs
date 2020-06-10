@@ -62,6 +62,8 @@
             this.DtpDesde = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnFiltrar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelsede = new System.Windows.Forms.Label();
             this.GBB.SuspendLayout();
             this.panel1.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
@@ -119,6 +121,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.labelsede);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -388,6 +392,28 @@
             this.BtnFiltrar.UseVisualStyleBackColor = true;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(570, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 20);
+            this.label6.TabIndex = 77;
+            this.label6.Text = "Sede: ";
+            // 
+            // labelsede
+            // 
+            this.labelsede.AutoSize = true;
+            this.labelsede.BackColor = System.Drawing.Color.White;
+            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelsede.Location = new System.Drawing.Point(637, 23);
+            this.labelsede.Name = "labelsede";
+            this.labelsede.Size = new System.Drawing.Size(108, 20);
+            this.labelsede.TabIndex = 78;
+            this.labelsede.Text = "nombresede";
+            // 
             // FrmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -401,6 +427,7 @@
             this.GBB.ResumeLayout(false);
             this.GBB.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.PanelContenedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).EndInit();
             this.GB2.ResumeLayout(false);
@@ -444,5 +471,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CEstado;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelsede;
     }
 }

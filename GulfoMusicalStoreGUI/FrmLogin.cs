@@ -46,6 +46,7 @@ namespace GulfoMusicalStoreGUI
                         this.SetVisibleCore(false);
                         ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                         ConfigConnection.CiudadConectada = "Bogota";
+                        ConfigConnection.Codigo = 1;
                         FrmBienvenida frmBienvenida = new FrmBienvenida();
                         frmBienvenida.Show();
                     }
@@ -56,6 +57,7 @@ namespace GulfoMusicalStoreGUI
                         this.SetVisibleCore(false);
                         ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection2"].ConnectionString;
                         ConfigConnection.CiudadConectada = "Cali";
+                        ConfigConnection.Codigo = 2;
                         FrmBienvenida frmBienvenida = new FrmBienvenida();
                         frmBienvenida.Show();
                     }
@@ -66,6 +68,7 @@ namespace GulfoMusicalStoreGUI
                         this.SetVisibleCore(false);
                         ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection3"].ConnectionString;
                         ConfigConnection.CiudadConectada = "Barranquilla";
+                        ConfigConnection.Codigo = 3;
                         FrmBienvenida frmBienvenida = new FrmBienvenida();
                         frmBienvenida.Show();
                     }

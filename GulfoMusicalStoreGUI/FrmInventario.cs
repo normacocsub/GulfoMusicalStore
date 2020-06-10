@@ -23,10 +23,21 @@ namespace GulfoMusicalStoreGUI
             MapearProductos(DtgProductos);
             MapearMarcas(DtgMarcas);
             LlenarComboMarca();
+            labelsede.Text = ConfigConnection.CiudadConectada;
+            DesactivarTxtSede();
         }
 
        
-       
+       public void DesactivarTxtSede()
+        {
+            if(ConfigConnection.Codigo==2 || ConfigConnection.Codigo == 3)
+            {
+                BtnModificarMarca.Enabled = false;
+                BtnRegistrarProducto.Enabled = false;
+                BtnRegistrarMarca.Enabled = false;
+                BtnModificarProducto.Enabled = false;
+            }
+        }
 
        
         private void BtnRegistrarMarca_Click(object sender, EventArgs e)
@@ -74,7 +85,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            BtnModificar.Enabled = false;
+            BtnModificarProducto.Enabled = false;
             FrmModificarInventario frmmodi = new FrmModificarInventario();
             frmmodi.IInventario = this;
             frmmodi.UnlockInventario = this;
@@ -148,7 +159,7 @@ namespace GulfoMusicalStoreGUI
         {
             BtnRegistrarProducto.Enabled = true;
             BtnRegistrarMarca.Enabled = true;
-            BtnModificar.Enabled = true;
+            BtnModificarProducto.Enabled = true;
             BtnModificarMarca.Enabled = true;
         }
     }

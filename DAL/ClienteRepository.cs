@@ -104,6 +104,7 @@ namespace DAL
             Lugar lugar = new Lugar();
             lugar.Codigo = int.Parse(((object)reader["sk_lugar"]).ToString());
             lugar.Ciudad = (string)reader["ciudad"];
+            cliente.Barrio = (string)reader["Barrio"];
             cliente.Direccion = (string)reader["direccion"];
             cliente.AgregarLugar(lugar);
             return cliente;

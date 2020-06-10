@@ -99,7 +99,7 @@ namespace InfraEstructura
             paragrafph2.Add(pharase);
             paragrafph2.Add(Chunk.TABBING);
             paragrafph2.Add(Chunk.TABBING);
-            pharase = new Phrase("Ciudad Factura: " + factura.CiudadFactura);
+            pharase = new Phrase("Ciudad Factura: " + factura.Lugar.Ciudad);
             paragrafph2.Add(pharase);
             document.Add(paragrafph2);
             document.Add(Chunk.NEWLINE);

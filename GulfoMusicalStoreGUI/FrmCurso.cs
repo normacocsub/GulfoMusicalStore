@@ -19,6 +19,21 @@ namespace GulfoMusicalStoreGUI
         {
             InitializeComponent();
             MapearTabla(DtgCurso);
+            labelsede.Text = ConfigConnection.CiudadConectada;
+            DesactivarTxtSede();
+        }
+
+        private void DesactivarTxtSede()
+        {
+            if(ConfigConnection.Codigo==2 || ConfigConnection.Codigo == 3)
+            {
+                BtnRegistrar.Enabled = false;
+                BtnModificar.Enabled = false;
+                CmbEstado.Enabled = false;
+                TxtPrecio.Enabled = false;
+                TxtInstrumento.Enabled = false;
+                TxtCodigo.Enabled = false;
+            }
         }
 
         private void BtnRegistrar_Click(object sender, EventArgs e)

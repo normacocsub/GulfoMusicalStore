@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,20 @@ namespace GulfoMusicalStoreGUI
 {
     public partial class FrmFacturaIndividual : Form
     {
-        public FrmFacturaIndividual()
+        public FrmFacturaIndividual(Factura factura)
         {
             InitializeComponent();
+            labelsede.Text = factura.Lugar.Ciudad;
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -25,8 +25,7 @@ namespace GulfoMusicalStoreGUI
             InitializeComponent();
             Factura = factura;
             DesactivarTxt();
-            TxtBarrio.Enabled = false;
-            LlenarComboLugar();
+            labelsede.Text = ConfigConnection.CiudadConectada;
         }
 
         private void BtnConfirmar_Click(object sender, EventArgs e)
@@ -38,7 +37,7 @@ namespace GulfoMusicalStoreGUI
                        || TxtPrimerApellido.Text.Equals("") || TxtCorreo.Text.Equals("")
                        || CB1.Text.Equals("") || CB2.Text.Equals("")
                        || CB3.Text.Equals("") || CB4.Text.Equals("") || CB5.Text.Equals("")
-                       || CB6.Text.Equals("") || CmbCiudad.Text.Equals("") || TxtBarrio.Text.Equals(""))
+                       || CB6.Text.Equals("") || TxtBarrio.Text.Equals(""))
                 {
                     MessageBox.Show("Por Favor Complete los campos. ");
                 }
@@ -101,14 +100,11 @@ namespace GulfoMusicalStoreGUI
             cliente.Telefono = telefono;
 
             cliente.Barrio = TxtBarrio.Text;
-            foreach (var item in Lugares)
-            {
-                if (item.Ciudad.Equals(CmbCiudad.Text))
-                {
-                    cliente.Lugar = item;
-                }
-            }
 
+            Lugar lugar = new Lugar();
+            lugar.Codigo = ConfigConnection.Codigo;
+            lugar.Ciudad = ConfigConnection.CiudadConectada;
+            cliente.AgregarLugar(lugar);
             MessageBox.Show(clienteservice.GuardarCLiente(cliente));
 
 
@@ -188,7 +184,7 @@ namespace GulfoMusicalStoreGUI
         public void Txtdirection()
         {
             TxtDireccion.Text = CB1.Text + " " + CB2.Text + " " + CB3.Text + " " + CB4.Text + " " + CB5.Text + " " + CB6.Text
-                + " " + CmbCiudad.Text + " " + TxtBarrio.Text;
+                 + " " + TxtBarrio.Text;
         }
 
         private void CB1_SelectedIndexChanged(object sender, EventArgs e)
@@ -248,24 +244,7 @@ namespace GulfoMusicalStoreGUI
             Txtdirection();
         }
 
-        private void LlenarComboLugar()
-        {
-            lugarservice = new LugarService(ConfigConnection.ConnectionString);
-            Lugares = lugarservice.ConsultarLugares();
-            CmbCiudad.Items.Clear();
-            foreach (var item in Lugares)
-            {
-                if (CmbCiudad.Items.Contains(item.Ciudad)==false)
-                {
-                    CmbCiudad.Items.Add(item.Ciudad);
-                }
-                
-            }
-        }
-      
-
         
-
       
 
         private void BtnSalir_Click(object sender, EventArgs e)

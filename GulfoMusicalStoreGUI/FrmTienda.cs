@@ -15,6 +15,7 @@ namespace GulfoMusicalStoreGUI
         public FrmTienda()
         {
             InitializeComponent();
+            labelsede.Text = ConfigConnection.CiudadConectada;
         }
         
 

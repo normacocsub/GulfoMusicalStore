@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInventario));
-            this.BtnModificar = new System.Windows.Forms.Button();
+            this.BtnModificarProducto = new System.Windows.Forms.Button();
             this.PanelFondo = new System.Windows.Forms.Panel();
             this.BtnTodos = new System.Windows.Forms.Button();
             this.TxtTotalMarcas = new System.Windows.Forms.TextBox();
@@ -51,8 +51,9 @@
             this.BtnRegistrarMarca = new System.Windows.Forms.Button();
             this.BtnRegistrarProducto = new System.Windows.Forms.Button();
             this.Panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelsede = new System.Windows.Forms.Label();
             this.PanelFondo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMarcas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).BeginInit();
@@ -60,27 +61,27 @@
             this.Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // BtnModificar
+            // BtnModificarProducto
             // 
-            this.BtnModificar.BackColor = System.Drawing.Color.White;
-            this.BtnModificar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnModificar.BackgroundImage")));
-            this.BtnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
-            this.BtnModificar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.BtnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModificar.ForeColor = System.Drawing.Color.Black;
-            this.BtnModificar.Location = new System.Drawing.Point(3, 437);
-            this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(256, 78);
-            this.BtnModificar.TabIndex = 6;
-            this.BtnModificar.Text = "Modificar Producto";
-            this.BtnModificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnModificar.UseVisualStyleBackColor = false;
-            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
+            this.BtnModificarProducto.BackColor = System.Drawing.Color.White;
+            this.BtnModificarProducto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnModificarProducto.BackgroundImage")));
+            this.BtnModificarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnModificarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnModificarProducto.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
+            this.BtnModificarProducto.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.BtnModificarProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnModificarProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BtnModificarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnModificarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModificarProducto.ForeColor = System.Drawing.Color.Black;
+            this.BtnModificarProducto.Location = new System.Drawing.Point(3, 437);
+            this.BtnModificarProducto.Name = "BtnModificarProducto";
+            this.BtnModificarProducto.Size = new System.Drawing.Size(256, 78);
+            this.BtnModificarProducto.TabIndex = 6;
+            this.BtnModificarProducto.Text = "Modificar Producto";
+            this.BtnModificarProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnModificarProducto.UseVisualStyleBackColor = false;
+            this.BtnModificarProducto.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // PanelFondo
             // 
@@ -262,7 +263,7 @@
             this.PanelLateral.BackColor = System.Drawing.Color.DodgerBlue;
             this.PanelLateral.Controls.Add(this.BtnRegistrarMarca);
             this.PanelLateral.Controls.Add(this.BtnRegistrarProducto);
-            this.PanelLateral.Controls.Add(this.BtnModificar);
+            this.PanelLateral.Controls.Add(this.BtnModificarProducto);
             this.PanelLateral.Location = new System.Drawing.Point(0, -7);
             this.PanelLateral.Name = "PanelLateral";
             this.PanelLateral.Size = new System.Drawing.Size(266, 562);
@@ -316,6 +317,7 @@
             // 
             this.Panel1.BackColor = System.Drawing.Color.White;
             this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Panel1.Controls.Add(this.labelsede);
             this.Panel1.Controls.Add(this.label5);
             this.Panel1.Controls.Add(this.label2);
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -323,6 +325,17 @@
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(800, 60);
             this.Panel1.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(564, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 20);
+            this.label5.TabIndex = 56;
+            this.label5.Text = "Sede: ";
             // 
             // label2
             // 
@@ -336,16 +349,16 @@
             this.label2.Text = "Registro de Instrumento";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // labelsede
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(564, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 20);
-            this.label5.TabIndex = 56;
-            this.label5.Text = "Sede: ";
+            this.labelsede.AutoSize = true;
+            this.labelsede.BackColor = System.Drawing.Color.White;
+            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelsede.Location = new System.Drawing.Point(631, 19);
+            this.labelsede.Name = "labelsede";
+            this.labelsede.Size = new System.Drawing.Size(108, 20);
+            this.labelsede.TabIndex = 57;
+            this.labelsede.Text = "nombresede";
             // 
             // FrmInventario
             // 
@@ -369,7 +382,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button BtnModificar;
+        private System.Windows.Forms.Button BtnModificarProducto;
         private System.Windows.Forms.Panel PanelFondo;
         private System.Windows.Forms.Panel PanelLateral;
         private System.Windows.Forms.Panel Panel1;
@@ -393,5 +406,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnTodos;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelsede;
     }
 }

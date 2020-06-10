@@ -19,6 +19,7 @@ namespace GulfoMusicalStoreGUI
         {
             InitializeComponent();
             MapearDtgFactura(DtgFactura);
+            labelsede.Text = ConfigConnection.CiudadConectada;
         }
 
        
@@ -31,7 +32,7 @@ namespace GulfoMusicalStoreGUI
             {
                 int n = dtg.Rows.Add();
                 dtg.Rows[n].Cells[0].Value = item.Numero;
-                dtg.Rows[n].Cells[1].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[1].Value = item.Lugar.Ciudad;
                 dtg.Rows[n].Cells[2].Value = item.Cantidad;
                 dtg.Rows[n].Cells[3].Value = item.Iva;
                 dtg.Rows[n].Cells[4].Value = item.SubTotal;
@@ -56,7 +57,7 @@ namespace GulfoMusicalStoreGUI
             {
                 int n = dtg.Rows.Add();
                 dtg.Rows[n].Cells[0].Value = item.Numero;
-                dtg.Rows[n].Cells[1].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[1].Value = item.Lugar.Ciudad;
                 dtg.Rows[n].Cells[2].Value = item.Cantidad;
                 dtg.Rows[n].Cells[3].Value = item.Iva;
                 dtg.Rows[n].Cells[4].Value = item.SubTotal;
@@ -81,7 +82,7 @@ namespace GulfoMusicalStoreGUI
             {
                 int n = dtg.Rows.Add();
                 dtg.Rows[n].Cells[0].Value = item.Numero;
-                dtg.Rows[n].Cells[1].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[1].Value = item.Lugar.Ciudad;
                 dtg.Rows[n].Cells[2].Value = item.Cantidad;
                 dtg.Rows[n].Cells[3].Value = item.Iva;
                 dtg.Rows[n].Cells[4].Value = item.SubTotal;
@@ -106,7 +107,7 @@ namespace GulfoMusicalStoreGUI
             {
                 int n = dtg.Rows.Add();
                 dtg.Rows[n].Cells[0].Value = item.Numero;
-                dtg.Rows[n].Cells[1].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[1].Value = item.Lugar.Ciudad;
                 dtg.Rows[n].Cells[2].Value = item.Cantidad;
                 dtg.Rows[n].Cells[3].Value = item.Iva;
                 dtg.Rows[n].Cells[4].Value = item.SubTotal;
@@ -132,7 +133,7 @@ namespace GulfoMusicalStoreGUI
             {
                 int n = dtg.Rows.Add();
                 dtg.Rows[n].Cells[0].Value = item.Numero;
-                dtg.Rows[n].Cells[1].Value = item.CiudadFactura;
+                dtg.Rows[n].Cells[1].Value = item.Lugar.Ciudad;
                 dtg.Rows[n].Cells[2].Value = item.Cantidad;
                 dtg.Rows[n].Cells[3].Value = item.Iva;
                 dtg.Rows[n].Cells[4].Value = item.SubTotal;

@@ -20,6 +20,7 @@ namespace GulfoMusicalStoreGUI
         public FrmEstadisticas()
         {
             InitializeComponent();
+            labelsede.Text = ConfigConnection.CiudadConectada;
         }
 
         private void FrmEstadisticas_Load(object sender, EventArgs e)

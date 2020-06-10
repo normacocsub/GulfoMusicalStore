@@ -20,6 +20,7 @@ namespace GulfoMusicalStoreGUI
         public FrmRegistrarMarca()
         {
             InitializeComponent();
+            labelsede.Text = ConfigConnection.CiudadConectada;
         }
 
         private void BtnRegistrar_Click(object sender, EventArgs e)

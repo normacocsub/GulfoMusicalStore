@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.Panel2 = new System.Windows.Forms.Panel();
+            this.LabelFacturasTotal = new System.Windows.Forms.Label();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.LabelTotal = new System.Windows.Forms.Label();
             this.LabelCantidad = new System.Windows.Forms.Label();
             this.Chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -47,14 +49,14 @@
             this.DtpHasta = new System.Windows.Forms.DateTimePicker();
             this.Panel1 = new System.Windows.Forms.Panel();
             this.LabelTitulo = new System.Windows.Forms.Label();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.LabelFacturasTotal = new System.Windows.Forms.Label();
+            this.labelsede = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chart1)).BeginInit();
             this.GBTime.SuspendLayout();
             this.Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel2
@@ -72,7 +74,31 @@
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(800, 540);
             this.Panel2.TabIndex = 10;
-
+            // 
+            // LabelFacturasTotal
+            // 
+            this.LabelFacturasTotal.BackColor = System.Drawing.Color.White;
+            this.LabelFacturasTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LabelFacturasTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LabelFacturasTotal.Location = new System.Drawing.Point(688, 195);
+            this.LabelFacturasTotal.Name = "LabelFacturasTotal";
+            this.LabelFacturasTotal.Size = new System.Drawing.Size(100, 23);
+            this.LabelFacturasTotal.TabIndex = 101;
+            this.LabelFacturasTotal.Text = "0";
+            this.LabelFacturasTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chart3
+            // 
+            this.chart3.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            chartArea4.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart3.Legends.Add(legend4);
+            this.chart3.Location = new System.Drawing.Point(530, 86);
+            this.chart3.Name = "chart3";
+            this.chart3.Size = new System.Drawing.Size(258, 389);
+            this.chart3.TabIndex = 100;
+            this.chart3.Text = "chart1";
             // 
             // LabelTotal
             // 
@@ -191,6 +217,8 @@
             // Panel1
             // 
             this.Panel1.BackColor = System.Drawing.Color.White;
+            this.Panel1.Controls.Add(this.label4);
+            this.Panel1.Controls.Add(this.labelsede);
             this.Panel1.Controls.Add(this.LabelTitulo);
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel1.Location = new System.Drawing.Point(0, 0);
@@ -210,30 +238,27 @@
             this.LabelTitulo.Text = "Estadistica";
             this.LabelTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chart3
+            // labelsede
             // 
-            this.chart3.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            chartArea4.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart3.Legends.Add(legend4);
-            this.chart3.Location = new System.Drawing.Point(530, 86);
-            this.chart3.Name = "chart3";
-            this.chart3.Size = new System.Drawing.Size(258, 389);
-            this.chart3.TabIndex = 100;
-            this.chart3.Text = "chart1";
+            this.labelsede.AutoSize = true;
+            this.labelsede.BackColor = System.Drawing.Color.White;
+            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelsede.Location = new System.Drawing.Point(635, 20);
+            this.labelsede.Name = "labelsede";
+            this.labelsede.Size = new System.Drawing.Size(108, 20);
+            this.labelsede.TabIndex = 59;
+            this.labelsede.Text = "nombresede";
             // 
-            // LabelFacturasTotal
+            // label4
             // 
-            this.LabelFacturasTotal.BackColor = System.Drawing.Color.White;
-            this.LabelFacturasTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.LabelFacturasTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelFacturasTotal.Location = new System.Drawing.Point(688, 195);
-            this.LabelFacturasTotal.Name = "LabelFacturasTotal";
-            this.LabelFacturasTotal.Size = new System.Drawing.Size(100, 23);
-            this.LabelFacturasTotal.TabIndex = 101;
-            this.LabelFacturasTotal.Text = "0";
-            this.LabelFacturasTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(568, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 20);
+            this.label4.TabIndex = 60;
+            this.label4.Text = "Sede: ";
             // 
             // FrmEstadisticas
             // 
@@ -247,12 +272,13 @@
             this.Text = "FrmEstadisticas";
             this.Load += new System.EventHandler(this.FrmEstadisticas_Load);
             this.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chart1)).EndInit();
             this.GBTime.ResumeLayout(false);
             this.GBTime.PerformLayout();
             this.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            this.Panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -274,5 +300,7 @@
         private System.Windows.Forms.Label LabelTitulo;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private System.Windows.Forms.Label LabelFacturasTotal;
+        private System.Windows.Forms.Label labelsede;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -22,6 +22,7 @@ namespace GulfoMusicalStoreGUI
             LabelCurso.Enabled = false;
             Labelinstrumento.Enabled = false;
             Factura = new Factura();
+            sedelabel.Text = ConfigConnection.CiudadConectada;
         }
 
 
@@ -169,7 +170,10 @@ namespace GulfoMusicalStoreGUI
                     Factura.Estado = "Activo";
                     Factura.CalcularFactura();
                     Factura.Fecha = DateTime.Now;
-                    Factura.CiudadFactura = ConfigConnection.CiudadConectada;
+                    Lugar lugar = new Lugar();
+                    lugar.Codigo = ConfigConnection.Codigo;
+                    lugar.Ciudad = ConfigConnection.CiudadConectada;
+                    Factura.AgregarLugar(lugar);
                     MessageBox.Show(facturaservice.GuardarFactura(Factura));
                     Factura = new Factura();
                     LabelTotal.Text = "0";

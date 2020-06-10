@@ -149,6 +149,7 @@ ALTER TABLE producto
     ADD CONSTRAINT producto_marca_fk FOREIGN KEY ( marca_sk_marca )
         REFERENCES marca ( sk_marca );
         
+ALTER TABLE Factura add ciudadfactura varchar2(20);
 --tablas del esquema sin relacion
 
 CREATE TABLE Factura_tmp(sk_codigo  number(3));
@@ -212,6 +213,7 @@ BEGIN
     INSERT INTO gulfocali.marca@Gulfo_Bogo_Cali(sk_marca,nombremarca)
     VALUES(:new.sk_marca,:new.nombremarca);
     END IF;
+
     IF UPDATING THEN
     UPDATE gulfocali.marca@Gulfo_Bogo_Cali
     SET nombremarca=:new.nombremarca
@@ -294,57 +296,12 @@ BEGIN
     END IF;
 END;
 
-CREATE OR REPLACE TRIGGER Conexion_Cliente_Remote_Cali
-AFTER INSERT OR UPDATE ON gulfo.cliente
-FOR EACH ROW
-declare 
-idcali gulfo.cliente.id_Clientte%type:='no';
 
-BEGIN
-    IF INSERTING THEN        
-            INSERT INTO gulfocali.cliente@Gulfo_Bogo_Cali(id_clientte,primernombre,segundonombre,primerapellido,segundoapellido,
-                                                        correo,telefono,direccion,lugar_sk_lugar,barrio)
-            VALUES(:new.id_Clientte,:new.primernombre,:new.segundonombre,:new.primerapellido,:new.segundoapellido,
-                   :new.correo,:new.telefono,:new.direccion,:new.lugar_sk_lugar,:new.barrio);
-    END IF;
-    
-    IF UPDATING THEN
-        UPDATE gulfocali.cliente@Gulfo_Bogo_Cali
-        set primernombre=:new.primernombre,segundonombre=:new.segundonombre,
-            primerapellido=:new.primerapellido,segundoapellido=:new.segundoapellido,correo=:new.correo,
-            telefono=:new.telefono,direccion=:new.direccion,lugar_sk_lugar=:new.lugar_sk_lugar,barrio=:new.barrio
-        WHERE id_clientte=:new.id_clientte;
-    END IF;
-END;
-
-CREATE OR REPLACE TRIGGER Conexion_Cliente_Remote_Barra
-AFTER INSERT OR UPDATE ON gulfo.cliente
-FOR EACH ROW
-declare 
-idcali gulfo.cliente.id_Clientte%type:='no';
-x_id_Cliente gulfo.cliente.id_Clientte%type:=:new.id_clientte;
-BEGIN
-    IF INSERTING THEN
-        
-            INSERT INTO gulfoBarra.cliente@Gulfo_Bogo_Barra(id_clientte,primernombre,segundonombre,primerapellido,segundoapellido,
-                                                        correo,telefono,direccion,lugar_sk_lugar,barrio)
-            VALUES(x_id_Cliente,:new.primernombre,:new.segundonombre,:new.primerapellido,:new.segundoapellido,
-                   :new.correo,:new.telefono,:new.direccion,:new.lugar_sk_lugar,:new.barrio);
-    END IF;
-    
-    IF UPDATING THEN
-        UPDATE gulfoBarra.cliente@Gulfo_Bogo_Barra
-        set primernombre=:new.primernombre,segundonombre=:new.segundonombre,
-            primerapellido=:new.primerapellido,segundoapellido=:new.segundoapellido,correo=:new.correo,
-            telefono=:new.telefono,direccion=:new.direccion,lugar_sk_lugar=:new.lugar_sk_lugar,barrio=:new.barrio
-        WHERE id_clientte=x_id_Cliente;
-    END IF;
-END;
 
 rollback;
 select * from marca;
 INSERT INTO marca(sk_marca,nombremarca)
-VALUES('AS','Asmit');
+VALUES('Sp','Space');
 
 
 
@@ -573,7 +530,7 @@ END PAQUETE_ESTADISTICAS;
 CREATE OR REPLACE PACKAGE PAQUETE_Detalles
 IS
     PROCEDURE GuardarDetalleFactura(precio in number, fechadate in varchar2, factura in number,cantidad in number, producto in varchar2, cliente in number);
-    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in number,cantidad in number, curso in number, cliente in number);
+    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in number,cantidad in number, curso in varchar2, cliente in number);
 END PAQUETE_Detalles;
 
 
@@ -586,7 +543,7 @@ IS
         VALUES(precio,fechadate,factura,cantidad,producto,cliente);
     END GuardarDetalleFactura;
     
-    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in number,cantidad in number, curso in number, cliente in number)
+    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in number,cantidad in number, curso in varchar2, cliente in number)
     AS
     BEGIN
         INSERT INTO Curso_Factura(precio,fecha,factura_factura_id,cantidad,curso_Sk_curso,cliente_id_Clientte)
@@ -599,7 +556,7 @@ END PAQUETE_Detalles;
 CREATE OR REPLACE PACKAGE PAQUETE_FACTURA
 IS
     procedure GuardarFacturas(fecha in varchar2, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
-                                            cantidadfac in number,x_id_cliente in varchar2,x_CiudadFactura in varchar2);
+                                            cantidadfac in number,x_id_cliente in varchar2,x_CiudadFactura in number);
     PROCEDURE OBTENERCODIGOFACTURA(factura out SYS_REFCURSOR);
     
     PROCEDURE EliminarTablaTemporal;
@@ -618,10 +575,10 @@ END PAQUETE_FACTURA;
 CREATE OR REPLACE PACKAGE BODY PAQUETE_FACTURA
 IS
     PROCEDURE GuardarFacturas(fecha in varchar2, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
-                              cantidadfac in number,x_id_cliente in varchar2, x_CiudadFactura in varchar2)
+                              cantidadfac in number,x_id_cliente in varchar2, x_CiudadFactura in number)
     AS
     BEGIN 
-        INSERT INTO FACTURA(fecha,estado,subtotal,iva,total,cantidad,cliente_id_clientte,CiudadFactura)
+        INSERT INTO FACTURA(fecha,estado,subtotal,iva,total,cantidad,cliente_id_clientte,lugar_sk_lugar)
         VALUES(fecha,estadofac,subtotalfac,ivafac,totalfac,cantidadfac,x_id_cliente,x_CiudadFactura);
     END GuardarFacturas;
     
@@ -643,7 +600,9 @@ IS
     BEGIN
         OPEN facturas FOR SELECT * FROM Factura F
                           JOIN CLIENTE c
-                          ON(c.id_clientte=f.CLIENTE_id_clientte) 
+                          ON(c.id_clientte=f.CLIENTE_id_clientte)
+                          JOIN Lugar l
+                          ON(f.lugar_sk_lugar=l.sk_lugar)
                           ORDER BY f.sk_factura;
     END ConsultarFacturas;
     
@@ -653,6 +612,8 @@ IS
         OPEN facturas FOR SELECT * FROM Factura F
                           JOIN CLIENTE c
                           ON(c.id_clientte=f.CLIENTE_id_clientte)
+                          JOIN lugar l
+                          ON(f.lugar_sk_lugar=l.sk_lugar)
                           WHERE F.estado=f_estado
                           ORDER BY F.sk_factura;
     END FILTRARFACTURASESTADO;
@@ -663,6 +624,8 @@ IS
         OPEN facturas FOR SELECT * FROM Factura F
                           JOIN CLIENTE c
                           ON(c.id_clientte=f.CLIENTE_id_clientte)
+                          JOIN lugar l
+                          ON(f.lugar_sk_lugar=l.sk_lugar)
                           WHERE F.cliente_id_clientte=f_cedula
                           ORDER BY F.sk_factura;
     END FILTRARFACTURACEDULA;
@@ -673,8 +636,10 @@ IS
         OPEN facturas FOR SELECT * FROM Factura F
                           JOIN CLIENTE c
                           ON(c.id_clientte=f.CLIENTE_id_clientte)
+                          JOIN lugar l
+                          ON(f.lugar_sk_lugar=l.sk_lugar)
                           WHERE F.sk_Factura=f_factura; 
-    END;
+    END BUSCARFACTURA;
     
     PROCEDURE FILTRONUMEROFACTURALIKE(facturas OUT SYS_REFCURSOR, f_factura in number)
     AS
@@ -682,8 +647,10 @@ IS
         OPEN facturas FOR SELECT * FROM Factura F
                           JOIN CLIENTE c
                           ON(c.id_clientte=f.CLIENTE_id_clientte)
+                          JOIN lugar l
+                          ON(f.lugar_sk_lugar=l.sk_lugar)
                           WHERE F.sk_Factura like f_factura;
-    END;
+    END FILTRONUMEROFACTURALIKE;
     
 END PAQUETE_FACTURA;
 

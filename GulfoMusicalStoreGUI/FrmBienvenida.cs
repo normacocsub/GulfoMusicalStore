@@ -20,6 +20,7 @@ namespace GulfoMusicalStoreGUI
             Player = new SoundPlayer(@"C:\Users\norma\source\repos\normacocsub\GulfoMusicalStore\Recursos\Sonido.wav");
             Player.Play();
             this.Opacity = 0;
+            labelsede.Text = ConfigConnection.CiudadConectada;
         }
      
         private void timer1_Tick(object sender, EventArgs e)

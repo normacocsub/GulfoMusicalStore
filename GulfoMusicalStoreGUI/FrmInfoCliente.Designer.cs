@@ -55,10 +55,10 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtTelefono = new System.Windows.Forms.TextBox();
-            this.CmbCiudad = new System.Windows.Forms.ComboBox();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.TxtBarrio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.labelsede = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnModificar
@@ -559,47 +559,6 @@
             this.TxtTelefono.Size = new System.Drawing.Size(270, 26);
             this.TxtTelefono.TabIndex = 158;
             // 
-            // CmbCiudad
-            // 
-            this.CmbCiudad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CmbCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbCiudad.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbCiudad.ForeColor = System.Drawing.Color.Black;
-            this.CmbCiudad.FormattingEnabled = true;
-            this.CmbCiudad.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "Ñ",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.CmbCiudad.Location = new System.Drawing.Point(418, 455);
-            this.CmbCiudad.Name = "CmbCiudad";
-            this.CmbCiudad.Size = new System.Drawing.Size(121, 27);
-            this.CmbCiudad.TabIndex = 159;
-            this.CmbCiudad.SelectedIndexChanged += new System.EventHandler(this.CmbCiudad_SelectedIndexChanged);
-            // 
             // BtnSalir
             // 
             this.BtnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -618,7 +577,7 @@
             // 
             // TxtBarrio
             // 
-            this.TxtBarrio.Location = new System.Drawing.Point(567, 462);
+            this.TxtBarrio.Location = new System.Drawing.Point(419, 459);
             this.TxtBarrio.Name = "TxtBarrio";
             this.TxtBarrio.Size = new System.Drawing.Size(121, 20);
             this.TxtBarrio.TabIndex = 162;
@@ -636,16 +595,27 @@
             this.label4.TabIndex = 163;
             this.label4.Text = "Sede: ";
             // 
+            // labelsede
+            // 
+            this.labelsede.AutoSize = true;
+            this.labelsede.BackColor = System.Drawing.Color.Transparent;
+            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelsede.Location = new System.Drawing.Point(628, 17);
+            this.labelsede.Name = "labelsede";
+            this.labelsede.Size = new System.Drawing.Size(108, 20);
+            this.labelsede.TabIndex = 164;
+            this.labelsede.Text = "nombresede";
+            // 
             // FrmInfoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.labelsede);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtBarrio);
             this.Controls.Add(this.BtnSalir);
-            this.Controls.Add(this.CmbCiudad);
             this.Controls.Add(this.TxtTelefono);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnEliminar);
@@ -710,9 +680,9 @@
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtTelefono;
-        private System.Windows.Forms.ComboBox CmbCiudad;
         public System.Windows.Forms.Button BtnSalir;
         private System.Windows.Forms.TextBox TxtBarrio;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelsede;
     }
 }
