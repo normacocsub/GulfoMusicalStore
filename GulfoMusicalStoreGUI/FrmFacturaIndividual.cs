@@ -28,5 +28,10 @@ namespace GulfoMusicalStoreGUI
         {
 
         }
+
+        private void BtnClienteActual_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

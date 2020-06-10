@@ -152,7 +152,7 @@
             this.TxtPrimerApellido.BackColor = System.Drawing.Color.White;
             this.TxtPrimerApellido.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPrimerApellido.ForeColor = System.Drawing.Color.Black;
-            this.TxtPrimerApellido.Location = new System.Drawing.Point(419, 206);
+            this.TxtPrimerApellido.Location = new System.Drawing.Point(418, 206);
             this.TxtPrimerApellido.Name = "TxtPrimerApellido";
             this.TxtPrimerApellido.Size = new System.Drawing.Size(270, 26);
             this.TxtPrimerApellido.TabIndex = 114;

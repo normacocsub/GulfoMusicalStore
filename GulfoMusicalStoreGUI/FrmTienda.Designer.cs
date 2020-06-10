@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTienda));
             this.BtnSalir = new System.Windows.Forms.Button();
             this.PanelTitulo = new System.Windows.Forms.Panel();
+            this.labelsede = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LabelTitulo = new System.Windows.Forms.Label();
             this.PanelContenedor = new System.Windows.Forms.Panel();
@@ -46,7 +47,6 @@
             this.BtnLogo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.labelsede = new System.Windows.Forms.Label();
             this.PanelTitulo.SuspendLayout();
             this.Panel1.SuspendLayout();
             this.FLPItems.SuspendLayout();
@@ -70,6 +70,7 @@
             // 
             // PanelTitulo
             // 
+            this.PanelTitulo.BackColor = System.Drawing.Color.DodgerBlue;
             this.PanelTitulo.Controls.Add(this.labelsede);
             this.PanelTitulo.Controls.Add(this.label1);
             this.PanelTitulo.Controls.Add(this.LabelTitulo);
@@ -79,6 +80,16 @@
             this.PanelTitulo.Name = "PanelTitulo";
             this.PanelTitulo.Size = new System.Drawing.Size(1103, 64);
             this.PanelTitulo.TabIndex = 10;
+            // 
+            // labelsede
+            // 
+            this.labelsede.AutoSize = true;
+            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelsede.Location = new System.Drawing.Point(875, 25);
+            this.labelsede.Name = "labelsede";
+            this.labelsede.Size = new System.Drawing.Size(108, 20);
+            this.labelsede.TabIndex = 26;
+            this.labelsede.Text = "nombresede";
             // 
             // label1
             // 
@@ -295,16 +306,6 @@
             // 
             this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // labelsede
-            // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(875, 25);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 26;
-            this.labelsede.Text = "nombresede";
             // 
             // FrmTienda
             // 

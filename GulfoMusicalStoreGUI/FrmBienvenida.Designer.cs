@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBienvenida));
             this.LabelBienvenido = new System.Windows.Forms.Label();
-            this.LabelUsuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -39,6 +38,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label6 = new System.Windows.Forms.Label();
             this.labelsede = new System.Windows.Forms.Label();
+            this.LabelUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,17 +52,6 @@
             this.LabelBienvenido.TabIndex = 1;
             this.LabelBienvenido.Text = "Bienvenido";
             this.LabelBienvenido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelUsuario
-            // 
-            this.LabelUsuario.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelUsuario.Location = new System.Drawing.Point(409, 92);
-            this.LabelUsuario.Name = "LabelUsuario";
-            this.LabelUsuario.Size = new System.Drawing.Size(100, 47);
-            this.LabelUsuario.TabIndex = 2;
-            this.LabelUsuario.Text = "User";
-            this.LabelUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LabelUsuario.Click += new System.EventHandler(this.LabelUsuario_Click);
             // 
             // pictureBox1
             // 
@@ -121,10 +110,22 @@
             this.labelsede.TabIndex = 142;
             this.labelsede.Text = "nombresede";
             // 
+            // LabelUsuario
+            // 
+            this.LabelUsuario.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelUsuario.Location = new System.Drawing.Point(348, 76);
+            this.LabelUsuario.Name = "LabelUsuario";
+            this.LabelUsuario.Size = new System.Drawing.Size(229, 82);
+            this.LabelUsuario.TabIndex = 2;
+            this.LabelUsuario.Text = "A GulfoMusicalStore";
+            this.LabelUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelUsuario.Click += new System.EventHandler(this.LabelUsuario_Click);
+            // 
             // FrmBienvenida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(650, 320);
             this.Controls.Add(this.labelsede);
             this.Controls.Add(this.label6);
@@ -147,7 +148,6 @@
         #endregion
 
         private System.Windows.Forms.Label LabelBienvenido;
-        private System.Windows.Forms.Label LabelUsuario;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
@@ -155,5 +155,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelsede;
+        private System.Windows.Forms.Label LabelUsuario;
     }
 }
