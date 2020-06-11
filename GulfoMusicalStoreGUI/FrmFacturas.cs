@@ -180,14 +180,13 @@ namespace GulfoMusicalStoreGUI
                 {
                     Factura factura;
                     factura = facturaService.BuscarFactura(numero);
-                    //aqui mando la factura al otro form tipo el otro form recibe una factura
-                    //entonces
-                    //frmfactura frmfac=new frmfactura(numero);
+                    FrmFacturaIndividual frmFacturaindi = new FrmFacturaIndividual(factura);
+                    frmFacturaindi.Show();
                 }
             }
             catch (FormatException ex)
             {
-                MessageBox.Show("Solo puede escribir numeros aqui. ");
+                MessageBox.Show("Solo puede escribir numeros aqui. "+ex.Message.ToString());
             }
         }
 

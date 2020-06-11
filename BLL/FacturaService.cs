@@ -148,5 +148,56 @@ namespace BLL
                 return null;
             }
         }
+
+        public string ModificarFactura(Factura factura)
+        {
+            try
+            {
+                Conection.Open();
+                FacturaRepositorio.ModificarFactura(factura);
+                Conection.Close();
+                return $"Se ha modificado el estado de la factura. ";
+            }
+            catch(OracleException ex)
+            {
+                Conection.Close();
+                return $"Error. {ex.Message.ToString()}";
+            }
+        }
+
+
+        public Factura ConsultarDetallesFactura(Factura factura)
+        {
+            try
+            {
+                Conection.Open();
+                return FacturaRepositorio.ConsultarDetallesFactura(factura);
+            }
+            catch(OracleException ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Conection.Close();
+            }
+        }
+
+        public Factura ConsultarDetallesCurso(Factura factura)
+        {
+            try
+            {
+                Conection.Open();
+                return FacturaRepositorio.ConsultarDetallesCurso(factura);
+            }
+            catch (OracleException ex)
+            {
+                return null;
+            }
+            finally
+            {
+                Conection.Close();
+            }
+        }
     }
 }

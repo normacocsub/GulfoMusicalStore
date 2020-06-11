@@ -83,7 +83,9 @@ namespace GulfoMusicalStoreGUI
             Factura.CalcularIVA();
             Factura.CalcularSubTotal();
             Factura.CalcularTotal();
-            LabelTotal.Text = Factura.Total.ToString();
+            labelTotal.Text = Factura.Total.ToString();
+            LabelSubTotal.Text = Factura.SubTotal.ToString();
+            LabelIVA.Text = Factura.Iva.ToString();
             MapearTabla(DtgFactura);
             MapearTablaCurso(DtgCursos);
         }
@@ -128,7 +130,7 @@ namespace GulfoMusicalStoreGUI
                 Factura.CalcularIVA();
                 Factura.CalcularSubTotal();
                 MapearTablaCurso(DtgCursos);
-                LabelTotal.Text = Factura.CalcularTotal().ToString();
+                Label15.Text = Factura.CalcularTotal().ToString();
             }
             else
             {
@@ -176,7 +178,7 @@ namespace GulfoMusicalStoreGUI
                     Factura.AgregarLugar(lugar);
                     MessageBox.Show(facturaservice.GuardarFactura(Factura));
                     Factura = new Factura();
-                    LabelTotal.Text = "0";
+                    Label15.Text = "0";
                     CBCurso.SelectedIndex = 1;
                     MapearTabla(DtgFactura);
                     MapearTablaCurso(DtgCursos);

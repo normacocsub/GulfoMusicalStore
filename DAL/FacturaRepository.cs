@@ -238,6 +238,80 @@ namespace DAL
             return Facturas;
         }
 
+        public void ModificarFactura(Factura factura)
+        {
+            using(var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_FACTURA.ACTUALIZARFACTURA";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("f_factura", OracleDbType.Int32).Value = factura.Numero;
+                command.Parameters.Add("f_Estado", OracleDbType.Varchar2).Value = factura.Estado;
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public Factura ConsultarDetallesFactura(Factura factura)
+        {
+
+            using(var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_Detalles.ConsultarDetalleProducto";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("detalles", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("d_factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    MapearDetalleProducto(Reader, factura);
+                }
+            }
+            return factura;
+        }
+
+        public Factura ConsultarDetallesCurso(Factura factura)
+        {
+
+            using (var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_Detalles.ConsultarDetalleCurso";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("detalles", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("d_factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    MapearDetalleCurso(Reader, factura);
+                }
+            }
+            return factura;
+        }
+
+        private void MapearDetalleProducto(OracleDataReader reader,Factura factura)
+        {
+            Producto producto = new Producto();
+            producto.Codigo = (string)reader["id_producto"];
+            producto.Nombre = (string)reader["nombre"];
+            producto.Precio = decimal.Parse(((object)reader["preciodetalle"]).ToString());
+            Marca marca = new Marca();
+            marca.NumeroMarca = (string)reader["sk_marca"];
+            marca.Nombre = (string)reader["nombremarca"];
+            producto.AgregarMarca(marca);
+            int cantidad = int.Parse(((object)reader["cantidad"]).ToString());
+            factura.AgregarDetalleFactura(producto, cantidad);
+        }
+
+        private void MapearDetalleCurso(OracleDataReader reader,Factura factura)
+        {
+            Curso curso = new Curso();
+            curso.Codigo = (string)reader["sk_curso"];
+            curso.Nombre = (string)reader["nombre"];
+            curso.Total = decimal.Parse(((object)reader["preciodetalle"]).ToString());
+            int cantidad = int.Parse(((object)reader["cantidad"]).ToString());
+            factura.AgregarDetalleCurso(curso, cantidad);
+        }
+
         
 
         

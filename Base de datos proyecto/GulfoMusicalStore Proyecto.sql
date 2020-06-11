@@ -531,6 +531,8 @@ CREATE OR REPLACE PACKAGE PAQUETE_Detalles
 IS
     PROCEDURE GuardarDetalleFactura(precio in number, fechadate in varchar2, factura in number,cantidad in number, producto in varchar2, cliente in number);
     PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in number,cantidad in number, curso in varchar2, cliente in number);
+    PROCEDURE ConsultarDetalleProducto(detalles out SYS_REFCURSOR,d_factura in number);
+    PROCEDURE ConsultarDetalleCurso(detalles out SYS_REFCURSOR,d_factura in number);
 END PAQUETE_Detalles;
 
 
@@ -539,16 +541,34 @@ IS
     PROCEDURE GuardarDetalleFactura(precio in number, fechadate in varchar2, factura in number,cantidad in number, producto in varchar2, cliente in number)
     AS
     BEGIN
-        INSERT INTO Product_Factura(precio,fecha,factura_factura_id,cantidad,producto_id_producto,cliente_id_clientte)
+        INSERT INTO Product_Factura(preciodetalle,fecha,factura_factura_id,cantidad,producto_id_producto,cliente_id_clientte)
         VALUES(precio,fechadate,factura,cantidad,producto,cliente);
     END GuardarDetalleFactura;
     
     PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in number,cantidad in number, curso in varchar2, cliente in number)
     AS
     BEGIN
-        INSERT INTO Curso_Factura(precio,fecha,factura_factura_id,cantidad,curso_Sk_curso,cliente_id_Clientte)
+        INSERT INTO Curso_Factura(preciodetalle,fecha,factura_factura_id,cantidad,curso_Sk_curso,cliente_id_Clientte)
         VALUES(precio,fechadate,factura,cantidad,curso,cliente);
     END GuardarDetalleCurso;
+    
+    PROCEDURE ConsultarDetalleProducto(detalles out SYS_REFCURSOR,d_factura in number)
+    AS
+    BEGIN
+        OPEN detalles FOR SELECT * FROM Product_Factura P JOIN Producto pr
+                                        ON(p.producto_id_producto=pr.id_producto)
+                                        Join Marca m
+                                        ON(pr.marca_sk_marca=m.sk_marca)
+                          WHERE factura_factura_id=d_factura;
+    END ConsultarDetalleProducto;
+    
+    PROCEDURE ConsultarDetalleCurso(detalles out SYS_REFCURSOR,d_factura in number)
+    AS
+    BEGIN
+        OPEN detalles FOR select * from curso_factura cf JOIN curso c
+                          on(cf.curso_sk_curso=c.sk_curso)
+                          WHERE factura_factura_id=d_factura;
+    END ConsultarDetalleCurso;
 END PAQUETE_Detalles;
 
 -->Paquete factura
@@ -570,6 +590,8 @@ IS
     PROCEDURE BUSCARFACTURA(facturas OUT SYS_REFCURSOR,f_factura in number);
     
     PROCEDURE FILTRONUMEROFACTURALIKE(facturas OUT SYS_REFCURSOR, f_factura in number);
+    
+    PROCEDURE ACTUALIZARFACTURA(f_factura in number, f_Estado in varchar2);
 END PAQUETE_FACTURA;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_FACTURA
@@ -651,6 +673,14 @@ IS
                           ON(f.lugar_sk_lugar=l.sk_lugar)
                           WHERE F.sk_Factura like f_factura;
     END FILTRONUMEROFACTURALIKE;
+    
+    PROCEDURE ACTUALIZARFACTURA(f_factura in number, f_Estado in varchar2)
+    AS
+    BEGIN
+        UPDATE Factura
+        SET estado=f_Estado
+        WHERE sk_factura=f_factura;
+    END ACTUALIZARFACTURA;
     
 END PAQUETE_FACTURA;
 

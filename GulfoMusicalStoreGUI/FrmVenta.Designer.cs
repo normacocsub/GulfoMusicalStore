@@ -37,8 +37,8 @@
             this.LabelSubTotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.LabelTotal = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.Label15 = new System.Windows.Forms.Label();
             this.DtgCursos = new System.Windows.Forms.DataGridView();
             this.CCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,8 +82,8 @@
             this.GBFactura.Controls.Add(this.LabelSubTotal);
             this.GBFactura.Controls.Add(this.label9);
             this.GBFactura.Controls.Add(this.label6);
-            this.GBFactura.Controls.Add(this.label5);
-            this.GBFactura.Controls.Add(this.LabelTotal);
+            this.GBFactura.Controls.Add(this.labelTotal);
+            this.GBFactura.Controls.Add(this.Label15);
             this.GBFactura.Controls.Add(this.DtgCursos);
             this.GBFactura.Controls.Add(this.LabelCodigoProducto);
             this.GBFactura.Controls.Add(this.DtgFactura);
@@ -175,28 +175,28 @@
             this.label6.Text = "$";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // labelTotal
             // 
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Location = new System.Drawing.Point(576, 259);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 20);
-            this.label5.TabIndex = 96;
-            this.label5.Text = "0";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelTotal.BackColor = System.Drawing.Color.White;
+            this.labelTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelTotal.Location = new System.Drawing.Point(576, 259);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(111, 20);
+            this.labelTotal.TabIndex = 96;
+            this.labelTotal.Text = "0";
+            this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // LabelTotal
+            // Label15
             // 
-            this.LabelTotal.BackColor = System.Drawing.Color.White;
-            this.LabelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.LabelTotal.ForeColor = System.Drawing.Color.Black;
-            this.LabelTotal.Location = new System.Drawing.Point(476, 259);
-            this.LabelTotal.Name = "LabelTotal";
-            this.LabelTotal.Size = new System.Drawing.Size(94, 20);
-            this.LabelTotal.TabIndex = 95;
-            this.LabelTotal.Text = "Total a Pagar";
-            this.LabelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Label15.BackColor = System.Drawing.Color.White;
+            this.Label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.Label15.ForeColor = System.Drawing.Color.Black;
+            this.Label15.Location = new System.Drawing.Point(476, 259);
+            this.Label15.Name = "Label15";
+            this.Label15.Size = new System.Drawing.Size(94, 20);
+            this.Label15.TabIndex = 95;
+            this.Label15.Text = "Total a Pagar";
+            this.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DtgCursos
             // 
@@ -543,7 +543,7 @@
         private System.Windows.Forms.Label LabelSubTotal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label LabelTotal;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label Label15;
     }
 }
