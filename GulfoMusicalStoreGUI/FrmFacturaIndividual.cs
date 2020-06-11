@@ -12,17 +12,22 @@ using System.Windows.Forms;
 
 namespace GulfoMusicalStoreGUI
 {
-    public partial class FrmFacturaIndividual : Form,IVenta
+    public partial class FrmFacturaIndividual : Form,IVenta,iUnlockVenta
     {
         public FacturaService FacturaService;
+        public ClienteService ClienteService;
         public Factura Factura { get; set; }
         public FrmFacturaIndividual(Factura factura)
         {
             InitializeComponent();
             Factura = factura;
             FacturaService = new FacturaService(ConfigConnection.ConnectionString);
+            ClienteService = new ClienteService(ConfigConnection.ConnectionString);
             Factura = FacturaService.ConsultarDetallesFactura(factura);
             Factura = FacturaService.ConsultarDetallesCurso(Factura);
+            Cliente cliente;
+            cliente = ClienteService.BuscarCliente(Factura.Cliente.Cedula);
+            Factura.AgregarCliente(cliente);
             labelsede.Text = Factura.Lugar.Ciudad;
             MapearCursos(DtgCursos);
             MapearProductos(DtgFactura);
@@ -73,6 +78,7 @@ namespace GulfoMusicalStoreGUI
         {
             FrmInfoCliente frmInfoCliente = new FrmInfoCliente(Factura);
             frmInfoCliente.Venta = this;
+            frmInfoCliente.UnlockVenta = this;
             frmInfoCliente.Show();
         }
 
@@ -89,6 +95,11 @@ namespace GulfoMusicalStoreGUI
         public void TotalVenta(Factura factura)
         {
             
+        }
+
+        public void unlockventa()
+        {
+           
         }
     }
 }
