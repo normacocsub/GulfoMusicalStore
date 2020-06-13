@@ -100,7 +100,7 @@
             this.BtnGenerarInforme.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
             this.BtnGenerarInforme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGenerarInforme.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGenerarInforme.ForeColor = System.Drawing.Color.White;
+            this.BtnGenerarInforme.ForeColor = System.Drawing.Color.Black;
             this.BtnGenerarInforme.Image = ((System.Drawing.Image)(resources.GetObject("BtnGenerarInforme.Image")));
             this.BtnGenerarInforme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnGenerarInforme.Location = new System.Drawing.Point(553, 478);

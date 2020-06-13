@@ -225,7 +225,5 @@ namespace GulfoMusicalStoreGUI
         {
             MapearDtgFiltroCedula(DtgFactura, TxtCedula.Text);
         }
-
-       
     }
 }

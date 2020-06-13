@@ -121,7 +121,7 @@
             // 
             // Panel1
             // 
-            this.Panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.Panel1.BackColor = System.Drawing.Color.White;
             this.Panel1.Controls.Add(this.FLPItems);
             this.Panel1.Controls.Add(this.BtnLogo);
             this.Panel1.Controls.Add(this.label2);

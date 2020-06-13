@@ -23,12 +23,12 @@ namespace BLL
             FacturaRepositorio = new FacturaRepository(Conection);
         }
 
-        public string GuardarFactura(Factura factura)
+        public string GuardarFactura(Factura factura,string ruta)
         {
             
             try
             {
-                pdf = new PDF();
+                pdf = new PDF(ruta);
                 Email = new Email();
                 Conection.Open();
                 FacturaRepositorio.GuardarFactura(factura);

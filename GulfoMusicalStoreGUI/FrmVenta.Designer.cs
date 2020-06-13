@@ -308,7 +308,7 @@
             this.Labelinstrumento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Labelinstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.Labelinstrumento.ForeColor = System.Drawing.Color.Black;
-            this.Labelinstrumento.Location = new System.Drawing.Point(294, 570);
+            this.Labelinstrumento.Location = new System.Drawing.Point(289, 559);
             this.Labelinstrumento.Name = "Labelinstrumento";
             this.Labelinstrumento.Size = new System.Drawing.Size(212, 21);
             this.Labelinstrumento.TabIndex = 91;

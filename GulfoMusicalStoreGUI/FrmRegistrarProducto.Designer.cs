@@ -49,7 +49,7 @@
             this.LabelInstrumento.AutoSize = true;
             this.LabelInstrumento.BackColor = System.Drawing.Color.Transparent;
             this.LabelInstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelInstrumento.ForeColor = System.Drawing.Color.White;
+            this.LabelInstrumento.ForeColor = System.Drawing.Color.Black;
             this.LabelInstrumento.Location = new System.Drawing.Point(262, 199);
             this.LabelInstrumento.Name = "LabelInstrumento";
             this.LabelInstrumento.Size = new System.Drawing.Size(106, 20);
@@ -72,7 +72,7 @@
             this.LabelMarca.AutoSize = true;
             this.LabelMarca.BackColor = System.Drawing.Color.Transparent;
             this.LabelMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelMarca.ForeColor = System.Drawing.Color.White;
+            this.LabelMarca.ForeColor = System.Drawing.Color.Black;
             this.LabelMarca.Location = new System.Drawing.Point(262, 245);
             this.LabelMarca.Name = "LabelMarca";
             this.LabelMarca.Size = new System.Drawing.Size(58, 20);
@@ -98,7 +98,7 @@
             this.LabelPrecioUnidad.AutoSize = true;
             this.LabelPrecioUnidad.BackColor = System.Drawing.Color.Transparent;
             this.LabelPrecioUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelPrecioUnidad.ForeColor = System.Drawing.Color.White;
+            this.LabelPrecioUnidad.ForeColor = System.Drawing.Color.Black;
             this.LabelPrecioUnidad.Location = new System.Drawing.Point(262, 291);
             this.LabelPrecioUnidad.Name = "LabelPrecioUnidad";
             this.LabelPrecioUnidad.Size = new System.Drawing.Size(59, 20);
@@ -121,7 +121,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(262, 154);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 20);
@@ -151,7 +151,7 @@
             this.BtnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRegistrar.ForeColor = System.Drawing.Color.White;
+            this.BtnRegistrar.ForeColor = System.Drawing.Color.Black;
             this.BtnRegistrar.Location = new System.Drawing.Point(419, 345);
             this.BtnRegistrar.Name = "BtnRegistrar";
             this.BtnRegistrar.Size = new System.Drawing.Size(120, 101);

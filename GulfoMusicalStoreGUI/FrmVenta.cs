@@ -176,7 +176,7 @@ namespace GulfoMusicalStoreGUI
                     lugar.Codigo = ConfigConnection.Codigo;
                     lugar.Ciudad = ConfigConnection.CiudadConectada;
                     Factura.AgregarLugar(lugar);
-                    MessageBox.Show(facturaservice.GuardarFactura(Factura));
+                    MessageBox.Show(facturaservice.GuardarFactura(Factura,ConfigConnection.Direccion));
                     Factura = new Factura();
                     Label15.Text = "0";
                     CBCurso.SelectedIndex = 1;

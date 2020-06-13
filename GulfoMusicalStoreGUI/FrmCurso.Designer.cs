@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCurso));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelsede = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,8 +58,6 @@
             this.CmbFiltroEstado = new System.Windows.Forms.ComboBox();
             this.BtnActualizar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
-            this.labelsede = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgCurso)).BeginInit();
@@ -76,6 +76,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(595, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 20);
+            this.label7.TabIndex = 59;
+            this.label7.Text = "Sede: ";
+            // 
+            // labelsede
+            // 
+            this.labelsede.AutoSize = true;
+            this.labelsede.BackColor = System.Drawing.Color.White;
+            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelsede.Location = new System.Drawing.Point(662, 21);
+            this.labelsede.Name = "labelsede";
+            this.labelsede.Size = new System.Drawing.Size(108, 20);
+            this.labelsede.TabIndex = 58;
+            this.labelsede.Text = "nombresede";
             // 
             // label2
             // 
@@ -113,9 +135,9 @@
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(16, 196);
+            this.label6.Location = new System.Drawing.Point(7, 210);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 23);
+            this.label6.Size = new System.Drawing.Size(129, 23);
             this.label6.TabIndex = 27;
             this.label6.Text = "Codigo";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -125,7 +147,7 @@
             this.TxtCodigo.BackColor = System.Drawing.Color.White;
             this.TxtCodigo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigo.ForeColor = System.Drawing.Color.Black;
-            this.TxtCodigo.Location = new System.Drawing.Point(122, 197);
+            this.TxtCodigo.Location = new System.Drawing.Point(142, 210);
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.Size = new System.Drawing.Size(120, 23);
             this.TxtCodigo.TabIndex = 26;
@@ -135,7 +157,7 @@
             this.TxtInstrumento.BackColor = System.Drawing.Color.White;
             this.TxtInstrumento.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtInstrumento.ForeColor = System.Drawing.Color.Black;
-            this.TxtInstrumento.Location = new System.Drawing.Point(122, 249);
+            this.TxtInstrumento.Location = new System.Drawing.Point(142, 262);
             this.TxtInstrumento.Name = "TxtInstrumento";
             this.TxtInstrumento.Size = new System.Drawing.Size(120, 23);
             this.TxtInstrumento.TabIndex = 25;
@@ -152,9 +174,9 @@
             "Seleccionar",
             "ACTIVO",
             "DESHABILITADO"});
-            this.CmbEstado.Location = new System.Drawing.Point(122, 386);
+            this.CmbEstado.Location = new System.Drawing.Point(139, 375);
             this.CmbEstado.Name = "CmbEstado";
-            this.CmbEstado.Size = new System.Drawing.Size(120, 23);
+            this.CmbEstado.Size = new System.Drawing.Size(123, 23);
             this.CmbEstado.TabIndex = 24;
             // 
             // label3
@@ -162,9 +184,9 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(16, 388);
+            this.label3.Location = new System.Drawing.Point(7, 374);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.Size = new System.Drawing.Size(129, 23);
             this.label3.TabIndex = 23;
             this.label3.Text = "Estado";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -230,9 +252,9 @@
             this.LabelPrecioUnidad.BackColor = System.Drawing.Color.White;
             this.LabelPrecioUnidad.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelPrecioUnidad.ForeColor = System.Drawing.Color.Black;
-            this.LabelPrecioUnidad.Location = new System.Drawing.Point(16, 303);
+            this.LabelPrecioUnidad.Location = new System.Drawing.Point(7, 317);
             this.LabelPrecioUnidad.Name = "LabelPrecioUnidad";
-            this.LabelPrecioUnidad.Size = new System.Drawing.Size(100, 23);
+            this.LabelPrecioUnidad.Size = new System.Drawing.Size(129, 23);
             this.LabelPrecioUnidad.TabIndex = 4;
             this.LabelPrecioUnidad.Text = "Precio";
             this.LabelPrecioUnidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -242,9 +264,9 @@
             this.TxtPrecio.BackColor = System.Drawing.Color.White;
             this.TxtPrecio.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPrecio.ForeColor = System.Drawing.Color.Black;
-            this.TxtPrecio.Location = new System.Drawing.Point(122, 303);
+            this.TxtPrecio.Location = new System.Drawing.Point(139, 317);
             this.TxtPrecio.Name = "TxtPrecio";
-            this.TxtPrecio.Size = new System.Drawing.Size(120, 23);
+            this.TxtPrecio.Size = new System.Drawing.Size(123, 23);
             this.TxtPrecio.TabIndex = 10;
             // 
             // LabelInstrumento
@@ -252,11 +274,11 @@
             this.LabelInstrumento.BackColor = System.Drawing.Color.White;
             this.LabelInstrumento.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInstrumento.ForeColor = System.Drawing.Color.Black;
-            this.LabelInstrumento.Location = new System.Drawing.Point(12, 248);
+            this.LabelInstrumento.Location = new System.Drawing.Point(7, 262);
             this.LabelInstrumento.Name = "LabelInstrumento";
-            this.LabelInstrumento.Size = new System.Drawing.Size(100, 23);
+            this.LabelInstrumento.Size = new System.Drawing.Size(129, 24);
             this.LabelInstrumento.TabIndex = 2;
-            this.LabelInstrumento.Text = "Instrumento";
+            this.LabelInstrumento.Text = "Nombre del curso";
             this.LabelInstrumento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DtgCurso
@@ -412,28 +434,6 @@
             this.BtnModificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnModificar.UseVisualStyleBackColor = false;
             this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
-            // 
-            // labelsede
-            // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.BackColor = System.Drawing.Color.White;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(649, 21);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 58;
-            this.labelsede.Text = "nombresede";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(595, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 20);
-            this.label7.TabIndex = 59;
-            this.label7.Text = "Sede: ";
             // 
             // FrmCurso
             // 

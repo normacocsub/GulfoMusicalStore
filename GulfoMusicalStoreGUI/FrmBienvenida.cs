@@ -17,7 +17,7 @@ namespace GulfoMusicalStoreGUI
         public FrmBienvenida()
         {
             InitializeComponent();
-            Player = new SoundPlayer(@"C:\Users\norma\source\repos\normacocsub\GulfoMusicalStore\Recursos\Sonido.wav");
+            Player = new SoundPlayer(ConfigConnection.Direccion + @"\Recursos\Sonido.wav");
             Player.Play();
             this.Opacity = 0;
             labelsede.Text = ConfigConnection.CiudadConectada;

@@ -12,5 +12,6 @@ namespace GulfoMusicalStoreGUI
         public static string ConnectionString ;
         public static string CiudadConectada;
         public static int Codigo;
+        public static string Direccion = @"C:\Users\Osuka\Desktop\BD";
     }
 }

@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFacturas));
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.LabelCodigoFact = new System.Windows.Forms.Label();
             this.TxtNumeroFactura = new System.Windows.Forms.TextBox();
             this.GBB = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelsede = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.PanelContenedor = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.DtgFactura = new System.Windows.Forms.DataGridView();
             this.CNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCiudadFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,8 +62,6 @@
             this.DtpDesde = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnFiltrar = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.labelsede = new System.Windows.Forms.Label();
             this.GBB.SuspendLayout();
             this.panel1.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
@@ -75,7 +73,7 @@
             // BtnBuscar
             // 
             this.BtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.BtnBuscar.Location = new System.Drawing.Point(172, 52);
+            this.BtnBuscar.Location = new System.Drawing.Point(431, 35);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(124, 27);
             this.BtnBuscar.TabIndex = 70;
@@ -86,8 +84,8 @@
             // LabelCodigoFact
             // 
             this.LabelCodigoFact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LabelCodigoFact.ForeColor = System.Drawing.Color.White;
-            this.LabelCodigoFact.Location = new System.Drawing.Point(6, 19);
+            this.LabelCodigoFact.ForeColor = System.Drawing.Color.Black;
+            this.LabelCodigoFact.Location = new System.Drawing.Point(124, 35);
             this.LabelCodigoFact.Name = "LabelCodigoFact";
             this.LabelCodigoFact.Size = new System.Drawing.Size(142, 27);
             this.LabelCodigoFact.TabIndex = 68;
@@ -96,7 +94,7 @@
             // 
             // TxtNumeroFactura
             // 
-            this.TxtNumeroFactura.Location = new System.Drawing.Point(181, 19);
+            this.TxtNumeroFactura.Location = new System.Drawing.Point(296, 35);
             this.TxtNumeroFactura.Multiline = true;
             this.TxtNumeroFactura.Name = "TxtNumeroFactura";
             this.TxtNumeroFactura.Size = new System.Drawing.Size(104, 27);
@@ -110,10 +108,10 @@
             this.GBB.Controls.Add(this.TxtNumeroFactura);
             this.GBB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GBB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.GBB.ForeColor = System.Drawing.Color.White;
-            this.GBB.Location = new System.Drawing.Point(58, 512);
+            this.GBB.ForeColor = System.Drawing.Color.Black;
+            this.GBB.Location = new System.Drawing.Point(58, 516);
             this.GBB.Name = "GBB";
-            this.GBB.Size = new System.Drawing.Size(328, 85);
+            this.GBB.Size = new System.Drawing.Size(674, 81);
             this.GBB.TabIndex = 71;
             this.GBB.TabStop = false;
             this.GBB.Text = "Consulta Individual";
@@ -130,6 +128,28 @@
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 67;
             // 
+            // labelsede
+            // 
+            this.labelsede.AutoSize = true;
+            this.labelsede.BackColor = System.Drawing.Color.White;
+            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelsede.Location = new System.Drawing.Point(637, 23);
+            this.labelsede.Name = "labelsede";
+            this.labelsede.Size = new System.Drawing.Size(108, 20);
+            this.labelsede.TabIndex = 78;
+            this.labelsede.Text = "nombresede";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(570, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 20);
+            this.label6.TabIndex = 77;
+            this.label6.Text = "Sede: ";
+            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
@@ -145,7 +165,6 @@
             // PanelContenedor
             // 
             this.PanelContenedor.BackColor = System.Drawing.Color.DodgerBlue;
-            this.PanelContenedor.Controls.Add(this.button3);
             this.PanelContenedor.Controls.Add(this.GBB);
             this.PanelContenedor.Controls.Add(this.DtgFactura);
             this.PanelContenedor.Controls.Add(this.GB2);
@@ -154,23 +173,6 @@
             this.PanelContenedor.Name = "PanelContenedor";
             this.PanelContenedor.Size = new System.Drawing.Size(800, 600);
             this.PanelContenedor.TabIndex = 68;
-            // 
-            // button3
-            // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(538, 538);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(194, 50);
-            this.button3.TabIndex = 80;
-            this.button3.Text = "Generar Informe";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // DtgFactura
             // 
@@ -187,9 +189,9 @@
             this.CTelefono,
             this.CFecha,
             this.CEstado});
-            this.DtgFactura.Location = new System.Drawing.Point(105, 266);
+            this.DtgFactura.Location = new System.Drawing.Point(58, 256);
             this.DtgFactura.Name = "DtgFactura";
-            this.DtgFactura.Size = new System.Drawing.Size(589, 240);
+            this.DtgFactura.Size = new System.Drawing.Size(674, 240);
             this.DtgFactura.TabIndex = 77;
             // 
             // CNumero
@@ -258,7 +260,7 @@
             this.GB2.Controls.Add(this.GBTime);
             this.GB2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.GB2.ForeColor = System.Drawing.Color.White;
+            this.GB2.ForeColor = System.Drawing.Color.Black;
             this.GB2.Location = new System.Drawing.Point(58, 60);
             this.GB2.Name = "GB2";
             this.GB2.Size = new System.Drawing.Size(674, 190);
@@ -270,7 +272,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(513, 93);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 16);
@@ -287,7 +289,7 @@
             // 
             // label1
             // 
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(487, 146);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 24);
@@ -302,7 +304,12 @@
             this.CBBusqueda.Items.AddRange(new object[] {
             "Total Facturas",
             "Facturas Activas",
-            "Facturas Inactivas"});
+            "Facturas Inactivas",
+            "Sede Bogota",
+            "Sede Cali",
+            "Sede Barranquilla",
+            "Total Ascendente ",
+            "Total Descendente"});
             this.CBBusqueda.Location = new System.Drawing.Point(500, 54);
             this.CBBusqueda.Name = "CBBusqueda";
             this.CBBusqueda.Size = new System.Drawing.Size(144, 24);
@@ -313,7 +320,7 @@
             // 
             this.LabelInfor.AutoSize = true;
             this.LabelInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelInfor.ForeColor = System.Drawing.Color.White;
+            this.LabelInfor.ForeColor = System.Drawing.Color.Black;
             this.LabelInfor.Location = new System.Drawing.Point(524, 35);
             this.LabelInfor.Name = "LabelInfor";
             this.LabelInfor.Size = new System.Drawing.Size(120, 16);
@@ -338,7 +345,7 @@
             this.GBTime.Controls.Add(this.label3);
             this.GBTime.Controls.Add(this.BtnFiltrar);
             this.GBTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.GBTime.ForeColor = System.Drawing.Color.White;
+            this.GBTime.ForeColor = System.Drawing.Color.Black;
             this.GBTime.Location = new System.Drawing.Point(31, 35);
             this.GBTime.Name = "GBTime";
             this.GBTime.Size = new System.Drawing.Size(312, 135);
@@ -356,7 +363,7 @@
             // 
             // label4
             // 
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(22, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 13);
@@ -374,7 +381,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(22, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 16);
@@ -391,28 +398,6 @@
             this.BtnFiltrar.Text = "Filtrar";
             this.BtnFiltrar.UseVisualStyleBackColor = true;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(570, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 20);
-            this.label6.TabIndex = 77;
-            this.label6.Text = "Sede: ";
-            // 
-            // labelsede
-            // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.BackColor = System.Drawing.Color.White;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(637, 23);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 78;
-            this.labelsede.Text = "nombresede";
             // 
             // FrmFacturas
             // 
@@ -445,7 +430,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel PanelContenedor;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox GB2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CBBusqueda;

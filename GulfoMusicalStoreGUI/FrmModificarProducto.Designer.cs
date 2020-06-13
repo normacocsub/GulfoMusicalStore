@@ -50,7 +50,7 @@
             this.LabelInstrumento.BackColor = System.Drawing.Color.Transparent;
             this.LabelInstrumento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelInstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelInstrumento.ForeColor = System.Drawing.Color.White;
+            this.LabelInstrumento.ForeColor = System.Drawing.Color.Black;
             this.LabelInstrumento.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.LabelInstrumento.Location = new System.Drawing.Point(277, 175);
             this.LabelInstrumento.Name = "LabelInstrumento";
@@ -75,7 +75,7 @@
             this.LabelPrecioUnidad.BackColor = System.Drawing.Color.Transparent;
             this.LabelPrecioUnidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelPrecioUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelPrecioUnidad.ForeColor = System.Drawing.Color.White;
+            this.LabelPrecioUnidad.ForeColor = System.Drawing.Color.Black;
             this.LabelPrecioUnidad.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.LabelPrecioUnidad.Location = new System.Drawing.Point(278, 304);
             this.LabelPrecioUnidad.Name = "LabelPrecioUnidad";
@@ -95,7 +95,7 @@
             this.BtnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModificar.ForeColor = System.Drawing.Color.White;
+            this.BtnModificar.ForeColor = System.Drawing.Color.Black;
             this.BtnModificar.Image = ((System.Drawing.Image)(resources.GetObject("BtnModificar.Image")));
             this.BtnModificar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnModificar.Location = new System.Drawing.Point(402, 348);
@@ -113,7 +113,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label3.Location = new System.Drawing.Point(277, 265);
             this.label3.Name = "label3";
@@ -188,7 +188,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Location = new System.Drawing.Point(278, 221);
             this.label1.Name = "label1";

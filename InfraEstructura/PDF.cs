@@ -12,7 +12,13 @@ namespace InfraEstructura
 {
     public class PDF
     {
-        private const string RUTA = @"C:\Users\norma\source\repos\normacocsub\GulfoMusicalStore\PDF Facturas\";
+        private string RUTA;
+        private string rutaImagen;
+        public PDF(string ruta)
+        {
+            RUTA = ruta + @"\PDF Facturas\";
+            rutaImagen = ruta;
+        }
 
         public void CrearPDF(Factura factura)
         {
@@ -21,7 +27,7 @@ namespace InfraEstructura
             PdfWriter pdfWriter = PdfWriter.GetInstance(document, streamsource);
             document.Open();
             Paragraph paragraph, paragrafph2;
-            Image image = Image.GetInstance(@"C:\Users\norma\source\repos\normacocsub\GulfoMusicalStore\Recursos\Ejemplo.png");
+            Image image = Image.GetInstance(rutaImagen + @"\Recursos\Ejemplo.png");
             image.ScaleToFit(100.0F, 130.0F);
             image.SpacingBefore = 20.0F;
             image.SpacingAfter = 10.0F;

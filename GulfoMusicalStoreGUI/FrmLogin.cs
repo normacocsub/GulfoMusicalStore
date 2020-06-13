@@ -130,12 +130,12 @@ namespace GulfoMusicalStoreGUI
             if (TxtContraseña.UseSystemPasswordChar == true)
             {
                 TxtContraseña.UseSystemPasswordChar = false;
-                PBVerContraseña.Image = Image.FromFile(@"C:\Users\norma\source\repos\normacocsub\GulfoMusicalStore\Recursos\Ver.png");
+                PBVerContraseña.Image = Image.FromFile(ConfigConnection.Direccion + @"\Recursos\Ver.png");
             }
             else
             {
                 TxtContraseña.UseSystemPasswordChar = true;
-                PBVerContraseña.Image = Image.FromFile(@"C:\Users\norma\source\repos\normacocsub\GulfoMusicalStore\Recursos\NoVer.png");
+                PBVerContraseña.Image = Image.FromFile(ConfigConnection.Direccion + @"\Recursos\NoVer.png");
             }
         }
 
