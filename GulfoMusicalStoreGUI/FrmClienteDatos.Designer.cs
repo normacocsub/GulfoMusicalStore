@@ -57,16 +57,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.TxtBarrio = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.TxtTelefono = new System.Windows.Forms.TextBox();
-            this.labelsede = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LabelCedula
             // 
             this.LabelCedula.BackColor = System.Drawing.Color.White;
             this.LabelCedula.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.LabelCedula.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCedula.ForeColor = System.Drawing.Color.Black;
             this.LabelCedula.Location = new System.Drawing.Point(113, 110);
             this.LabelCedula.Name = "LabelCedula";
@@ -90,7 +88,7 @@
             // 
             this.LabelNombre.BackColor = System.Drawing.Color.White;
             this.LabelNombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.LabelNombre.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelNombre.ForeColor = System.Drawing.Color.Black;
             this.LabelNombre.Location = new System.Drawing.Point(114, 144);
             this.LabelNombre.Name = "LabelNombre";
@@ -114,7 +112,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(115, 178);
             this.label1.Name = "label1";
@@ -138,7 +136,7 @@
             // 
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(114, 210);
             this.label5.Name = "label5";
@@ -162,7 +160,7 @@
             // 
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(114, 242);
             this.label7.Name = "label7";
@@ -186,7 +184,7 @@
             // 
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label8.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(114, 274);
             this.label8.Name = "label8";
@@ -203,12 +201,13 @@
             this.TxtCorreo.Name = "TxtCorreo";
             this.TxtCorreo.Size = new System.Drawing.Size(270, 26);
             this.TxtCorreo.TabIndex = 110;
+            this.TxtCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label12
             // 
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label12.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(113, 367);
             this.label12.Name = "label12";
@@ -483,7 +482,7 @@
             this.TxtDireccion.Enabled = false;
             this.TxtDireccion.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDireccion.ForeColor = System.Drawing.Color.Black;
-            this.TxtDireccion.Location = new System.Drawing.Point(113, 501);
+            this.TxtDireccion.Location = new System.Drawing.Point(114, 513);
             this.TxtDireccion.Name = "TxtDireccion";
             this.TxtDireccion.Size = new System.Drawing.Size(576, 26);
             this.TxtDireccion.TabIndex = 118;
@@ -516,9 +515,11 @@
             // 
             // BtnBuscarCedula
             // 
+            this.BtnBuscarCedula.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscarCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBuscarCedula.Location = new System.Drawing.Point(418, 72);
             this.BtnBuscarCedula.Name = "BtnBuscarCedula";
-            this.BtnBuscarCedula.Size = new System.Drawing.Size(270, 23);
+            this.BtnBuscarCedula.Size = new System.Drawing.Size(270, 28);
             this.BtnBuscarCedula.TabIndex = 129;
             this.BtnBuscarCedula.Text = "Buscar";
             this.BtnBuscarCedula.UseVisualStyleBackColor = true;
@@ -545,7 +546,7 @@
             // 
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(114, 306);
             this.label4.Name = "label4";
@@ -573,23 +574,14 @@
             // 
             // TxtBarrio
             // 
+            this.TxtBarrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtBarrio.Location = new System.Drawing.Point(418, 472);
             this.TxtBarrio.Name = "TxtBarrio";
-            this.TxtBarrio.Size = new System.Drawing.Size(121, 20);
+            this.TxtBarrio.Size = new System.Drawing.Size(121, 22);
             this.TxtBarrio.TabIndex = 139;
             this.TxtBarrio.Text = "Barrio";
+            this.TxtBarrio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtBarrio.TextChanged += new System.EventHandler(this.TxtBarrio_TextChanged_1);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(563, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 20);
-            this.label6.TabIndex = 140;
-            this.label6.Text = "Sede: ";
             // 
             // TxtTelefono
             // 
@@ -599,17 +591,7 @@
             this.TxtTelefono.Name = "TxtTelefono";
             this.TxtTelefono.Size = new System.Drawing.Size(270, 26);
             this.TxtTelefono.TabIndex = 132;
-            // 
-            // labelsede
-            // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.BackColor = System.Drawing.Color.White;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(639, 23);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 141;
-            this.labelsede.Text = "nombresede";
+            this.TxtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FrmClienteDatos
             // 
@@ -617,8 +599,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.labelsede);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.TxtBarrio);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.label4);
@@ -687,8 +667,6 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Button BtnSalir;
         private System.Windows.Forms.TextBox TxtBarrio;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtTelefono;
-        private System.Windows.Forms.Label labelsede;
     }
 }

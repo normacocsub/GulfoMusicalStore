@@ -38,7 +38,6 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label6 = new System.Windows.Forms.Label();
             this.labelsede = new System.Windows.Forms.Label();
-            this.LabelUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -104,22 +103,11 @@
             this.labelsede.AutoSize = true;
             this.labelsede.BackColor = System.Drawing.Color.White;
             this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(459, 174);
+            this.labelsede.Location = new System.Drawing.Point(461, 174);
             this.labelsede.Name = "labelsede";
             this.labelsede.Size = new System.Drawing.Size(108, 20);
             this.labelsede.TabIndex = 142;
             this.labelsede.Text = "nombresede";
-            // 
-            // LabelUsuario
-            // 
-            this.LabelUsuario.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelUsuario.Location = new System.Drawing.Point(348, 76);
-            this.LabelUsuario.Name = "LabelUsuario";
-            this.LabelUsuario.Size = new System.Drawing.Size(229, 82);
-            this.LabelUsuario.TabIndex = 2;
-            this.LabelUsuario.Text = "A GulfoMusicalStore";
-            this.LabelUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LabelUsuario.Click += new System.EventHandler(this.LabelUsuario_Click);
             // 
             // FrmBienvenida
             // 
@@ -131,7 +119,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.LabelUsuario);
             this.Controls.Add(this.LabelBienvenido);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmBienvenida";
@@ -155,6 +142,5 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelsede;
-        private System.Windows.Forms.Label LabelUsuario;
     }
 }

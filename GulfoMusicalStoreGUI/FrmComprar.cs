@@ -25,12 +25,7 @@ namespace GulfoMusicalStoreGUI
             InitializeComponent();
             LlenarCombo();
             Factura = factura;
-            labelsede.Text = ConfigConnection.CiudadConectada;
         }
-
-       
-
-        
 
       
         private void LlenarCombo()
@@ -43,12 +38,6 @@ namespace GulfoMusicalStoreGUI
             }
         }
         
-
-        
-
-        
-
-
       
         private int VerificarComboBox(string numerocombo)
         {
@@ -64,13 +53,6 @@ namespace GulfoMusicalStoreGUI
 
         }
        
-
-
-       
-
-
-
-        
 
         private void AgregarProductos(string numero,string productoname)
         {

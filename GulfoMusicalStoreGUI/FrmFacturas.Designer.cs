@@ -33,8 +33,6 @@
             this.TxtNumeroFactura = new System.Windows.Forms.TextBox();
             this.GBB = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelsede = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.DtgFactura = new System.Windows.Forms.DataGridView();
@@ -73,7 +71,7 @@
             // BtnBuscar
             // 
             this.BtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.BtnBuscar.Location = new System.Drawing.Point(431, 35);
+            this.BtnBuscar.Location = new System.Drawing.Point(411, 35);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(124, 27);
             this.BtnBuscar.TabIndex = 70;
@@ -85,7 +83,7 @@
             // 
             this.LabelCodigoFact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.LabelCodigoFact.ForeColor = System.Drawing.Color.Black;
-            this.LabelCodigoFact.Location = new System.Drawing.Point(124, 35);
+            this.LabelCodigoFact.Location = new System.Drawing.Point(112, 35);
             this.LabelCodigoFact.Name = "LabelCodigoFact";
             this.LabelCodigoFact.Size = new System.Drawing.Size(142, 27);
             this.LabelCodigoFact.TabIndex = 68;
@@ -94,7 +92,7 @@
             // 
             // TxtNumeroFactura
             // 
-            this.TxtNumeroFactura.Location = new System.Drawing.Point(296, 35);
+            this.TxtNumeroFactura.Location = new System.Drawing.Point(260, 35);
             this.TxtNumeroFactura.Multiline = true;
             this.TxtNumeroFactura.Name = "TxtNumeroFactura";
             this.TxtNumeroFactura.Size = new System.Drawing.Size(104, 27);
@@ -109,7 +107,7 @@
             this.GBB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GBB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.GBB.ForeColor = System.Drawing.Color.Black;
-            this.GBB.Location = new System.Drawing.Point(58, 516);
+            this.GBB.Location = new System.Drawing.Point(58, 507);
             this.GBB.Name = "GBB";
             this.GBB.Size = new System.Drawing.Size(674, 81);
             this.GBB.TabIndex = 71;
@@ -119,36 +117,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.labelsede);
-            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 67;
-            // 
-            // labelsede
-            // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.BackColor = System.Drawing.Color.White;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(637, 23);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 78;
-            this.labelsede.Text = "nombresede";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(570, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 20);
-            this.label6.TabIndex = 77;
-            this.label6.Text = "Sede: ";
             // 
             // label2
             // 
@@ -412,7 +386,6 @@
             this.GBB.ResumeLayout(false);
             this.GBB.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.PanelContenedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).EndInit();
             this.GB2.ResumeLayout(false);
@@ -455,7 +428,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CEstado;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label labelsede;
     }
 }

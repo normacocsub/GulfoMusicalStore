@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClientes));
             this.LabelInfor = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtTotal = new System.Windows.Forms.TextBox();
-            this.BtnGenerarInforme = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BtnTodos = new System.Windows.Forms.Button();
@@ -52,8 +50,6 @@
             this.CBarrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelsede = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgClientes)).BeginInit();
@@ -62,9 +58,9 @@
             // 
             // LabelInfor
             // 
-            this.LabelInfor.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelInfor.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInfor.ForeColor = System.Drawing.Color.Black;
-            this.LabelInfor.Location = new System.Drawing.Point(424, 32);
+            this.LabelInfor.Location = new System.Drawing.Point(279, 32);
             this.LabelInfor.Name = "LabelInfor";
             this.LabelInfor.Size = new System.Drawing.Size(151, 21);
             this.LabelInfor.TabIndex = 72;
@@ -73,9 +69,9 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(424, 113);
+            this.label1.Location = new System.Drawing.Point(282, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 21);
             this.label1.TabIndex = 75;
@@ -87,34 +83,16 @@
             this.TxtTotal.Enabled = false;
             this.TxtTotal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTotal.ForeColor = System.Drawing.Color.Black;
-            this.TxtTotal.Location = new System.Drawing.Point(493, 110);
+            this.TxtTotal.Location = new System.Drawing.Point(351, 108);
             this.TxtTotal.Multiline = true;
             this.TxtTotal.Name = "TxtTotal";
             this.TxtTotal.Size = new System.Drawing.Size(79, 24);
             this.TxtTotal.TabIndex = 74;
             this.TxtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // BtnGenerarInforme
-            // 
-            this.BtnGenerarInforme.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGenerarInforme.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
-            this.BtnGenerarInforme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGenerarInforme.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGenerarInforme.ForeColor = System.Drawing.Color.Black;
-            this.BtnGenerarInforme.Image = ((System.Drawing.Image)(resources.GetObject("BtnGenerarInforme.Image")));
-            this.BtnGenerarInforme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGenerarInforme.Location = new System.Drawing.Point(553, 478);
-            this.BtnGenerarInforme.Name = "BtnGenerarInforme";
-            this.BtnGenerarInforme.Size = new System.Drawing.Size(205, 50);
-            this.BtnGenerarInforme.TabIndex = 81;
-            this.BtnGenerarInforme.Text = "Generar Informe";
-            this.BtnGenerarInforme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnGenerarInforme.UseVisualStyleBackColor = true;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel2.Controls.Add(this.BtnGenerarInforme);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.DtgClientes);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -132,9 +110,9 @@
             this.groupBox1.Controls.Add(this.LabelInfor);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.TxtTotal);
-            this.groupBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(43, 6);
+            this.groupBox1.Location = new System.Drawing.Point(43, 24);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(715, 163);
             this.groupBox1.TabIndex = 81;
@@ -146,10 +124,11 @@
             this.BtnTodos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTodos.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
             this.BtnTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTodos.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnTodos.ForeColor = System.Drawing.Color.Black;
-            this.BtnTodos.Location = new System.Drawing.Point(28, 102);
+            this.BtnTodos.Location = new System.Drawing.Point(487, 51);
             this.BtnTodos.Name = "BtnTodos";
-            this.BtnTodos.Size = new System.Drawing.Size(92, 40);
+            this.BtnTodos.Size = new System.Drawing.Size(203, 80);
             this.BtnTodos.TabIndex = 79;
             this.BtnTodos.Text = "Todos";
             this.BtnTodos.UseVisualStyleBackColor = true;
@@ -157,9 +136,9 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(110, 32);
+            this.label3.Location = new System.Drawing.Point(24, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(220, 21);
             this.label3.TabIndex = 78;
@@ -169,16 +148,16 @@
             // TxtPrimerNombre
             // 
             this.TxtPrimerNombre.ForeColor = System.Drawing.Color.Black;
-            this.TxtPrimerNombre.Location = new System.Drawing.Point(136, 66);
+            this.TxtPrimerNombre.Location = new System.Drawing.Point(37, 66);
             this.TxtPrimerNombre.Name = "TxtPrimerNombre";
-            this.TxtPrimerNombre.Size = new System.Drawing.Size(164, 26);
+            this.TxtPrimerNombre.Size = new System.Drawing.Size(193, 26);
             this.TxtPrimerNombre.TabIndex = 77;
             this.TxtPrimerNombre.TextChanged += new System.EventHandler(this.TxtPrimerNombre_TextChanged);
             // 
             // TxtCedula
             // 
             this.TxtCedula.ForeColor = System.Drawing.Color.Black;
-            this.TxtCedula.Location = new System.Drawing.Point(428, 66);
+            this.TxtCedula.Location = new System.Drawing.Point(286, 66);
             this.TxtCedula.Name = "TxtCedula";
             this.TxtCedula.Size = new System.Drawing.Size(144, 26);
             this.TxtCedula.TabIndex = 76;
@@ -199,9 +178,9 @@
             this.CDireccion,
             this.CCiudad,
             this.CBarrio});
-            this.DtgClientes.Location = new System.Drawing.Point(82, 197);
+            this.DtgClientes.Location = new System.Drawing.Point(43, 223);
             this.DtgClientes.Name = "DtgClientes";
-            this.DtgClientes.Size = new System.Drawing.Size(613, 261);
+            this.DtgClientes.Size = new System.Drawing.Size(715, 286);
             this.DtgClientes.TabIndex = 67;
             // 
             // CCedula
@@ -269,36 +248,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.labelsede);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 70;
-            // 
-            // labelsede
-            // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.BackColor = System.Drawing.Color.White;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(624, 23);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 83;
-            this.labelsede.Text = "nombresede";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(557, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 20);
-            this.label4.TabIndex = 82;
-            this.label4.Text = "Sede: ";
             // 
             // FrmClientes
             // 
@@ -315,7 +270,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgClientes)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -325,7 +279,6 @@
         private System.Windows.Forms.Label LabelInfor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtTotal;
-        private System.Windows.Forms.Button BtnGenerarInforme;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView DtgClientes;
@@ -345,7 +298,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CCiudad;
         private System.Windows.Forms.DataGridViewTextBoxColumn CBarrio;
         private System.Windows.Forms.Button BtnTodos;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label labelsede;
     }
 }

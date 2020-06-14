@@ -21,7 +21,6 @@ namespace GulfoMusicalStoreGUI
         {
             InitializeComponent();
             LLenarCombo();
-            labelsede.Text = ConfigConnection.CiudadConectada;
         }
 
         private void CmbCurso_SelectedIndexChanged(object sender, EventArgs e)

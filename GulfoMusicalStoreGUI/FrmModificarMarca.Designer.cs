@@ -38,8 +38,6 @@
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelsede = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TxtCodigo
@@ -48,7 +46,7 @@
             this.TxtCodigo.Enabled = false;
             this.TxtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigo.ForeColor = System.Drawing.Color.Black;
-            this.TxtCodigo.Location = new System.Drawing.Point(403, 225);
+            this.TxtCodigo.Location = new System.Drawing.Point(267, 225);
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.Size = new System.Drawing.Size(120, 22);
             this.TxtCodigo.TabIndex = 42;
@@ -59,7 +57,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(278, 224);
+            this.label3.Location = new System.Drawing.Point(142, 224);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 41;
@@ -72,7 +70,7 @@
             this.LabelPrecioUnidad.BackColor = System.Drawing.Color.Transparent;
             this.LabelPrecioUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelPrecioUnidad.ForeColor = System.Drawing.Color.Black;
-            this.LabelPrecioUnidad.Location = new System.Drawing.Point(278, 281);
+            this.LabelPrecioUnidad.Location = new System.Drawing.Point(142, 281);
             this.LabelPrecioUnidad.Name = "LabelPrecioUnidad";
             this.LabelPrecioUnidad.Size = new System.Drawing.Size(71, 20);
             this.LabelPrecioUnidad.TabIndex = 39;
@@ -84,7 +82,7 @@
             this.TxtNombre.BackColor = System.Drawing.Color.White;
             this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombre.ForeColor = System.Drawing.Color.Black;
-            this.TxtNombre.Location = new System.Drawing.Point(402, 282);
+            this.TxtNombre.Location = new System.Drawing.Point(266, 282);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(120, 22);
             this.TxtNombre.TabIndex = 38;
@@ -95,7 +93,7 @@
             this.LabelInstrumento.BackColor = System.Drawing.Color.Transparent;
             this.LabelInstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInstrumento.ForeColor = System.Drawing.Color.Black;
-            this.LabelInstrumento.Location = new System.Drawing.Point(278, 165);
+            this.LabelInstrumento.Location = new System.Drawing.Point(142, 165);
             this.LabelInstrumento.Name = "LabelInstrumento";
             this.LabelInstrumento.Size = new System.Drawing.Size(58, 20);
             this.LabelInstrumento.TabIndex = 37;
@@ -116,7 +114,7 @@
             "Guitarra Electrica",
             "Bajo",
             "Piano"});
-            this.CmbMarca.Location = new System.Drawing.Point(403, 166);
+            this.CmbMarca.Location = new System.Drawing.Point(267, 166);
             this.CmbMarca.Name = "CmbMarca";
             this.CmbMarca.Size = new System.Drawing.Size(120, 24);
             this.CmbMarca.TabIndex = 36;
@@ -135,7 +133,7 @@
             this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModificar.ForeColor = System.Drawing.Color.Black;
-            this.BtnModificar.Location = new System.Drawing.Point(403, 345);
+            this.BtnModificar.Location = new System.Drawing.Point(267, 345);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(119, 90);
             this.BtnModificar.TabIndex = 43;
@@ -154,7 +152,7 @@
             this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSalir.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("BtnSalir.Image")));
-            this.BtnSalir.Location = new System.Drawing.Point(742, 12);
+            this.BtnSalir.Location = new System.Drawing.Point(471, 12);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(46, 34);
             this.BtnSalir.TabIndex = 54;
@@ -166,44 +164,20 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(800, 60);
+            this.label2.Size = new System.Drawing.Size(529, 60);
             this.label2.TabIndex = 53;
             this.label2.Text = "Modificar Marca";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(572, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
-            this.label1.TabIndex = 56;
-            this.label1.Text = "Sede: ";
-            // 
-            // labelsede
-            // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.BackColor = System.Drawing.Color.White;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(630, 22);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 57;
-            this.labelsede.Text = "nombresede";
             // 
             // FrmModificarMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.labelsede);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(529, 555);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnModificar);
@@ -214,8 +188,9 @@
             this.Controls.Add(this.LabelInstrumento);
             this.Controls.Add(this.CmbMarca);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(539, 165);
+            this.Location = new System.Drawing.Point(810, 185);
             this.Name = "FrmModificarMarca";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FrmModificarMarca";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -233,7 +208,5 @@
         private System.Windows.Forms.Button BtnModificar;
         public System.Windows.Forms.Button BtnSalir;
         public System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelsede;
     }
 }

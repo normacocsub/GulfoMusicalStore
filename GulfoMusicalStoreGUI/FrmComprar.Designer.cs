@@ -36,8 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelsede = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CmbInstrumento
@@ -119,7 +117,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(800, 60);
@@ -127,36 +125,12 @@
             this.label2.Text = "Comprar Producto";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(562, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 20);
-            this.label3.TabIndex = 56;
-            this.label3.Text = "Sede: ";
-            // 
-            // labelsede
-            // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.BackColor = System.Drawing.Color.White;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(628, 22);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 57;
-            this.labelsede.Text = "nombresede";
-            // 
             // FrmComprar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.labelsede);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -167,6 +141,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(539, 165);
             this.Name = "FrmComprar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FrmComprar";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -182,7 +157,5 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button BtnSalir;
         public System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label labelsede;
     }
 }

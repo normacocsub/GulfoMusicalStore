@@ -23,7 +23,6 @@ namespace GulfoMusicalStoreGUI
             MapearProductos(DtgProductos);
             MapearMarcas(DtgMarcas);
             LlenarComboMarca();
-            labelsede.Text = ConfigConnection.CiudadConectada;
             DesactivarTxtSede();
         }
 
@@ -42,7 +41,7 @@ namespace GulfoMusicalStoreGUI
        
         private void BtnRegistrarMarca_Click(object sender, EventArgs e)
         {
-            BtnRegistrarMarca.Enabled = false;
+            lockin();
             FrmRegistrarMarca frmcrearmarca = new FrmRegistrarMarca();
             frmcrearmarca.UnlockInventario = this;
             frmcrearmarca.Inventario = this;
@@ -85,7 +84,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            BtnModificarProducto.Enabled = false;
+            lockin();
             FrmModificarInventario frmmodi = new FrmModificarInventario();
             frmmodi.IInventario = this;
             frmmodi.UnlockInventario = this;
@@ -97,7 +96,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnRegistrarProducto_Click(object sender, EventArgs e)
         {
-            BtnRegistrarProducto.Enabled = false;
+            lockin();
             FrmRegistrarProducto frmprod = new FrmRegistrarProducto();
             frmprod.Inventario = this;
             frmprod.UnlockInventario = this;
@@ -114,7 +113,7 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnModificarMarca_Click(object sender, EventArgs e)
         {
-            BtnModificarMarca.Enabled = false;
+            lockin();
             FrmModificarMarca FrmModificar = new FrmModificarMarca();
             FrmModificar.Inventario = this;
             FrmModificar.UnlockInventario = this;
@@ -155,6 +154,13 @@ namespace GulfoMusicalStoreGUI
             MapearProductos(DtgProductos);
         }
 
+        public void lockin()
+        {
+            BtnRegistrarProducto.Enabled = false;
+            BtnRegistrarMarca.Enabled = false;
+            BtnModificarProducto.Enabled = false;
+            BtnModificarMarca.Enabled = false;
+        }
         public void unlockInventario()
         {
             BtnRegistrarProducto.Enabled = true;

@@ -28,7 +28,6 @@ namespace GulfoMusicalStoreGUI
             Cliente cliente;
             cliente = ClienteService.BuscarCliente(Factura.Cliente.Cedula);
             Factura.AgregarCliente(cliente);
-            labelsede.Text = Factura.Lugar.Ciudad;
             MapearCursos(DtgCursos);
             MapearProductos(DtgFactura);
             MapearDatos();

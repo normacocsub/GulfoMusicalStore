@@ -51,9 +51,8 @@
             this.BtnRegistrarMarca = new System.Windows.Forms.Button();
             this.BtnRegistrarProducto = new System.Windows.Forms.Button();
             this.Panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.labelsede = new System.Windows.Forms.Label();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.PanelFondo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMarcas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).BeginInit();
@@ -72,11 +71,11 @@
             this.BtnModificarProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnModificarProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnModificarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnModificarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModificarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModificarProducto.ForeColor = System.Drawing.Color.Black;
-            this.BtnModificarProducto.Location = new System.Drawing.Point(3, 437);
+            this.BtnModificarProducto.Location = new System.Drawing.Point(3, 426);
             this.BtnModificarProducto.Name = "BtnModificarProducto";
-            this.BtnModificarProducto.Size = new System.Drawing.Size(256, 78);
+            this.BtnModificarProducto.Size = new System.Drawing.Size(256, 89);
             this.BtnModificarProducto.TabIndex = 6;
             this.BtnModificarProducto.Text = "Modificar Producto";
             this.BtnModificarProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -86,6 +85,7 @@
             // PanelFondo
             // 
             this.PanelFondo.BackColor = System.Drawing.Color.White;
+            this.PanelFondo.Controls.Add(this.materialDivider1);
             this.PanelFondo.Controls.Add(this.BtnTodos);
             this.PanelFondo.Controls.Add(this.TxtTotalMarcas);
             this.PanelFondo.Controls.Add(this.label4);
@@ -105,6 +105,7 @@
             // 
             // BtnTodos
             // 
+            this.BtnTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnTodos.Location = new System.Drawing.Point(293, 37);
             this.BtnTodos.Name = "BtnTodos";
             this.BtnTodos.Size = new System.Drawing.Size(101, 39);
@@ -116,17 +117,19 @@
             // TxtTotalMarcas
             // 
             this.TxtTotalMarcas.Enabled = false;
+            this.TxtTotalMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTotalMarcas.Location = new System.Drawing.Point(652, 323);
             this.TxtTotalMarcas.Name = "TxtTotalMarcas";
-            this.TxtTotalMarcas.Size = new System.Drawing.Size(81, 20);
+            this.TxtTotalMarcas.Size = new System.Drawing.Size(81, 26);
             this.TxtTotalMarcas.TabIndex = 47;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(596, 326);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.Size = new System.Drawing.Size(49, 20);
             this.label4.TabIndex = 46;
             this.label4.Text = "Total";
             // 
@@ -143,26 +146,29 @@
             // TxtTotal
             // 
             this.TxtTotal.Enabled = false;
+            this.TxtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTotal.Location = new System.Drawing.Point(652, 67);
             this.TxtTotal.Name = "TxtTotal";
-            this.TxtTotal.Size = new System.Drawing.Size(121, 20);
+            this.TxtTotal.Size = new System.Drawing.Size(121, 26);
             this.TxtTotal.TabIndex = 44;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(596, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.Size = new System.Drawing.Size(49, 20);
             this.label3.TabIndex = 43;
             this.label3.Text = "Total";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(553, 32);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(522, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.Size = new System.Drawing.Size(124, 20);
             this.label1.TabIndex = 42;
             this.label1.Text = "Filtrado Marca";
             // 
@@ -177,11 +183,11 @@
             this.BtnModificarMarca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnModificarMarca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnModificarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnModificarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModificarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModificarMarca.ForeColor = System.Drawing.Color.Black;
-            this.BtnModificarMarca.Location = new System.Drawing.Point(585, 375);
+            this.BtnModificarMarca.Location = new System.Drawing.Point(585, 412);
             this.BtnModificarMarca.Name = "BtnModificarMarca";
-            this.BtnModificarMarca.Size = new System.Drawing.Size(148, 85);
+            this.BtnModificarMarca.Size = new System.Drawing.Size(148, 96);
             this.BtnModificarMarca.TabIndex = 40;
             this.BtnModificarMarca.Text = "Modificar Marca";
             this.BtnModificarMarca.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -280,11 +286,11 @@
             this.BtnRegistrarMarca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnRegistrarMarca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnRegistrarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRegistrarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRegistrarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrarMarca.ForeColor = System.Drawing.Color.Black;
-            this.BtnRegistrarMarca.Location = new System.Drawing.Point(3, 253);
+            this.BtnRegistrarMarca.Location = new System.Drawing.Point(3, 242);
             this.BtnRegistrarMarca.Name = "BtnRegistrarMarca";
-            this.BtnRegistrarMarca.Size = new System.Drawing.Size(256, 74);
+            this.BtnRegistrarMarca.Size = new System.Drawing.Size(256, 85);
             this.BtnRegistrarMarca.TabIndex = 25;
             this.BtnRegistrarMarca.Text = "Registrar Marca";
             this.BtnRegistrarMarca.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -302,11 +308,11 @@
             this.BtnRegistrarProducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnRegistrarProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnRegistrarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRegistrarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRegistrarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrarProducto.ForeColor = System.Drawing.Color.Black;
-            this.BtnRegistrarProducto.Location = new System.Drawing.Point(5, 44);
+            this.BtnRegistrarProducto.Location = new System.Drawing.Point(5, 33);
             this.BtnRegistrarProducto.Name = "BtnRegistrarProducto";
-            this.BtnRegistrarProducto.Size = new System.Drawing.Size(256, 85);
+            this.BtnRegistrarProducto.Size = new System.Drawing.Size(256, 96);
             this.BtnRegistrarProducto.TabIndex = 39;
             this.BtnRegistrarProducto.Text = "Registrar Producto";
             this.BtnRegistrarProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -317,25 +323,12 @@
             // 
             this.Panel1.BackColor = System.Drawing.Color.White;
             this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Panel1.Controls.Add(this.labelsede);
-            this.Panel1.Controls.Add(this.label5);
             this.Panel1.Controls.Add(this.label2);
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel1.Location = new System.Drawing.Point(0, 0);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(800, 60);
             this.Panel1.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(564, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 20);
-            this.label5.TabIndex = 56;
-            this.label5.Text = "Sede: ";
             // 
             // label2
             // 
@@ -349,16 +342,16 @@
             this.label2.Text = "Registro de Instrumento";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelsede
+            // materialDivider1
             // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.BackColor = System.Drawing.Color.White;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(631, 19);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 57;
-            this.labelsede.Text = "nombresede";
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(267, 298);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(543, 10);
+            this.materialDivider1.TabIndex = 49;
+            this.materialDivider1.Text = "materialDivider1";
             // 
             // FrmInventario
             // 
@@ -376,7 +369,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DtgProductos)).EndInit();
             this.PanelLateral.ResumeLayout(false);
             this.Panel1.ResumeLayout(false);
-            this.Panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -405,7 +397,6 @@
         private System.Windows.Forms.TextBox TxtTotalMarcas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnTodos;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label labelsede;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
     }
 }

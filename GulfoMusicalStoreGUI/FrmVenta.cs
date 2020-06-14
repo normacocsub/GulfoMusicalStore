@@ -22,7 +22,6 @@ namespace GulfoMusicalStoreGUI
             LabelCurso.Enabled = false;
             Labelinstrumento.Enabled = false;
             Factura = new Factura();
-            sedelabel.Text = ConfigConnection.CiudadConectada;
         }
 
 
@@ -31,13 +30,20 @@ namespace GulfoMusicalStoreGUI
             //Has tu magia y colocas la direccion completa acá para que se vea chido.
             //mira este video mas omenos algo así https://www.youtube.com/watch?v=chJgrml1znc
         }
+        public void ilock()
+        { 
+            BtnRegistrarCliente.Enabled = false;
+            BtnClienteActual.Enabled = false;
+            LabelCodigoProducto.Enabled = false;
+            LabelCurso.Enabled = false;
+        }
 
         private void BtnRegistrarCliente_Click(object sender, EventArgs e)
         {
             FrmClienteDatos frmClienteDatos;
             if (Factura.Cliente == null)
             {
-                BtnRegistrarCliente.Enabled = false;
+                ilock();
                 frmClienteDatos = new FrmClienteDatos(Factura);
                 frmClienteDatos.Venta = this;
                 frmClienteDatos.UnlockVenta = this;
@@ -57,7 +63,7 @@ namespace GulfoMusicalStoreGUI
             }
             else
             {
-                BtnClienteActual.Enabled = false;
+                ilock();
                 FrmInfoCliente frmInfoCliente = new FrmInfoCliente(Factura);
                 frmInfoCliente.Venta = this;
                 frmInfoCliente.UnlockVenta = this;
@@ -69,7 +75,7 @@ namespace GulfoMusicalStoreGUI
         
         private void LabelCodigoProducto_Click(object sender, EventArgs e)
         {
-            LabelCodigoProducto.Enabled = false;
+            ilock();
             FrmComprar frmcomp = new FrmComprar(Factura);
             frmcomp.Venta = this;
             frmcomp.UnlockVenta = this;
@@ -142,7 +148,7 @@ namespace GulfoMusicalStoreGUI
      
         private void LabelCurso_Click_1(object sender, EventArgs e)
         {
-            LabelCurso.Enabled = false;
+            ilock();
             FrmComprarCurso frmCurso = frmCurso = new FrmComprarCurso(Factura);
             frmCurso.Venta = this;
             frmCurso.UnlockVenta = this;
@@ -192,6 +198,16 @@ namespace GulfoMusicalStoreGUI
             BtnClienteActual.Enabled = true;
             LabelCodigoProducto.Enabled = true;
             LabelCurso.Enabled = true;
+        }
+
+        private void labelSede_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Labelinstrumento_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

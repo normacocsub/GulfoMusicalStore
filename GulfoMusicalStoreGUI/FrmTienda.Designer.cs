@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTienda));
             this.BtnSalir = new System.Windows.Forms.Button();
-            this.PanelTitulo = new System.Windows.Forms.Panel();
             this.labelsede = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.LabelTitulo = new System.Windows.Forms.Label();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.Panel1 = new System.Windows.Forms.Panel();
             this.FLPItems = new System.Windows.Forms.FlowLayoutPanel();
@@ -47,9 +45,11 @@
             this.BtnLogo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.PanelTitulo.SuspendLayout();
+            this.LabelTitulo = new System.Windows.Forms.Label();
+            this.PanelTitulo = new System.Windows.Forms.Panel();
             this.Panel1.SuspendLayout();
             this.FLPItems.SuspendLayout();
+            this.PanelTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnSalir
@@ -68,22 +68,10 @@
             this.BtnSalir.UseVisualStyleBackColor = true;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
-            // PanelTitulo
-            // 
-            this.PanelTitulo.BackColor = System.Drawing.Color.DodgerBlue;
-            this.PanelTitulo.Controls.Add(this.labelsede);
-            this.PanelTitulo.Controls.Add(this.label1);
-            this.PanelTitulo.Controls.Add(this.LabelTitulo);
-            this.PanelTitulo.Controls.Add(this.BtnSalir);
-            this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelTitulo.Location = new System.Drawing.Point(0, 0);
-            this.PanelTitulo.Name = "PanelTitulo";
-            this.PanelTitulo.Size = new System.Drawing.Size(1103, 64);
-            this.PanelTitulo.TabIndex = 10;
-            // 
             // labelsede
             // 
             this.labelsede.AutoSize = true;
+            this.labelsede.Enabled = false;
             this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelsede.Location = new System.Drawing.Point(875, 25);
             this.labelsede.Name = "labelsede";
@@ -94,22 +82,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(808, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 20);
             this.label1.TabIndex = 25;
             this.label1.Text = "Sede: ";
-            // 
-            // LabelTitulo
-            // 
-            this.LabelTitulo.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelTitulo.Location = new System.Drawing.Point(373, 15);
-            this.LabelTitulo.Name = "LabelTitulo";
-            this.LabelTitulo.Size = new System.Drawing.Size(357, 35);
-            this.LabelTitulo.TabIndex = 23;
-            this.LabelTitulo.Text = "Gulfo Musical Store";
-            this.LabelTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PanelContenedor
             // 
@@ -150,8 +129,8 @@
             this.BtnInventario.BackColor = System.Drawing.Color.White;
             this.BtnInventario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnInventario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BtnInventario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BtnInventario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.BtnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnInventario.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnInventario.ForeColor = System.Drawing.Color.Black;
@@ -171,8 +150,8 @@
             this.BtnVenta.BackColor = System.Drawing.Color.White;
             this.BtnVenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnVenta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BtnVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BtnVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.BtnVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnVenta.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnVenta.ForeColor = System.Drawing.Color.Black;
@@ -192,8 +171,8 @@
             this.BtnFacturas.BackColor = System.Drawing.Color.White;
             this.BtnFacturas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnFacturas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BtnFacturas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnFacturas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BtnFacturas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.BtnFacturas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnFacturas.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnFacturas.ForeColor = System.Drawing.Color.Black;
@@ -213,8 +192,8 @@
             this.BtnCurso.BackColor = System.Drawing.Color.White;
             this.BtnCurso.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCurso.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BtnCurso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnCurso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BtnCurso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.BtnCurso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCurso.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCurso.ForeColor = System.Drawing.Color.Black;
@@ -234,8 +213,8 @@
             this.BtnCursos.BackColor = System.Drawing.Color.White;
             this.BtnCursos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCursos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BtnCursos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnCursos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BtnCursos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.BtnCursos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCursos.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCursos.ForeColor = System.Drawing.Color.Black;
@@ -255,8 +234,8 @@
             this.BtnEstadisticas.BackColor = System.Drawing.Color.White;
             this.BtnEstadisticas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnEstadisticas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BtnEstadisticas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnEstadisticas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.BtnEstadisticas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.BtnEstadisticas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEstadisticas.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEstadisticas.ForeColor = System.Drawing.Color.Black;
@@ -307,6 +286,30 @@
             this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // LabelTitulo
+            // 
+            this.LabelTitulo.Enabled = false;
+            this.LabelTitulo.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelTitulo.Location = new System.Drawing.Point(373, 15);
+            this.LabelTitulo.Name = "LabelTitulo";
+            this.LabelTitulo.Size = new System.Drawing.Size(357, 35);
+            this.LabelTitulo.TabIndex = 23;
+            this.LabelTitulo.Text = "Gulfo Musical Store";
+            this.LabelTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PanelTitulo
+            // 
+            this.PanelTitulo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.PanelTitulo.Controls.Add(this.labelsede);
+            this.PanelTitulo.Controls.Add(this.label1);
+            this.PanelTitulo.Controls.Add(this.LabelTitulo);
+            this.PanelTitulo.Controls.Add(this.BtnSalir);
+            this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelTitulo.Location = new System.Drawing.Point(0, 0);
+            this.PanelTitulo.Name = "PanelTitulo";
+            this.PanelTitulo.Size = new System.Drawing.Size(1103, 64);
+            this.PanelTitulo.TabIndex = 10;
+            // 
             // FrmTienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,10 +323,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTienda";
             this.Load += new System.EventHandler(this.FrmTienda_Load);
-            this.PanelTitulo.ResumeLayout(false);
-            this.PanelTitulo.PerformLayout();
             this.Panel1.ResumeLayout(false);
             this.FLPItems.ResumeLayout(false);
+            this.PanelTitulo.ResumeLayout(false);
+            this.PanelTitulo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -337,14 +340,14 @@
         public System.Windows.Forms.Button BtnEstadisticas;
         public System.Windows.Forms.Button BtnLogo;
         public System.Windows.Forms.Button BtnSalir;
-        public System.Windows.Forms.Panel PanelTitulo;
         public System.Windows.Forms.Panel PanelContenedor;
-        public System.Windows.Forms.Label LabelTitulo;
         public System.Windows.Forms.Panel Panel1;
         public System.Windows.Forms.FlowLayoutPanel FLPItems;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelsede;
+        public System.Windows.Forms.Label LabelTitulo;
+        public System.Windows.Forms.Panel PanelTitulo;
     }
 }

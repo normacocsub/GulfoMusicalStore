@@ -26,7 +26,6 @@ namespace GulfoMusicalStoreGUI
             InitializeComponent();
             Factura = factura;
             MapearDatosCliente();
-            labelsede.Text = ConfigConnection.CiudadConectada;
         }
 
         private void MapearDatosCliente()

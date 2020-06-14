@@ -19,7 +19,6 @@ namespace GulfoMusicalStoreGUI
         {
             InitializeComponent();
             MapearDtgFactura(DtgFactura);
-            labelsede.Text = ConfigConnection.CiudadConectada;
         }
 
        

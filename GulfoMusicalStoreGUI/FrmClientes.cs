@@ -19,7 +19,6 @@ namespace GulfoMusicalStoreGUI
         {
             InitializeComponent();
             MapearDtgTodos(DtgClientes);
-            labelsede.Text = ConfigConnection.CiudadConectada;
         }
 
        
@@ -102,7 +101,5 @@ namespace GulfoMusicalStoreGUI
         {
             MapearDtgClientesCedula(DtgClientes,TxtCedula.Text);
         }
-
-       
     }
 }

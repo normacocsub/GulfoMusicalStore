@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVenta));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.GBFactura = new System.Windows.Forms.GroupBox();
             this.LabelCurso = new System.Windows.Forms.Label();
             this.LabelIVA = new System.Windows.Forms.Label();
@@ -51,27 +53,45 @@
             this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CUNIDADES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Labelinstrumento = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.CBCurso = new System.Windows.Forms.ComboBox();
-            this.LabelFechaFactura = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.BtnFacturar = new System.Windows.Forms.Button();
             this.GBCliente = new System.Windows.Forms.GroupBox();
             this.BtnClienteActual = new System.Windows.Forms.Button();
             this.BtnRegistrarCliente = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.sedelabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelSede = new System.Windows.Forms.Panel();
+            this.BtnFacturar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LabelFechaFactura = new System.Windows.Forms.Label();
+            this.CBCurso = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Labelinstrumento = new System.Windows.Forms.Label();
+            this.PanelContenedor = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.GBFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).BeginInit();
             this.GBCliente.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.labelSede.SuspendLayout();
+            this.PanelContenedor.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 60);
+            this.panel1.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(268, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(260, 34);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Venta de Producto";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // GBFactura
             // 
@@ -87,7 +107,8 @@
             this.GBFactura.Controls.Add(this.DtgCursos);
             this.GBFactura.Controls.Add(this.LabelCodigoProducto);
             this.GBFactura.Controls.Add(this.DtgFactura);
-            this.GBFactura.Location = new System.Drawing.Point(39, 201);
+            this.GBFactura.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBFactura.Location = new System.Drawing.Point(39, 188);
             this.GBFactura.Name = "GBFactura";
             this.GBFactura.Size = new System.Drawing.Size(722, 293);
             this.GBFactura.TabIndex = 56;
@@ -98,12 +119,13 @@
             // 
             this.LabelCurso.BackColor = System.Drawing.Color.White;
             this.LabelCurso.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LabelCurso.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.LabelCurso.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCurso.ForeColor = System.Drawing.Color.Black;
             this.LabelCurso.Location = new System.Drawing.Point(381, 27);
             this.LabelCurso.Name = "LabelCurso";
-            this.LabelCurso.Size = new System.Drawing.Size(177, 20);
+            this.LabelCurso.Size = new System.Drawing.Size(306, 20);
             this.LabelCurso.TabIndex = 92;
             this.LabelCurso.Text = "Seleccione el curso";
             this.LabelCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,6 +135,7 @@
             // 
             this.LabelIVA.BackColor = System.Drawing.Color.White;
             this.LabelIVA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LabelIVA.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelIVA.Location = new System.Drawing.Point(148, 259);
             this.LabelIVA.Name = "LabelIVA";
             this.LabelIVA.Size = new System.Drawing.Size(86, 23);
@@ -123,7 +146,7 @@
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label11.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(48, 259);
             this.label11.Name = "label11";
@@ -135,6 +158,7 @@
             // label10
             // 
             this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(340, 259);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(25, 20);
@@ -146,6 +170,7 @@
             // 
             this.LabelSubTotal.BackColor = System.Drawing.Color.White;
             this.LabelSubTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LabelSubTotal.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelSubTotal.Location = new System.Drawing.Point(340, 259);
             this.LabelSubTotal.Name = "LabelSubTotal";
             this.LabelSubTotal.Size = new System.Drawing.Size(117, 23);
@@ -156,7 +181,7 @@
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label9.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(240, 259);
             this.label9.Name = "label9";
@@ -168,6 +193,7 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(576, 259);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(25, 20);
@@ -179,6 +205,7 @@
             // 
             this.labelTotal.BackColor = System.Drawing.Color.White;
             this.labelTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelTotal.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotal.Location = new System.Drawing.Point(576, 259);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(111, 20);
@@ -189,7 +216,7 @@
             // Label15
             // 
             this.Label15.BackColor = System.Drawing.Color.White;
-            this.Label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.Label15.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label15.ForeColor = System.Drawing.Color.Black;
             this.Label15.Location = new System.Drawing.Point(476, 259);
             this.Label15.Name = "Label15";
@@ -237,12 +264,13 @@
             // 
             this.LabelCodigoProducto.BackColor = System.Drawing.Color.White;
             this.LabelCodigoProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LabelCodigoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelCodigoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.LabelCodigoProducto.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCodigoProducto.ForeColor = System.Drawing.Color.Black;
             this.LabelCodigoProducto.Location = new System.Drawing.Point(44, 27);
             this.LabelCodigoProducto.Name = "LabelCodigoProducto";
-            this.LabelCodigoProducto.Size = new System.Drawing.Size(177, 20);
+            this.LabelCodigoProducto.Size = new System.Drawing.Size(290, 20);
             this.LabelCodigoProducto.TabIndex = 89;
             this.LabelCodigoProducto.Text = "Seleccione el producto";
             this.LabelCodigoProducto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -302,57 +330,66 @@
             this.CMarca.ReadOnly = true;
             this.CMarca.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // Labelinstrumento
+            // GBCliente
             // 
-            this.Labelinstrumento.BackColor = System.Drawing.Color.White;
-            this.Labelinstrumento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Labelinstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.Labelinstrumento.ForeColor = System.Drawing.Color.Black;
-            this.Labelinstrumento.Location = new System.Drawing.Point(289, 559);
-            this.Labelinstrumento.Name = "Labelinstrumento";
-            this.Labelinstrumento.Size = new System.Drawing.Size(212, 21);
-            this.Labelinstrumento.TabIndex = 91;
-            this.Labelinstrumento.Text = "Elija el Instrumento para el curso";
-            this.Labelinstrumento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.GBCliente.Controls.Add(this.BtnClienteActual);
+            this.GBCliente.Controls.Add(this.BtnRegistrarCliente);
+            this.GBCliente.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBCliente.Location = new System.Drawing.Point(39, 71);
+            this.GBCliente.Name = "GBCliente";
+            this.GBCliente.Size = new System.Drawing.Size(722, 111);
+            this.GBCliente.TabIndex = 55;
+            this.GBCliente.TabStop = false;
+            this.GBCliente.Text = "Datos del Cliente";
             // 
-            // label3
+            // BtnClienteActual
             // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(289, 523);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 21);
-            this.label3.TabIndex = 88;
-            this.label3.Text = "Desea tomar el curso?";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnClienteActual.BackColor = System.Drawing.Color.Transparent;
+            this.BtnClienteActual.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnClienteActual.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
+            this.BtnClienteActual.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnClienteActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClienteActual.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClienteActual.Location = new System.Drawing.Point(494, 36);
+            this.BtnClienteActual.Name = "BtnClienteActual";
+            this.BtnClienteActual.Size = new System.Drawing.Size(173, 55);
+            this.BtnClienteActual.TabIndex = 1;
+            this.BtnClienteActual.Text = "Info Cliente";
+            this.BtnClienteActual.UseVisualStyleBackColor = false;
+            this.BtnClienteActual.Click += new System.EventHandler(this.BtnClienteActual_Click);
             // 
-            // CBCurso
+            // BtnRegistrarCliente
             // 
-            this.CBCurso.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBCurso.FormattingEnabled = true;
-            this.CBCurso.Items.AddRange(new object[] {
-            "Si",
-            "No"});
-            this.CBCurso.Location = new System.Drawing.Point(448, 523);
-            this.CBCurso.Name = "CBCurso";
-            this.CBCurso.Size = new System.Drawing.Size(50, 21);
-            this.CBCurso.TabIndex = 59;
-            this.CBCurso.SelectedIndexChanged += new System.EventHandler(this.CBCurso_SelectedIndexChanged);
+            this.BtnRegistrarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRegistrarCliente.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
+            this.BtnRegistrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRegistrarCliente.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRegistrarCliente.Location = new System.Drawing.Point(44, 24);
+            this.BtnRegistrarCliente.Name = "BtnRegistrarCliente";
+            this.BtnRegistrarCliente.Size = new System.Drawing.Size(354, 73);
+            this.BtnRegistrarCliente.TabIndex = 0;
+            this.BtnRegistrarCliente.Text = "Registrar Cliente";
+            this.BtnRegistrarCliente.UseVisualStyleBackColor = true;
+            this.BtnRegistrarCliente.Click += new System.EventHandler(this.BtnRegistrarCliente_Click);
             // 
-            // LabelFechaFactura
+            // BtnFacturar
             // 
-            this.LabelFechaFactura.BackColor = System.Drawing.Color.White;
-            this.LabelFechaFactura.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.LabelFechaFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelFechaFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.LabelFechaFactura.Location = new System.Drawing.Point(148, 13);
-            this.LabelFechaFactura.Name = "LabelFechaFactura";
-            this.LabelFechaFactura.Size = new System.Drawing.Size(94, 23);
-            this.LabelFechaFactura.TabIndex = 58;
-            this.LabelFechaFactura.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnFacturar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnFacturar.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
+            this.BtnFacturar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.BtnFacturar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.BtnFacturar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFacturar.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFacturar.Image = ((System.Drawing.Image)(resources.GetObject("BtnFacturar.Image")));
+            this.BtnFacturar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnFacturar.Location = new System.Drawing.Point(652, 491);
+            this.BtnFacturar.Name = "BtnFacturar";
+            this.BtnFacturar.Size = new System.Drawing.Size(109, 97);
+            this.BtnFacturar.TabIndex = 54;
+            this.BtnFacturar.Text = "Facturar";
+            this.BtnFacturar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnFacturar.UseVisualStyleBackColor = true;
+            this.BtnFacturar.Click += new System.EventHandler(this.BtnFacturar_Click);
             // 
             // label4
             // 
@@ -367,125 +404,78 @@
             this.label4.Text = "Fecha Factura";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BtnFacturar
+            // LabelFechaFactura
             // 
-            this.BtnFacturar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnFacturar.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
-            this.BtnFacturar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.BtnFacturar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnFacturar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFacturar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.BtnFacturar.Image = ((System.Drawing.Image)(resources.GetObject("BtnFacturar.Image")));
-            this.BtnFacturar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnFacturar.Location = new System.Drawing.Point(652, 500);
-            this.BtnFacturar.Name = "BtnFacturar";
-            this.BtnFacturar.Size = new System.Drawing.Size(109, 97);
-            this.BtnFacturar.TabIndex = 54;
-            this.BtnFacturar.Text = "Guardar";
-            this.BtnFacturar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnFacturar.UseVisualStyleBackColor = true;
-            this.BtnFacturar.Click += new System.EventHandler(this.BtnFacturar_Click);
+            this.LabelFechaFactura.BackColor = System.Drawing.Color.White;
+            this.LabelFechaFactura.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LabelFechaFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelFechaFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LabelFechaFactura.Location = new System.Drawing.Point(148, 13);
+            this.LabelFechaFactura.Name = "LabelFechaFactura";
+            this.LabelFechaFactura.Size = new System.Drawing.Size(94, 23);
+            this.LabelFechaFactura.TabIndex = 58;
+            this.LabelFechaFactura.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // GBCliente
+            // CBCurso
             // 
-            this.GBCliente.Controls.Add(this.BtnClienteActual);
-            this.GBCliente.Controls.Add(this.BtnRegistrarCliente);
-            this.GBCliente.Location = new System.Drawing.Point(39, 71);
-            this.GBCliente.Name = "GBCliente";
-            this.GBCliente.Size = new System.Drawing.Size(722, 124);
-            this.GBCliente.TabIndex = 55;
-            this.GBCliente.TabStop = false;
-            this.GBCliente.Text = "Datos del Cliente";
+            this.CBCurso.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBCurso.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBCurso.FormattingEnabled = true;
+            this.CBCurso.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.CBCurso.Location = new System.Drawing.Point(468, 521);
+            this.CBCurso.Name = "CBCurso";
+            this.CBCurso.Size = new System.Drawing.Size(70, 26);
+            this.CBCurso.TabIndex = 59;
+            this.CBCurso.SelectedIndexChanged += new System.EventHandler(this.CBCurso_SelectedIndexChanged);
             // 
-            // BtnClienteActual
+            // label3
             // 
-            this.BtnClienteActual.BackColor = System.Drawing.Color.Transparent;
-            this.BtnClienteActual.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
-            this.BtnClienteActual.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BtnClienteActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnClienteActual.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnClienteActual.Location = new System.Drawing.Point(500, 40);
-            this.BtnClienteActual.Name = "BtnClienteActual";
-            this.BtnClienteActual.Size = new System.Drawing.Size(173, 55);
-            this.BtnClienteActual.TabIndex = 1;
-            this.BtnClienteActual.Text = "Info Cliente";
-            this.BtnClienteActual.UseVisualStyleBackColor = false;
-            this.BtnClienteActual.Click += new System.EventHandler(this.BtnClienteActual_Click);
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(241, 523);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(205, 21);
+            this.label3.TabIndex = 88;
+            this.label3.Text = "Desea tomar el curso?";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BtnRegistrarCliente
+            // Labelinstrumento
             // 
-            this.BtnRegistrarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRegistrarCliente.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
-            this.BtnRegistrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRegistrarCliente.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRegistrarCliente.Location = new System.Drawing.Point(49, 28);
-            this.BtnRegistrarCliente.Name = "BtnRegistrarCliente";
-            this.BtnRegistrarCliente.Size = new System.Drawing.Size(354, 73);
-            this.BtnRegistrarCliente.TabIndex = 0;
-            this.BtnRegistrarCliente.Text = "Registrar Cliente";
-            this.BtnRegistrarCliente.UseVisualStyleBackColor = true;
-            this.BtnRegistrarCliente.Click += new System.EventHandler(this.BtnRegistrarCliente_Click);
+            this.Labelinstrumento.BackColor = System.Drawing.Color.White;
+            this.Labelinstrumento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Labelinstrumento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Labelinstrumento.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Labelinstrumento.ForeColor = System.Drawing.Color.Black;
+            this.Labelinstrumento.Location = new System.Drawing.Point(241, 564);
+            this.Labelinstrumento.Name = "Labelinstrumento";
+            this.Labelinstrumento.Size = new System.Drawing.Size(297, 21);
+            this.Labelinstrumento.TabIndex = 91;
+            this.Labelinstrumento.Text = "Elija el Instrumento para el curso";
+            this.Labelinstrumento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Labelinstrumento.Click += new System.EventHandler(this.Labelinstrumento_Click);
             // 
-            // panel1
+            // PanelContenedor
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.sedelabel);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 60);
-            this.panel1.TabIndex = 10;
-            // 
-            // sedelabel
-            // 
-            this.sedelabel.AutoSize = true;
-            this.sedelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sedelabel.Location = new System.Drawing.Point(661, 22);
-            this.sedelabel.Name = "sedelabel";
-            this.sedelabel.Size = new System.Drawing.Size(108, 20);
-            this.sedelabel.TabIndex = 26;
-            this.sedelabel.Text = "nombresede";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(594, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Sede: ";
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(268, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 34);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Venta de Producto";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelSede
-            // 
-            this.labelSede.BackColor = System.Drawing.Color.DodgerBlue;
-            this.labelSede.Controls.Add(this.Labelinstrumento);
-            this.labelSede.Controls.Add(this.label3);
-            this.labelSede.Controls.Add(this.CBCurso);
-            this.labelSede.Controls.Add(this.LabelFechaFactura);
-            this.labelSede.Controls.Add(this.label4);
-            this.labelSede.Controls.Add(this.BtnFacturar);
-            this.labelSede.Controls.Add(this.GBCliente);
-            this.labelSede.Controls.Add(this.GBFactura);
-            this.labelSede.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelSede.Location = new System.Drawing.Point(0, 0);
-            this.labelSede.Name = "labelSede";
-            this.labelSede.Size = new System.Drawing.Size(800, 600);
-            this.labelSede.TabIndex = 11;
+            this.PanelContenedor.BackColor = System.Drawing.Color.DodgerBlue;
+            this.PanelContenedor.Controls.Add(this.Labelinstrumento);
+            this.PanelContenedor.Controls.Add(this.label3);
+            this.PanelContenedor.Controls.Add(this.CBCurso);
+            this.PanelContenedor.Controls.Add(this.LabelFechaFactura);
+            this.PanelContenedor.Controls.Add(this.label4);
+            this.PanelContenedor.Controls.Add(this.BtnFacturar);
+            this.PanelContenedor.Controls.Add(this.GBCliente);
+            this.PanelContenedor.Controls.Add(this.GBFactura);
+            this.PanelContenedor.Location = new System.Drawing.Point(0, 0);
+            this.PanelContenedor.Name = "PanelContenedor";
+            this.PanelContenedor.Size = new System.Drawing.Size(800, 600);
+            this.PanelContenedor.TabIndex = 11;
+            this.PanelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.labelSede_Paint);
             // 
             // FrmVenta
             // 
@@ -493,50 +483,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.labelSede);
+            this.Controls.Add(this.PanelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmVenta";
             this.Text = "FrmVenta";
+            this.panel1.ResumeLayout(false);
             this.GBFactura.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgCursos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).EndInit();
             this.GBCliente.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.labelSede.ResumeLayout(false);
+            this.PanelContenedor.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        public System.Windows.Forms.Button BtnRegistrarCliente;
-        public System.Windows.Forms.GroupBox GBFactura;
-        public System.Windows.Forms.Label Labelinstrumento;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.ComboBox CBCurso;
-        public System.Windows.Forms.Label LabelFechaFactura;
-        public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.Button BtnFacturar;
-        public System.Windows.Forms.GroupBox GBCliente;
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Panel labelSede;
-        private System.Windows.Forms.Button BtnClienteActual;
-        private System.Windows.Forms.DataGridView DtgFactura;
-        private System.Windows.Forms.Label LabelCodigoProducto;
+        public System.Windows.Forms.GroupBox GBFactura;
         private System.Windows.Forms.Label LabelCurso;
-        private System.Windows.Forms.DataGridView DtgCursos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCodigoProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CUNIDADES;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CUNIDADES2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label sedelabel;
         private System.Windows.Forms.Label LabelIVA;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -545,5 +510,27 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label Label15;
+        private System.Windows.Forms.DataGridView DtgCursos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CUNIDADES2;
+        private System.Windows.Forms.Label LabelCodigoProducto;
+        private System.Windows.Forms.DataGridView DtgFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCodigoProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CUNIDADES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMarca;
+        public System.Windows.Forms.GroupBox GBCliente;
+        private System.Windows.Forms.Button BtnClienteActual;
+        public System.Windows.Forms.Button BtnRegistrarCliente;
+        public System.Windows.Forms.Button BtnFacturar;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label LabelFechaFactura;
+        public System.Windows.Forms.ComboBox CBCurso;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label Labelinstrumento;
+        public System.Windows.Forms.Panel PanelContenedor;
     }
 }

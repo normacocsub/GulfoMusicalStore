@@ -49,6 +49,7 @@ namespace GulfoMusicalStoreGUI
         {
             AbrirContainer(new FrmInventario());
             BtnVenta.Enabled = true;
+            BtnInventario.Enabled = false;
         }
 
         private void BtnVenta_Click(object sender, EventArgs e)
@@ -61,24 +62,28 @@ namespace GulfoMusicalStoreGUI
         {
             AbrirContainer(new FrmFacturas());
             BtnVenta.Enabled = true;
+            BtnInventario.Enabled = true;
         }
 
         private void BtnCurso_Click(object sender, EventArgs e)
         {
             AbrirContainer(new FrmCurso());
             BtnVenta.Enabled = true;
+            BtnInventario.Enabled = true;
         }
 
         private void BtnCursos_Click(object sender, EventArgs e)
         {
             AbrirContainer(new FrmClientes());
             BtnVenta.Enabled = true;
+            BtnInventario.Enabled = true;
         }
 
         private void BtnEstadisticas_Click(object sender, EventArgs e)
         {
             AbrirContainer(new FrmEstadisticas());
             BtnVenta.Enabled = true;
+            BtnInventario.Enabled = true;
         }
         int cont = 0;
         private void timer1_Tick(object sender, EventArgs e)
@@ -96,6 +101,7 @@ namespace GulfoMusicalStoreGUI
         {
             AbrirContainer(new FrmLogo());
             BtnVenta.Enabled = true;
+            BtnInventario.Enabled = true;
         }
 
         private void FrmTienda_Load(object sender, EventArgs e)

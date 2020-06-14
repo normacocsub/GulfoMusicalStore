@@ -178,21 +178,22 @@
             // CmbCiudad
             // 
             this.CmbCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbCiudad.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbCiudad.FormattingEnabled = true;
             this.CmbCiudad.Items.AddRange(new object[] {
             "Bogota",
             "Cali",
             "Barranquilla"});
-            this.CmbCiudad.Location = new System.Drawing.Point(391, 212);
+            this.CmbCiudad.Location = new System.Drawing.Point(391, 213);
             this.CmbCiudad.Name = "CmbCiudad";
-            this.CmbCiudad.Size = new System.Drawing.Size(138, 21);
+            this.CmbCiudad.Size = new System.Drawing.Size(138, 30);
             this.CmbCiudad.TabIndex = 31;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(221, 212);
+            this.label1.Location = new System.Drawing.Point(221, 219);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 24);
             this.label1.TabIndex = 32;

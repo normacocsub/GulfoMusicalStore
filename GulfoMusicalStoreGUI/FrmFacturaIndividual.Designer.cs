@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFacturaIndividual));
             this.PanelFondo = new System.Windows.Forms.Panel();
             this.LabelFechaFactura = new System.Windows.Forms.Label();
@@ -64,8 +62,6 @@
             this.CMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelsede = new System.Windows.Forms.Label();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.PanelFondo.SuspendLayout();
@@ -95,7 +91,7 @@
             // 
             this.LabelFechaFactura.BackColor = System.Drawing.Color.White;
             this.LabelFechaFactura.Enabled = false;
-            this.LabelFechaFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelFechaFactura.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelFechaFactura.ForeColor = System.Drawing.Color.Black;
             this.LabelFechaFactura.Location = new System.Drawing.Point(148, 13);
             this.LabelFechaFactura.Name = "LabelFechaFactura";
@@ -107,7 +103,7 @@
             // 
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Enabled = false;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(39, 13);
             this.label4.Name = "label4";
@@ -120,7 +116,7 @@
             // 
             this.LabelCodigoFactura.BackColor = System.Drawing.Color.White;
             this.LabelCodigoFactura.Enabled = false;
-            this.LabelCodigoFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelCodigoFactura.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCodigoFactura.ForeColor = System.Drawing.Color.Black;
             this.LabelCodigoFactura.Location = new System.Drawing.Point(702, 13);
             this.LabelCodigoFactura.Name = "LabelCodigoFactura";
@@ -132,7 +128,7 @@
             // 
             this.LabelCodigoFacturatitulo.BackColor = System.Drawing.Color.White;
             this.LabelCodigoFacturatitulo.Enabled = false;
-            this.LabelCodigoFacturatitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelCodigoFacturatitulo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCodigoFacturatitulo.ForeColor = System.Drawing.Color.Black;
             this.LabelCodigoFacturatitulo.Location = new System.Drawing.Point(593, 13);
             this.LabelCodigoFacturatitulo.Name = "LabelCodigoFacturatitulo";
@@ -144,6 +140,8 @@
             // GBCliente
             // 
             this.GBCliente.Controls.Add(this.BtnClienteActual);
+            this.GBCliente.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBCliente.ForeColor = System.Drawing.Color.Black;
             this.GBCliente.Location = new System.Drawing.Point(39, 59);
             this.GBCliente.Name = "GBCliente";
             this.GBCliente.Size = new System.Drawing.Size(722, 95);
@@ -183,9 +181,11 @@
             this.GBFactura.Controls.Add(this.LabelTotal);
             this.GBFactura.Controls.Add(this.label13);
             this.GBFactura.Controls.Add(this.DtgFactura);
+            this.GBFactura.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GBFactura.ForeColor = System.Drawing.Color.Black;
             this.GBFactura.Location = new System.Drawing.Point(39, 160);
             this.GBFactura.Name = "GBFactura";
-            this.GBFactura.Size = new System.Drawing.Size(722, 358);
+            this.GBFactura.Size = new System.Drawing.Size(722, 368);
             this.GBFactura.TabIndex = 56;
             this.GBFactura.TabStop = false;
             this.GBFactura.Text = "Datos Factura";
@@ -194,14 +194,6 @@
             // 
             this.DtgCursos.AllowUserToAddRows = false;
             this.DtgCursos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgCursos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgCursos.ColumnHeadersHeight = 34;
             this.DtgCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DtgCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -209,14 +201,6 @@
             this.CNombre,
             this.CValor,
             this.CUNIDADES2});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DtgCursos.DefaultCellStyle = dataGridViewCellStyle4;
             this.DtgCursos.Location = new System.Drawing.Point(376, 101);
             this.DtgCursos.Name = "DtgCursos";
             this.DtgCursos.Size = new System.Drawing.Size(299, 189);
@@ -226,6 +210,7 @@
             // 
             this.CCodigo.HeaderText = "Codigo Curso";
             this.CCodigo.Name = "CCodigo";
+            this.CCodigo.Width = 150;
             // 
             // CNombre
             // 
@@ -245,11 +230,11 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(39, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(202, 30);
+            this.label5.Size = new System.Drawing.Size(202, 62);
             this.label5.TabIndex = 96;
             this.label5.Text = "Modificar Estado De La Factura";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -257,11 +242,11 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(368, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(215, 30);
+            this.label3.Size = new System.Drawing.Size(215, 62);
             this.label3.TabIndex = 95;
             this.label3.Text = "Cantidad Elementos Comprados";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -270,7 +255,9 @@
             // 
             this.LabelCantidad.BackColor = System.Drawing.Color.White;
             this.LabelCantidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelCantidad.Location = new System.Drawing.Point(595, 28);
+            this.LabelCantidad.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelCantidad.ForeColor = System.Drawing.Color.Black;
+            this.LabelCantidad.Location = new System.Drawing.Point(589, 60);
             this.LabelCantidad.Name = "LabelCantidad";
             this.LabelCantidad.Size = new System.Drawing.Size(86, 30);
             this.LabelCantidad.TabIndex = 92;
@@ -279,7 +266,9 @@
             // 
             // BtnModificar
             // 
-            this.BtnModificar.Location = new System.Drawing.Point(257, 55);
+            this.BtnModificar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModificar.ForeColor = System.Drawing.Color.Black;
+            this.BtnModificar.Location = new System.Drawing.Point(257, 61);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(84, 29);
             this.BtnModificar.TabIndex = 89;
@@ -290,13 +279,15 @@
             // CBCambiarEstado
             // 
             this.CBCambiarEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBCambiarEstado.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBCambiarEstado.ForeColor = System.Drawing.Color.Black;
             this.CBCambiarEstado.FormattingEnabled = true;
             this.CBCambiarEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
             this.CBCambiarEstado.Location = new System.Drawing.Point(257, 28);
             this.CBCambiarEstado.Name = "CBCambiarEstado";
-            this.CBCambiarEstado.Size = new System.Drawing.Size(84, 21);
+            this.CBCambiarEstado.Size = new System.Drawing.Size(84, 27);
             this.CBCambiarEstado.TabIndex = 0;
             this.CBCambiarEstado.TabStop = false;
             this.CBCambiarEstado.Tag = "0";
@@ -306,7 +297,9 @@
             // 
             this.LabelIVA.BackColor = System.Drawing.Color.White;
             this.LabelIVA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelIVA.Location = new System.Drawing.Point(142, 319);
+            this.LabelIVA.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelIVA.ForeColor = System.Drawing.Color.Black;
+            this.LabelIVA.Location = new System.Drawing.Point(84, 332);
             this.LabelIVA.Name = "LabelIVA";
             this.LabelIVA.Size = new System.Drawing.Size(86, 23);
             this.LabelIVA.TabIndex = 87;
@@ -316,9 +309,9 @@
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label11.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(42, 319);
+            this.label11.Location = new System.Drawing.Point(81, 304);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(94, 23);
             this.label11.TabIndex = 86;
@@ -328,7 +321,9 @@
             // label10
             // 
             this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(334, 319);
+            this.label10.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(303, 335);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(25, 20);
             this.label10.TabIndex = 85;
@@ -339,7 +334,9 @@
             // 
             this.LabelSubTotal.BackColor = System.Drawing.Color.White;
             this.LabelSubTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelSubTotal.Location = new System.Drawing.Point(334, 319);
+            this.LabelSubTotal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelSubTotal.ForeColor = System.Drawing.Color.Black;
+            this.LabelSubTotal.Location = new System.Drawing.Point(292, 335);
             this.LabelSubTotal.Name = "LabelSubTotal";
             this.LabelSubTotal.Size = new System.Drawing.Size(117, 23);
             this.LabelSubTotal.TabIndex = 84;
@@ -349,9 +346,9 @@
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label9.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(234, 319);
+            this.label9.Location = new System.Drawing.Point(303, 304);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 23);
             this.label9.TabIndex = 83;
@@ -361,7 +358,9 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(570, 319);
+            this.label6.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(518, 336);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(25, 20);
             this.label6.TabIndex = 82;
@@ -372,7 +371,9 @@
             // 
             this.LabelTotal.BackColor = System.Drawing.Color.White;
             this.LabelTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelTotal.Location = new System.Drawing.Point(570, 319);
+            this.LabelTotal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelTotal.ForeColor = System.Drawing.Color.Black;
+            this.LabelTotal.Location = new System.Drawing.Point(518, 336);
             this.LabelTotal.Name = "LabelTotal";
             this.LabelTotal.Size = new System.Drawing.Size(111, 20);
             this.LabelTotal.TabIndex = 81;
@@ -382,11 +383,11 @@
             // label13
             // 
             this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label13.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(470, 319);
+            this.label13.Location = new System.Drawing.Point(505, 307);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(94, 20);
+            this.label13.Size = new System.Drawing.Size(136, 20);
             this.label13.TabIndex = 80;
             this.label13.Text = "Total a Pagar";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -395,7 +396,8 @@
             // 
             this.DtgFactura.AllowUserToAddRows = false;
             this.DtgFactura.BackgroundColor = System.Drawing.Color.White;
-            this.DtgFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgFactura.ColumnHeadersHeight = 34;
+            this.DtgFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DtgFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CCodigoProducto,
             this.CProducto,
@@ -412,6 +414,7 @@
             // 
             this.CCodigoProducto.HeaderText = "Codigo Producto";
             this.CCodigoProducto.Name = "CCodigoProducto";
+            this.CCodigoProducto.Width = 150;
             // 
             // CProducto
             // 
@@ -440,8 +443,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.labelsede);
             this.panel1.Controls.Add(this.BtnSalir);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -449,28 +450,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(494, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
-            this.label1.TabIndex = 140;
-            this.label1.Text = "Sede Factura: ";
-            // 
-            // labelsede
-            // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.BackColor = System.Drawing.Color.White;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(619, 22);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 60;
-            this.labelsede.Text = "nombresede";
             // 
             // BtnSalir
             // 
@@ -509,8 +488,9 @@
             this.Controls.Add(this.PanelFondo);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(539, 165);
             this.Name = "FrmFacturaIndividual";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FrmFacturaIndividual";
             this.PanelFondo.ResumeLayout(false);
             this.GBCliente.ResumeLayout(false);
@@ -518,7 +498,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DtgCursos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgFactura)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -548,8 +527,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button BtnSalir;
-        private System.Windows.Forms.Label labelsede;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DtgCursos;
         private System.Windows.Forms.Button BtnClienteActual;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo;

@@ -40,8 +40,6 @@
             this.BtnRegistrar = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelsede = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LabelInstrumento
@@ -50,7 +48,7 @@
             this.LabelInstrumento.BackColor = System.Drawing.Color.Transparent;
             this.LabelInstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInstrumento.ForeColor = System.Drawing.Color.Black;
-            this.LabelInstrumento.Location = new System.Drawing.Point(262, 199);
+            this.LabelInstrumento.Location = new System.Drawing.Point(124, 203);
             this.LabelInstrumento.Name = "LabelInstrumento";
             this.LabelInstrumento.Size = new System.Drawing.Size(106, 20);
             this.LabelInstrumento.TabIndex = 3;
@@ -62,7 +60,7 @@
             this.TxtInstrumento.BackColor = System.Drawing.Color.White;
             this.TxtInstrumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtInstrumento.ForeColor = System.Drawing.Color.Black;
-            this.TxtInstrumento.Location = new System.Drawing.Point(419, 200);
+            this.TxtInstrumento.Location = new System.Drawing.Point(281, 204);
             this.TxtInstrumento.Name = "TxtInstrumento";
             this.TxtInstrumento.Size = new System.Drawing.Size(120, 22);
             this.TxtInstrumento.TabIndex = 26;
@@ -73,7 +71,7 @@
             this.LabelMarca.BackColor = System.Drawing.Color.Transparent;
             this.LabelMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelMarca.ForeColor = System.Drawing.Color.Black;
-            this.LabelMarca.Location = new System.Drawing.Point(262, 245);
+            this.LabelMarca.Location = new System.Drawing.Point(124, 249);
             this.LabelMarca.Name = "LabelMarca";
             this.LabelMarca.Size = new System.Drawing.Size(58, 20);
             this.LabelMarca.TabIndex = 27;
@@ -88,7 +86,7 @@
             this.CmbMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbMarca.ForeColor = System.Drawing.Color.Black;
             this.CmbMarca.FormattingEnabled = true;
-            this.CmbMarca.Location = new System.Drawing.Point(419, 245);
+            this.CmbMarca.Location = new System.Drawing.Point(281, 249);
             this.CmbMarca.Name = "CmbMarca";
             this.CmbMarca.Size = new System.Drawing.Size(120, 24);
             this.CmbMarca.TabIndex = 28;
@@ -99,7 +97,7 @@
             this.LabelPrecioUnidad.BackColor = System.Drawing.Color.Transparent;
             this.LabelPrecioUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelPrecioUnidad.ForeColor = System.Drawing.Color.Black;
-            this.LabelPrecioUnidad.Location = new System.Drawing.Point(262, 291);
+            this.LabelPrecioUnidad.Location = new System.Drawing.Point(124, 295);
             this.LabelPrecioUnidad.Name = "LabelPrecioUnidad";
             this.LabelPrecioUnidad.Size = new System.Drawing.Size(59, 20);
             this.LabelPrecioUnidad.TabIndex = 29;
@@ -111,7 +109,7 @@
             this.TxtPrecio.BackColor = System.Drawing.Color.White;
             this.TxtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPrecio.ForeColor = System.Drawing.Color.Black;
-            this.TxtPrecio.Location = new System.Drawing.Point(419, 292);
+            this.TxtPrecio.Location = new System.Drawing.Point(281, 296);
             this.TxtPrecio.Name = "TxtPrecio";
             this.TxtPrecio.Size = new System.Drawing.Size(120, 22);
             this.TxtPrecio.TabIndex = 30;
@@ -122,7 +120,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(262, 154);
+            this.label1.Location = new System.Drawing.Point(124, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 31;
@@ -134,7 +132,7 @@
             this.TxtCodigo.BackColor = System.Drawing.Color.White;
             this.TxtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigo.ForeColor = System.Drawing.Color.Black;
-            this.TxtCodigo.Location = new System.Drawing.Point(419, 155);
+            this.TxtCodigo.Location = new System.Drawing.Point(281, 159);
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.Size = new System.Drawing.Size(120, 22);
             this.TxtCodigo.TabIndex = 32;
@@ -152,7 +150,7 @@
             this.BtnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrar.ForeColor = System.Drawing.Color.Black;
-            this.BtnRegistrar.Location = new System.Drawing.Point(419, 345);
+            this.BtnRegistrar.Location = new System.Drawing.Point(281, 393);
             this.BtnRegistrar.Name = "BtnRegistrar";
             this.BtnRegistrar.Size = new System.Drawing.Size(120, 101);
             this.BtnRegistrar.TabIndex = 33;
@@ -171,7 +169,7 @@
             this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSalir.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("BtnSalir.Image")));
-            this.BtnSalir.Location = new System.Drawing.Point(754, 12);
+            this.BtnSalir.Location = new System.Drawing.Point(483, 12);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Size = new System.Drawing.Size(34, 30);
             this.BtnSalir.TabIndex = 54;
@@ -186,41 +184,17 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(800, 60);
+            this.label2.Size = new System.Drawing.Size(529, 60);
             this.label2.TabIndex = 53;
             this.label2.Text = "Registrar Producto";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(575, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 20);
-            this.label3.TabIndex = 55;
-            this.label3.Text = "Sede: ";
-            // 
-            // labelsede
-            // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.BackColor = System.Drawing.Color.White;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(642, 22);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 57;
-            this.labelsede.Text = "nombresede";
             // 
             // FrmRegistrarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.labelsede);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(529, 555);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnRegistrar);
@@ -233,8 +207,9 @@
             this.Controls.Add(this.TxtInstrumento);
             this.Controls.Add(this.LabelInstrumento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(539, 165);
+            this.Location = new System.Drawing.Point(810, 185);
             this.Name = "FrmRegistrarProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FrmRegistrarProducto";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -254,7 +229,5 @@
         private System.Windows.Forms.Button BtnRegistrar;
         public System.Windows.Forms.Button BtnSalir;
         public System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label labelsede;
     }
 }

@@ -25,7 +25,6 @@ namespace GulfoMusicalStoreGUI
             InitializeComponent();
             Factura = factura;
             DesactivarTxt();
-            labelsede.Text = ConfigConnection.CiudadConectada;
         }
 
         private void BtnConfirmar_Click(object sender, EventArgs e)

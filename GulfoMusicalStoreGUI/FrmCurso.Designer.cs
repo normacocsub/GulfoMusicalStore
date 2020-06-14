@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCurso));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.labelsede = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -67,37 +65,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.labelsede);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 11;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(595, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 20);
-            this.label7.TabIndex = 59;
-            this.label7.Text = "Sede: ";
-            // 
-            // labelsede
-            // 
-            this.labelsede.AutoSize = true;
-            this.labelsede.BackColor = System.Drawing.Color.White;
-            this.labelsede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsede.Location = new System.Drawing.Point(662, 21);
-            this.labelsede.Name = "labelsede";
-            this.labelsede.Size = new System.Drawing.Size(108, 20);
-            this.labelsede.TabIndex = 58;
-            this.labelsede.Text = "nombresede";
             // 
             // label2
             // 
@@ -133,11 +106,11 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(7, 210);
+            this.label6.Location = new System.Drawing.Point(3, 176);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 23);
+            this.label6.Size = new System.Drawing.Size(129, 32);
             this.label6.TabIndex = 27;
             this.label6.Text = "Codigo";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -145,21 +118,23 @@
             // TxtCodigo
             // 
             this.TxtCodigo.BackColor = System.Drawing.Color.White;
-            this.TxtCodigo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCodigo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigo.ForeColor = System.Drawing.Color.Black;
-            this.TxtCodigo.Location = new System.Drawing.Point(142, 210);
+            this.TxtCodigo.Location = new System.Drawing.Point(140, 176);
+            this.TxtCodigo.Multiline = true;
             this.TxtCodigo.Name = "TxtCodigo";
-            this.TxtCodigo.Size = new System.Drawing.Size(120, 23);
+            this.TxtCodigo.Size = new System.Drawing.Size(120, 32);
             this.TxtCodigo.TabIndex = 26;
             // 
             // TxtInstrumento
             // 
             this.TxtInstrumento.BackColor = System.Drawing.Color.White;
-            this.TxtInstrumento.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtInstrumento.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtInstrumento.ForeColor = System.Drawing.Color.Black;
-            this.TxtInstrumento.Location = new System.Drawing.Point(142, 262);
+            this.TxtInstrumento.Location = new System.Drawing.Point(140, 240);
+            this.TxtInstrumento.Multiline = true;
             this.TxtInstrumento.Name = "TxtInstrumento";
-            this.TxtInstrumento.Size = new System.Drawing.Size(120, 23);
+            this.TxtInstrumento.Size = new System.Drawing.Size(120, 38);
             this.TxtInstrumento.TabIndex = 25;
             // 
             // CmbEstado
@@ -167,26 +142,26 @@
             this.CmbEstado.BackColor = System.Drawing.Color.White;
             this.CmbEstado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbEstado.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbEstado.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbEstado.ForeColor = System.Drawing.Color.Black;
             this.CmbEstado.FormattingEnabled = true;
             this.CmbEstado.Items.AddRange(new object[] {
             "Seleccionar",
             "ACTIVO",
             "DESHABILITADO"});
-            this.CmbEstado.Location = new System.Drawing.Point(139, 375);
+            this.CmbEstado.Location = new System.Drawing.Point(138, 378);
             this.CmbEstado.Name = "CmbEstado";
-            this.CmbEstado.Size = new System.Drawing.Size(123, 23);
+            this.CmbEstado.Size = new System.Drawing.Size(123, 27);
             this.CmbEstado.TabIndex = 24;
             // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(7, 374);
+            this.label3.Location = new System.Drawing.Point(3, 378);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 23);
+            this.label3.Size = new System.Drawing.Size(129, 27);
             this.label3.TabIndex = 23;
             this.label3.Text = "Estado";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -202,7 +177,7 @@
             this.BtnVaciar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnVaciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnVaciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVaciar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVaciar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnVaciar.ForeColor = System.Drawing.Color.Black;
             this.BtnVaciar.Location = new System.Drawing.Point(7, 477);
             this.BtnVaciar.Name = "BtnVaciar";
@@ -224,7 +199,7 @@
             this.BtnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRegistrar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRegistrar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrar.ForeColor = System.Drawing.Color.Black;
             this.BtnRegistrar.Location = new System.Drawing.Point(140, 477);
             this.BtnRegistrar.Name = "BtnRegistrar";
@@ -250,11 +225,11 @@
             // LabelPrecioUnidad
             // 
             this.LabelPrecioUnidad.BackColor = System.Drawing.Color.White;
-            this.LabelPrecioUnidad.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelPrecioUnidad.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelPrecioUnidad.ForeColor = System.Drawing.Color.Black;
-            this.LabelPrecioUnidad.Location = new System.Drawing.Point(7, 317);
+            this.LabelPrecioUnidad.Location = new System.Drawing.Point(3, 316);
             this.LabelPrecioUnidad.Name = "LabelPrecioUnidad";
-            this.LabelPrecioUnidad.Size = new System.Drawing.Size(129, 23);
+            this.LabelPrecioUnidad.Size = new System.Drawing.Size(129, 31);
             this.LabelPrecioUnidad.TabIndex = 4;
             this.LabelPrecioUnidad.Text = "Precio";
             this.LabelPrecioUnidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -262,21 +237,22 @@
             // TxtPrecio
             // 
             this.TxtPrecio.BackColor = System.Drawing.Color.White;
-            this.TxtPrecio.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPrecio.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPrecio.ForeColor = System.Drawing.Color.Black;
-            this.TxtPrecio.Location = new System.Drawing.Point(139, 317);
+            this.TxtPrecio.Location = new System.Drawing.Point(140, 316);
+            this.TxtPrecio.Multiline = true;
             this.TxtPrecio.Name = "TxtPrecio";
-            this.TxtPrecio.Size = new System.Drawing.Size(123, 23);
+            this.TxtPrecio.Size = new System.Drawing.Size(123, 31);
             this.TxtPrecio.TabIndex = 10;
             // 
             // LabelInstrumento
             // 
             this.LabelInstrumento.BackColor = System.Drawing.Color.White;
-            this.LabelInstrumento.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelInstrumento.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelInstrumento.ForeColor = System.Drawing.Color.Black;
-            this.LabelInstrumento.Location = new System.Drawing.Point(7, 262);
+            this.LabelInstrumento.Location = new System.Drawing.Point(3, 240);
             this.LabelInstrumento.Name = "LabelInstrumento";
-            this.LabelInstrumento.Size = new System.Drawing.Size(129, 24);
+            this.LabelInstrumento.Size = new System.Drawing.Size(129, 38);
             this.LabelInstrumento.TabIndex = 2;
             this.LabelInstrumento.Text = "Nombre del curso";
             this.LabelInstrumento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -350,26 +326,29 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(564, 101);
+            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(597, 100);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.Size = new System.Drawing.Size(54, 19);
             this.label5.TabIndex = 29;
             this.label5.Text = "Total";
             // 
             // TxtTodos
             // 
             this.TxtTodos.Enabled = false;
-            this.TxtTodos.Location = new System.Drawing.Point(659, 101);
+            this.TxtTodos.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTodos.Location = new System.Drawing.Point(659, 97);
             this.TxtTodos.Name = "TxtTodos";
-            this.TxtTodos.Size = new System.Drawing.Size(100, 20);
+            this.TxtTodos.Size = new System.Drawing.Size(120, 26);
             this.TxtTodos.TabIndex = 28;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(561, 68);
+            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(509, 67);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 13);
+            this.label4.Size = new System.Drawing.Size(144, 19);
             this.label4.TabIndex = 27;
             this.label4.Text = "Filtrado Estado";
             // 
@@ -378,7 +357,7 @@
             this.CmbFiltroEstado.BackColor = System.Drawing.Color.White;
             this.CmbFiltroEstado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CmbFiltroEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbFiltroEstado.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbFiltroEstado.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbFiltroEstado.ForeColor = System.Drawing.Color.Black;
             this.CmbFiltroEstado.FormattingEnabled = true;
             this.CmbFiltroEstado.Items.AddRange(new object[] {
@@ -387,7 +366,7 @@
             "DESHABILITADO"});
             this.CmbFiltroEstado.Location = new System.Drawing.Point(659, 64);
             this.CmbFiltroEstado.Name = "CmbFiltroEstado";
-            this.CmbFiltroEstado.Size = new System.Drawing.Size(120, 23);
+            this.CmbFiltroEstado.Size = new System.Drawing.Size(120, 27);
             this.CmbFiltroEstado.TabIndex = 26;
             this.CmbFiltroEstado.SelectedIndexChanged += new System.EventHandler(this.CmbFiltroEstado_SelectedIndexChanged);
             // 
@@ -402,7 +381,7 @@
             this.BtnActualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.BtnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnActualizar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnActualizar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnActualizar.ForeColor = System.Drawing.Color.Black;
             this.BtnActualizar.Location = new System.Drawing.Point(677, 469);
             this.BtnActualizar.Name = "BtnActualizar";
@@ -423,7 +402,7 @@
             this.BtnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.BtnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.BtnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnModificar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModificar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModificar.ForeColor = System.Drawing.Color.Black;
             this.BtnModificar.Image = ((System.Drawing.Image)(resources.GetObject("BtnModificar.Image")));
             this.BtnModificar.Location = new System.Drawing.Point(275, 469);
@@ -446,7 +425,6 @@
             this.Name = "FrmCurso";
             this.Text = "FrmCurso";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgCurso)).EndInit();
@@ -484,7 +462,5 @@
         private System.Windows.Forms.ComboBox CmbFiltroEstado;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtCodigo;
-        private System.Windows.Forms.Label labelsede;
-        private System.Windows.Forms.Label label7;
     }
 }
