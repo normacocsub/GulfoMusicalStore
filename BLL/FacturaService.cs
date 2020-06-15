@@ -199,5 +199,70 @@ namespace BLL
                 Conection.Close();
             }
         }
+
+        public IList<Factura> FiltroCiudadFactura(int numero)
+        {
+            try
+            {
+                Conection.Open();
+                Facturas = FacturaRepositorio.FiltroCiudadFactura(numero);
+                Conection.Close();
+                return Facturas;
+            }
+            catch (OracleException ex)
+            {
+                Conection.Close();
+                return null;
+            }
+        }
+
+        public IList<Factura> FiltroTotalAsc()
+        {
+            try
+            {
+                Conection.Open();
+                Facturas = FacturaRepositorio.FiltroTotalASC();
+                Conection.Close();
+                return Facturas;
+            }
+            catch (OracleException ex)
+            {
+                Conection.Close();
+                return null;
+            }
+        }
+
+        public IList<Factura> FiltroTotalDEs()
+        {
+            try
+            {
+                Conection.Open();
+                Facturas = FacturaRepositorio.FiltroTotalDesc();
+                Conection.Close();
+                return Facturas;
+            }
+            catch (OracleException ex)
+            {
+                Conection.Close();
+                return null;
+            }
+        }
+
+        public string PruebaConexion()
+        {
+            try
+            {
+                Conection.Open();
+                return $"Se ha conectado. ";
+            }
+            catch(OracleException ex)
+            {
+                return $"Error al conectarse. {ex.Message.ToString()}";
+            }
+            finally
+            {
+                Conection.Close();
+            }
+        }
     }
 }

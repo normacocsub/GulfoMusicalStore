@@ -238,6 +238,67 @@ namespace DAL
             return Facturas;
         }
 
+        public IList<Factura> FiltroCiudadFactura(int numero)
+        {
+            Facturas.Clear();
+            using (var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_FACTURA.FILTRARCiudadFactura";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("facturas", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                command.Parameters.Add("codigociudad", OracleDbType.Int32).Value = numero;
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Factura factura;
+                    factura = MapFactura(Reader);
+                    Facturas.Add(factura);
+                }
+            }
+            return Facturas;
+        }
+
+        public IList<Factura> FiltroTotalASC()
+        {
+            Facturas.Clear();
+            using (var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_FACTURA.FILTROTOTALASC";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("facturas", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Factura factura;
+                    factura = MapFactura(Reader);
+                    Facturas.Add(factura);
+                }
+            }
+            return Facturas;
+        }
+
+        public IList<Factura> FiltroTotalDesc()
+        {
+            Facturas.Clear();
+            using (var command = Connection.Connection.CreateCommand())
+            {
+                command.CommandText = "PAQUETE_FACTURA.FILTROTOTALDES";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("facturas", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                Reader = command.ExecuteReader();
+
+                while (Reader.Read())
+                {
+                    Factura factura;
+                    factura = MapFactura(Reader);
+                    Facturas.Add(factura);
+                }
+            }
+            return Facturas;
+        }
+
         public void ModificarFactura(Factura factura)
         {
             using(var command = Connection.Connection.CreateCommand())

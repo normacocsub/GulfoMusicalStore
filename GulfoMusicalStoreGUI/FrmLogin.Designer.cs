@@ -188,6 +188,7 @@
             this.CmbCiudad.Name = "CmbCiudad";
             this.CmbCiudad.Size = new System.Drawing.Size(138, 30);
             this.CmbCiudad.TabIndex = 31;
+            this.CmbCiudad.SelectedIndexChanged += new System.EventHandler(this.CmbCiudad_SelectedIndexChanged);
             // 
             // label1
             // 

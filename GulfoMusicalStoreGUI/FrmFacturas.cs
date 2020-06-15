@@ -147,6 +147,76 @@ namespace GulfoMusicalStoreGUI
             TxtTotal.Text = facturaService.FiltroNumeroFactura(numero).Count.ToString();
         }
 
+
+        private void MapearDtgFiltroCiudadFactura(DataGridView dtg, int numero)
+        {
+            dtg.Rows.Clear();
+            facturaService = new FacturaService(ConfigConnection.ConnectionString);
+            foreach (var item in facturaService.FiltroCiudadFactura(numero))
+            {
+                int n = dtg.Rows.Add();
+                dtg.Rows[n].Cells[0].Value = item.Numero;
+                dtg.Rows[n].Cells[1].Value = item.Lugar.Ciudad;
+                dtg.Rows[n].Cells[2].Value = item.Cantidad;
+                dtg.Rows[n].Cells[3].Value = item.Iva;
+                dtg.Rows[n].Cells[4].Value = item.SubTotal;
+                dtg.Rows[n].Cells[5].Value = item.Total;
+                dtg.Rows[n].Cells[6].Value = item.Cliente.Cedula;
+                dtg.Rows[n].Cells[7].Value = item.Cliente.PrimerNombre;
+                dtg.Rows[n].Cells[8].Value = item.Cliente.Telefono;
+                dtg.Rows[n].Cells[9].Value = item.Fecha;
+                dtg.Rows[n].Cells[10].Value = item.Estado;
+
+            }
+            TxtTotal.Text = facturaService.FiltroCiudadFactura(numero).Count.ToString();
+        }
+
+        private void MapearDtgFiltroTotalAsc(DataGridView dtg)
+        {
+            dtg.Rows.Clear();
+            facturaService = new FacturaService(ConfigConnection.ConnectionString);
+            foreach (var item in facturaService.FiltroTotalAsc())
+            {
+                int n = dtg.Rows.Add();
+                dtg.Rows[n].Cells[0].Value = item.Numero;
+                dtg.Rows[n].Cells[1].Value = item.Lugar.Ciudad;
+                dtg.Rows[n].Cells[2].Value = item.Cantidad;
+                dtg.Rows[n].Cells[3].Value = item.Iva;
+                dtg.Rows[n].Cells[4].Value = item.SubTotal;
+                dtg.Rows[n].Cells[5].Value = item.Total;
+                dtg.Rows[n].Cells[6].Value = item.Cliente.Cedula;
+                dtg.Rows[n].Cells[7].Value = item.Cliente.PrimerNombre;
+                dtg.Rows[n].Cells[8].Value = item.Cliente.Telefono;
+                dtg.Rows[n].Cells[9].Value = item.Fecha;
+                dtg.Rows[n].Cells[10].Value = item.Estado;
+
+            }
+            TxtTotal.Text = facturaService.FiltroTotalAsc().Count.ToString();
+        }
+
+        private void MapearDtgFiltroTotalDes(DataGridView dtg)
+        {
+            dtg.Rows.Clear();
+            facturaService = new FacturaService(ConfigConnection.ConnectionString);
+            foreach (var item in facturaService.FiltroTotalDEs())
+            {
+                int n = dtg.Rows.Add();
+                dtg.Rows[n].Cells[0].Value = item.Numero;
+                dtg.Rows[n].Cells[1].Value = item.Lugar.Ciudad;
+                dtg.Rows[n].Cells[2].Value = item.Cantidad;
+                dtg.Rows[n].Cells[3].Value = item.Iva;
+                dtg.Rows[n].Cells[4].Value = item.SubTotal;
+                dtg.Rows[n].Cells[5].Value = item.Total;
+                dtg.Rows[n].Cells[6].Value = item.Cliente.Cedula;
+                dtg.Rows[n].Cells[7].Value = item.Cliente.PrimerNombre;
+                dtg.Rows[n].Cells[8].Value = item.Cliente.Telefono;
+                dtg.Rows[n].Cells[9].Value = item.Fecha;
+                dtg.Rows[n].Cells[10].Value = item.Estado;
+
+            }
+            TxtTotal.Text = facturaService.FiltroTotalDEs().Count.ToString();
+        }
+
         private void CBBusqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CBBusqueda.Text == "Total Facturas")
@@ -162,6 +232,26 @@ namespace GulfoMusicalStoreGUI
             if (CBBusqueda.Text == "Facturas Inactivas")
             {
                 MapearDtgFiltroEstado(DtgFactura, "Inactivo");
+            }
+            if (CBBusqueda.Text== "Sede Bogota")
+            {
+                MapearDtgFiltroCiudadFactura(DtgFactura, 1);
+            }
+            if(CBBusqueda.Text== "Sede Cali")
+            {
+                MapearDtgFiltroCiudadFactura(DtgFactura, 2);
+            }
+            if(CBBusqueda.Text== "Sede Barranquilla")
+            {
+                MapearDtgFiltroCiudadFactura(DtgFactura, 3);
+            }
+            if(CBBusqueda.Text== "Total Ascendente")
+            {
+                MapearDtgFiltroTotalAsc(DtgFactura);
+            }
+            if(CBBusqueda.Text== "Total Descendente")
+            {
+                MapearDtgFiltroTotalDes(DtgFactura);
             }
         }
 

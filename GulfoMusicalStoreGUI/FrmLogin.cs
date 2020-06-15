@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -14,6 +15,7 @@ namespace GulfoMusicalStoreGUI
 {
     public partial class FrmLogin : Form
     {
+        public FacturaService facturaservice;
         public FrmLogin()
         {
             InitializeComponent();
@@ -39,39 +41,44 @@ namespace GulfoMusicalStoreGUI
             {
                 if (TxtUsuario.Text == "Admin" && TxtContraseña.Text == "ABC123")
                 {
-                    if (CmbCiudad.SelectedIndex == 0)
-                    {
-                        TxtUsuario.Text = "Usuario";
-                        TxtContraseña.Text = "Contraseña";
-                        this.SetVisibleCore(false);
-                        ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                        ConfigConnection.CiudadConectada = "Bogota";
-                        ConfigConnection.Codigo = 1;
-                        FrmBienvenida frmBienvenida = new FrmBienvenida();
-                        frmBienvenida.Show();
-                    }
-                    if (CmbCiudad.SelectedIndex == 1)
-                    {
-                        TxtUsuario.Text = "Usuario";
-                        TxtContraseña.Text = "Contraseña";
-                        this.SetVisibleCore(false);
-                        ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection2"].ConnectionString;
-                        ConfigConnection.CiudadConectada = "Cali";
-                        ConfigConnection.Codigo = 2;
-                        FrmBienvenida frmBienvenida = new FrmBienvenida();
-                        frmBienvenida.Show();
-                    }
-                    if (CmbCiudad.SelectedIndex == 2)
-                    {
-                        TxtUsuario.Text = "Usuario";
-                        TxtContraseña.Text = "Contraseña";
-                        this.SetVisibleCore(false);
-                        ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection3"].ConnectionString;
-                        ConfigConnection.CiudadConectada = "Barranquilla";
-                        ConfigConnection.Codigo = 3;
-                        FrmBienvenida frmBienvenida = new FrmBienvenida();
-                        frmBienvenida.Show();
-                    }
+                    
+                        if (CmbCiudad.SelectedIndex == 0)
+                        {
+                            TxtUsuario.Text = "Usuario";
+                            TxtContraseña.Text = "Contraseña";
+                            this.SetVisibleCore(false);
+                            ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                            ConfigConnection.CiudadConectada = "Bogota";
+                            ConfigConnection.Codigo = 1;
+                            FrmBienvenida frmBienvenida = new FrmBienvenida();
+                            frmBienvenida.Show();
+                        }
+                        if (CmbCiudad.SelectedIndex == 1)
+                        {
+                            TxtUsuario.Text = "Usuario";
+                            TxtContraseña.Text = "Contraseña";
+                            this.SetVisibleCore(false);
+                            ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection2"].ConnectionString;
+                            ConfigConnection.CiudadConectada = "Cali";
+                            ConfigConnection.Codigo = 2;
+                            FrmBienvenida frmBienvenida = new FrmBienvenida();
+                            frmBienvenida.Show();
+                        }
+                        if (CmbCiudad.SelectedIndex == 2)
+                        {
+                            TxtUsuario.Text = "Usuario";
+                            TxtContraseña.Text = "Contraseña";
+                            this.SetVisibleCore(false);
+                            ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection3"].ConnectionString;
+                            ConfigConnection.CiudadConectada = "Barranquilla";
+                            ConfigConnection.Codigo = 3;
+                            FrmBienvenida frmBienvenida = new FrmBienvenida();
+                            frmBienvenida.Show();
+                        }
+                    facturaservice = new FacturaService(ConfigConnection.ConnectionString);
+                    MessageBox.Show(facturaservice.PruebaConexion());
+                    
+
                 }
                 else
                 {
@@ -144,6 +151,11 @@ namespace GulfoMusicalStoreGUI
             this.Close();
             FrmTienda frmTienda = new FrmTienda();
             frmTienda.Show();
+        }
+
+        private void CmbCiudad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

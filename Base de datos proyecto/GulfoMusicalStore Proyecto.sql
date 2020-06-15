@@ -170,8 +170,18 @@ CREATE TABLE ESTADISTICAS(sk_estadistica number(3),total number(12,2),unidades n
 ALTER TABLE Estadisticas ADD CONSTRAINT estadistica_pk PRIMARY KEY ( sk_estadistica );
 ALTER TABLE Estadisticas ADD fecha  varchar2(25);
 
---SECUENCIAS
 
+--SECUENCIAS
+delete from product_factura;
+delete from curso_factura;
+delete from factura;
+delete from estadisticas;
+delete from registrousuarios;
+ALter table estadisticas add factura_sk_factura number(3);
+
+ALTER TABLE estadisticas
+    ADD CONSTRAINT estadisticas_factura_fk FOREIGN KEY ( factura_Sk_factura )
+        REFERENCES factura ( sk_factura );
 
 CREATE SEQUENCE LUGAR_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
 CREATE SEQUENCE FACTURA_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1 CACHE 20 ORDER;
@@ -341,8 +351,8 @@ DECLARE
     fecha estadisticas.fecha%type;
 BEGIN
     SELECT TO_CHAR (SYSDATE, 'DD-MM-YYYY HH24:MI:SS') INTO fecha FROM DUAL;
-    INSERT INTO estadisticas(sk_estadistica,TOtal,unidades,fecha)
-    VALUES(Estadisticas_SEQUENCIA.NEXTVAL,:new.total,:new.cantidad,fecha);
+    INSERT INTO estadisticas(sk_estadistica,TOtal,unidades,fecha,factura_sk_factura)
+    VALUES(Estadisticas_SEQUENCIA.NEXTVAL,:new.total,:new.cantidad,fecha,:new.sk_factura);
 END estadistica_trigger;
 
 
@@ -516,6 +526,7 @@ END INSERT_REGISTROUSUARIO;
 CREATE OR REPLACE PACKAGE PAQUETE_ESTADISTICAS
 IS
     PROCEDURE FILTRARESTADISTICAS(estadisticas OUT SYS_REFCURSOR);
+    PROCEDURE FiltrarEstadisticasCiudad(estadisticas out sys_Refcursor,codigociudad in number);
 END PAQUETE_ESTADISTICAS;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_ESTADISTICAS
@@ -524,7 +535,16 @@ IS
     AS
     BEGIN
         OPEN estadisticas FOR SELECT * FROM ESTADISTICAS;
-    END;
+    END FILTRARESTADISTICAS;
+    
+    PROCEDURE FiltrarEstadisticasCiudad(estadisticas out sys_Refcursor,codigociudad in number)
+    AS
+    BEGIN
+        OPEN estadisticas FOR SELECT * FROM estadisticas e JOIN Factura f
+                              ON(e.factura_Sk_factura=f.sk_Factura)
+                              JOIN lugar l ON(f.lugar_sk_lugar=l.sk_lugar)
+                              WHERE l.sk_lugar=codigociudad;
+    END FiltrarEstadisticasCiudad;
 END PAQUETE_ESTADISTICAS;
 
 CREATE OR REPLACE PACKAGE PAQUETE_Detalles
@@ -592,6 +612,12 @@ IS
     PROCEDURE FILTRONUMEROFACTURALIKE(facturas OUT SYS_REFCURSOR, f_factura in number);
     
     PROCEDURE ACTUALIZARFACTURA(f_factura in number, f_Estado in varchar2);
+    
+    PROCEDURE FILTRARCiudadFactura(facturas out sys_Refcursor,codigociudad in number);
+    
+    PROCEDURE FILTROTOTALASC(Facturas out sys_Refcursor);
+    
+    PROCEDURE FILTROTOTALDES(facturas out sys_refcursor);
 END PAQUETE_FACTURA;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_FACTURA
@@ -682,6 +708,32 @@ IS
         WHERE sk_factura=f_factura;
     END ACTUALIZARFACTURA;
     
+    PROCEDURE FILTRARCiudadFactura(facturas out sys_Refcursor,codigociudad in number)
+    AS
+    BEGIN
+        Open facturas FOR select * from factura f join lugar l
+                          on(f.lugar_sk_lugar=l.sk_lugar)
+                          JOIN cliente c ON(f.cliente_id_clientte=id_clientte)
+                          WHERE l.sk_lugar=codigociudad;
+    END FILTRARCiudadFactura;
+    
+    PROCEDURE FILTROTOTALASC(Facturas out sys_Refcursor)
+    AS
+    BEGIN
+        OPEN facturas FOR select * from factura f JOIN lugar l
+                          on(f.lugar_sk_lugar=l.sk_lugar)
+                          JOIN cliente c ON(f.cliente_id_clientte=c.id_clientte)
+                          ORDER BY Total ASC;
+    END FILTROTOTALASC;
+    
+    PROCEDURE FILTROTOTALDES(facturas out sys_refcursor)
+    AS
+    BEGIN
+        OPEN facturas FOR select * from factura f JOIN lugar l
+                          on(f.lugar_sk_lugar=l.sk_lugar)
+                          JOIN cliente c ON(f.cliente_id_clientte=c.id_clientte)
+                          ORDER BY Total DESC;
+    END FILTROTOTALDES;
 END PAQUETE_FACTURA;
 
 
