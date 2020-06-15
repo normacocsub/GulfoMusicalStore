@@ -41,7 +41,7 @@ namespace GulfoMusicalStoreGUI
             {
                 if (TxtUsuario.Text == "Admin" && TxtContraseña.Text == "ABC123")
                 {
-                    
+                    string estado;
                         if (CmbCiudad.SelectedIndex == 0)
                         {
                             TxtUsuario.Text = "Usuario";
@@ -50,7 +50,9 @@ namespace GulfoMusicalStoreGUI
                             ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                             ConfigConnection.CiudadConectada = "Bogota";
                             ConfigConnection.Codigo = 1;
-                            FrmBienvenida frmBienvenida = new FrmBienvenida();
+                        facturaservice = new FacturaService(ConfigConnection.ConnectionString);
+                        estado = facturaservice.PruebaConexion();
+                        FrmBienvenida frmBienvenida = new FrmBienvenida(estado);
                             frmBienvenida.Show();
                         }
                         if (CmbCiudad.SelectedIndex == 1)
@@ -61,7 +63,9 @@ namespace GulfoMusicalStoreGUI
                             ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection2"].ConnectionString;
                             ConfigConnection.CiudadConectada = "Cali";
                             ConfigConnection.Codigo = 2;
-                            FrmBienvenida frmBienvenida = new FrmBienvenida();
+                        facturaservice = new FacturaService(ConfigConnection.ConnectionString);
+                        estado = facturaservice.PruebaConexion();
+                        FrmBienvenida frmBienvenida = new FrmBienvenida(estado);
                             frmBienvenida.Show();
                         }
                         if (CmbCiudad.SelectedIndex == 2)
@@ -72,11 +76,12 @@ namespace GulfoMusicalStoreGUI
                             ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection3"].ConnectionString;
                             ConfigConnection.CiudadConectada = "Barranquilla";
                             ConfigConnection.Codigo = 3;
-                            FrmBienvenida frmBienvenida = new FrmBienvenida();
+                        facturaservice = new FacturaService(ConfigConnection.ConnectionString);
+                        estado = facturaservice.PruebaConexion();
+                        FrmBienvenida frmBienvenida = new FrmBienvenida(estado);
                             frmBienvenida.Show();
                         }
-                    facturaservice = new FacturaService(ConfigConnection.ConnectionString);
-                    MessageBox.Show(facturaservice.PruebaConexion());
+                    
                     
 
                 }

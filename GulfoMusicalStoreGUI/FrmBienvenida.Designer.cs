@@ -38,6 +38,8 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label6 = new System.Windows.Forms.Label();
             this.labelsede = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Labelestado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -109,12 +111,36 @@
             this.labelsede.TabIndex = 142;
             this.labelsede.Text = "nombresede";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(317, 112);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 20);
+            this.label1.TabIndex = 143;
+            this.label1.Text = "Estado Conexion:";
+            // 
+            // Labelestado
+            // 
+            this.Labelestado.AutoSize = true;
+            this.Labelestado.BackColor = System.Drawing.Color.White;
+            this.Labelestado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Labelestado.Location = new System.Drawing.Point(485, 112);
+            this.Labelestado.Name = "Labelestado";
+            this.Labelestado.Size = new System.Drawing.Size(108, 20);
+            this.Labelestado.TabIndex = 144;
+            this.Labelestado.Text = "conectando.";
+            // 
             // FrmBienvenida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(650, 320);
+            this.Controls.Add(this.Labelestado);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelsede);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.progressBar1);
@@ -142,5 +168,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelsede;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Labelestado;
     }
 }
