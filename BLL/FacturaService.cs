@@ -253,11 +253,11 @@ namespace BLL
             try
             {
                 Conection.Open();
-                return $"Se ha conectado. ";
+                return $"conectado";
             }
             catch(OracleException ex)
             {
-                return $"Error al conectarse. {ex.Message.ToString()}";
+                return $"Error.";
             }
             finally
             {

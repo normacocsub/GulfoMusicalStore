@@ -14,13 +14,14 @@ namespace GulfoMusicalStoreGUI
     public partial class FrmBienvenida : Form
     {
         SoundPlayer Player;
-        public FrmBienvenida()
+        public FrmBienvenida(string estado)
         {
             InitializeComponent();
             Player = new SoundPlayer(ConfigConnection.Direccion + @"\Recursos\Sonido.wav");
             Player.Play();
             this.Opacity = 0;
             labelsede.Text = ConfigConnection.CiudadConectada;
+            Labelestado.Text = estado;
         }
      
         private void timer1_Tick(object sender, EventArgs e)
