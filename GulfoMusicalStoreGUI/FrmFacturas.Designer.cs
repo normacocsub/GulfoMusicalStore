@@ -279,9 +279,6 @@
             "Total Facturas",
             "Facturas Activas",
             "Facturas Inactivas",
-            "Sede Bogota",
-            "Sede Cali",
-            "Sede Barranquilla",
             "Total Ascendente ",
             "Total Descendente"});
             this.CBBusqueda.Location = new System.Drawing.Point(500, 54);
@@ -405,7 +402,6 @@
         private System.Windows.Forms.Panel PanelContenedor;
         private System.Windows.Forms.GroupBox GB2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox CBBusqueda;
         private System.Windows.Forms.Label LabelInfor;
         private System.Windows.Forms.TextBox TxtTotal;
         private System.Windows.Forms.GroupBox GBTime;
@@ -428,5 +424,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CEstado;
+        public System.Windows.Forms.ComboBox CBBusqueda;
     }
 }

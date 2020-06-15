@@ -19,9 +19,18 @@ namespace GulfoMusicalStoreGUI
         {
             InitializeComponent();
             MapearDtgFactura(DtgFactura);
+            bloquearcmb();
         }
 
-       
+        public void bloquearcmb()
+        {
+            if (ConfigConnection.Codigo == 1)
+            {
+                CBBusqueda.Items.Add("Sede Bogota");
+                CBBusqueda.Items.Add("Sede Cali");
+                CBBusqueda.Items.Add("Sede Barranquilla");
+            }
+        }
 
         private void MapearDtgFactura(DataGridView dtg)
         {
@@ -224,6 +233,7 @@ namespace GulfoMusicalStoreGUI
                 MapearDtgFactura(DtgFactura);
             }
 
+          
 
             if (CBBusqueda.Text == "Facturas Activas")
             {

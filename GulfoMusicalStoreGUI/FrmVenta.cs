@@ -21,6 +21,7 @@ namespace GulfoMusicalStoreGUI
             InitializeComponent();
             LabelCurso.Enabled = false;
             Factura = new Factura();
+            
         }
 
 

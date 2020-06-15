@@ -32,6 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.GBFactura = new System.Windows.Forms.GroupBox();
+            this.CBCurso = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.LabelCurso = new System.Windows.Forms.Label();
             this.LabelIVA = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -59,8 +61,6 @@
             this.BtnFacturar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.LabelFechaFactura = new System.Windows.Forms.Label();
-            this.CBCurso = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.GBFactura.SuspendLayout();
@@ -115,6 +115,35 @@
             this.GBFactura.TabIndex = 56;
             this.GBFactura.TabStop = false;
             this.GBFactura.Text = "Detalle";
+            // 
+            // CBCurso
+            // 
+            this.CBCurso.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CBCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBCurso.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBCurso.FormattingEnabled = true;
+            this.CBCurso.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.CBCurso.Location = new System.Drawing.Point(597, 27);
+            this.CBCurso.Name = "CBCurso";
+            this.CBCurso.Size = new System.Drawing.Size(90, 26);
+            this.CBCurso.TabIndex = 59;
+            this.CBCurso.SelectedIndexChanged += new System.EventHandler(this.CBCurso_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(381, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(205, 26);
+            this.label3.TabIndex = 88;
+            this.label3.Text = "Desea tomar el curso?";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LabelCurso
             // 
@@ -383,7 +412,7 @@
             this.BtnFacturar.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnFacturar.Image = ((System.Drawing.Image)(resources.GetObject("BtnFacturar.Image")));
             this.BtnFacturar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnFacturar.Location = new System.Drawing.Point(652, 500);
+            this.BtnFacturar.Location = new System.Drawing.Point(365, 500);
             this.BtnFacturar.Name = "BtnFacturar";
             this.BtnFacturar.Size = new System.Drawing.Size(109, 97);
             this.BtnFacturar.TabIndex = 54;
@@ -416,35 +445,6 @@
             this.LabelFechaFactura.Size = new System.Drawing.Size(94, 23);
             this.LabelFechaFactura.TabIndex = 58;
             this.LabelFechaFactura.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CBCurso
-            // 
-            this.CBCurso.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CBCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBCurso.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBCurso.FormattingEnabled = true;
-            this.CBCurso.Items.AddRange(new object[] {
-            "Si",
-            "No"});
-            this.CBCurso.Location = new System.Drawing.Point(597, 27);
-            this.CBCurso.Name = "CBCurso";
-            this.CBCurso.Size = new System.Drawing.Size(90, 26);
-            this.CBCurso.TabIndex = 59;
-            this.CBCurso.SelectedIndexChanged += new System.EventHandler(this.CBCurso_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(381, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(205, 26);
-            this.label3.TabIndex = 88;
-            this.label3.Text = "Desea tomar el curso?";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PanelContenedor
             // 
