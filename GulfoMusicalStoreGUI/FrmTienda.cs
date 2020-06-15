@@ -56,6 +56,7 @@ namespace GulfoMusicalStoreGUI
         {
                 AbrirContainer(new FrmVenta());
                 BtnVenta.Enabled = false;
+                BtnInventario.Enabled = true;
         }
 
         private void BtnFacturas_Click(object sender, EventArgs e)

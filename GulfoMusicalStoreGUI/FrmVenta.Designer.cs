@@ -61,7 +61,6 @@
             this.LabelFechaFactura = new System.Windows.Forms.Label();
             this.CBCurso = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Labelinstrumento = new System.Windows.Forms.Label();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.GBFactura.SuspendLayout();
@@ -95,6 +94,8 @@
             // 
             // GBFactura
             // 
+            this.GBFactura.Controls.Add(this.CBCurso);
+            this.GBFactura.Controls.Add(this.label3);
             this.GBFactura.Controls.Add(this.LabelCurso);
             this.GBFactura.Controls.Add(this.LabelIVA);
             this.GBFactura.Controls.Add(this.label11);
@@ -110,7 +111,7 @@
             this.GBFactura.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GBFactura.Location = new System.Drawing.Point(39, 188);
             this.GBFactura.Name = "GBFactura";
-            this.GBFactura.Size = new System.Drawing.Size(722, 293);
+            this.GBFactura.Size = new System.Drawing.Size(722, 306);
             this.GBFactura.TabIndex = 56;
             this.GBFactura.TabStop = false;
             this.GBFactura.Text = "Detalle";
@@ -123,7 +124,7 @@
             this.LabelCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelCurso.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCurso.ForeColor = System.Drawing.Color.Black;
-            this.LabelCurso.Location = new System.Drawing.Point(381, 27);
+            this.LabelCurso.Location = new System.Drawing.Point(381, 60);
             this.LabelCurso.Name = "LabelCurso";
             this.LabelCurso.Size = new System.Drawing.Size(306, 20);
             this.LabelCurso.TabIndex = 92;
@@ -235,9 +236,9 @@
             this.CNombre,
             this.CValor,
             this.CUNIDADES2});
-            this.DtgCursos.Location = new System.Drawing.Point(381, 60);
+            this.DtgCursos.Location = new System.Drawing.Point(381, 88);
             this.DtgCursos.Name = "DtgCursos";
-            this.DtgCursos.Size = new System.Drawing.Size(306, 182);
+            this.DtgCursos.Size = new System.Drawing.Size(306, 154);
             this.DtgCursos.TabIndex = 94;
             // 
             // CCodigo
@@ -270,7 +271,7 @@
             this.LabelCodigoProducto.ForeColor = System.Drawing.Color.Black;
             this.LabelCodigoProducto.Location = new System.Drawing.Point(44, 27);
             this.LabelCodigoProducto.Name = "LabelCodigoProducto";
-            this.LabelCodigoProducto.Size = new System.Drawing.Size(290, 20);
+            this.LabelCodigoProducto.Size = new System.Drawing.Size(290, 53);
             this.LabelCodigoProducto.TabIndex = 89;
             this.LabelCodigoProducto.Text = "Seleccione el producto";
             this.LabelCodigoProducto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -289,10 +290,10 @@
             this.CUNIDADES,
             this.CMarca});
             this.DtgFactura.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgFactura.Location = new System.Drawing.Point(44, 60);
+            this.DtgFactura.Location = new System.Drawing.Point(44, 88);
             this.DtgFactura.Name = "DtgFactura";
             this.DtgFactura.ReadOnly = true;
-            this.DtgFactura.Size = new System.Drawing.Size(290, 182);
+            this.DtgFactura.Size = new System.Drawing.Size(290, 154);
             this.DtgFactura.TabIndex = 88;
             // 
             // CCodigoProducto
@@ -382,7 +383,7 @@
             this.BtnFacturar.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnFacturar.Image = ((System.Drawing.Image)(resources.GetObject("BtnFacturar.Image")));
             this.BtnFacturar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnFacturar.Location = new System.Drawing.Point(652, 491);
+            this.BtnFacturar.Location = new System.Drawing.Point(652, 500);
             this.BtnFacturar.Name = "BtnFacturar";
             this.BtnFacturar.Size = new System.Drawing.Size(109, 97);
             this.BtnFacturar.TabIndex = 54;
@@ -425,9 +426,9 @@
             this.CBCurso.Items.AddRange(new object[] {
             "Si",
             "No"});
-            this.CBCurso.Location = new System.Drawing.Point(468, 521);
+            this.CBCurso.Location = new System.Drawing.Point(597, 27);
             this.CBCurso.Name = "CBCurso";
-            this.CBCurso.Size = new System.Drawing.Size(70, 26);
+            this.CBCurso.Size = new System.Drawing.Size(90, 26);
             this.CBCurso.TabIndex = 59;
             this.CBCurso.SelectedIndexChanged += new System.EventHandler(this.CBCurso_SelectedIndexChanged);
             // 
@@ -438,34 +439,16 @@
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(241, 523);
+            this.label3.Location = new System.Drawing.Point(381, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(205, 21);
+            this.label3.Size = new System.Drawing.Size(205, 26);
             this.label3.TabIndex = 88;
             this.label3.Text = "Desea tomar el curso?";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Labelinstrumento
-            // 
-            this.Labelinstrumento.BackColor = System.Drawing.Color.White;
-            this.Labelinstrumento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Labelinstrumento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Labelinstrumento.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Labelinstrumento.ForeColor = System.Drawing.Color.Black;
-            this.Labelinstrumento.Location = new System.Drawing.Point(241, 564);
-            this.Labelinstrumento.Name = "Labelinstrumento";
-            this.Labelinstrumento.Size = new System.Drawing.Size(297, 21);
-            this.Labelinstrumento.TabIndex = 91;
-            this.Labelinstrumento.Text = "Elija el Instrumento para el curso";
-            this.Labelinstrumento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Labelinstrumento.Click += new System.EventHandler(this.Labelinstrumento_Click);
-            // 
             // PanelContenedor
             // 
             this.PanelContenedor.BackColor = System.Drawing.Color.DodgerBlue;
-            this.PanelContenedor.Controls.Add(this.Labelinstrumento);
-            this.PanelContenedor.Controls.Add(this.label3);
-            this.PanelContenedor.Controls.Add(this.CBCurso);
             this.PanelContenedor.Controls.Add(this.LabelFechaFactura);
             this.PanelContenedor.Controls.Add(this.label4);
             this.PanelContenedor.Controls.Add(this.BtnFacturar);
@@ -530,7 +513,6 @@
         public System.Windows.Forms.Label LabelFechaFactura;
         public System.Windows.Forms.ComboBox CBCurso;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label Labelinstrumento;
         public System.Windows.Forms.Panel PanelContenedor;
     }
 }

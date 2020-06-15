@@ -20,7 +20,6 @@ namespace GulfoMusicalStoreGUI
         {
             InitializeComponent();
             LabelCurso.Enabled = false;
-            Labelinstrumento.Enabled = false;
             Factura = new Factura();
         }
 
@@ -30,20 +29,13 @@ namespace GulfoMusicalStoreGUI
             //Has tu magia y colocas la direccion completa acá para que se vea chido.
             //mira este video mas omenos algo así https://www.youtube.com/watch?v=chJgrml1znc
         }
-        public void ilock()
-        { 
-            BtnRegistrarCliente.Enabled = false;
-            BtnClienteActual.Enabled = false;
-            LabelCodigoProducto.Enabled = false;
-            LabelCurso.Enabled = false;
-        }
 
         private void BtnRegistrarCliente_Click(object sender, EventArgs e)
         {
             FrmClienteDatos frmClienteDatos;
             if (Factura.Cliente == null)
             {
-                ilock();
+                BtnRegistrarCliente.Enabled = false;
                 frmClienteDatos = new FrmClienteDatos(Factura);
                 frmClienteDatos.Venta = this;
                 frmClienteDatos.UnlockVenta = this;
@@ -63,7 +55,8 @@ namespace GulfoMusicalStoreGUI
             }
             else
             {
-                ilock();
+
+                BtnClienteActual.Enabled = false;
                 FrmInfoCliente frmInfoCliente = new FrmInfoCliente(Factura);
                 frmInfoCliente.Venta = this;
                 frmInfoCliente.UnlockVenta = this;
@@ -75,7 +68,8 @@ namespace GulfoMusicalStoreGUI
         
         private void LabelCodigoProducto_Click(object sender, EventArgs e)
         {
-            ilock();
+
+            LabelCodigoProducto.Enabled = false;
             FrmComprar frmcomp = new FrmComprar(Factura);
             frmcomp.Venta = this;
             frmcomp.UnlockVenta = this;
@@ -131,7 +125,7 @@ namespace GulfoMusicalStoreGUI
             if (CBCurso.Text.Equals("No"))
             {
                 LabelCurso.Enabled = false;
-                Labelinstrumento.Enabled = false;
+                LabelCurso.Enabled = false;
                 Factura.LimpiarListaCurso();
                 Factura.CalcularIVA();
                 Factura.CalcularSubTotal();
@@ -141,23 +135,19 @@ namespace GulfoMusicalStoreGUI
             else
             {
                 LabelCurso.Enabled = true;
-                Labelinstrumento.Enabled = true;
+                LabelCurso.Enabled = true;
             }
         }
 
      
         private void LabelCurso_Click_1(object sender, EventArgs e)
         {
-            ilock();
+            LabelCurso.Enabled = false;
             FrmComprarCurso frmCurso = frmCurso = new FrmComprarCurso(Factura);
             frmCurso.Venta = this;
             frmCurso.UnlockVenta = this;
             frmCurso.Show();
         }
-
-     
-
-       
 
         
         private void BtnFacturar_Click(object sender, EventArgs e)
@@ -188,6 +178,9 @@ namespace GulfoMusicalStoreGUI
                     CBCurso.SelectedIndex = 1;
                     MapearTabla(DtgFactura);
                     MapearTablaCurso(DtgCursos);
+                    LabelIVA.Text = "0";
+                    LabelSubTotal.Text = "0";
+                    labelTotal.Text = "0";
                 }
             }
         }
@@ -197,7 +190,6 @@ namespace GulfoMusicalStoreGUI
             BtnRegistrarCliente.Enabled = true;
             BtnClienteActual.Enabled = true;
             LabelCodigoProducto.Enabled = true;
-            LabelCurso.Enabled = true;
         }
 
         private void labelSede_Paint(object sender, PaintEventArgs e)
