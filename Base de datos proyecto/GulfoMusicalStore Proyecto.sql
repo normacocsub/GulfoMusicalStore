@@ -549,30 +549,30 @@ END PAQUETE_ESTADISTICAS;
 
 CREATE OR REPLACE PACKAGE PAQUETE_Detalles
 IS
-    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in varchar2, factura in number,cantidad in number, producto in varchar2, cliente in number);
-    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in number,cantidad in number, curso in varchar2, cliente in number);
-    PROCEDURE ConsultarDetalleProducto(detalles out SYS_REFCURSOR,d_factura in number);
-    PROCEDURE ConsultarDetalleCurso(detalles out SYS_REFCURSOR,d_factura in number);
+    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in varchar2, factura in varchar2,cantidad in number, producto in varchar2, cliente in number);
+    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in varchar2,cantidad in number, curso in varchar2, cliente in number);
+    PROCEDURE ConsultarDetalleProducto(detalles out SYS_REFCURSOR,d_factura in varchar2);
+    PROCEDURE ConsultarDetalleCurso(detalles out SYS_REFCURSOR,d_factura in varchar2);
 END PAQUETE_Detalles;
 
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_Detalles
 IS
-    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in varchar2, factura in number,cantidad in number, producto in varchar2, cliente in number)
+    PROCEDURE GuardarDetalleFactura(precio in number, fechadate in varchar2, factura in varchar2,cantidad in number, producto in varchar2, cliente in number)
     AS
     BEGIN
         INSERT INTO Product_Factura(preciodetalle,fecha,factura_factura_id,cantidad,producto_id_producto,cliente_id_clientte)
         VALUES(precio,fechadate,factura,cantidad,producto,cliente);
     END GuardarDetalleFactura;
     
-    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in number,cantidad in number, curso in varchar2, cliente in number)
+    PROCEDURE GuardarDetalleCurso(precio in number, fechadate in varchar2, factura in varchar2,cantidad in number, curso in varchar2, cliente in number)
     AS
     BEGIN
         INSERT INTO Curso_Factura(preciodetalle,fecha,factura_factura_id,cantidad,curso_Sk_curso,cliente_id_Clientte)
         VALUES(precio,fechadate,factura,cantidad,curso,cliente);
     END GuardarDetalleCurso;
     
-    PROCEDURE ConsultarDetalleProducto(detalles out SYS_REFCURSOR,d_factura in number)
+    PROCEDURE ConsultarDetalleProducto(detalles out SYS_REFCURSOR,d_factura in varchar2)
     AS
     BEGIN
         OPEN detalles FOR SELECT * FROM Product_Factura P JOIN Producto pr
@@ -582,7 +582,7 @@ IS
                           WHERE factura_factura_id=d_factura;
     END ConsultarDetalleProducto;
     
-    PROCEDURE ConsultarDetalleCurso(detalles out SYS_REFCURSOR,d_factura in number)
+    PROCEDURE ConsultarDetalleCurso(detalles out SYS_REFCURSOR,d_factura in varchar2)
     AS
     BEGIN
         OPEN detalles FOR select * from curso_factura cf JOIN curso c
@@ -595,7 +595,7 @@ END PAQUETE_Detalles;
 
 CREATE OR REPLACE PACKAGE PAQUETE_FACTURA
 IS
-    procedure GuardarFacturas(fecha in varchar2, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
+    procedure GuardarFacturas(codigo in varchar2,fecha in varchar2, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
                                             cantidadfac in number,x_id_cliente in varchar2,x_CiudadFactura in number);
     PROCEDURE OBTENERCODIGOFACTURA(factura out SYS_REFCURSOR);
     
@@ -607,11 +607,11 @@ IS
     
     PROCEDURE FILTRARFACTURACEDULA(facturas OUT SYS_REFCURSOR,f_cedula in varchar2);
     
-    PROCEDURE BUSCARFACTURA(facturas OUT SYS_REFCURSOR,f_factura in number);
+    PROCEDURE BUSCARFACTURA(facturas OUT SYS_REFCURSOR,f_factura in varchar2);
     
-    PROCEDURE FILTRONUMEROFACTURALIKE(facturas OUT SYS_REFCURSOR, f_factura in number);
+    PROCEDURE FILTRONUMEROFACTURALIKE(facturas OUT SYS_REFCURSOR, f_factura in varchar2);
     
-    PROCEDURE ACTUALIZARFACTURA(f_factura in number, f_Estado in varchar2);
+    PROCEDURE ACTUALIZARFACTURA(f_factura in varchar2, f_Estado in varchar2);
     
     PROCEDURE FILTRARCiudadFactura(facturas out sys_Refcursor,codigociudad in number);
     
@@ -622,12 +622,12 @@ END PAQUETE_FACTURA;
 
 CREATE OR REPLACE PACKAGE BODY PAQUETE_FACTURA
 IS
-    PROCEDURE GuardarFacturas(fecha in varchar2, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
+    PROCEDURE GuardarFacturas(codigo in varchar2,fecha in varchar2, estadofac varchar2, subtotalfac in number, ivafac in number, totalfac in number,
                               cantidadfac in number,x_id_cliente in varchar2, x_CiudadFactura in number)
     AS
     BEGIN 
-        INSERT INTO FACTURA(fecha,estado,subtotal,iva,total,cantidad,cliente_id_clientte,lugar_sk_lugar)
-        VALUES(fecha,estadofac,subtotalfac,ivafac,totalfac,cantidadfac,x_id_cliente,x_CiudadFactura);
+        INSERT INTO FACTURA(sk_factura,fecha,estado,subtotal,iva,total,cantidad,cliente_id_clientte,lugar_sk_lugar)
+        VALUES(codigo,fecha,estadofac,subtotalfac,ivafac,totalfac,cantidadfac,x_id_cliente,x_CiudadFactura);
     END GuardarFacturas;
     
     PROCEDURE OBTENERCODIGOFACTURA(factura out SYS_REFCURSOR)
@@ -678,7 +678,7 @@ IS
                           ORDER BY F.sk_factura;
     END FILTRARFACTURACEDULA;
     
-    PROCEDURE BUSCARFACTURA(facturas OUT SYS_REFCURSOR,f_factura in number)
+    PROCEDURE BUSCARFACTURA(facturas OUT SYS_REFCURSOR,f_factura in varchar2)
     AS
     BEGIN
         OPEN facturas FOR SELECT * FROM Factura F
@@ -689,7 +689,7 @@ IS
                           WHERE F.sk_Factura=f_factura; 
     END BUSCARFACTURA;
     
-    PROCEDURE FILTRONUMEROFACTURALIKE(facturas OUT SYS_REFCURSOR, f_factura in number)
+    PROCEDURE FILTRONUMEROFACTURALIKE(facturas OUT SYS_REFCURSOR, f_factura in varchar2)
     AS
     BEGIN
         OPEN facturas FOR SELECT * FROM Factura F
@@ -700,7 +700,7 @@ IS
                           WHERE F.sk_Factura like f_factura;
     END FILTRONUMEROFACTURALIKE;
     
-    PROCEDURE ACTUALIZARFACTURA(f_factura in number, f_Estado in varchar2)
+    PROCEDURE ACTUALIZARFACTURA(f_factura in varchar2, f_Estado in varchar2)
     AS
     BEGIN
         UPDATE Factura

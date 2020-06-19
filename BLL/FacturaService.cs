@@ -23,7 +23,7 @@ namespace BLL
             FacturaRepositorio = new FacturaRepository(Conection);
         }
 
-        public string GuardarFactura(Factura factura,string ruta)
+        public string GuardarFactura(Factura factura,string ruta,string ciudad)
         {
             
             try
@@ -31,9 +31,9 @@ namespace BLL
                 pdf = new PDF(ruta);
                 Email = new Email();
                 Conection.Open();
+                int codigo=FacturaRepositorio.CodigoFactura();
+                factura.Numero = codigo + ciudad;
                 FacturaRepositorio.GuardarFactura(factura);
-                factura.Numero = FacturaRepositorio.ObtenerCodigo().ToString();
-                FacturaRepositorio.EliminarCodigoTemp();
                 FacturaRepositorio.GuardarDetalles(factura);
                 FacturaRepositorio.GuardarDetalleCursos(factura);
                 pdf.CrearPDF(factura);
@@ -64,7 +64,7 @@ namespace BLL
             catch(OracleException e)
             {
                 Conection.Close();
-                return null;
+                return Facturas=new List<Factura>();
             }
         }
 

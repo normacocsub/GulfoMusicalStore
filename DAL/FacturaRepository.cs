@@ -27,6 +27,7 @@ namespace DAL
             {
                 command.CommandText = "PAQUETE_FACTURA.GuardarFacturas";
                 command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("codigo", OracleDbType.Varchar2).Value = factura.Numero;
                 command.Parameters.Add("fecha", OracleDbType.Varchar2).Value = factura.Fecha;
                 command.Parameters.Add("estadofac", OracleDbType.Varchar2).Value = factura.Estado;
                 command.Parameters.Add("subtotalfac", OracleDbType.Double).Value = double.Parse(factura.SubTotal.ToString());
@@ -40,6 +41,11 @@ namespace DAL
             }
         }
 
+        public int CodigoFactura()
+        {
+            ConsultarFacturas();
+            return Facturas.Count+1;
+        }
         public int ObtenerCodigo()
         {
             int codigo = 0;
@@ -76,7 +82,7 @@ namespace DAL
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(item.Producto.Precio.ToString());
                     command.Parameters.Add("fechadate", OracleDbType.Varchar2).Value = factura.Fecha;
-                    command.Parameters.Add("factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
+                    command.Parameters.Add("factura", OracleDbType.Varchar2).Value = factura.Numero;
                     command.Parameters.Add("cantidad", OracleDbType.Int32).Value = item.Unidades;
                     command.Parameters.Add("producto", OracleDbType.Varchar2).Value = item.Producto.Codigo;
                     command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
@@ -96,7 +102,7 @@ namespace DAL
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(item.Curso.Total.ToString());
                     command.Parameters.Add("fechadate", OracleDbType.Varchar2).Value = factura.Fecha;
-                    command.Parameters.Add("factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
+                    command.Parameters.Add("factura", OracleDbType.Varchar2).Value = factura.Numero;
                     command.Parameters.Add("cantidad", OracleDbType.Int32).Value = item.Unidades;
                     command.Parameters.Add("curso", OracleDbType.Varchar2).Value = item.Curso.Codigo;
                     command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
@@ -205,7 +211,7 @@ namespace DAL
                 command.CommandText = "PAQUETE_FACTURA.BUSCARFACTURA";
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add("facturas", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                command.Parameters.Add("f_factura", OracleDbType.Int32).Value = numero;
+                command.Parameters.Add("f_factura", OracleDbType.Varchar2).Value = numero.ToString();
 
                 Reader = command.ExecuteReader();
 
@@ -225,7 +231,7 @@ namespace DAL
                 command.CommandText = "PAQUETE_FACTURA.FILTRONUMEROFACTURALIKE";
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add("facturas", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                command.Parameters.Add("f_factura", OracleDbType.Int32).Value = numero;
+                command.Parameters.Add("f_factura", OracleDbType.Varchar2).Value = numero.ToString();
                 Reader = command.ExecuteReader();
 
                 while (Reader.Read())
@@ -305,7 +311,7 @@ namespace DAL
             {
                 command.CommandText = "PAQUETE_FACTURA.ACTUALIZARFACTURA";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("f_factura", OracleDbType.Int32).Value = factura.Numero;
+                command.Parameters.Add("f_factura", OracleDbType.Varchar2).Value = factura.Numero;
                 command.Parameters.Add("f_Estado", OracleDbType.Varchar2).Value = factura.Estado;
                 command.ExecuteNonQuery();
             }
@@ -319,7 +325,7 @@ namespace DAL
                 command.CommandText = "PAQUETE_Detalles.ConsultarDetalleProducto";
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add("detalles", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                command.Parameters.Add("d_factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
+                command.Parameters.Add("d_factura", OracleDbType.Varchar2).Value = factura.Numero;
                 Reader = command.ExecuteReader();
 
                 while (Reader.Read())
@@ -338,7 +344,7 @@ namespace DAL
                 command.CommandText = "PAQUETE_Detalles.ConsultarDetalleCurso";
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add("detalles", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-                command.Parameters.Add("d_factura", OracleDbType.Int32).Value = int.Parse(factura.Numero);
+                command.Parameters.Add("d_factura", OracleDbType.Varchar2).Value = factura.Numero;
                 Reader = command.ExecuteReader();
 
                 while (Reader.Read())
