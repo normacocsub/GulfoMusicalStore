@@ -41,9 +41,9 @@ namespace DAL
             }
         }
 
-        public int CodigoFactura()
+        public int CodigoFactura(int numero)
         {
-            ConsultarFacturas();
+            FiltroCiudadFactura(numero);
             return Facturas.Count+1;
         }
         public int ObtenerCodigo()

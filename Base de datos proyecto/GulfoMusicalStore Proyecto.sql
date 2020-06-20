@@ -189,6 +189,12 @@ CREATE SEQUENCE Estadisticas_SEQUENCIA INCREMENT BY 1 START WITH 1 MAXVALUE 9999
 CREATE SEQUENCE SEQUENCE_Usuarios INCREMENT BY 1 START WITH 1 MAXVALUE 9999 MINVALUE 1;
 --Sinonimos
 
+delete from product_factura;
+delete from curso_factura;
+delete from factura;
+delete from estadisticas;
+delete from registrousuarios;
+
 CREATE PUBLIC SYNONYM Products FOR Producto;
 CREATE PUBLIC SYNONYM Brands FOR Marca;
 CREATE PUBLIC SYNONYM Courses FOR Curso;

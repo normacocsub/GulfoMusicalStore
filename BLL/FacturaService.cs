@@ -31,8 +31,8 @@ namespace BLL
                 pdf = new PDF(ruta);
                 Email = new Email();
                 Conection.Open();
-                int codigo=FacturaRepositorio.CodigoFactura();
-                factura.Numero = codigo + ciudad;
+                int codigo=FacturaRepositorio.CodigoFactura(int.Parse(ciudad));
+                factura.Numero = codigo +"-"+ ciudad;
                 FacturaRepositorio.GuardarFactura(factura);
                 FacturaRepositorio.GuardarDetalles(factura);
                 FacturaRepositorio.GuardarDetalleCursos(factura);
