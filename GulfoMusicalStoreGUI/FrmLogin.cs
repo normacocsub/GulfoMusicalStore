@@ -33,64 +33,58 @@ namespace GulfoMusicalStoreGUI
 
         private void BtnIniciarSesion_Click(object sender, EventArgs e)
         {
-            if (CmbCiudad.Text == "")
+            string estado;
+            int estad02 = 0;
+            if (TxtUsuario.Text == "Bogota" && TxtContraseña.Text == "ABC123")
             {
-                MessageBox.Show("La ciudad no puede estar vacia. ");
+                TxtUsuario.Text = "Usuario";
+                TxtContraseña.Text = "Contraseña";
+                this.SetVisibleCore(false);
+                ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                ConfigConnection.CiudadConectada = "Bogota";
+                ConfigConnection.Codigo = 1;
+                facturaservice = new FacturaService(ConfigConnection.ConnectionString);
+                estado = facturaservice.PruebaConexion();
+                FrmBienvenida frmBienvenida = new FrmBienvenida(estado);
+                frmBienvenida.Show();
+                estad02 = 1;
             }
-            else
+            if (TxtUsuario.Text == "Cali" && TxtContraseña.Text == "ABC123")
             {
-                if (TxtUsuario.Text == "Admin" && TxtContraseña.Text == "ABC123")
-                {
-                    string estado;
-                        if (CmbCiudad.SelectedIndex == 0)
-                        {
-                            TxtUsuario.Text = "Usuario";
-                            TxtContraseña.Text = "Contraseña";
-                            this.SetVisibleCore(false);
-                            ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                            ConfigConnection.CiudadConectada = "Bogota";
-                            ConfigConnection.Codigo = 1;
-                        facturaservice = new FacturaService(ConfigConnection.ConnectionString);
-                        estado = facturaservice.PruebaConexion();
-                        FrmBienvenida frmBienvenida = new FrmBienvenida(estado);
-                            frmBienvenida.Show();
-                        }
-                        if (CmbCiudad.SelectedIndex == 1)
-                        {
-                            TxtUsuario.Text = "Usuario";
-                            TxtContraseña.Text = "Contraseña";
-                            this.SetVisibleCore(false);
-                            ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection2"].ConnectionString;
-                            ConfigConnection.CiudadConectada = "Cali";
-                            ConfigConnection.Codigo = 2;
-                        facturaservice = new FacturaService(ConfigConnection.ConnectionString);
-                        estado = facturaservice.PruebaConexion();
-                        FrmBienvenida frmBienvenida = new FrmBienvenida(estado);
-                            frmBienvenida.Show();
-                        }
-                        if (CmbCiudad.SelectedIndex == 2)
-                        {
-                            TxtUsuario.Text = "Usuario";
-                            TxtContraseña.Text = "Contraseña";
-                            this.SetVisibleCore(false);
-                            ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection3"].ConnectionString;
-                            ConfigConnection.CiudadConectada = "Barranquilla";
-                            ConfigConnection.Codigo = 3;
-                        facturaservice = new FacturaService(ConfigConnection.ConnectionString);
-                        estado = facturaservice.PruebaConexion();
-                        FrmBienvenida frmBienvenida = new FrmBienvenida(estado);
-                            frmBienvenida.Show();
-                        }
-                    
-                    
+                TxtUsuario.Text = "Usuario";
+                TxtContraseña.Text = "Contraseña";
+                this.SetVisibleCore(false);
+                ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection2"].ConnectionString;
+                ConfigConnection.CiudadConectada = "Cali";
+                ConfigConnection.Codigo = 2;
+                facturaservice = new FacturaService(ConfigConnection.ConnectionString);
+                estado = facturaservice.PruebaConexion();
+                FrmBienvenida frmBienvenida = new FrmBienvenida(estado);
+                frmBienvenida.Show();
+                estad02 = 1;
+            }
+            if (TxtUsuario.Text == "Barranquilla" && TxtContraseña.Text == "ABC123")
+            {
+                TxtUsuario.Text = "Usuario";
+                TxtContraseña.Text = "Contraseña";
+                this.SetVisibleCore(false);
+                ConfigConnection.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection3"].ConnectionString;
+                ConfigConnection.CiudadConectada = "Barranquilla";
+                ConfigConnection.Codigo = 3;
+                facturaservice = new FacturaService(ConfigConnection.ConnectionString);
+                estado = facturaservice.PruebaConexion();
+                FrmBienvenida frmBienvenida = new FrmBienvenida(estado);
+                frmBienvenida.Show();
+                estad02 = 1;
+            }
+            if(estad02==0)
+            {
+                TxtUsuario.Text = "Usuario";
+                TxtContraseña.Text = "Contraseña";
+                MessageBox.Show("Usuario / Contraseña errada", "Información",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
-                }
-                else
-                {
-                    MessageBox.Show("Usuario / Contraseña errada", "Información",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
         }
 
         private void TxtUsuario_Enter(object sender, EventArgs e)
