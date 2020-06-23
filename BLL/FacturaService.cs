@@ -34,8 +34,15 @@ namespace BLL
                 int codigo=FacturaRepositorio.CodigoFactura(int.Parse(ciudad));
                 factura.Numero = codigo +"-"+ ciudad;
                 FacturaRepositorio.GuardarFactura(factura);
-                FacturaRepositorio.GuardarDetalles(factura);
-                FacturaRepositorio.GuardarDetalleCursos(factura);
+                foreach (var item in factura.VerListaProductos())
+                {
+                    FacturaRepositorio.GuardarDetalles(item,factura.Fecha,factura.Cliente.Cedula);
+                }
+                foreach (var item in factura.VerListaCursos())
+                {
+                    FacturaRepositorio.GuardarDetalleCursos(item,factura.Fecha, factura.Cliente.Cedula);
+                }
+                
                 pdf.CrearPDF(factura);
                 Email.EnviarEmail(factura);
                 Conection.Close();

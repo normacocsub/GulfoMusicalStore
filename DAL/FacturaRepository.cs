@@ -72,42 +72,38 @@ namespace DAL
                 command.ExecuteNonQuery();
             }
         }
-        public void GuardarDetalles(Factura factura)
+        public void GuardarDetalles(DetalleFactura product,DateTime fecha,string cedula)
         {
             using (var command = Connection.Connection.CreateCommand())
             {
-                foreach (var item in factura.VerListaProductos())
-                {
+
                     command.CommandText = "PAQUETE_Detalles.GuardarDetalleFactura";
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(item.Producto.Precio.ToString());
-                    command.Parameters.Add("fechadate", OracleDbType.Varchar2).Value = factura.Fecha;
-                    command.Parameters.Add("factura", OracleDbType.Varchar2).Value = factura.Numero;
-                    command.Parameters.Add("cantidad", OracleDbType.Int32).Value = item.Unidades;
-                    command.Parameters.Add("producto", OracleDbType.Varchar2).Value = item.Producto.Codigo;
-                    command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
+                    command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(product.Producto.Precio.ToString());
+                    command.Parameters.Add("fechadate", OracleDbType.Varchar2).Value = fecha;
+                    command.Parameters.Add("factura", OracleDbType.Varchar2).Value = product.Factura.Numero;
+                    command.Parameters.Add("cantidad", OracleDbType.Int32).Value = product.Unidades;
+                    command.Parameters.Add("producto", OracleDbType.Varchar2).Value = product.Producto.Codigo;
+                    command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = cedula;
                     command.ExecuteNonQuery();
-                }
                
             }
         }
 
-        public void GuardarDetalleCursos(Factura factura)
+        public void GuardarDetalleCursos(DetalleCurso curso,DateTime fecha,string cedula)
         {
             using(var command = Connection.Connection.CreateCommand())
             {
-                foreach (var item in factura.VerListaCursos())
-                {
                     command.CommandText = "PAQUETE_Detalles.GuardarDetalleCurso";
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(item.Curso.Total.ToString());
-                    command.Parameters.Add("fechadate", OracleDbType.Varchar2).Value = factura.Fecha;
-                    command.Parameters.Add("factura", OracleDbType.Varchar2).Value = factura.Numero;
-                    command.Parameters.Add("cantidad", OracleDbType.Int32).Value = item.Unidades;
-                    command.Parameters.Add("curso", OracleDbType.Varchar2).Value = item.Curso.Codigo;
-                    command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = factura.Cliente.Cedula;
+                    command.Parameters.Add("precio", OracleDbType.Double).Value = double.Parse(curso.Curso.Total.ToString());
+                    command.Parameters.Add("fechadate", OracleDbType.Varchar2).Value = fecha;
+                    command.Parameters.Add("factura", OracleDbType.Varchar2).Value = curso.Factura.Numero;
+                    command.Parameters.Add("cantidad", OracleDbType.Int32).Value = curso.Unidades;
+                    command.Parameters.Add("curso", OracleDbType.Varchar2).Value = curso.Curso.Codigo;
+                    command.Parameters.Add("cliente", OracleDbType.Varchar2).Value = cedula;
                     command.ExecuteNonQuery();
-                }
+                
             }
         }
 
