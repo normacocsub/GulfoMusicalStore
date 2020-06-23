@@ -20,11 +20,6 @@ namespace GulfoMusicalStoreGUI
         {
             InitializeComponent();
         }
-       
-        private void BtnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
@@ -150,11 +145,6 @@ namespace GulfoMusicalStoreGUI
             this.Close();
             FrmTienda frmTienda = new FrmTienda();
             frmTienda.Show();
-        }
-
-        private void CmbCiudad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

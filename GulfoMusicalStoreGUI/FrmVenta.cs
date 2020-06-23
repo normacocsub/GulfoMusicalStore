@@ -192,15 +192,5 @@ namespace GulfoMusicalStoreGUI
             BtnClienteActual.Enabled = true;
             LabelCodigoProducto.Enabled = true;
         }
-
-        private void labelSede_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Labelinstrumento_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

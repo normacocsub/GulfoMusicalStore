@@ -129,36 +129,7 @@ namespace GulfoMusicalStoreGUI
             Txtdirection();
         }
 
-        private void CBBarrio_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Txtdirection();
-        }
-
-        private void CBCiudad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Txtdirection();
-        }
-
         private void TxtBarrio_TextChanged(object sender, EventArgs e)
-        {
-            Txtdirection();
-        }
-
-        private void TxtCiudad_TextChanged(object sender, EventArgs e)
-        {
-            Txtdirection();
-        }
-
-       
-       
-
-        private void BtnSalir_Click(object sender, EventArgs e)
-        {
-            UnlockVenta.unlockventa();
-            this.Close();
-        }
-
-        private void TxtBarrio_TextChanged_1(object sender, EventArgs e)
         {
             Txtdirection();
         }

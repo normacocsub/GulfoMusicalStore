@@ -54,7 +54,7 @@ namespace GulfoMusicalStoreGUI
         private void AgregarCursos()
         {
             cursoService = new CursoService(ConfigConnection.ConnectionString);
-            int opcion=5;
+            int opcion = 5;
             try
             {
                 DetalleCurso detalle = null;
@@ -63,7 +63,7 @@ namespace GulfoMusicalStoreGUI
                 {
                     if (item.Nombre.Equals(CmbNombreCurso.Text))
                     {
-                        
+
                         foreach (var item2 in Factura.VerListaCursos())
                         {
                             if (item2.Curso.Nombre.Equals(CmbNombreCurso.Text))
@@ -71,9 +71,9 @@ namespace GulfoMusicalStoreGUI
                                 detalle = item2;
                                 opcion = 1;
                             }
-                            
+
                         }
-                        if (Factura.VerListaCursos().Where(C=>C.Curso.Nombre.Equals(CmbNombreCurso.Text)).ToList().Count == 0)
+                        if (Factura.VerListaCursos().Where(C => C.Curso.Nombre.Equals(CmbNombreCurso.Text)).ToList().Count == 0)
                         {
                             opcion = 0;
                         }
@@ -91,17 +91,11 @@ namespace GulfoMusicalStoreGUI
 
                 }
             }
-            catch(FormatException ex)
+            catch (FormatException ex)
             {
                 MessageBox.Show($"Error. {ex.Message.ToString()}");
             }
-            
         }
-        
-
-       
-
-
         private void BtnFacturar_Click(object sender, EventArgs e)
         { 
             if(CmbNombreCurso.Text=="" || TxtUnidades.Text == "")
@@ -117,22 +111,5 @@ namespace GulfoMusicalStoreGUI
                 this.Close();
             }
         }
-
-        private void CmbUnidades_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CmbNombreCurso.Text == "")
-            {
-                MessageBox.Show("Seleccione el Curso");
-            }
-            
-        }
-
-        private void BtnSalir_Click(object sender, EventArgs e)
-        {
-            UnlockVenta.unlockventa();
-            this.Close();
-        }
-
-       
     }
 }

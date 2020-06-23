@@ -320,7 +320,7 @@ namespace GulfoMusicalStoreGUI
             }
         }
 
-        private void TxtCedula_TextChanged_1(object sender, EventArgs e)
+        private void TxtCedula_TextChanged(object sender, EventArgs e)
         {
             MapearDtgFiltroCedula(DtgFactura, TxtCedula.Text);
         }

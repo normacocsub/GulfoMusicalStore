@@ -27,8 +27,8 @@ namespace GulfoMusicalStoreGUI
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (this.Opacity < 1) this.Opacity += 0.05;
-            progressBar1.Value += 1;
-            if (progressBar1.Value == 100)
+            PbCargaConexion.Value += 1;
+            if (PbCargaConexion.Value == 100)
             {
                 timer1.Stop();
                 timer2.Start(); 
@@ -56,7 +56,5 @@ namespace GulfoMusicalStoreGUI
         {
             //Con la base de datos haces que aparesca el usuario que ingresó.
         }
-
-        
     }
 }
