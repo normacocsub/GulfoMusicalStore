@@ -19,7 +19,6 @@ namespace GulfoMusicalStoreGUI
         private LugarService lugarservice;
         public IVenta Venta { get; set; }
         public Factura Factura { get; set; }
-        public static IList<Lugar> Lugares { get; set; }
         public FrmClienteDatos(Factura factura)
         {
             InitializeComponent();
@@ -216,43 +215,7 @@ namespace GulfoMusicalStoreGUI
             Txtdirection();
         }
 
-        private void CB7_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Txtdirection();
-        }
-
-        private void CB8_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Txtdirection();
-        }
-
         private void TxtBarrio_TextChanged(object sender, EventArgs e)
-        {
-            Txtdirection();
-        }
-
-        private void TxtCiudad_TextChanged(object sender, EventArgs e)
-        {
-            Txtdirection();
-        }
-
-        private void CmbCiudad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lugarservice = new LugarService(ConfigConnection.ConnectionString);
-            TxtBarrio.Enabled = true;
-            Txtdirection();
-        }
-
-        
-      
-
-        private void BtnSalir_Click(object sender, EventArgs e)
-        {
-            UnlockVenta.unlockventa();
-            this.Close();
-        }
-
-        private void TxtBarrio_TextChanged_1(object sender, EventArgs e)
         {
             Txtdirection();
         }

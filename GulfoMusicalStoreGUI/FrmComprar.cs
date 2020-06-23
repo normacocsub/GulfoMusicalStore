@@ -116,13 +116,5 @@ namespace GulfoMusicalStoreGUI
             }
             
         }
-
-       
-
-        private void BtnSalir_Click(object sender, EventArgs e)
-        {
-            UnlockVenta.unlockventa();
-            this.Close();
-        }
     }
 }

@@ -117,7 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAyhJREFUaEPtmj1o1GAYx68tpYpFhFYFcXDSwclKB9GhoFCKgrqI4lIQcaiCgyCK
+        gyh+LIKbi5si2oLopFJBOriJX6AoooKDqCiiCH57/v5vnnqXNLnL5ZJcpfnBb8j7PO/z5rlLLnfJlaIo
+        l8tdeB5/YhCNHcMuS4+EnLX4GsN4imssNV0ovAn/aJUI1MSQpYdCvBPvK7kG45aeLhQe8erXZMTSQyE+
+        B1+6zGgeWXq6UPj/aoBCc/EEXsJRvIv1UI5yo7yMX7AWn3Ay/ywO2C7Fh0nteBSnA2+wx3YtHkzQW31L
+        s6cJW23X4sGE6dbAsO1aPJgQ1sA71FjW3sMgqTQwauFMYZ0BbzkfRQOiaCAOrFM0MHMaYGw5nlYsgRdw
+        GDusnIPtXBu444US8xt93//ZzqcBthd6w01zyEo62M6tgTZ86CLJ+YXrrKSD7VwPoX7UsazcRh3Hfdhu
+        5Rxs59dAFrBO0cDMaoBx3WlQfqPORqtSgbFcT+LNqNsk+qHeqC/wHLbmQsZ2B+r3arNss5IOtnNroAd1
+        JW2WA1bSwXauh9BNL5QYvQB9Vs7Bdq4N6N6RvpAdTuB+9O28YCy/BrKAdYoGigaagXWKBlJvgLndOD+m
+        epASZA+G5fbi1KdCDKbSAHN0tT6J+tqgW5Nx/IhBPmNY7lt8guuxzZZNtYE+b2rmPMBeWzaygTELx4Y5
+        W7ypmaN3Y4kt6xbWE8lrilRx28KxYc5eb2rmvMLFtqwHA2dcqMJ7XGThupA7C69qYhWqcQTDvlrEVeeU
+        zolqJrDblvZgYLsL+Tlo4bqQqxNLdx2quWLhxFBjAwYf9x63cAUG5+EPF67wDQctJRJyFqA+HYJstJRE
+        MH8Zhv0G6bcUPwROeXEfH3AndlraPxjTw8FV+AyDNHwOTcJc1R3C5yoUYMLSpkJQr+Rjl+bnO97A3TiI
+        unruQP0VQQ2GoaeeymtE/S1BdS9i2ONZnVMrbHfDIUFFonaqlejw3mW7WRsSV2LY29cqdLXWDQXfXb2a
+        kLwUx/Artgr9oUQfmaux8tUhLpqEuh+qYzLPw0rH/3XU+Tblw6NCqfQXdKD6V+xA7MkAAAAASUVORK5C
+        YII=
+</value>
+  </data>
   <metadata name="CNumero.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CNombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CTelefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CFecha.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CEstado.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="CCiudadFactura.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -136,51 +169,6 @@
     <value>True</value>
   </metadata>
   <metadata name="CCedula.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CNombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CTelefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CFecha.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CEstado.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CNumero.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CCiudadFactura.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CCantidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CIVA.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CSubTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CCedula.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CNombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CTelefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CFecha.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CEstado.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

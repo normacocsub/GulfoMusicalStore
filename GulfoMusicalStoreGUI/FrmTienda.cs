@@ -12,6 +12,7 @@ namespace GulfoMusicalStoreGUI
 {
     public partial class FrmTienda : Form
     {
+        private Form FormActual = null;
         public FrmTienda()
         {
             InitializeComponent();
@@ -29,20 +30,6 @@ namespace GulfoMusicalStoreGUI
         private void BtnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        public void AbrirContainer(object abrircontainer)
-        {
-            if (this.PanelContenedor.Controls.Count > 0)
-            {
-                this.PanelContenedor.Controls.RemoveAt(0);
-            }
-            Form ac = abrircontainer as Form;
-            ac.TopLevel = false;
-            ac.Dock = DockStyle.Fill;
-            this.PanelContenedor.Controls.Add(ac);
-            this.PanelContenedor.Tag = ac;
-            ac.Show();
         }
 
         private void BtnInventario_Click_1(object sender, EventArgs e)
@@ -108,6 +95,27 @@ namespace GulfoMusicalStoreGUI
         private void FrmTienda_Load(object sender, EventArgs e)
         {
             BtnLogo_Click(null, e);
+        }
+        private void AbrirContainer(Form formHijo)
+        {
+            if (FormActual != null)
+            {
+                FormActual.Dispose();
+            }
+            FormActual = formHijo;
+            formHijo.TopLevel = false;
+            formHijo.FormBorderStyle = FormBorderStyle.None;
+            formHijo.Dock = DockStyle.Fill;
+            PanelContenedor.Controls.Add(formHijo);
+            PanelContenedor.Tag = formHijo;
+            formHijo.BringToFront();
+            formHijo.Show();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            LblHora.Text = DateTime.Now.ToLongTimeString();
+            LblFecha.Text = DateTime.Now.ToShortDateString();
         }
     }
 }
