@@ -16,7 +16,7 @@ namespace GulfoMusicalStoreGUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmTienda());
+            Application.Run(new FrmLogin());
         }
     }
 }
